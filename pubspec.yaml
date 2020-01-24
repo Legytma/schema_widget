@@ -10,15 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  logging: any
-  get_it: any
-  json_schema_dart2: any
+  logging: ^0.11.4
+  get_it: ^3.1.0
+  json_schema_dart2: ^3.0.0
+  http: ^0.12.0+4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  effective_dart: any
-  http: any
+  effective_dart: ^1.2.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
