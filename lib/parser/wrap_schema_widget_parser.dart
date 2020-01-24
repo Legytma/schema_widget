@@ -19,6 +19,7 @@ import 'package:json_schema_dart2/src/json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
+/// [SchemaWidgetParser] to [Wrap]
 class WrapSchemaWidgetParser extends SchemaWidgetParser {
   @override
   String get parserName => "Wrap";
