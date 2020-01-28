@@ -17,7 +17,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// Parse [TextAlign] from [String].
 TextAlign parseTextAlign(String textAlignString) {
@@ -660,23 +660,23 @@ TextInputAction parseTextInputAction(String textInputAction) {
   return null;
 }
 
-///// Parse [MapType] from [String].
-//MapType parseMapType(String mapType) {
-//  switch (mapType) {
-//    case 'none':
-//      return MapType.none;
-//    case 'hybrid':
-//      return MapType.hybrid;
-//    case 'normal':
-//      return MapType.normal;
-//    case 'satellite':
-//      return MapType.satellite;
-//    case 'terrain':
-//      return MapType.terrain;
-//  }
-//
-//  return null;
-//}
+/// Parse [MapType] from [String].
+MapType parseMapType(String mapType) {
+  switch (mapType) {
+    case 'none':
+      return MapType.none;
+    case 'hybrid':
+      return MapType.hybrid;
+    case 'normal':
+      return MapType.normal;
+    case 'satellite':
+      return MapType.satellite;
+    case 'terrain':
+      return MapType.terrain;
+  }
+
+  return null;
+}
 
 /// Parse [double] from [String] or [double].
 double parseDouble(dynamic _double) {
