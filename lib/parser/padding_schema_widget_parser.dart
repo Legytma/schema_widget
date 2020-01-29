@@ -60,7 +60,7 @@ class PaddingSchemaWidgetParser extends SchemaWidgetParser {
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return Padding(
       padding: parseEdgeInsetsGeometry(map["padding"]),
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

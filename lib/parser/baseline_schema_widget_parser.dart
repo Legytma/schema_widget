@@ -66,7 +66,7 @@ class BaselineSchemaWidgetParser extends SchemaWidgetParser {
       baselineType: map["baselineType"] == "alphabetic"
           ? TextBaseline.alphabetic
           : TextBaseline.ideographic,
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

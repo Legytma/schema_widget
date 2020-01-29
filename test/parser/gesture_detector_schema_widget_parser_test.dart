@@ -25,11 +25,11 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create row', () {
+  test('create gesture detector', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Row"});
+    final widget = SchemaWidget.build(null, {"type": "GestureDetector"});
 
-    expect(widget is Row, true);
+    expect(widget is GestureDetector, true);
   });
 }

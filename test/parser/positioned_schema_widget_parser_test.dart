@@ -28,7 +28,7 @@ void main() {
   test('create positioned', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Positioned"});
+    final widget = SchemaWidget.build(null, {"type": "Positioned"});
 
     expect(widget is Positioned, true);
   });

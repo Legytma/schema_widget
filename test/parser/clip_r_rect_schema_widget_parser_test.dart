@@ -28,7 +28,7 @@ void main() {
   test('create cliprrect', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "ClipRRect",
       "borderRadius": "0,0,0,0",
     });

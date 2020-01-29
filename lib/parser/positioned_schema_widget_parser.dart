@@ -52,7 +52,7 @@ class PositionedSchemaWidgetParser extends SchemaWidgetParser {
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return Positioned(
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
       top: map.containsKey("top") ? map["top"] : null,
       right: map.containsKey("right") ? map["right"] : null,
       bottom: map.containsKey("bottom") ? map["bottom"] : null,

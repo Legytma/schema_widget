@@ -70,7 +70,7 @@ class RowSchemaWidgetParser extends SchemaWidgetParser {
       verticalDirection: map.containsKey('verticalDirection')
           ? parseVerticalDirection(map['verticalDirection'])
           : VerticalDirection.down,
-      children: SchemaWidget.buildWidgets(buildContext, map['children']),
+      children: SchemaWidget.build(buildContext, map['children']) ?? [],
     );
   }
 }

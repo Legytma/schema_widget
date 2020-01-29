@@ -73,7 +73,8 @@ class MaterialAppSchemaWidgetParser extends SchemaWidgetParser {
                   ? localeMap["countryCode"]
                   : null),
       title: map["title"],
-      home: SchemaWidget.buildFromMap(buildContext, map["home"]),
+      home: SchemaWidget.build(buildContext, map["home"]),
+      theme: SchemaWidget.build(buildContext, map["theme"]),
     );
   }
 }

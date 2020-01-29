@@ -28,7 +28,7 @@ void main() {
   test('create center', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Center"});
+    final widget = SchemaWidget.build(null, {"type": "Center"});
 
     expect(widget is Center, true);
   });

@@ -58,12 +58,8 @@ class ContainerSchemaWidgetParser extends SchemaWidgetParser {
     var margin = parseEdgeInsetsGeometry(layoutMap['margin']);
     var padding = parseEdgeInsetsGeometry(layoutMap['padding']);
     Map<String, dynamic> childMap = layoutMap['child'];
-    var child = childMap == null
-        ? null
-        : SchemaWidget.buildFromMap(buildContext, childMap);
-
-    String clickEvent =
-        layoutMap.containsKey("click_event") ? layoutMap['click_event'] : null;
+    var child =
+    childMap == null ? null : SchemaWidget.build(buildContext, childMap);
 
     var containerWidget = Container(
       alignment: alignment,
@@ -75,14 +71,6 @@ class ContainerSchemaWidgetParser extends SchemaWidgetParser {
       constraints: constraints,
       child: child,
     );
-
-    if (clickEvent != null && clickEvent.isNotEmpty) {
-      /// TODO Move [GestureDetector] to self [SchemaWidgetParser]
-      return GestureDetector(
-        onTap: SchemaWidget.parseLogic(clickEvent),
-        child: containerWidget,
-      );
-    }
 
     return containerWidget;
   }

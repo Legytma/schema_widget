@@ -55,7 +55,7 @@ class CenterSchemaWidgetParser extends SchemaWidgetParser {
       widthFactor: map.containsKey("widthFactor") ? map["widthFactor"] : null,
       heightFactor:
           map.containsKey("heightFactor") ? map["heightFactor"] : null,
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

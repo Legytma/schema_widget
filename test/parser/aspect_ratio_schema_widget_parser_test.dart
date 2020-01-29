@@ -28,7 +28,7 @@ void main() {
   test('create aspect ratio', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "AspectRatio",
       "aspectRatio": 1.0,
     });

@@ -19,10 +19,10 @@ import 'package:json_schema_dart2/src/json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
-/// [SchemaWidgetParser] to [Wrap]
-class WrapSchemaWidgetParser extends SchemaWidgetParser {
+/// [SchemaWidgetParser] to [Icon]
+class IconSchemaWidgetParser extends SchemaWidgetParser {
   @override
-  String get parserName => "Wrap";
+  String get parserName => "Icon";
 
   @override
   JsonSchema get jsonSchema => JsonSchema.createSchema({
@@ -45,34 +45,28 @@ class WrapSchemaWidgetParser extends SchemaWidgetParser {
             "enum": [parserName],
             "const": parserName,
           },
+          "codePoint": {
+            "title": "Code Point",
+            "description": "Code point value of icon in hexadecimal",
+            "type": "string",
+          }
         },
-        "required": ["type"],
+        "required": ["type", "codePoint"],
       });
 
   @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    return Wrap(
-      direction: map.containsKey("direction")
-          ? parseAxis(map["direction"])
-          : Axis.horizontal,
-      alignment: map.containsKey("alignment")
-          ? parseWrapAlignment(map["alignment"])
-          : WrapAlignment.start,
-      spacing: map.containsKey("spacing") ? map["spacing"] : 0.0,
-      runAlignment: map.containsKey("runAlignment")
-          ? parseWrapAlignment(map["runAlignment"])
-          : WrapAlignment.start,
-      runSpacing: map.containsKey("runSpacing") ? map["runSpacing"] : 0.0,
-      crossAxisAlignment: map.containsKey("crossAxisAlignment")
-          ? parseWrapCrossAlignment(map["crossAxisAlignment"])
-          : WrapCrossAlignment.start,
-      textDirection: map.containsKey("textDirection")
-          ? parseTextDirection(map["textDirection"])
-          : null,
-      verticalDirection: map.containsKey("verticalDirection")
-          ? parseVerticalDirection(map["verticalDirection"])
-          : VerticalDirection.down,
-      children: SchemaWidget.build(buildContext, map['children']) ?? [],
+  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
+    return Icon(
+      IconData(
+        parseInt(layoutMap['codePoint']),
+        fontFamily: layoutMap['fontFamily'],
+        fontPackage: layoutMap['fontPackage'],
+        matchTextDirection: layoutMap['matchTextDirection'] ?? false,
+      ),
+      color: parseHexColor(layoutMap['color']),
+      semanticLabel: layoutMap['semanticLabel'],
+      size: layoutMap['size'],
+      textDirection: layoutMap['textDirection'],
     );
   }
 }

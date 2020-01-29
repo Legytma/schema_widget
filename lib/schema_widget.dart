@@ -36,8 +36,11 @@ import 'parser/drawer_schema_widget_parser.dart';
 import 'parser/expanded_schema_widget_parser.dart';
 import 'parser/expanded_sized_box_schema_widget_parser.dart';
 import 'parser/fitted_box_schema_widget_parser.dart';
+import 'parser/floating_action_button_schema_widget_parser.dart';
+import 'parser/gesture_detector_schema_widget_parser.dart';
 import 'parser/google_map_schema_widget_parser.dart';
 import 'parser/grid_view_schema_widget_parser.dart';
+import 'parser/icon_schema_widget_parser.dart';
 import 'parser/indexed_stack_schema_widget_parser.dart';
 import 'parser/list_tile_schema_widget_parser.dart';
 import 'parser/list_view_schema_widget_parser.dart';
@@ -85,8 +88,11 @@ class SchemaWidget {
     registerParser(ExpandedSchemaWidgetParser());
     registerParser(ExpandedSizedBoxSchemaWidgetParser());
     registerParser(FittedBoxSchemaWidgetParser());
+    registerParser(FloatingActionButtonSchemaWidgetParser());
+    registerParser(GestureDetectorSchemaWidgetParser());
     registerParser(GoogleMapSchemaWidgetParser());
     registerParser(GridViewSchemaWidgetParser());
+    registerParser(IconSchemaWidgetParser());
     registerParser(IndexedStackSchemaWidgetParser());
     registerParser(ListTileSchemaWidgetParser());
     registerParser(ListViewSchemaWidgetParser());
@@ -154,7 +160,7 @@ class SchemaWidget {
   }
 
   /// Get Logic to apply to widget
-  static dynamic parseLogic(dynamic logic) {
+  static dynamic _parseLogic(dynamic logic) {
     if (logic is String) {
       var instanceName = 'logic_$logic';
 
@@ -166,8 +172,25 @@ class SchemaWidget {
     return logic;
   }
 
+  /// Build [Object] depending of input value
+  static dynamic build(BuildContext buildContext, dynamic value) {
+    if (value is Widget) {
+      return value;
+    }
+
+    if (value is Map) {
+      return _buildFromMap(buildContext, value);
+    }
+
+    if (value is List) {
+      return _buildWidgets(buildContext, value);
+    }
+
+    return _parseLogic(value);
+  }
+
   /// Build [Widget] from [Map]<[String], [dynamic]>
-  static Widget buildFromMap(
+  static Widget _buildFromMap(
       BuildContext buildContext, Map<String, dynamic> layoutMap) {
     if (layoutMap == null) {
       return null;
@@ -205,13 +228,13 @@ class SchemaWidget {
   }
 
   /// Build [List]<[Widget]> from [List]<[dynamic]>
-  static List<Widget> buildWidgets(
+  static List<Widget> _buildWidgets(
       BuildContext buildContext, List<dynamic> values) {
     var widgets = <Widget>[];
 
     if (values != null) {
       for (var value in values) {
-        widgets.add(buildFromMap(buildContext, value));
+        widgets.add(_buildFromMap(buildContext, value));
       }
     }
 

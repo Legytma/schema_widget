@@ -28,7 +28,7 @@ void main() {
   test('create google map', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "GoogleMap"});
+    final widget = SchemaWidget.build(null, {"type": "GoogleMap"});
 
     expect(widget is GoogleMap, true);
   });

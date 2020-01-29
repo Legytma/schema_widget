@@ -28,7 +28,7 @@ void main() {
   test('create material app', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "MaterialApp",
       "title": "App Title",
     });

@@ -19,10 +19,10 @@ import 'package:json_schema_dart2/src/json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
-/// [SchemaWidgetParser] to [Wrap]
-class WrapSchemaWidgetParser extends SchemaWidgetParser {
+/// [SchemaWidgetParser] to [FloatingActionButton]
+class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
   @override
-  String get parserName => "Wrap";
+  String get parserName => "FloatingActionButton";
 
   @override
   JsonSchema get jsonSchema => JsonSchema.createSchema({
@@ -50,29 +50,29 @@ class WrapSchemaWidgetParser extends SchemaWidgetParser {
       });
 
   @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    return Wrap(
-      direction: map.containsKey("direction")
-          ? parseAxis(map["direction"])
-          : Axis.horizontal,
-      alignment: map.containsKey("alignment")
-          ? parseWrapAlignment(map["alignment"])
-          : WrapAlignment.start,
-      spacing: map.containsKey("spacing") ? map["spacing"] : 0.0,
-      runAlignment: map.containsKey("runAlignment")
-          ? parseWrapAlignment(map["runAlignment"])
-          : WrapAlignment.start,
-      runSpacing: map.containsKey("runSpacing") ? map["runSpacing"] : 0.0,
-      crossAxisAlignment: map.containsKey("crossAxisAlignment")
-          ? parseWrapCrossAlignment(map["crossAxisAlignment"])
-          : WrapCrossAlignment.start,
-      textDirection: map.containsKey("textDirection")
-          ? parseTextDirection(map["textDirection"])
-          : null,
-      verticalDirection: map.containsKey("verticalDirection")
-          ? parseVerticalDirection(map["verticalDirection"])
-          : VerticalDirection.down,
-      children: SchemaWidget.build(buildContext, map['children']) ?? [],
+  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
+    return FloatingActionButton(
+      onPressed: SchemaWidget.build(buildContext, layoutMap['onPressed']),
+      autofocus: layoutMap['autofocus'] ?? false,
+      backgroundColor: parseHexColor(layoutMap['backgroundColor']),
+      child: SchemaWidget.build(buildContext, layoutMap['child']),
+      clipBehavior: parseClipBehavior(layoutMap['clipBehavior']),
+      disabledElevation: layoutMap['disabledElevation'],
+      elevation: layoutMap['elevation'],
+      focusColor: parseHexColor(layoutMap['focusColor']),
+      focusElevation: layoutMap['focusElevation'],
+//      focusNode: ,
+      foregroundColor: parseHexColor(layoutMap['foregroundColor']),
+//      heroTag: ,
+      highlightElevation: layoutMap['highlightElevation'],
+      hoverColor: parseHexColor(layoutMap['hoverColor']),
+      hoverElevation: layoutMap['hoverElevation'],
+      isExtended: layoutMap['isExtended'] ?? false,
+//      materialTapTargetSize: ,
+      mini: layoutMap['mini'] ?? false,
+//      shape: ,
+      splashColor: parseHexColor(layoutMap['splashColor']),
+      tooltip: layoutMap['tooltip'],
     );
   }
 }

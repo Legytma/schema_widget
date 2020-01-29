@@ -56,7 +56,7 @@ class FittedBoxSchemaWidgetParser extends SchemaWidgetParser {
           ? parseAlignment(map["alignment"])
           : Alignment.center,
       fit: map.containsKey("fit") ? parseBoxFit(map["fit"]) : BoxFit.contain,
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

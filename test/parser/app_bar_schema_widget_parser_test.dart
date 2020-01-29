@@ -28,7 +28,7 @@ void main() {
   test('create app bar', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "AppBar"});
+    final widget = SchemaWidget.build(null, {"type": "AppBar"});
 
     expect(widget is AppBar, true);
   });

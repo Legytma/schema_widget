@@ -59,19 +59,19 @@ class ListTileSchemaWidgetParser extends SchemaWidgetParser {
     bool dense = map.containsKey("dense") ? map["dense"] : false;
     bool enabled = map.containsKey("enabled") ? map["enabled"] : true;
     var leading = map.containsKey("leading")
-        ? SchemaWidget.buildFromMap(buildContext, map["leading"])
+        ? SchemaWidget.build(buildContext, map["leading"])
         : null;
     bool selected = map.containsKey("selected") ? map["selected"] : false;
     var subtitle = map.containsKey("subtitle")
-        ? SchemaWidget.buildFromMap(buildContext, map["subtitle"])
+        ? SchemaWidget.build(buildContext, map["subtitle"])
         : null;
     var title = map.containsKey("title")
-        ? SchemaWidget.buildFromMap(buildContext, map["title"])
+        ? SchemaWidget.build(buildContext, map["title"])
         : null;
     var trailing = map.containsKey("trailing")
-        ? SchemaWidget.buildFromMap(buildContext, map["trailing"])
+        ? SchemaWidget.build(buildContext, map["trailing"])
         : null;
-    String tapEvent = map.containsKey("tapEvent") ? map["tapEvent"] : null;
+//    String tapEvent = map.containsKey("tapEvent") ?  : null;
 
     return ListTile(
       isThreeLine: isThreeLine,
@@ -82,7 +82,7 @@ class ListTileSchemaWidgetParser extends SchemaWidgetParser {
       dense: dense,
       contentPadding: contentPadding,
       enabled: enabled,
-      onTap: SchemaWidget.parseLogic(tapEvent),
+      onTap: SchemaWidget.build(buildContext, map["tapEvent"]),
       selected: selected,
     );
   }

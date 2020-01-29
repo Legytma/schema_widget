@@ -68,7 +68,7 @@ class SafeAreaSchemaWidgetParser extends SchemaWidgetParser {
       bottom: bottom,
       minimum: edgeInsets,
       maintainBottomViewPadding: maintainBottomViewPadding,
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

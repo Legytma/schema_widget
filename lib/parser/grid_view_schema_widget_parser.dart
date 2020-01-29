@@ -78,7 +78,7 @@ class GridViewSchemaWidgetParser extends SchemaWidgetParser {
         map.containsKey('crossAxisSpacing') ? map['crossAxisSpacing'] : 0.0;
     double childAspectRatio =
         map.containsKey('childAspectRatio') ? map['childAspectRatio'] : 1.0;
-    var children = SchemaWidget.buildWidgets(buildContext, map['children']);
+    var children = SchemaWidget.build(buildContext, map['children']);
 
     var pageSize = map.containsKey("pageSize") ? map["pageSize"] : 10;
     var loadMoreUrl =

@@ -52,7 +52,7 @@ class ExpandedSchemaWidgetParser extends SchemaWidgetParser {
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return Expanded(
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
       flex: map.containsKey("flex") ? map["flex"] : 1,
     );
   }

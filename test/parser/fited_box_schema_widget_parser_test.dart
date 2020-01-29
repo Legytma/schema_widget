@@ -28,7 +28,7 @@ void main() {
   test('create fitedbox', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "FittedBox"});
+    final widget = SchemaWidget.build(null, {"type": "FittedBox"});
 
     expect(widget is FittedBox, true);
   });

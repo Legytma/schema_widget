@@ -28,7 +28,7 @@ void main() {
   test('create divider', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Divider"});
+    final widget = SchemaWidget.build(null, {"type": "Divider"});
 
     expect(widget is Divider, true);
   });

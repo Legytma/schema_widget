@@ -28,7 +28,7 @@ void main() {
   test('create network image', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "NetworkImage",
       "src":
           "https://legytma.com.br/wp-content/uploads/2019/12/Legytma-Solu%C3%A7%C3%B5es-Inteligentes.png",

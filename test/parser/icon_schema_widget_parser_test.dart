@@ -25,11 +25,14 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create row', () {
+  test('create container', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Row"});
+    final widget = SchemaWidget.build(null, {
+      "type": "Icon",
+      "codePoint": "#${intToHex(Icons.add.codePoint, 5)}",
+    });
 
-    expect(widget is Row, true);
+    expect(widget is Icon, true);
   });
 }

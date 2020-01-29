@@ -28,7 +28,7 @@ void main() {
   test('create list view', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "ListView"});
+    final widget = SchemaWidget.build(null, {"type": "ListView"});
 
     expect(widget is ListViewWidget, true);
   });

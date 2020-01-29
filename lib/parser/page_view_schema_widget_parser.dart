@@ -60,7 +60,7 @@ class PageViewSchemaWidgetParser extends SchemaWidgetParser {
       reverse: map.containsKey("reverse") ? map["reverse"] : false,
       pageSnapping:
           map.containsKey("pageSnapping") ? map["pageSnapping"] : true,
-      children: SchemaWidget.buildWidgets(buildContext, map['children']),
+      children: SchemaWidget.build(buildContext, map['children']) ?? [],
     );
   }
 }

@@ -28,7 +28,7 @@ void main() {
   test('create drawer', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Drawer"});
+    final widget = SchemaWidget.build(null, {"type": "Drawer"});
 
     expect(widget is Drawer, true);
   });

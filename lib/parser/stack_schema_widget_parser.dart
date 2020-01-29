@@ -62,7 +62,7 @@ class StackSchemaWidgetParser extends SchemaWidgetParser {
       overflow: map.containsKey("overflow")
           ? parseOverflow(map["overflow"])
           : Overflow.clip,
-      children: SchemaWidget.buildWidgets(buildContext, map['children']),
+      children: SchemaWidget.build(buildContext, map['children']) ?? [],
     );
   }
 }

@@ -66,7 +66,7 @@ class TextSchemaWidgetParser extends SchemaWidgetParser {
     String textDirectionString = map['textDirection'];
     double textScaleFactor = map['textScaleFactor'];
     var textSpan =
-        SchemaWidget.buildFromMap(buildContext, map['textSpan']) as TextSpan;
+    SchemaWidget.build(buildContext, map['textSpan']) as TextSpan;
 
     if (textSpan == null) {
       return Text(
@@ -100,12 +100,12 @@ class TextSchemaWidgetParser extends SchemaWidgetParser {
 class TextSpanParser {
   /// Parse [Map]<[String], [dynamic]> to [TextSpan]
   static TextSpan parse(BuildContext buildContext, Map<String, dynamic> map) {
-    String clickEvent = map.containsKey("recognizer") ? map['recognizer'] : "";
+//    String clickEvent = map.containsKey("recognizer") ?  : "";
     var textSpan = TextSpan(
         text: map['text'],
         style: parseTextStyle(map['style']),
         recognizer: TapGestureRecognizer()
-          ..onTap = SchemaWidget.parseLogic(clickEvent),
+          ..onTap = SchemaWidget.build(buildContext, map['recognizer']),
         children: []);
 
     if (map.containsKey('children')) {

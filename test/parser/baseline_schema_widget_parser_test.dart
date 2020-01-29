@@ -28,7 +28,7 @@ void main() {
   test('create baseline', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "Baseline",
       "baseline": 1.0,
       "baselineType": "alphabetic",

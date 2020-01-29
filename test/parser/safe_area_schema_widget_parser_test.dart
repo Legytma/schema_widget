@@ -28,7 +28,7 @@ void main() {
   test('create safe area', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "SafeArea"});
+    final widget = SchemaWidget.build(null, {"type": "SafeArea"});
 
     expect(widget is SafeArea, true);
   });

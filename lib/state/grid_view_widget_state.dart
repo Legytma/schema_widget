@@ -66,8 +66,8 @@ class GridViewWidgetState extends State<GridViewWidget> {
       setState(() => isPerformingRequest = true);
       var jsonString =
           _params.isDemo ? await _fakeRequest() : await _doRequest();
-      var buildWidgets = SchemaWidget.buildWidgets(
-          widget.buildContext, jsonDecode(jsonString));
+      var buildWidgets =
+      SchemaWidget.build(widget.buildContext, jsonDecode(jsonString));
       setState(() {
         if (buildWidgets.isEmpty) {
           loadCompleted = true;

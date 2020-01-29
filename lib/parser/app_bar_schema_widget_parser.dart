@@ -57,7 +57,7 @@ class AppBarSchemaWidgetParser extends SchemaWidgetParser {
     _log.finer(map);
 
     var titleWidget = map.containsKey("title")
-        ? SchemaWidget.buildFromMap(buildContext, map["title"])
+        ? SchemaWidget.build(buildContext, map["title"])
         : null;
 
     return AppBar(

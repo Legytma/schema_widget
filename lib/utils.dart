@@ -69,6 +69,32 @@ TextDecoration parseTextDecoration(String textDecorationString) {
   }
 }
 
+/// Parse [String] from [TextDecoration].
+String textDecorationToString(TextDecoration textDecoration) {
+  if (textDecoration.contains(TextDecoration.lineThrough)) {
+    return "lineThrough";
+  }
+
+  if (textDecoration.contains(TextDecoration.overline)) {
+    return "overline";
+  }
+
+  if (textDecoration.contains(TextDecoration.underline)) {
+    return "underline";
+  }
+
+  return "none";
+}
+
+/// Convert [int] to Hex [String]
+String intToHex(int number, int padSize) {
+  if (number == null) {
+    return null;
+  }
+
+  return "#${number.toRadixString(16).padLeft(padSize, '0').toUpperCase()}";
+}
+
 /// Parse [TextDirection] from [String].
 TextDirection parseTextDirection(String textDirectionString) {
   switch (textDirectionString) {
@@ -124,6 +150,13 @@ Color parseHexColor(String hexColorString) {
   var colorInt = int.parse(hexColorString, radix: 16);
 
   return Color(colorInt);
+}
+
+/// Parse [int] from [String].
+int parseInt(String hexString) {
+  hexString = hexString?.toUpperCase()?.replaceAll("#", "");
+
+  return int.parse(hexString, radix: 16);
 }
 
 /// Parse [TextStyle] from [Map]<[String], [dynamic]>.

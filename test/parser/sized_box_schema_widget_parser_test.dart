@@ -28,7 +28,7 @@ void main() {
   test('create sized box', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "SizedBox",
     });
 

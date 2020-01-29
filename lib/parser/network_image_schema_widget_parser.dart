@@ -90,9 +90,6 @@ class NetworkImageSchemaWidgetParser extends SchemaWidgetParser {
         ? parseFilterQuality(map['filterQuality'])
         : FilterQuality.low;
 
-    String clickEvent =
-        map.containsKey("click_event") ? map['click_event'] : "";
-
     var widget = Image.network(
       src,
       semanticLabel: semanticLabel,
@@ -111,13 +108,6 @@ class NetworkImageSchemaWidgetParser extends SchemaWidgetParser {
       filterQuality: filterQuality,
     );
 
-    if (clickEvent != null && clickEvent.isNotEmpty) {
-      /// TODO Move [GestureDetector] to self [SchemaWidgetParser]
-      return GestureDetector(
-        onTap: SchemaWidget.parseLogic(clickEvent),
-        child: widget,
-      );
-    }
     return widget;
   }
 }

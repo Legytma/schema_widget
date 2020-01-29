@@ -28,7 +28,23 @@ void main() {
   test('create column', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Column"});
+    final widget = SchemaWidget.build(null, {"type": "Column"});
+
+    expect(widget is Column, true);
+  });
+
+  test('create column with children', () {
+    SchemaWidget.registerParsers();
+
+    final widget = SchemaWidget.build(null, {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Text",
+          "data": "Teste",
+        },
+      ],
+    });
 
     expect(widget is Column, true);
   });

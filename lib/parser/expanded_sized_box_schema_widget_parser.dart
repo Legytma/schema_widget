@@ -55,7 +55,7 @@ class ExpandedSizedBoxSchemaWidgetParser extends SchemaWidgetParser {
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return SizedBox.expand(
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

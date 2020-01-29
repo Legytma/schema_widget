@@ -87,9 +87,6 @@ class AssetImageSchemaWidgetParser extends SchemaWidgetParser {
         ? parseFilterQuality(map['filterQuality'])
         : FilterQuality.low;
 
-    String clickEvent =
-        map.containsKey("click_event") ? map['click_event'] : "";
-
     var widget = Image.asset(
       name,
       semanticLabel: semanticLabel,
@@ -108,13 +105,6 @@ class AssetImageSchemaWidgetParser extends SchemaWidgetParser {
       filterQuality: filterQuality,
     );
 
-    if (clickEvent != null && clickEvent.isNotEmpty) {
-      /// TODO Move [GestureDetector] to self [SchemaWidgetParser]
-      return GestureDetector(
-        onTap: SchemaWidget.parseLogic(clickEvent),
-        child: widget,
-      );
-    }
     return widget;
   }
 }

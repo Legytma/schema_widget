@@ -51,8 +51,8 @@ class RaisedButtonSchemaWidgetParser extends SchemaWidgetParser {
 
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    String clickEvent =
-        map.containsKey("click_event") ? map['click_event'] : null;
+//    String clickEvent =
+//        map.containsKey("click_event") ?  : null;
 
     var raisedButton = RaisedButton(
       color: map.containsKey('color') ? parseHexColor(map['color']) : null,
@@ -73,8 +73,8 @@ class RaisedButtonSchemaWidgetParser extends SchemaWidgetParser {
           : null,
       textColor:
           map.containsKey('textColor') ? parseHexColor(map['textColor']) : null,
-      child: SchemaWidget.buildFromMap(buildContext, map['child']),
-      onPressed: SchemaWidget.parseLogic(clickEvent),
+      child: SchemaWidget.build(buildContext, map['child']),
+      onPressed: SchemaWidget.build(buildContext, map['click_event']),
     );
 
     return raisedButton;

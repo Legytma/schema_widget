@@ -57,7 +57,7 @@ class DrawerSchemaWidgetParser extends SchemaWidgetParser {
     _log.finer(map);
 
     var drawerChildWidget = map.containsKey("child")
-        ? SchemaWidget.buildFromMap(buildContext, map["child"])
+        ? SchemaWidget.build(buildContext, map["child"])
         : null;
 
     return Drawer(child: drawerChildWidget);

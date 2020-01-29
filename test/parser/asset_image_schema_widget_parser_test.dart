@@ -25,13 +25,17 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
+  final Logger _log = Logger("asset_image_schema_widget_parser_test");
+
   test('create asset image', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "AssetImage",
       "name": "assets/LegytmaSolucoesInteligentesCubico.png",
     });
+
+    _log.fine("widget: $widget");
 
     expect(widget is Image, true);
   });

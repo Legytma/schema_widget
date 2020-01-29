@@ -28,7 +28,7 @@ void main() {
   test('create page view', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "PageView"});
+    final widget = SchemaWidget.build(null, {"type": "PageView"});
 
     expect(widget is PageView, true);
   });

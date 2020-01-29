@@ -65,7 +65,7 @@ class ListViewSchemaWidgetParser extends SchemaWidgetParser {
         ? parseEdgeInsetsGeometry(map['padding'])
         : null;
     var itemExtent = map.containsKey("itemExtent") ? map["itemExtent"] : null;
-    var children = SchemaWidget.buildWidgets(buildContext, map['children']);
+    var children = SchemaWidget.build(buildContext, map['children']);
     var pageSize = map.containsKey("pageSize") ? map["pageSize"] : 10;
     var loadMoreUrl =
         map.containsKey("loadMoreUrl") ? map["loadMoreUrl"] : null;

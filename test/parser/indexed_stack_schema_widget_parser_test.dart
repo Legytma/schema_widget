@@ -28,7 +28,7 @@ void main() {
   test('create indexed stack', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "IndexedStack"});
+    final widget = SchemaWidget.build(null, {"type": "IndexedStack"});
 
     expect(widget is IndexedStack, true);
   });

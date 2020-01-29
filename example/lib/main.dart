@@ -56,10 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme
-        .of(context)
-        .textTheme
-        .display1;
+    var textStyle = Theme.of(context).textTheme.display1;
     var iconData = Icons.add;
 
     return SchemaWidget.build(context, {

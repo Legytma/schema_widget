@@ -28,7 +28,7 @@ void main() {
   test('create stack', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Stack"});
+    final widget = SchemaWidget.build(null, {"type": "Stack"});
 
     expect(widget is Stack, true);
   });

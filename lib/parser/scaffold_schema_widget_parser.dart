@@ -56,20 +56,12 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser {
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     _log.finer(map);
 
-    var appBarWidget = map.containsKey("appBar")
-        ? SchemaWidget.buildFromMap(buildContext, map["appBar"])
-        : null;
-    var drawerWidget = map.containsKey("drawer")
-        ? SchemaWidget.buildFromMap(buildContext, map["drawer"])
-        : null;
-    var bodyWidget = map.containsKey("body")
-        ? SchemaWidget.buildFromMap(buildContext, map["body"])
-        : null;
-
     return Scaffold(
-      appBar: appBarWidget,
-      drawer: drawerWidget,
-      body: bodyWidget,
+      appBar: SchemaWidget.build(buildContext, map["appBar"]),
+      drawer: SchemaWidget.build(buildContext, map["drawer"]),
+      body: SchemaWidget.build(buildContext, map["body"]),
+      floatingActionButton:
+      SchemaWidget.build(buildContext, map["floatingActionButton"]),
     );
   }
 }

@@ -28,7 +28,7 @@ void main() {
   test('create scaffold', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Scaffold"});
+    final widget = SchemaWidget.build(null, {"type": "Scaffold"});
 
     expect(widget is Scaffold, true);
   });

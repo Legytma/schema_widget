@@ -28,7 +28,7 @@ void main() {
   test('create align', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Align"});
+    final widget = SchemaWidget.build(null, {"type": "Align"});
 
     expect(widget is Align, true);
   });

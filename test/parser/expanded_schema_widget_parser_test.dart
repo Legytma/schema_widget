@@ -28,7 +28,7 @@ void main() {
   test('create expanded', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Expanded"});
+    final widget = SchemaWidget.build(null, {"type": "Expanded"});
 
     expect(widget is Expanded, true);
   });

@@ -54,7 +54,7 @@ class SizedBoxSchemaWidgetParser extends SchemaWidgetParser {
     return SizedBox(
       width: map["width"],
       height: map["height"],
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

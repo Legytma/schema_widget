@@ -28,7 +28,7 @@ void main() {
   test('create raised button', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "RaisedButton"});
+    final widget = SchemaWidget.build(null, {"type": "RaisedButton"});
 
     expect(widget is RaisedButton, true);
   });

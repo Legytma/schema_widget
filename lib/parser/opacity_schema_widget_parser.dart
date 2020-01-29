@@ -65,7 +65,7 @@ class OpacitySchemaWidgetParser extends SchemaWidgetParser {
       alwaysIncludeSemantics: map.containsKey("alwaysIncludeSemantics")
           ? map["alwaysIncludeSemantics"]
           : false,
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }

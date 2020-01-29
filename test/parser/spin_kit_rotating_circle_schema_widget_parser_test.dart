@@ -28,7 +28,7 @@ void main() {
   test('create spin kit rotating circle', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {
+    final widget = SchemaWidget.build(null, {
       "type": "SpinKitRotatingCircle",
       "color": "#000000",
     });

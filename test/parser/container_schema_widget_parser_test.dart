@@ -28,7 +28,7 @@ void main() {
   test('create container', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.buildFromMap(null, {"type": "Container"});
+    final widget = SchemaWidget.build(null, {"type": "Container"});
 
     expect(widget is Container, true);
   });

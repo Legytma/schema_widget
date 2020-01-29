@@ -60,7 +60,7 @@ class IndexedStackSchemaWidgetParser extends SchemaWidgetParser {
       textDirection: map.containsKey("textDirection")
           ? parseTextDirection(map["textDirection"])
           : null,
-      children: SchemaWidget.buildWidgets(buildContext, map['children']),
+      children: SchemaWidget.build(buildContext, map['children']) ?? [],
     );
   }
 }

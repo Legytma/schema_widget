@@ -63,7 +63,7 @@ class AspectRatioSchemaWidgetParser extends SchemaWidgetParser {
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return AspectRatio(
       aspectRatio: map["aspectRatio"],
-      child: SchemaWidget.buildFromMap(buildContext, map["child"]),
+      child: SchemaWidget.build(buildContext, map["child"]),
     );
   }
 }
