@@ -59,7 +59,7 @@ class ContainerSchemaWidgetParser extends SchemaWidgetParser {
     var padding = parseEdgeInsetsGeometry(layoutMap['padding']);
     Map<String, dynamic> childMap = layoutMap['child'];
     var child =
-    childMap == null ? null : SchemaWidget.build(buildContext, childMap);
+        childMap == null ? null : SchemaWidget.build(buildContext, childMap);
 
     var containerWidget = Container(
       alignment: alignment,
