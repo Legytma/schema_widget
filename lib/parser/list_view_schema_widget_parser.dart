@@ -15,7 +15,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema_dart2/src/json_schema/json_schema.dart';
+import 'package:json_schema/src/json_schema/json_schema.dart';
 
 import '../model/list_view_params.dart';
 import '../schema_widget.dart';

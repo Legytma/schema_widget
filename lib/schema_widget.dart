@@ -18,7 +18,7 @@ library schema_widget;
 
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
-import 'package:json_schema_dart2/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import 'parser/align_schema_widget_parser.dart';

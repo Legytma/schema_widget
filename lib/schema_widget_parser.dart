@@ -15,7 +15,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema_dart2/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 /// extends this class to make a Flutter widget parser.
 abstract class SchemaWidgetParser {

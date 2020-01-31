@@ -165,13 +165,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.1+1"
-  json_schema_dart2:
+  json_schema:
     dependency: "direct main"
     description:
-      name: json_schema_dart2
+      name: json_schema
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "2.2.1"
   logging:
     dependency: "direct main"
     description:

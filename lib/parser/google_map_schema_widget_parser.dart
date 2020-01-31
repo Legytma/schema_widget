@@ -16,7 +16,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:json_schema_dart2/src/json_schema/json_schema.dart';
+import 'package:json_schema/src/json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';

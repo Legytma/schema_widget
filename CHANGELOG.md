@@ -11,3 +11,7 @@
 * Added more widgets;
 * Refactor and unify builder method of class SchemaWidget;
 * Implement example.
+
+## [0.1.1] - Change dependency of json_schema
+
+* Change json_schema version from 3.0.0 to 2.2.1.
