@@ -19,10 +19,10 @@ import 'package:json_schema/src/json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
-/// [SchemaWidgetParser] to [Icon]
-class IconSchemaWidgetParser extends SchemaWidgetParser {
+/// [SchemaWidgetParser] to [StreamBuilder]
+class StreamBuilderSchemaWidgetParser extends SchemaWidgetParser {
   @override
-  String get parserName => "Icon";
+  String get parserName => "StreamBuilder";
 
   @override
   JsonSchema get jsonSchema => JsonSchema.createSchema({
@@ -45,28 +45,23 @@ class IconSchemaWidgetParser extends SchemaWidgetParser {
             "enum": [parserName],
             "const": parserName,
           },
-          "codePoint": {
-            "title": "Code Point",
-            "description": "Code point value of icon in hexadecimal",
+          "builder": {
+            "title": "Builder",
+            "description": "Function builder of children widgets",
+            "\$comment": "The type can't be specified because functions can be"
+                " passed.",
             "type": "string",
-          }
+          },
         },
-        "required": ["type", "codePoint"],
+        "required": ["type", "builder"],
       });
 
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
-    return Icon(
-      IconData(
-        parseInt(layoutMap['codePoint']),
-        fontFamily: layoutMap['fontFamily'] ?? 'MaterialIcons',
-        fontPackage: layoutMap['fontPackage'],
-        matchTextDirection: layoutMap['matchTextDirection'] ?? false,
-      ),
-      color: parseHexColor(layoutMap['color']),
-      semanticLabel: layoutMap['semanticLabel'],
-      size: layoutMap['size'],
-      textDirection: layoutMap['textDirection'],
+    return StreamBuilder<dynamic>(
+      initialData: SchemaWidget.build(buildContext, layoutMap['initialData']),
+      stream: SchemaWidget.build(buildContext, layoutMap['stream']),
+      builder: SchemaWidget.build(buildContext, layoutMap['builder']),
     );
   }
 }

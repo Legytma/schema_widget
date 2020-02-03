@@ -58,6 +58,7 @@ import 'parser/scaffold_schema_widget_parser.dart';
 import 'parser/sized_box_schema_widget_parser.dart';
 import 'parser/spin_kit_rotating_circle_schema_widget_parser.dart';
 import 'parser/stack_schema_widget_parser.dart';
+import 'parser/stream_builder_schema_widget_parser.dart';
 import 'parser/text_schema_widget_parser.dart';
 import 'parser/wrap_schema_widget_parser.dart';
 import 'schema_widget_parser.dart';
@@ -110,6 +111,7 @@ class SchemaWidget {
     registerParser(SizedBoxSchemaWidgetParser());
     registerParser(SpinKitRotatingCircleSchemaWidgetParser());
     registerParser(StackSchemaWidgetParser());
+    registerParser(StreamBuilderSchemaWidgetParser());
     registerParser(TextSchemaWidgetParser());
     registerParser(WrapSchemaWidgetParser());
   }

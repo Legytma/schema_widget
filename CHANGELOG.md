@@ -15,3 +15,8 @@
 ## [0.1.1] - Change dependency of json_schema
 
 * Change json_schema version from 3.0.0 to 2.2.1.
+
+## [0.1.2] - Add StreamBuilder parser
+
+* Added StreamBuilder parser;
+* Change google_maps_flutter version from 0.5.21+17 to 0.5.22.
