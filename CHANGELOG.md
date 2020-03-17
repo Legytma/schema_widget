@@ -20,3 +20,10 @@
 
 * Added StreamBuilder parser;
 * Change google_maps_flutter version from 0.5.21+17 to 0.5.22.
+
+## [0.1.3] - Better invalid schema log
+
+* More detailed message on schema invalid;
+* Change get_it version from 3.1.0 to 4.0.0;
+* Change google_maps_flutter version from 0.5.22 to 0.5.24+1;
+* Change flutter spinkit version from 4.1.1+1 to 4.1.2.

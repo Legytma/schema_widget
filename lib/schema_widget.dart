@@ -158,7 +158,7 @@ class SchemaWidget {
 
     _log.finest("Getting parser $instanceName...");
 
-    return _getIt.get(instanceName);
+    return _getIt.get(instanceName: instanceName);
   }
 
   /// Get Logic to apply to widget
@@ -168,7 +168,7 @@ class SchemaWidget {
 
       _log.finest("Getting logic $instanceName...");
 
-      return _getIt.get(instanceName);
+      return _getIt.get(instanceName: instanceName);
     }
 
     return logic;
@@ -218,8 +218,22 @@ class SchemaWidget {
       "required": ["type"],
     });
 
-    if (!jsonSchema.validate(layoutMap)) {
-      _log.severe("Schema inválido!");
+    var listOfValidationErrors = jsonSchema.validateWithErrors(layoutMap);
+    if (listOfValidationErrors != null && listOfValidationErrors.isNotEmpty) {
+      var validationMessages;
+
+      for (var validationError in listOfValidationErrors) {
+        if (validationMessages == null) {
+          validationMessages =
+          "${validationError.schemaPath}: ${validationError.message}";
+        } else {
+          validationMessages =
+          "$validationMessages\n${validationError.schemaPath}: ${validationError
+              .message}";
+        }
+      }
+
+      _log.severe("Invalid schema: $validationMessages");
 
       return null;
     }
