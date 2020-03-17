@@ -1,6 +1,6 @@
 name: schema_widget
 description: A Flutter package for dynamic widget creation.
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/Legytma/schema_widget
 
 environment:

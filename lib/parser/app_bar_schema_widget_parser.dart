@@ -56,12 +56,26 @@ class AppBarSchemaWidgetParser extends SchemaWidgetParser {
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     _log.finer(map);
 
-    var titleWidget = map.containsKey("title")
-        ? SchemaWidget.build(buildContext, map["title"])
-        : null;
-
     return AppBar(
-      title: titleWidget,
+//      key: SchemaWidget.build(buildContext, map["key"]),
+      title: SchemaWidget.build(buildContext, map["title"]),
+      primary: map["primary"] ?? true,
+      actions: SchemaWidget.build(buildContext, map["actions"]),
+//      actionsIconTheme: SchemaWidget.build(buildContext, map["actionsIconTheme"]),
+      automaticallyImplyLeading: map["automaticallyImplyLeading"] ?? true,
+      backgroundColor: parseHexColor(map["backgroundColor"]),
+      bottom: SchemaWidget.build(buildContext, map["bottom"]),
+      bottomOpacity: map["bottomOpacity"] ?? 1.0,
+//      brightness: SchemaWidget.build(buildContext, map["brightness"]),
+      centerTitle: map["centerTitle"],
+      elevation: map["elevation"],
+      flexibleSpace: SchemaWidget.build(buildContext, map["flexibleSpace"]),
+//      iconTheme: SchemaWidget.build(buildContext, map["iconTheme"]),
+      leading: SchemaWidget.build(buildContext, map["leading"]),
+//      shape: SchemaWidget.build(buildContext, map["shape"]),
+//      textTheme: SchemaWidget.build(buildContext, map["textTheme"]),
+      titleSpacing: map["titleSpacing"] ?? NavigationToolbar.kMiddleSpacing,
+      toolbarOpacity: map["toolbarOpacity"] ?? 1.0,
     );
   }
 }
