@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:json_schema/src/json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
@@ -65,16 +66,37 @@ class MaterialAppSchemaWidgetParser extends SchemaWidgetParser {
         map.containsKey("locale") ? map["locale"] : null;
 
     return MaterialApp(
-      locale: localeMap == null
-          ? null
-          : Locale(
-              localeMap["languageCode"],
-              localeMap.containsKey("countryCode")
-                  ? localeMap["countryCode"]
-                  : null),
+      locale: parseLocale(localeMap),
       title: map["title"],
       home: SchemaWidget.build(buildContext, map["home"]),
-      theme: SchemaWidget.build(buildContext, map["theme"]),
+      theme: parseThemeData(buildContext, map["theme"]),
+      key: SchemaWidget.build(buildContext, map["key"]),
+      color: parseHexColor(map['color']),
+      routes: SchemaWidget.build(buildContext, map['routes']),
+      onUnknownRoute: SchemaWidget.build(buildContext, map['onUnknownRoute']),
+      onGenerateTitle: SchemaWidget.build(buildContext, map['onGenerateTitle']),
+      onGenerateRoute: SchemaWidget.build(buildContext, map['onGenerateRoute']),
+      initialRoute: map['initialRoute'],
+      navigatorObservers:
+      SchemaWidget.build(buildContext, map['navigatorObservers']),
+      navigatorKey: SchemaWidget.build(buildContext, map['navigatorKey']),
+      builder: SchemaWidget.build(buildContext, map['builder']),
+      checkerboardOffscreenLayers: map['checkerboardOffscreenLayers'],
+      checkerboardRasterCacheImages: map['checkerboardRasterCacheImages'],
+      darkTheme: parseThemeData(buildContext, map['darkTheme']),
+      debugShowCheckedModeBanner: map['debugShowCheckedModeBanner'],
+      debugShowMaterialGrid: map['debugShowMaterialGrid'],
+      localeListResolutionCallback:
+      SchemaWidget.build(buildContext, map['localeListResolutionCallback']),
+      localeResolutionCallback:
+      SchemaWidget.build(buildContext, map['localeResolutionCallback']),
+      localizationsDelegates:
+      SchemaWidget.build(buildContext, map['localizationsDelegates']),
+      showPerformanceOverlay: map['showPerformanceOverlay'],
+      showSemanticsDebugger: map['showSemanticsDebugger'],
+      supportedLocales:
+      SchemaWidget.build(buildContext, map['supportedLocales']),
+      themeMode: parseThemeMode(map['themeMode']),
     );
   }
 }

@@ -31,3 +31,7 @@
 ## [0.1.4] - Add properties on AppBar parser
 
 * Add many properties on AppBarSchemaWidgetParser.
+
+## [0.1.5] - Add properties on MaterialApp parser
+
+* Add many properties on MaterialAppSchemaWidgetParser.

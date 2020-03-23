@@ -16,8 +16,11 @@
 
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'schema_widget.dart';
 
 /// Parse [TextAlign] from [String].
 TextAlign parseTextAlign(String textAlignString) {
@@ -152,6 +155,63 @@ Color parseHexColor(String hexColorString) {
   return Color(colorInt);
 }
 
+MaterialColor parseMaterialColor(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  var primary = parseHexColor(map["primary"]);
+  var swatch = _parseSwatchIntColor(map["swatch"], primary: primary);
+
+  return MaterialColor(primary.value, swatch);
+}
+
+Map<int, Color> _parseSwatchIntColor(Map<int, dynamic> map,
+    {Color primary = null}) {
+  if (map == null) {
+    if (primary == null) {
+      return null;
+    }
+
+    return <int, Color>{
+      50: primary.withOpacity(.1),
+      100: primary.withOpacity(.2),
+      200: primary.withOpacity(.3),
+      300: primary.withOpacity(.4),
+      400: primary.withOpacity(.5),
+      500: primary.withOpacity(.6),
+      600: primary.withOpacity(.7),
+      700: primary.withOpacity(.8),
+      800: primary.withOpacity(.9),
+      900: primary.withOpacity(1),
+    };
+  }
+
+  var swatch = <int, Color>{};
+
+  swatch = _extractValue(swatch, map, 50);
+  swatch = _extractValue(swatch, map, 100);
+  swatch = _extractValue(swatch, map, 200);
+  swatch = _extractValue(swatch, map, 300);
+  swatch = _extractValue(swatch, map, 400);
+  swatch = _extractValue(swatch, map, 500);
+  swatch = _extractValue(swatch, map, 600);
+  swatch = _extractValue(swatch, map, 700);
+  swatch = _extractValue(swatch, map, 800);
+  swatch = _extractValue(swatch, map, 900);
+
+  return swatch;
+}
+
+Map<int, Color> _extractValue(Map<int, Color> swatch, Map<int, dynamic> map,
+    int key) {
+  if (map.containsKey(key)) {
+    swatch[key] = parseHexColor(map[key]);
+  }
+
+  return swatch;
+}
+
 /// Parse [int] from [String].
 int parseInt(String hexString) {
   hexString = hexString?.toUpperCase()?.replaceAll("#", "");
@@ -162,24 +222,79 @@ int parseInt(String hexString) {
 /// Parse [TextStyle] from [Map]<[String], [dynamic]>.
 TextStyle parseTextStyle(Map<String, dynamic> map) {
   //TODO: more properties need to be implemented, such as decorationColor, decorationStyle, wordSpacing and so on.
-  String color = map['color'];
-  String debugLabel = map['debugLabel'];
-  String decoration = map['decoration'];
-  String fontFamily = map['fontFamily'];
-  double fontSize = map['fontSize'];
-  String fontWeight = map['fontWeight'];
-  var fontStyle =
-      'italic' == map['fontStyle'] ? FontStyle.italic : FontStyle.normal;
-
   return TextStyle(
-    color: parseHexColor(color),
-    debugLabel: debugLabel,
-    decoration: parseTextDecoration(decoration),
-    fontSize: fontSize,
-    fontFamily: fontFamily,
-    fontStyle: fontStyle,
-    fontWeight: parseFontWeight(fontWeight),
+    color: parseHexColor(map['color']),
+    debugLabel: map['debugLabel'],
+    decoration: parseTextDecoration(map['decoration']),
+    fontSize: map['fontSize'],
+    fontFamily: map['fontFamily'],
+    fontStyle:
+    'italic' == map['fontStyle'] ? FontStyle.italic : FontStyle.normal,
+    fontWeight: parseFontWeight(map['fontWeight']),
+    backgroundColor: parseHexColor(map["backgroundColor"]),
+//    background: ,
+    decorationColor: parseHexColor(map["decorationColor"]),
+    decorationStyle: parseTextDecorationStyle(map['decoration']),
+    decorationThickness: parseDouble(map["decorationThickness"]),
+    fontFamilyFallback: map["fontFamilyFallback"],
+//    fontFeatures: ,
+//    foreground: ,
+    height: parseDouble(map["height"]),
+    inherit: map["inherit"] ?? true,
+    letterSpacing: parseDouble(map["letterSpacing"]),
+    locale: parseLocale(map["locale"]),
+    package: map["package"],
+//    shadows: ,
+    textBaseline: parseTextBaseline(map["textBaseline"]),
+    wordSpacing: parseDouble(map["wordSpacing"]),
   );
+}
+
+TextTheme parseTextTheme(Map<String, dynamic> map) {
+  return TextTheme(
+    body1: parseTextStyle(map["body1"]),
+    body2: parseTextStyle(map["body2"]),
+    button: parseTextStyle(map["button"]),
+    caption: parseTextStyle(map["caption"]),
+    display1: parseTextStyle(map["display1"]),
+    display2: parseTextStyle(map["display2"]),
+    display3: parseTextStyle(map["display3"]),
+    display4: parseTextStyle(map["display4"]),
+    headline: parseTextStyle(map["headline"]),
+    overline: parseTextStyle(map["overline"]),
+    subhead: parseTextStyle(map["subhead"]),
+    subtitle: parseTextStyle(map["subtitle"]),
+    title: parseTextStyle(map["title"]),
+  );
+}
+
+Locale parseLocale(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return Locale(map["languageCode"], map["countryCode"]);
+}
+
+TextDecorationStyle parseTextDecorationStyle(String decorationStyleName) {
+  if (decorationStyleName == null) {
+    return null;
+  }
+
+  switch (decorationStyleName) {
+    case "dashed":
+      return TextDecorationStyle.dashed;
+    case "dotted":
+      return TextDecorationStyle.dotted;
+    case "double":
+      return TextDecorationStyle.double;
+    case "solid":
+      return TextDecorationStyle.solid;
+    case "wavy":
+      return TextDecorationStyle.wavy;
+    default:
+      return null;
+  }
 }
 
 /// Parse [Alignment] from [String].
@@ -205,6 +320,697 @@ Alignment parseAlignment(String alignmentString) {
       return Alignment.bottomRight;
     default:
       return Alignment.topLeft;
+  }
+}
+
+IconThemeData parseIconTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return IconThemeData(
+    color: parseHexColor(map["color"]),
+    opacity: parseDouble(map["opacity"]),
+    size: parseDouble(map["opacity"]),
+  );
+}
+
+AppBarTheme parseAppBarTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return AppBarTheme(
+    color: parseHexColor(map["color"]),
+    textTheme: parseTextTheme(map["textTheme"]),
+    iconTheme: parseIconTheme(map["iconTheme"]),
+    brightness: parseKeyboardAppearance(map["brightness"]),
+    actionsIconTheme: parseIconTheme(map["actionsIconTheme"]),
+    elevation: parseDouble("elevation"),
+  );
+}
+
+MaterialBannerThemeData parseMaterialBannerTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return MaterialBannerThemeData(
+    backgroundColor: parseHexColor(map["backgroundColor"]),
+    contentTextStyle: parseTextStyle(map["contentTextStyle"]),
+    leadingPadding: parseEdgeInsetsGeometry(map["leadingPadding"]),
+    padding: parseEdgeInsetsGeometry(map["padding"]),
+  );
+}
+
+BottomAppBarTheme parseBottomAppBarTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return BottomAppBarTheme(
+    elevation: parseDouble(map['elevation']),
+    color: parseHexColor(map["color"]),
+//        shape: ,
+  );
+}
+
+BottomSheetThemeData parseBottomSheetTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return BottomSheetThemeData(
+//      shape: ,
+    elevation: parseDouble(map["elevation"]),
+    backgroundColor: parseHexColor(map['backgroundColor']),
+    clipBehavior: parseClipBehavior(map['clipBehavior']),
+    modalBackgroundColor: parseHexColor(map['modalBackgroundColor']),
+    modalElevation: parseDouble(map['modalElevation']),
+  );
+}
+
+ButtonTextTheme parseButtonTextTheme(String buttonTextTheme) {
+  if (buttonTextTheme == null) {
+    return null;
+  }
+
+  switch (buttonTextTheme) {
+    case 'accent':
+      return ButtonTextTheme.accent;
+    case 'normal':
+      return ButtonTextTheme.normal;
+    case 'primary':
+      return ButtonTextTheme.primary;
+    default:
+      return null;
+  }
+}
+
+ButtonBarLayoutBehavior parseLayoutBehavior(String buttonBarLayoutBehavior) {
+  if (buttonBarLayoutBehavior == null) {
+    return null;
+  }
+
+  switch (buttonBarLayoutBehavior) {
+    case 'constrained':
+      return ButtonBarLayoutBehavior.constrained;
+    case 'padded':
+      return ButtonBarLayoutBehavior.padded;
+    default:
+      return null;
+  }
+}
+
+ButtonBarThemeData parseButtonBarTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ButtonBarThemeData(
+    alignment: parseMainAxisAlignment(map['alignment']),
+    buttonAlignedDropdown: map['buttonAlignedDropdown'],
+    buttonHeight: parseDouble(map['buttonHeight']),
+    buttonMinWidth: parseDouble(map['buttonMinWidth']),
+    buttonPadding: parseEdgeInsetsGeometry(map['buttonPadding']),
+    buttonTextTheme: parseButtonTextTheme(map['buttonTextTheme']),
+    layoutBehavior: parseLayoutBehavior(map['layoutBehavior']),
+    mainAxisSize: parseMainAxisSize(map['mainAxisSize']),
+  );
+}
+
+MaterialTapTargetSize parseMaterialTapTargetSize(String materialTapTargetSize) {
+  if (materialTapTargetSize == null) {
+    return null;
+  }
+
+  switch (materialTapTargetSize) {
+    case 'padded':
+      return MaterialTapTargetSize.padded;
+    case 'shrinkWrap':
+      return MaterialTapTargetSize.shrinkWrap;
+    default:
+      return null;
+  }
+}
+
+ColorScheme parseColorScheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ColorScheme(
+    primary: parseHexColor(map['primary']),
+    primaryVariant: parseHexColor(map['primaryVariant']),
+    secondary: parseHexColor(map['secondary']),
+    secondaryVariant: parseHexColor(map['secondaryVariant']),
+    surface: parseHexColor(map['surface']),
+    background: parseHexColor(map['background']),
+    error: parseHexColor(map['error']),
+    onPrimary: parseHexColor(map['onPrimary']),
+    onSecondary: parseHexColor(map['onSecondary']),
+    onSurface: parseHexColor(map['onSurface']),
+    onBackground: parseHexColor(map['onBackground']),
+    onError: parseHexColor(map['onError']),
+    brightness: parseKeyboardAppearance(map['brightness']),
+  );
+}
+
+ButtonThemeData parseButtonTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ButtonThemeData(
+    layoutBehavior: parseLayoutBehavior(map['layoutBehavior']) ??
+        ButtonBarLayoutBehavior.padded,
+//      shape: ,
+    padding: parseEdgeInsetsGeometry(map['padding']),
+    textTheme: parseButtonTextTheme(map['textTheme']) ?? ButtonTextTheme.normal,
+    height: parseDouble(map['height']) ?? 36.0,
+    splashColor: parseHexColor(map['splashColor']),
+    materialTapTargetSize:
+    parseMaterialTapTargetSize(map['materialTapTargetSize']),
+    hoverColor: parseHexColor(map['hoverColor']),
+    highlightColor: parseHexColor(map['highlightColor']),
+    focusColor: parseHexColor(map['focusColor']),
+    disabledColor: parseHexColor(map['disabledColor']),
+    colorScheme: parseColorScheme(map['colorScheme']),
+    buttonColor: parseHexColor(map['buttonColor']),
+    alignedDropdown: map['alignedDropdown'] ?? false,
+    minWidth: parseDouble(map['minWidth']) ?? 88.0,
+  );
+}
+
+CardTheme parseCardTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return CardTheme(
+//      shape: ,
+    clipBehavior: parseClipBehavior(map['clipBehavior']),
+    elevation: parseDouble(map['elevation']),
+    color: parseHexColor(map['color']),
+    margin: parseEdgeInsetsGeometry(map['margin']),
+  );
+}
+
+ChipThemeData parseChipTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ChipThemeData(
+    backgroundColor: parseHexColor(map['backgroundColor']),
+    disabledColor: parseHexColor(map['disabledColor']),
+    selectedColor: parseHexColor(map['selectedColor']),
+    secondarySelectedColor: parseHexColor(map['secondarySelectedColor']),
+    labelPadding: parseEdgeInsetsGeometry(map['labelPadding']),
+    padding: parseEdgeInsetsGeometry(map['padding']),
+//        shape: null,
+    labelStyle: parseTextStyle(map['labelStyle']),
+    secondaryLabelStyle: parseTextStyle(map['secondaryLabelStyle']),
+    brightness: parseKeyboardAppearance(map['brightness']),
+    elevation: parseDouble(map['elevation']),
+    checkmarkColor: parseHexColor(map['checkmarkColor']),
+    deleteIconColor: parseHexColor(map['deleteIconColor']),
+    pressElevation: parseDouble(map['pressElevation']),
+    selectedShadowColor: parseHexColor(map['selectedShadowColor']),
+    shadowColor: parseHexColor(map['shadowColor']),
+    showCheckmark: map['showCheckmark'],
+  );
+}
+
+CupertinoTextThemeData parseCupertinoTextTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return CupertinoTextThemeData(
+    primaryColor: parseHexColor(map['primaryColor']),
+    actionTextStyle: parseTextStyle(map['actionTextStyle']),
+    dateTimePickerTextStyle: parseTextStyle(map['dateTimePickerTextStyle']),
+    navActionTextStyle: parseTextStyle(map['navActionTextStyle']),
+    navLargeTitleTextStyle: parseTextStyle(map['navLargeTitleTextStyle']),
+    navTitleTextStyle: parseTextStyle(map['navTitleTextStyle']),
+    pickerTextStyle: parseTextStyle(map['pickerTextStyle']),
+    tabLabelTextStyle: parseTextStyle(map['tabLabelTextStyle']),
+    textStyle: parseTextStyle(map['textStyle']),
+  );
+}
+
+CupertinoThemeData parseCupertinoTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return CupertinoThemeData(
+    textTheme: parseCupertinoTextTheme(map['textTheme']),
+    brightness: parseKeyboardAppearance(map['brightness']),
+    scaffoldBackgroundColor: parseHexColor(map['scaffoldBackgroundColor']),
+    primaryColor: parseHexColor(map['primaryColor']),
+    barBackgroundColor: parseHexColor(map['barBackgroundColor']),
+    primaryContrastingColor: parseHexColor(map['primaryContrastingColor']),
+  );
+}
+
+DialogTheme parseDialogTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return DialogTheme(
+    elevation: parseDouble(map['elevation']),
+//      shape: ,
+    backgroundColor: parseHexColor(map['backgroundColor']),
+    contentTextStyle: parseTextStyle(map['contentTextStyle']),
+    titleTextStyle: parseTextStyle(map['titleTextStyle']),
+  );
+}
+
+DividerThemeData parseDividerTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return DividerThemeData(
+    color: parseHexColor(map['color']),
+    endIndent: parseDouble(map['endIndent']),
+    indent: parseDouble(map['indent']),
+    space: parseDouble(map['space']),
+    thickness: parseDouble(map['thickness']),
+  );
+}
+
+FloatingActionButtonThemeData parseFloatingActionButtonTheme(
+    Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return FloatingActionButtonThemeData(
+    backgroundColor: parseHexColor(map['backgroundColor']),
+//      shape: ,
+    elevation: parseDouble(map['elevation']),
+    focusColor: parseHexColor(map['focusColor']),
+    hoverColor: parseHexColor(map['hoverColor']),
+    splashColor: parseHexColor(map['splashColor']),
+    disabledElevation: parseDouble(map['disabledElevation']),
+    focusElevation: parseDouble(map['focusElevation']),
+    foregroundColor: parseHexColor(map['foregroundColor']),
+    highlightElevation: parseDouble(map['highlightElevation']),
+    hoverElevation: parseDouble(map['hoverElevation']),
+  );
+}
+
+InputDecorationTheme parseInputDecorationTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return InputDecorationTheme(
+    hoverColor: parseHexColor(map['hoverColor']),
+    focusColor: parseHexColor(map['focusColor']),
+    contentPadding: parseEdgeInsetsGeometry(map['contentPadding']),
+    isDense: map['isDense'] ?? false,
+    errorStyle: parseTextStyle(map['errorStyle']),
+    alignLabelWithHint: map['alignLabelWithHint'] ?? false,
+//      border: ,
+    counterStyle: parseTextStyle(map['counterStyle']),
+//      disabledBorder: ,
+//      enabledBorder: ,
+//      errorBorder: ,
+    errorMaxLines: map['errorMaxLines'],
+    fillColor: parseHexColor(map['fillColor']),
+    filled: map['filled'] ?? false,
+//      focusedBorder: ,
+//      focusedErrorBorder: ,
+    hasFloatingPlaceholder: map['hasFloatingPlaceholder'] ?? true,
+    helperMaxLines: map['helperMaxLines'],
+    helperStyle: parseTextStyle(map['helperStyle']),
+    hintStyle: parseTextStyle(map['hintStyle']),
+    isCollapsed: map['isCollapsed'] ?? false,
+    labelStyle: parseTextStyle(map['labelStyle']),
+    prefixStyle: parseTextStyle(map['prefixStyle']),
+    suffixStyle: parseTextStyle(map['suffixStyle']),
+  );
+}
+
+TargetPlatform parseTargetPlatform(String key) {
+  if (key == null) {
+    return null;
+  }
+
+  switch (key) {
+    case 'android':
+      return TargetPlatform.android;
+    case 'fuchsia':
+      return TargetPlatform.fuchsia;
+    case 'iOS':
+      return TargetPlatform.iOS;
+    default:
+      return null;
+  }
+}
+
+PageTransitionsTheme parsePageTransitionsTheme(BuildContext buildContext,
+    Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  var pageTransitionsBuilders = <TargetPlatform, PageTransitionsBuilder>{};
+
+  map.forEach((key, value) {
+    var targetPlatform = parseTargetPlatform(key);
+
+    pageTransitionsBuilders[targetPlatform] =
+        SchemaWidget.build(buildContext, value);
+  });
+
+  return PageTransitionsTheme(
+    builders: pageTransitionsBuilders,
+  );
+}
+
+PopupMenuThemeData parsePopupMenuTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return PopupMenuThemeData(
+    elevation: parseDouble(map['elevation']),
+//      shape: ,
+    color: parseHexColor(map['color']),
+    textStyle: parseTextStyle(map['textStyle']),
+  );
+}
+
+ShowValueIndicator parseShowValueIndicator(String showValueIndicator) {
+  if (showValueIndicator == null) {
+    return null;
+  }
+
+  switch (showValueIndicator) {
+    case 'always':
+      return ShowValueIndicator.always;
+    case 'never':
+      return ShowValueIndicator.never;
+    case 'onlyForContinuous':
+      return ShowValueIndicator.onlyForContinuous;
+    case 'onlyForDiscrete':
+      return ShowValueIndicator.onlyForDiscrete;
+    default:
+      return null;
+  }
+}
+
+SnackBarBehavior parseSnackBarBehavior(String snackBarBehavior) {
+  if (snackBarBehavior == null) {
+    return null;
+  }
+
+  switch (snackBarBehavior) {
+    case 'fixed':
+      return SnackBarBehavior.fixed;
+    case 'floating':
+      return SnackBarBehavior.floating;
+    default:
+      return null;
+  }
+}
+
+SnackBarThemeData parseSnackBarTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return SnackBarThemeData(
+//      shape: ,
+    elevation: parseDouble(map['elevation']),
+    backgroundColor: parseHexColor(map['backgroundColor']),
+    contentTextStyle: parseTextStyle(map['contentTextStyle']),
+    actionTextColor: parseHexColor(map['actionTextColor']),
+    behavior: parseSnackBarBehavior(map['behavior']),
+    disabledActionTextColor: parseHexColor(map['disabledActionTextColor']),
+  );
+}
+
+SliderThemeData parseSliderTheme(BuildContext buildContext,
+    Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return SliderThemeData(
+    activeTrackColor: parseHexColor(map['activeTrackColor']),
+    inactiveTrackColor: parseHexColor(map['inactiveTrackColor']),
+    activeTickMarkColor: parseHexColor(map['activeTickMarkColor']),
+    disabledActiveTickMarkColor:
+    parseHexColor(map['disabledActiveTickMarkColor']),
+    disabledActiveTrackColor: parseHexColor(map['disabledActiveTrackColor']),
+    disabledInactiveTickMarkColor:
+    parseHexColor(map['disabledInactiveTickMarkColor']),
+    disabledInactiveTrackColor:
+    parseHexColor(map['disabledInactiveTrackColor']),
+    disabledThumbColor: parseHexColor(map['disabledThumbColor']),
+    inactiveTickMarkColor: parseHexColor(map['inactiveTickMarkColor']),
+    minThumbSeparation: parseDouble(map['minThumbSeparation']),
+    overlappingShapeStrokeColor:
+    parseHexColor(map['overlappingShapeStrokeColor']),
+    overlayColor: parseHexColor(map['overlayColor']),
+//      overlayShape: ,
+//      rangeThumbShape: ,
+//      rangeTickMarkShape: ,
+//      rangeTrackShape: ,
+//      rangeValueIndicatorShape: ,
+    showValueIndicator: parseShowValueIndicator(map['showValueIndicator']),
+    thumbColor: parseHexColor(map['thumbColor']),
+    thumbSelector: SchemaWidget.build(buildContext, map['thumbSelector']),
+//      thumbShape: ,
+//      tickMarkShape: ,
+    trackHeight: parseDouble(map['trackHeight']),
+//      trackShape: ,
+    valueIndicatorColor: parseHexColor(map['valueIndicatorColor']),
+//      valueIndicatorShape: ,
+    valueIndicatorTextStyle: parseTextStyle(map['valueIndicatorTextStyle']),
+  );
+}
+
+TabBarIndicatorSize parseTabBarIndicatorSize(String tabBarIndicatorSize) {
+  if (tabBarIndicatorSize == null) {
+    return null;
+  }
+
+  switch (tabBarIndicatorSize) {
+    case 'label':
+      return TabBarIndicatorSize.label;
+    case 'tab':
+      return TabBarIndicatorSize.tab;
+    default:
+      return null;
+  }
+}
+
+TabBarTheme parseTabBarTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return TabBarTheme(
+    labelStyle: parseTextStyle(map['labelStyle']),
+//      indicator: ,
+    indicatorSize: parseTabBarIndicatorSize(map['indicatorSize']),
+    labelColor: parseHexColor(map['labelColor']),
+    labelPadding: parseEdgeInsetsGeometry(map['labelPadding']),
+    unselectedLabelColor: parseHexColor(map['unselectedLabelColor']),
+    unselectedLabelStyle: parseTextStyle(map['unselectedLabelStyle']),
+  );
+}
+
+BorderRadius parseBorderRadius(String borderRadiusString) {
+  //left,top,right,bottom
+  if (borderRadiusString == null || borderRadiusString.trim() == '') {
+    return null;
+  }
+
+  var values = borderRadiusString.split(",");
+
+  return BorderRadius.only(
+    topLeft: Radius.circular(double.parse(values[0])),
+    topRight: Radius.circular(double.parse(values[1])),
+    bottomLeft: Radius.circular(double.parse(values[2])),
+    bottomRight: Radius.circular(double.parse(values[3])),
+  );
+}
+
+ToggleButtonsThemeData parseToggleButtonsTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ToggleButtonsThemeData(
+    splashColor: parseHexColor(map['splashColor']),
+    hoverColor: parseHexColor(map['hoverColor']),
+    highlightColor: parseHexColor(map['highlightColor']),
+    focusColor: parseHexColor(map['focusColor']),
+    disabledColor: parseHexColor(map['disabledColor']),
+    color: parseHexColor(map['color']),
+    textStyle: parseTextStyle(map['textStyle']),
+    borderColor: parseHexColor(map['borderColor']),
+    borderRadius: parseBorderRadius(map['borderRadius']),
+    borderWidth: parseDouble(map['borderWidth']),
+    constraints: parseBoxConstraints(map['constraints']),
+    disabledBorderColor: parseHexColor(map['disabledBorderColor']),
+    fillColor: parseHexColor(map['fillColor']),
+    selectedBorderColor: parseHexColor(map['selectedBorderColor']),
+    selectedColor: parseHexColor(map['selectedColor']),
+  );
+}
+
+Duration parseDuration(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return Duration(
+    days: map['days'],
+    hours: map['hours'],
+    microseconds: map['microseconds'],
+    milliseconds: map['milliseconds'],
+    minutes: map['minutes'],
+    seconds: map['seconds'],
+  );
+}
+
+TooltipThemeData parseTooltipTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return TooltipThemeData(
+    textStyle: parseTextStyle(map['textStyle']),
+    margin: parseEdgeInsetsGeometry(map['margin']),
+    height: parseDouble(map['height']),
+    padding: parseEdgeInsetsGeometry(map['padding']),
+//      decoration: ,
+    excludeFromSemantics: map['excludeFromSemantics'],
+    preferBelow: map['preferBelow'],
+    showDuration: parseDuration(map['showDuration']),
+    verticalOffset: parseDouble(map['verticalOffset']),
+    waitDuration: parseDuration(map['waitDuration']),
+  );
+}
+
+Typography parseTypography(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return Typography(
+    platform: parseTargetPlatform(map['platform']) ?? TargetPlatform.android,
+    black: parseTextTheme(map['black']),
+    dense: parseTextTheme(map['dense']),
+    englishLike: parseTextTheme(map['englishLike']),
+    tall: parseTextTheme(map['tall']),
+    white: parseTextTheme(map['white']),
+  );
+}
+
+ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ThemeData(
+    primarySwatch: parseMaterialColor(map["primarySwatch"]),
+    accentColor: parseHexColor(map["accentColor"]),
+    accentColorBrightness:
+    parseKeyboardAppearance(map["accentColorBrightness"]),
+    accentIconTheme: parseIconTheme(map["accentIconTheme"]),
+    accentTextTheme: parseTextTheme(map["accentTextTheme"]),
+    appBarTheme: parseAppBarTheme(map["appBarTheme"]),
+    applyElevationOverlayColor: map["applyElevationOverlayColor"],
+    backgroundColor: parseHexColor(map["backgroundColor"]),
+    bannerTheme: parseMaterialBannerTheme(map["bannerTheme"]),
+    bottomAppBarColor: parseHexColor(map["bottomAppBarColor"]),
+    bottomAppBarTheme: parseBottomAppBarTheme(map['bottomAppBarTheme']),
+    bottomSheetTheme: parseBottomSheetTheme(map['bottomSheetTheme']),
+    brightness: parseKeyboardAppearance(map["brightness"]),
+    buttonBarTheme: parseButtonBarTheme(map['buttonBarTheme']),
+    buttonColor: parseHexColor(map["buttonColor"]),
+    buttonTheme: parseButtonTheme(map['buttonTheme']),
+    canvasColor: parseHexColor(map["canvasColor"]),
+    cardColor: parseHexColor(map["cardColor"]),
+    cardTheme: parseCardTheme(map['cardTheme']),
+    chipTheme: parseChipTheme(map['chipTheme']),
+    colorScheme: parseColorScheme(map['colorScheme']),
+    cupertinoOverrideTheme: parseCupertinoTheme(map['cupertinoOverrideTheme']),
+    cursorColor: parseHexColor(map["cursorColor"]),
+    dialogBackgroundColor: parseHexColor(map["dialogBackgroundColor"]),
+    dialogTheme: parseDialogTheme(map['dialogTheme']),
+    disabledColor: parseHexColor(map["disabledColor"]),
+    dividerColor: parseHexColor(map["dividerColor"]),
+    dividerTheme: parseDividerTheme(map['dividerTheme']),
+    errorColor: parseHexColor(map["errorColor"]),
+    floatingActionButtonTheme:
+    parseFloatingActionButtonTheme(map['floatingActionButtonTheme']),
+    focusColor: parseHexColor(map["focusColor"]),
+    fontFamily: map['fontFamily'],
+    highlightColor: parseHexColor(map["highlightColor"]),
+    hintColor: parseHexColor(map["hintColor"]),
+    hoverColor: parseHexColor(map["hoverColor"]),
+    iconTheme: parseIconTheme(map["iconTheme"]),
+    indicatorColor: parseHexColor(map["indicatorColor"]),
+    inputDecorationTheme:
+    parseInputDecorationTheme(map['inputDecorationTheme']),
+    materialTapTargetSize:
+    parseMaterialTapTargetSize(map['materialTapTargetSize']),
+    pageTransitionsTheme:
+    parsePageTransitionsTheme(buildContext, map['pageTransitionsTheme']),
+    platform: parseTargetPlatform(map['platform']),
+    popupMenuTheme: parsePopupMenuTheme(map['popupMenuTheme']),
+    primaryColor: parseHexColor(map["primaryColor"]),
+    primaryColorBrightness:
+    parseKeyboardAppearance(map["primaryColorBrightness"]),
+    primaryColorDark: parseHexColor(map["primaryColorDark"]),
+    primaryColorLight: parseHexColor(map["primaryColorLight"]),
+    primaryIconTheme: parseIconTheme(map['primaryIconTheme']),
+    primaryTextTheme: parseTextTheme(map['primaryTextTheme']),
+    scaffoldBackgroundColor: parseHexColor(map["scaffoldBackgroundColor"]),
+    secondaryHeaderColor: parseHexColor(map["secondaryHeaderColor"]),
+    selectedRowColor: parseHexColor(map["selectedRowColor"]),
+    sliderTheme: parseSliderTheme(buildContext, map['sliderTheme']),
+    snackBarTheme: parseSnackBarTheme(map['snackBarTheme']),
+    splashColor: parseHexColor(map["splashColor"]),
+//      splashFactory: ,
+    tabBarTheme: parseTabBarTheme(map['tabBarTheme']),
+    textSelectionColor: parseHexColor(map["textSelectionColor"]),
+    textSelectionHandleColor: parseHexColor(map["textSelectionHandleColor"]),
+    textTheme: parseTextTheme(map['textTheme']),
+    toggleableActiveColor: parseHexColor(map["toggleableActiveColor"]),
+    toggleButtonsTheme: parseToggleButtonsTheme(map['toggleButtonsTheme']),
+    tooltipTheme: parseTooltipTheme(map['tooltipTheme']),
+    typography: parseTypography(map['']),
+    unselectedWidgetColor: parseHexColor(map["unselectedWidgetColor"]),
+  );
+}
+
+ThemeMode parseThemeMode(String themeMode) {
+  if (themeMode == null || themeMode.trim() == '') {
+    return null;
+  }
+
+  switch (themeMode) {
+    case 'dark':
+      return ThemeMode.dark;
+    case 'light':
+      return ThemeMode.light;
+    case 'system':
+      return ThemeMode.system;
+    default:
+      return null;
   }
 }
 
