@@ -67,36 +67,40 @@ class MaterialAppSchemaWidgetParser extends SchemaWidgetParser {
 
     return MaterialApp(
       locale: parseLocale(localeMap),
-      title: map["title"],
+      title: map["title"] ?? '',
       home: SchemaWidget.build(buildContext, map["home"]),
       theme: parseThemeData(buildContext, map["theme"]),
       key: SchemaWidget.build(buildContext, map["key"]),
       color: parseHexColor(map['color']),
-      routes: SchemaWidget.build(buildContext, map['routes']),
+      routes: SchemaWidget.build(buildContext, map['routes']) ??
+          const <String, WidgetBuilder>{},
       onUnknownRoute: SchemaWidget.build(buildContext, map['onUnknownRoute']),
       onGenerateTitle: SchemaWidget.build(buildContext, map['onGenerateTitle']),
       onGenerateRoute: SchemaWidget.build(buildContext, map['onGenerateRoute']),
       initialRoute: map['initialRoute'],
       navigatorObservers:
-      SchemaWidget.build(buildContext, map['navigatorObservers']),
+      SchemaWidget.build(buildContext, map['navigatorObservers']) ??
+          const <NavigatorObserver>[],
       navigatorKey: SchemaWidget.build(buildContext, map['navigatorKey']),
       builder: SchemaWidget.build(buildContext, map['builder']),
-      checkerboardOffscreenLayers: map['checkerboardOffscreenLayers'],
-      checkerboardRasterCacheImages: map['checkerboardRasterCacheImages'],
+      checkerboardOffscreenLayers: map['checkerboardOffscreenLayers'] ?? false,
+      checkerboardRasterCacheImages:
+      map['checkerboardRasterCacheImages'] ?? false,
       darkTheme: parseThemeData(buildContext, map['darkTheme']),
-      debugShowCheckedModeBanner: map['debugShowCheckedModeBanner'],
-      debugShowMaterialGrid: map['debugShowMaterialGrid'],
+      debugShowCheckedModeBanner: map['debugShowCheckedModeBanner'] ?? true,
+      debugShowMaterialGrid: map['debugShowMaterialGrid'] ?? false,
       localeListResolutionCallback:
       SchemaWidget.build(buildContext, map['localeListResolutionCallback']),
       localeResolutionCallback:
       SchemaWidget.build(buildContext, map['localeResolutionCallback']),
       localizationsDelegates:
       SchemaWidget.build(buildContext, map['localizationsDelegates']),
-      showPerformanceOverlay: map['showPerformanceOverlay'],
-      showSemanticsDebugger: map['showSemanticsDebugger'],
+      showPerformanceOverlay: map['showPerformanceOverlay'] ?? false,
+      showSemanticsDebugger: map['showSemanticsDebugger'] ?? false,
       supportedLocales:
-      SchemaWidget.build(buildContext, map['supportedLocales']),
-      themeMode: parseThemeMode(map['themeMode']),
+      SchemaWidget.build(buildContext, map['supportedLocales']) ??
+          const <Locale>[Locale('en', 'US')],
+      themeMode: parseThemeMode(map['themeMode']) ?? ThemeMode.system,
     );
   }
 }

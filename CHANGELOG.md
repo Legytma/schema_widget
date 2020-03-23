@@ -39,3 +39,7 @@
 ## [0.1.6] - Tuning parsers null safe
 
 * Verify for null values during parsers.
+
+## [0.1.7] - Infer default values on MaterialApps parser properties
+
+* Infer default values in properties added on MaterialApps parser.
