@@ -221,6 +221,10 @@ int parseInt(String hexString) {
 
 /// Parse [TextStyle] from [Map]<[String], [dynamic]>.
 TextStyle parseTextStyle(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
   //TODO: more properties need to be implemented, such as decorationColor, decorationStyle, wordSpacing and so on.
   return TextStyle(
     color: parseHexColor(map['color']),
@@ -251,6 +255,10 @@ TextStyle parseTextStyle(Map<String, dynamic> map) {
 }
 
 TextTheme parseTextTheme(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
   return TextTheme(
     body1: parseTextStyle(map["body1"]),
     body2: parseTextStyle(map["body2"]),

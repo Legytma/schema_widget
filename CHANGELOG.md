@@ -35,3 +35,7 @@
 ## [0.1.5] - Add properties on MaterialApp parser
 
 * Add many properties on MaterialAppSchemaWidgetParser.
+
+## [0.1.6] - Tuning parsers null safe
+
+* Verify for null values during parsers.
