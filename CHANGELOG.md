@@ -43,3 +43,7 @@
 ## [0.1.7] - Infer default values on MaterialApps parser properties
 
 * Infer default values in properties added on MaterialApps parser.
+
+## [0.1.8] - Change register logic to permit override
+
+* Alter implementation of registerLogic to permit alteration of logics registered.

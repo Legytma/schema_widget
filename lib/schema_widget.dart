@@ -72,48 +72,52 @@ class SchemaWidget {
 
   static final GetIt _getIt = GetIt.instance;
 
+  static bool _initialized = false;
+
   /// Register implemented parsers
   static void registerParsers() {
-    registerParser(AlignSchemaWidgetParser());
-    registerParser(AppBarSchemaWidgetParser());
-    registerParser(AspectRatioSchemaWidgetParser());
-    registerParser(AssetImageSchemaWidgetParser());
-    registerParser(BaselineSchemaWidgetParser());
-    registerParser(CenterSchemaWidgetParser());
-    registerParser(ClipRRectSchemaWidgetParser());
-    registerParser(ColumnSchemaWidgetParser());
-    registerParser(ContainerSchemaWidgetParser());
-    registerParser(DividerSchemaWidgetParser());
-    registerParser(DrawerHeaderSchemaWidgetParser());
-    registerParser(DrawerSchemaWidgetParser());
-    registerParser(ExpandedSchemaWidgetParser());
-    registerParser(ExpandedSizedBoxSchemaWidgetParser());
-    registerParser(FittedBoxSchemaWidgetParser());
-    registerParser(FloatingActionButtonSchemaWidgetParser());
-    registerParser(GestureDetectorSchemaWidgetParser());
-    registerParser(GoogleMapSchemaWidgetParser());
-    registerParser(GridViewSchemaWidgetParser());
-    registerParser(IconSchemaWidgetParser());
-    registerParser(IndexedStackSchemaWidgetParser());
-    registerParser(ListTileSchemaWidgetParser());
-    registerParser(ListViewSchemaWidgetParser());
-    registerParser(MaterialAppSchemaWidgetParser());
-    registerParser(NetworkImageSchemaWidgetParser());
-    registerParser(OpacitySchemaWidgetParser());
-    registerParser(PaddingSchemaWidgetParser());
-    registerParser(PageViewSchemaWidgetParser());
-    registerParser(PlaceholderSchemaWidgetParser());
-    registerParser(PositionedSchemaWidgetParser());
-    registerParser(RaisedButtonSchemaWidgetParser());
-    registerParser(RowSchemaWidgetParser());
-    registerParser(SafeAreaSchemaWidgetParser());
-    registerParser(ScaffoldSchemaWidgetParser());
-    registerParser(SizedBoxSchemaWidgetParser());
-    registerParser(SpinKitRotatingCircleSchemaWidgetParser());
-    registerParser(StackSchemaWidgetParser());
-    registerParser(StreamBuilderSchemaWidgetParser());
-    registerParser(TextSchemaWidgetParser());
-    registerParser(WrapSchemaWidgetParser());
+    if (!_initialized) {
+      registerParser(AlignSchemaWidgetParser());
+      registerParser(AppBarSchemaWidgetParser());
+      registerParser(AspectRatioSchemaWidgetParser());
+      registerParser(AssetImageSchemaWidgetParser());
+      registerParser(BaselineSchemaWidgetParser());
+      registerParser(CenterSchemaWidgetParser());
+      registerParser(ClipRRectSchemaWidgetParser());
+      registerParser(ColumnSchemaWidgetParser());
+      registerParser(ContainerSchemaWidgetParser());
+      registerParser(DividerSchemaWidgetParser());
+      registerParser(DrawerHeaderSchemaWidgetParser());
+      registerParser(DrawerSchemaWidgetParser());
+      registerParser(ExpandedSchemaWidgetParser());
+      registerParser(ExpandedSizedBoxSchemaWidgetParser());
+      registerParser(FittedBoxSchemaWidgetParser());
+      registerParser(FloatingActionButtonSchemaWidgetParser());
+      registerParser(GestureDetectorSchemaWidgetParser());
+      registerParser(GoogleMapSchemaWidgetParser());
+      registerParser(GridViewSchemaWidgetParser());
+      registerParser(IconSchemaWidgetParser());
+      registerParser(IndexedStackSchemaWidgetParser());
+      registerParser(ListTileSchemaWidgetParser());
+      registerParser(ListViewSchemaWidgetParser());
+      registerParser(MaterialAppSchemaWidgetParser());
+      registerParser(NetworkImageSchemaWidgetParser());
+      registerParser(OpacitySchemaWidgetParser());
+      registerParser(PaddingSchemaWidgetParser());
+      registerParser(PageViewSchemaWidgetParser());
+      registerParser(PlaceholderSchemaWidgetParser());
+      registerParser(PositionedSchemaWidgetParser());
+      registerParser(RaisedButtonSchemaWidgetParser());
+      registerParser(RowSchemaWidgetParser());
+      registerParser(SafeAreaSchemaWidgetParser());
+      registerParser(ScaffoldSchemaWidgetParser());
+      registerParser(SizedBoxSchemaWidgetParser());
+      registerParser(SpinKitRotatingCircleSchemaWidgetParser());
+      registerParser(StackSchemaWidgetParser());
+      registerParser(StreamBuilderSchemaWidgetParser());
+      registerParser(TextSchemaWidgetParser());
+      registerParser(WrapSchemaWidgetParser());
+    }
   }
 
   /// Register Schema Widget Parser on Instance Create
@@ -134,6 +138,14 @@ class SchemaWidget {
     _log.finest("Parser $instanceName registered!");
   }
 
+  static void unregisterParser(String parserName) {
+    var instanceName = 'parser_$parserName';
+
+    if (_getIt.isRegistered(instanceName: instanceName)) {
+      _getIt.unregister(instanceName: instanceName);
+    }
+  }
+
   /// Register Logic to apply to widget
   static void registerLogic(String logicName, dynamic logic) {
     if (logicName == null) {
@@ -142,10 +154,33 @@ class SchemaWidget {
 
     var instanceName = 'logic_$logicName';
 
+    if (_getIt.isRegistered(instanceName: instanceName)) {
+      var currentLogic = _getIt.get(instanceName: instanceName);
+
+      if (currentLogic == logic) {
+        _log.finest("Logic $instanceName already registered!");
+
+        return;
+      }
+
+      _getIt.unregister(instanceName: instanceName);
+
+      _log.warning("Other instance of $instanceName logic registered,"
+          " removing...");
+    }
+
     _getIt.registerSingleton<dynamic>(logic,
         instanceName: instanceName, signalsReady: true);
 
     _log.finest("Logic $instanceName registered!");
+  }
+
+  static void unregisterLogic(String logicName) {
+    var instanceName = 'logic_$logicName';
+
+    if (_getIt.isRegistered(instanceName: instanceName)) {
+      _getIt.unregister(instanceName: instanceName);
+    }
   }
 
   /// Get [SchemaWidgetParser] to apply to widget
@@ -227,9 +262,8 @@ class SchemaWidget {
           validationMessages =
           "${validationError.schemaPath}: ${validationError.message}";
         } else {
-          validationMessages =
-          "$validationMessages\n${validationError.schemaPath}: ${validationError
-              .message}";
+          validationMessages = "$validationMessages\n"
+              "${validationError.schemaPath}: ${validationError.message}";
         }
       }
 
