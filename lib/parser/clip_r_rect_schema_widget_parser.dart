@@ -72,7 +72,7 @@ class ClipRRectSchemaWidgetParser extends SchemaWidgetParser {
           topRight: Radius.circular(topRight),
           bottomLeft: Radius.circular(bottomLeft),
           bottomRight: Radius.circular(bottomRight)),
-      clipBehavior: parseClipBehavior(clipBehaviorString),
+      clipBehavior: parseClip(clipBehaviorString, Clip.antiAlias),
       child: SchemaWidget.build(buildContext, map["child"]),
     );
   }

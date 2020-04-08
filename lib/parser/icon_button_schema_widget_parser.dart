@@ -15,14 +15,17 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
+import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
-/// [SchemaWidgetParser] to [FloatingActionButton]
-class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
+/// [SchemaWidgetParser] to parse [SchemaFormWidget].
+class IconButtonSchemaWidgetParser extends SchemaWidgetParser {
+  static final Logger _log = Logger("IconButtonSchemaWidgetParser");
+
   @override
-  String get parserName => "FloatingActionButton";
+  String get parserName => "IconButton";
 
   @override
   JsonSchema get jsonSchema => JsonSchema.createSchema({
@@ -50,29 +53,27 @@ class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
       });
 
   @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
-    return FloatingActionButton(
-      onPressed: SchemaWidget.build(buildContext, layoutMap['onPressed']),
-      autofocus: layoutMap['autofocus'] ?? false,
-      backgroundColor: parseHexColor(layoutMap['backgroundColor']),
-      child: SchemaWidget.build(buildContext, layoutMap['child']),
-      clipBehavior: parseClip(layoutMap['clipBehavior'], Clip.none),
-      disabledElevation: layoutMap['disabledElevation'],
-      elevation: layoutMap['elevation'],
-      focusColor: parseHexColor(layoutMap['focusColor']),
-      focusElevation: layoutMap['focusElevation'],
-//      focusNode: ,
-      foregroundColor: parseHexColor(layoutMap['foregroundColor']),
-//      heroTag: ,
-      highlightElevation: layoutMap['highlightElevation'],
-      hoverColor: parseHexColor(layoutMap['hoverColor']),
-      hoverElevation: layoutMap['hoverElevation'],
-      isExtended: layoutMap['isExtended'] ?? false,
-//      materialTapTargetSize: ,
-      mini: layoutMap['mini'] ?? false,
-//      shape: ,
-      splashColor: parseHexColor(layoutMap['splashColor']),
-      tooltip: layoutMap['tooltip'],
+  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+    _log.finer(map);
+
+    return IconButton(
+      key: SchemaWidget.build(buildContext, map["key"]),
+      icon: SchemaWidget.build(buildContext, map["icon"]),
+      onPressed: SchemaWidget.build(buildContext, map["onPressed"]),
+      padding:
+          parseEdgeInsetsGeometry(map["padding"]) ?? const EdgeInsets.all(8.0),
+//      focusNode: map["focusNode"],
+      autofocus: map["autofocus"] ?? false,
+      alignment: parseAlignment(map["alignment"], Alignment.center),
+      color: parseHexColor(map["color"]),
+      disabledColor: parseHexColor(map["disabledColor"]),
+      enableFeedback: map["enableFeedback"] ?? true,
+      focusColor: parseHexColor(map["focusColor"]),
+      highlightColor: parseHexColor(map["highlightColor"]),
+      hoverColor: parseHexColor(map["hoverColor"]),
+      iconSize: map["iconSize"] ?? 24.0,
+      splashColor: parseHexColor(map["splashColor"]),
+      tooltip: map["tooltip"],
     );
   }
 }

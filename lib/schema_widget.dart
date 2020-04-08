@@ -22,11 +22,14 @@ import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import 'parser/align_schema_widget_parser.dart';
+import 'parser/animated_container_schema_widget_parser.dart';
 import 'parser/app_bar_schema_widget_parser.dart';
 import 'parser/aspect_ratio_schema_widget_parser.dart';
 import 'parser/asset_image_schema_widget_parser.dart';
 import 'parser/baseline_schema_widget_parser.dart';
+import 'parser/card_schema_widget_parser.dart';
 import 'parser/center_schema_widget_parser.dart';
+import 'parser/circle_avatar_schema_widget_parser.dart';
 import 'parser/clip_r_rect_schema_widget_parser.dart';
 import 'parser/column_schema_widget_parser.dart';
 import 'parser/container_schema_widget_parser.dart';
@@ -40,6 +43,7 @@ import 'parser/floating_action_button_schema_widget_parser.dart';
 import 'parser/gesture_detector_schema_widget_parser.dart';
 import 'parser/google_map_schema_widget_parser.dart';
 import 'parser/grid_view_schema_widget_parser.dart';
+import 'parser/icon_button_schema_widget_parser.dart';
 import 'parser/icon_schema_widget_parser.dart';
 import 'parser/indexed_stack_schema_widget_parser.dart';
 import 'parser/list_tile_schema_widget_parser.dart';
@@ -52,6 +56,7 @@ import 'parser/page_view_schema_widget_parser.dart';
 import 'parser/placeholder_schema_widget_parser.dart';
 import 'parser/positioned_schema_widget_parser.dart';
 import 'parser/raised_button_schema_widget_parser.dart';
+import 'parser/routed_list_tile_schema_widget_parser.dart';
 import 'parser/row_schema_widget_parser.dart';
 import 'parser/safe_area_schema_widget_parser.dart';
 import 'parser/scaffold_schema_widget_parser.dart';
@@ -63,6 +68,7 @@ import 'parser/text_schema_widget_parser.dart';
 import 'parser/wrap_schema_widget_parser.dart';
 import 'schema_widget_parser.dart';
 
+export 'route_handle_mixin.dart';
 export 'schema_widget_parser.dart';
 export 'utils.dart';
 
@@ -79,10 +85,13 @@ class SchemaWidget {
     if (!_initialized) {
       registerParser(AlignSchemaWidgetParser());
       registerParser(AppBarSchemaWidgetParser());
+      registerParser(AnimatedContainerSchemaWidgetParser());
       registerParser(AspectRatioSchemaWidgetParser());
       registerParser(AssetImageSchemaWidgetParser());
       registerParser(BaselineSchemaWidgetParser());
+      registerParser(CardSchemaWidgetParser());
       registerParser(CenterSchemaWidgetParser());
+      registerParser(CircleAvatarSchemaWidgetParser());
       registerParser(ClipRRectSchemaWidgetParser());
       registerParser(ColumnSchemaWidgetParser());
       registerParser(ContainerSchemaWidgetParser());
@@ -97,6 +106,7 @@ class SchemaWidget {
       registerParser(GoogleMapSchemaWidgetParser());
       registerParser(GridViewSchemaWidgetParser());
       registerParser(IconSchemaWidgetParser());
+      registerParser(IconButtonSchemaWidgetParser());
       registerParser(IndexedStackSchemaWidgetParser());
       registerParser(ListTileSchemaWidgetParser());
       registerParser(ListViewSchemaWidgetParser());
@@ -108,6 +118,7 @@ class SchemaWidget {
       registerParser(PlaceholderSchemaWidgetParser());
       registerParser(PositionedSchemaWidgetParser());
       registerParser(RaisedButtonSchemaWidgetParser());
+      registerParser(RoutedListTileSchemaWidgetParser());
       registerParser(RowSchemaWidgetParser());
       registerParser(SafeAreaSchemaWidgetParser());
       registerParser(ScaffoldSchemaWidgetParser());
@@ -270,6 +281,31 @@ class SchemaWidget {
       _log.severe("Invalid schema: $validationMessages");
 
       return null;
+    }
+
+    if (layoutMap is Map) {
+      var testTypeValueKey = "__testTypeValue__";
+
+      try {
+        layoutMap[testTypeValueKey] = 0;
+        layoutMap[testTypeValueKey] = "";
+        layoutMap[testTypeValueKey] = {};
+        layoutMap[testTypeValueKey] = [];
+
+        layoutMap.remove(testTypeValueKey);
+
+        _log.finer("layoutMap with original type: ${layoutMap.runtimeType}");
+        // ignore: avoid_catches_without_on_clauses
+      } catch (e) {
+        if (layoutMap.containsKey(testTypeValueKey)) {
+          layoutMap.remove(testTypeValueKey);
+        }
+
+        _log.finer("layoutMap type changed from ${layoutMap.values.runtimeType}"
+            " to Map<String, dynamic>");
+
+        layoutMap = <String, dynamic>{}..addAll(layoutMap);
+      }
     }
 
     var _schemaWidgetParser = getParser(layoutMap['type']);

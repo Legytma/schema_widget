@@ -25,14 +25,28 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create icon', () {
-    SchemaWidget.registerParsers();
+  SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
-      "type": "Icon",
-      "codePoint": "#${intToHex(Icons.add.codePoint, 5)}",
-    });
+  final schema = {"type": "Card"};
+  final reference = Card();
 
-    expect(widget is Icon, true);
+  test('create card', () {
+    final widget = SchemaWidget.build(null, schema);
+
+    expect(widget is Card, true);
+  });
+
+  test('verify default values card', () {
+    final Card widget = SchemaWidget.build(null, schema);
+
+    expect(widget.key, reference.key);
+    expect(widget.child, reference.child);
+    expect(widget.borderOnForeground, reference.borderOnForeground);
+    expect(widget.clipBehavior, reference.clipBehavior);
+    expect(widget.color, reference.color);
+    expect(widget.elevation, reference.elevation);
+    expect(widget.margin, reference.margin);
+    expect(widget.semanticContainer, reference.semanticContainer);
+    expect(widget.shape, reference.shape);
   });
 }

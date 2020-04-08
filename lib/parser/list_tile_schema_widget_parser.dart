@@ -51,39 +51,19 @@ class ListTileSchemaWidgetParser extends SchemaWidgetParser {
 
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    bool isThreeLine =
-        map.containsKey("isThreeLine") ? map["isThreeLine"] : false;
-    var contentPadding = map.containsKey("contentPadding")
-        ? parseEdgeInsetsGeometry(map["contentPadding"])
-        : null;
-    bool dense = map.containsKey("dense") ? map["dense"] : false;
-    bool enabled = map.containsKey("enabled") ? map["enabled"] : true;
-    var leading = map.containsKey("leading")
-        ? SchemaWidget.build(buildContext, map["leading"])
-        : null;
-    bool selected = map.containsKey("selected") ? map["selected"] : false;
-    var subtitle = map.containsKey("subtitle")
-        ? SchemaWidget.build(buildContext, map["subtitle"])
-        : null;
-    var title = map.containsKey("title")
-        ? SchemaWidget.build(buildContext, map["title"])
-        : null;
-    var trailing = map.containsKey("trailing")
-        ? SchemaWidget.build(buildContext, map["trailing"])
-        : null;
-//    String tapEvent = map.containsKey("tapEvent") ?  : null;
-
     return ListTile(
-      isThreeLine: isThreeLine,
-      leading: leading,
-      title: title,
-      subtitle: subtitle,
-      trailing: trailing,
-      dense: dense,
-      contentPadding: contentPadding,
-      enabled: enabled,
-      onTap: SchemaWidget.build(buildContext, map["tapEvent"]),
-      selected: selected,
+      key: SchemaWidget.build(buildContext, map["key"]),
+      isThreeLine: map["isThreeLine"] ?? false,
+      leading: SchemaWidget.build(buildContext, map["leading"]),
+      title: SchemaWidget.build(buildContext, map["title"]),
+      subtitle: SchemaWidget.build(buildContext, map["subtitle"]),
+      trailing: SchemaWidget.build(buildContext, map["trailing"]),
+      dense: map["dense"],
+      contentPadding: parseEdgeInsetsGeometry(map["contentPadding"]),
+      enabled: map["enabled"] ?? true,
+      selected: map["selected"] ?? false,
+      onLongPress: SchemaWidget.build(buildContext, map["onLongPress"]),
+      onTap: SchemaWidget.build(buildContext, map["onTap"]),
     );
   }
 }

@@ -47,3 +47,58 @@
 ## [0.1.8] - Change register logic to permit override
 
 * Alter implementation of registerLogic to permit alteration of logics registered.
+
+## [0.1.9] - Adding the ability to create fully functional applications using only JSON Schema
+
+* Change google_maps_flutter version from 0.5.25+1 to 0.5.25+3;
+* Change flutter spinkit version from 4.1.2 to 4.1.2+1.
+* Added RouteHandleMixin, used to navigate using tap events;
+* Added RoutedListTile, an ListTile with navigate handle;
+* Added IconButton parser;
+* Added CircleAvatar parser;
+* Added Card parser;
+* Added AnimatedContainer parser;
+* Added tests for new parsers;
+* Refined SchemaWidget to correct the type of MAP used to enable the addition of the navigation handle dynamically;
+* In the utils.dart file:
+ * Refactored parseClipBehavior to parseClip;
+ * Refactored parseTextAlign;
+ * Refactored parseTextOverflow;
+ * Refactored parseTextDirection;
+ * Refactored parseAlignment;
+ * Refactored parsePageTransitionsTheme;
+ * Refactored parseSliderTheme;
+ * Refactored parseToggleButtonsTheme;
+ * Refactored parseBorderRadius;
+ * Refactored parseDuration;
+ * Refactored parseBoxFit;
+ * Refactored parseImageRepeat;
+ * Refactored parseRect;
+ * Refactored parseAxis;
+ * Added parseJsonSchema;
+ * Added parseFocusNode;
+ * Added parsePickerType;
+ * Added parseInputDecoration;
+ * Added parseFontStyle;
+ * Added parseStrutStyle;
+ * Added parseToolbarOptions;
+ * Added parseTextAlignVertical;
+ * Added parseRadius;
+ * Added parseImageProvider;
+ * Added parseDoubleWithDefault;
+ * Added parseDecoration;
+ * Added parseBoxDecoration;
+ * Added parseDecorationImage;
+ * Added parseColorFilter;
+ * Added parseListDouble;
+ * Added parseListBoxShadow;
+ * Added parseBoxShadow;
+ * Added parseOffset;
+ * Added parseBoxBorder;
+ * Added parseBorderStyle;
+ * Added parseBoxShape;
+ * Added parseCurve;
+ * Added parseDragStartBehavior;
+ * Added parseFloatingActionButtonLocation;
+ * Added parseFloatingActionButtonAnimator;
+ * Added parseNavigationType.

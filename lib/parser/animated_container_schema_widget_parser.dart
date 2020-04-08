@@ -19,10 +19,10 @@ import 'package:json_schema/src/json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
-/// [SchemaWidgetParser] to [FloatingActionButton]
-class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
+/// [SchemaWidgetParser] to [Container]
+class AnimatedContainerSchemaWidgetParser extends SchemaWidgetParser {
   @override
-  String get parserName => "FloatingActionButton";
+  String get parserName => "AnimatedContainer";
 
   @override
   JsonSchema get jsonSchema => JsonSchema.createSchema({
@@ -50,29 +50,24 @@ class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
       });
 
   @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
-    return FloatingActionButton(
-      onPressed: SchemaWidget.build(buildContext, layoutMap['onPressed']),
-      autofocus: layoutMap['autofocus'] ?? false,
-      backgroundColor: parseHexColor(layoutMap['backgroundColor']),
-      child: SchemaWidget.build(buildContext, layoutMap['child']),
-      clipBehavior: parseClip(layoutMap['clipBehavior'], Clip.none),
-      disabledElevation: layoutMap['disabledElevation'],
-      elevation: layoutMap['elevation'],
-      focusColor: parseHexColor(layoutMap['focusColor']),
-      focusElevation: layoutMap['focusElevation'],
-//      focusNode: ,
-      foregroundColor: parseHexColor(layoutMap['foregroundColor']),
-//      heroTag: ,
-      highlightElevation: layoutMap['highlightElevation'],
-      hoverColor: parseHexColor(layoutMap['hoverColor']),
-      hoverElevation: layoutMap['hoverElevation'],
-      isExtended: layoutMap['isExtended'] ?? false,
-//      materialTapTargetSize: ,
-      mini: layoutMap['mini'] ?? false,
-//      shape: ,
-      splashColor: parseHexColor(layoutMap['splashColor']),
-      tooltip: layoutMap['tooltip'],
+  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+    return AnimatedContainer(
+      key: SchemaWidget.build(buildContext, map['key']),
+      alignment: parseAlignment(map['alignment']),
+      padding: parseEdgeInsetsGeometry(map['padding']),
+      color: parseHexColor(map['color']),
+      margin: parseEdgeInsetsGeometry(map['margin']),
+      width: parseDoubleWithDefault(map['width']),
+      height: parseDoubleWithDefault(map['height']),
+      constraints: parseBoxConstraints(map['constraints']),
+      child: SchemaWidget.build(buildContext, map['child']),
+      decoration: parseDecoration(buildContext, map['decoration']),
+      foregroundDecoration:
+          parseDecoration(buildContext, map['foregroundDecoration']),
+      transform: SchemaWidget.build(buildContext, map['transform']),
+      duration: parseDuration(map['duration']) ?? kThemeAnimationDuration,
+      curve: parseCurve(map['curve'], Curves.linear),
+      onEnd: SchemaWidget.build(buildContext, map['onEnd']),
     );
   }
 }

@@ -24,18 +24,15 @@ void main() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
+  SchemaWidget.registerParsers();
 
   test('create column', () {
-    SchemaWidget.registerParsers();
-
     final widget = SchemaWidget.build(null, {"type": "Column"});
 
     expect(widget is Column, true);
   });
 
   test('create column with children', () {
-    SchemaWidget.registerParsers();
-
     final widget = SchemaWidget.build(null, {
       "type": "Column",
       "children": [

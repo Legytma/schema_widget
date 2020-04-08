@@ -15,14 +15,16 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
+import 'list_tile_schema_widget_parser.dart';
 
-/// [SchemaWidgetParser] to [FloatingActionButton]
-class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
+/// [SchemaWidgetParser] to [ListTile]
+class RoutedListTileSchemaWidgetParser extends ListTileSchemaWidgetParser
+    with RouteHandleMixin {
   @override
-  String get parserName => "FloatingActionButton";
+  String get parserName => "RoutedListTile";
 
   @override
   JsonSchema get jsonSchema => JsonSchema.createSchema({
@@ -45,34 +47,20 @@ class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
             "enum": [parserName],
             "const": parserName,
           },
+          "route": {
+            "title": "Route",
+            "description": "Route name",
+            "type": "string",
+            "default": "/",
+          },
         },
-        "required": ["type"],
+        "required": ["type", "route"],
       });
 
   @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
-    return FloatingActionButton(
-      onPressed: SchemaWidget.build(buildContext, layoutMap['onPressed']),
-      autofocus: layoutMap['autofocus'] ?? false,
-      backgroundColor: parseHexColor(layoutMap['backgroundColor']),
-      child: SchemaWidget.build(buildContext, layoutMap['child']),
-      clipBehavior: parseClip(layoutMap['clipBehavior'], Clip.none),
-      disabledElevation: layoutMap['disabledElevation'],
-      elevation: layoutMap['elevation'],
-      focusColor: parseHexColor(layoutMap['focusColor']),
-      focusElevation: layoutMap['focusElevation'],
-//      focusNode: ,
-      foregroundColor: parseHexColor(layoutMap['foregroundColor']),
-//      heroTag: ,
-      highlightElevation: layoutMap['highlightElevation'],
-      hoverColor: parseHexColor(layoutMap['hoverColor']),
-      hoverElevation: layoutMap['hoverElevation'],
-      isExtended: layoutMap['isExtended'] ?? false,
-//      materialTapTargetSize: ,
-      mini: layoutMap['mini'] ?? false,
-//      shape: ,
-      splashColor: parseHexColor(layoutMap['splashColor']),
-      tooltip: layoutMap['tooltip'],
-    );
+  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+    addHandleOnMap(map, buildContext, "onTap");
+
+    return super.builder(buildContext, map);
   }
 }

@@ -17,44 +17,75 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:json_schema/json_schema.dart';
+import 'package:schema_widget/schema_widget.dart';
 
-import 'schema_widget.dart';
+enum PickerType {
+  DateTimePicker,
+  DatePicker,
+  TimePicker,
+}
+
+enum NavigationType {
+  popAndPush,
+  push,
+  pop,
+}
 
 /// Parse [TextAlign] from [String].
-TextAlign parseTextAlign(String textAlignString) {
-  switch (textAlignString) {
-    case "left":
-      return TextAlign.left;
-    case "right":
-      return TextAlign.right;
-    case "center":
-      return TextAlign.center;
-    case "justify":
-      return TextAlign.justify;
-    case "start":
-      return TextAlign.start;
-    case "end":
-      return TextAlign.end;
-    default:
-      //left the system decide
-      return TextAlign.start;
+TextAlign parseTextAlign(dynamic value,
+    [dynamic defaultValue = TextAlign.start]) {
+  if (value == null || value is TextAlign) {
+    return value ?? defaultValue;
   }
+
+  if (value is String) {
+    switch (value) {
+      case "left":
+        return TextAlign.left;
+      case "right":
+        return TextAlign.right;
+      case "center":
+        return TextAlign.center;
+      case "justify":
+        return TextAlign.justify;
+      case "start":
+        return TextAlign.start;
+      case "end":
+        return TextAlign.end;
+      default:
+      //left the system decide
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }
 
 /// Parse [TextOverflow] from [String].
-TextOverflow parseTextOverflow(String textOverflowString) {
-  switch (textOverflowString) {
-    case "ellipsis":
-      return TextOverflow.ellipsis;
-    case "clip":
-      return TextOverflow.clip;
-    case "fade":
-      return TextOverflow.fade;
-    default:
-      return TextOverflow.fade;
+TextOverflow parseTextOverflow(dynamic value,
+    [dynamic defaultValue = TextOverflow.fade]) {
+  if (value == null || value is TextOverflow) {
+    return value ?? defaultValue;
   }
+
+  if (value is String) {
+    switch (value) {
+      case "ellipsis":
+        return TextOverflow.ellipsis;
+      case "clip":
+        return TextOverflow.clip;
+      case "fade":
+        return TextOverflow.fade;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }
 
 /// Parse [TextDecoration] from [String].
@@ -99,15 +130,24 @@ String intToHex(int number, int padSize) {
 }
 
 /// Parse [TextDirection] from [String].
-TextDirection parseTextDirection(String textDirectionString) {
-  switch (textDirectionString) {
-    case 'ltr':
-      return TextDirection.ltr;
-    case 'rtl':
-      return TextDirection.rtl;
-    default:
-      return TextDirection.ltr;
+TextDirection parseTextDirection(dynamic value,
+    [dynamic defaultValue = TextDirection.ltr]) {
+  if (value == null || value is TextDirection) {
+    return value;
   }
+
+  if (value is String) {
+    switch (value) {
+      case 'ltr':
+        return TextDirection.ltr;
+      case 'rtl':
+        return TextDirection.rtl;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }
 
 /// Parse [FontWeight] from [String].
@@ -230,7 +270,7 @@ TextStyle parseTextStyle(Map<String, dynamic> map) {
     color: parseHexColor(map['color']),
     debugLabel: map['debugLabel'],
     decoration: parseTextDecoration(map['decoration']),
-    fontSize: map['fontSize'],
+    fontSize: parseDoubleWithDefault(map['fontSize']),
     fontFamily: map['fontFamily'],
     fontStyle:
     'italic' == map['fontStyle'] ? FontStyle.italic : FontStyle.normal,
@@ -239,18 +279,18 @@ TextStyle parseTextStyle(Map<String, dynamic> map) {
 //    background: ,
     decorationColor: parseHexColor(map["decorationColor"]),
     decorationStyle: parseTextDecorationStyle(map['decoration']),
-    decorationThickness: parseDouble(map["decorationThickness"]),
+    decorationThickness: parseDoubleWithDefault(map["decorationThickness"]),
     fontFamilyFallback: map["fontFamilyFallback"],
 //    fontFeatures: ,
 //    foreground: ,
-    height: parseDouble(map["height"]),
+    height: parseDoubleWithDefault(map["height"]),
     inherit: map["inherit"] ?? true,
-    letterSpacing: parseDouble(map["letterSpacing"]),
+    letterSpacing: parseDoubleWithDefault(map["letterSpacing"]),
     locale: parseLocale(map["locale"]),
     package: map["package"],
 //    shadows: ,
     textBaseline: parseTextBaseline(map["textBaseline"]),
-    wordSpacing: parseDouble(map["wordSpacing"]),
+    wordSpacing: parseDoubleWithDefault(map["wordSpacing"]),
   );
 }
 
@@ -306,29 +346,38 @@ TextDecorationStyle parseTextDecorationStyle(String decorationStyleName) {
 }
 
 /// Parse [Alignment] from [String].
-Alignment parseAlignment(String alignmentString) {
-  switch (alignmentString) {
-    case 'topLeft':
-      return Alignment.topLeft;
-    case 'topCenter':
-      return Alignment.topCenter;
-    case 'topRight':
-      return Alignment.topRight;
-    case 'centerLeft':
-      return Alignment.centerLeft;
-    case 'center':
-      return Alignment.center;
-    case 'centerRight':
-      return Alignment.centerRight;
-    case 'bottomLeft':
-      return Alignment.bottomLeft;
-    case 'bottomCenter':
-      return Alignment.bottomCenter;
-    case 'bottomRight':
-      return Alignment.bottomRight;
-    default:
-      return Alignment.topLeft;
+Alignment parseAlignment(dynamic alignmentString,
+    [Alignment defaultValue = Alignment.topLeft]) {
+  if (alignmentString == null || alignmentString is Alignment) {
+    return alignmentString ?? defaultValue;
   }
+
+  if (alignmentString is String) {
+    switch (alignmentString) {
+      case 'topLeft':
+        return Alignment.topLeft;
+      case 'topCenter':
+        return Alignment.topCenter;
+      case 'topRight':
+        return Alignment.topRight;
+      case 'centerLeft':
+        return Alignment.centerLeft;
+      case 'center':
+        return Alignment.center;
+      case 'centerRight':
+        return Alignment.centerRight;
+      case 'bottomLeft':
+        return Alignment.bottomLeft;
+      case 'bottomCenter':
+        return Alignment.bottomCenter;
+      case 'bottomRight':
+        return Alignment.bottomRight;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }
 
 IconThemeData parseIconTheme(Map<String, dynamic> map) {
@@ -392,7 +441,7 @@ BottomSheetThemeData parseBottomSheetTheme(Map<String, dynamic> map) {
 //      shape: ,
     elevation: parseDouble(map["elevation"]),
     backgroundColor: parseHexColor(map['backgroundColor']),
-    clipBehavior: parseClipBehavior(map['clipBehavior']),
+    clipBehavior: parseClip(map['clipBehavior']),
     modalBackgroundColor: parseHexColor(map['modalBackgroundColor']),
     modalElevation: parseDouble(map['modalElevation']),
   );
@@ -517,7 +566,7 @@ CardTheme parseCardTheme(Map<String, dynamic> map) {
 
   return CardTheme(
 //      shape: ,
-    clipBehavior: parseClipBehavior(map['clipBehavior']),
+    clipBehavior: parseClip(map['clipBehavior']),
     elevation: parseDouble(map['elevation']),
     color: parseHexColor(map['color']),
     margin: parseEdgeInsetsGeometry(map['margin']),
@@ -837,23 +886,8 @@ TabBarTheme parseTabBarTheme(Map<String, dynamic> map) {
   );
 }
 
-BorderRadius parseBorderRadius(String borderRadiusString) {
-  //left,top,right,bottom
-  if (borderRadiusString == null || borderRadiusString.trim() == '') {
-    return null;
-  }
-
-  var values = borderRadiusString.split(",");
-
-  return BorderRadius.only(
-    topLeft: Radius.circular(double.parse(values[0])),
-    topRight: Radius.circular(double.parse(values[1])),
-    bottomLeft: Radius.circular(double.parse(values[2])),
-    bottomRight: Radius.circular(double.parse(values[3])),
-  );
-}
-
-ToggleButtonsThemeData parseToggleButtonsTheme(Map<String, dynamic> map) {
+ToggleButtonsThemeData parseToggleButtonsTheme(BuildContext buildContext,
+    Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
@@ -867,7 +901,7 @@ ToggleButtonsThemeData parseToggleButtonsTheme(Map<String, dynamic> map) {
     color: parseHexColor(map['color']),
     textStyle: parseTextStyle(map['textStyle']),
     borderColor: parseHexColor(map['borderColor']),
-    borderRadius: parseBorderRadius(map['borderRadius']),
+    borderRadius: parseBorderRadius(buildContext, map['borderRadius']),
     borderWidth: parseDouble(map['borderWidth']),
     constraints: parseBoxConstraints(map['constraints']),
     disabledBorderColor: parseHexColor(map['disabledBorderColor']),
@@ -877,18 +911,66 @@ ToggleButtonsThemeData parseToggleButtonsTheme(Map<String, dynamic> map) {
   );
 }
 
+BorderRadius parseBorderRadius(BuildContext buildContext, dynamic value) {
+  if (value == null || value is BorderRadius) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    switch (value['type']) {
+      case 'only':
+        return BorderRadius.only(
+          topLeft: parseRadius(value['topLeft']),
+          topRight: parseRadius(value['topRight']),
+          bottomLeft: parseRadius(value['bottomLeft']),
+          bottomRight: parseRadius(value['bottomRight']),
+        );
+      case 'all':
+        return BorderRadius.all(parseRadius(value['all']));
+      case 'circular':
+        return BorderRadius.circular(parseDouble(value['radius']));
+      case 'zero':
+        return BorderRadius.zero;
+      case 'horizontal':
+        return BorderRadius.horizontal(
+          right: parseRadius(value['right'], Radius.zero),
+          left: parseRadius(value['left'], Radius.zero),
+        );
+      case 'vertical':
+        return BorderRadius.vertical(
+          bottom: parseRadius(value['bottom'], Radius.zero),
+          top: parseRadius(value['top'], Radius.zero),
+        );
+      case 'lerp':
+        return BorderRadius.lerp(
+          parseBorderRadius(buildContext, value['a']),
+          parseBorderRadius(buildContext, value['b']),
+          parseDouble(value['t']),
+        );
+      default:
+        return null;
+    }
+  }
+
+  return null;
+}
+
 Duration parseDuration(Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
 
   return Duration(
-    days: map['days'],
-    hours: map['hours'],
-    microseconds: map['microseconds'],
-    milliseconds: map['milliseconds'],
-    minutes: map['minutes'],
-    seconds: map['seconds'],
+    days: map['days'] ?? 0,
+    hours: map['hours'] ?? 0,
+    microseconds: map['microseconds'] ?? 0,
+    milliseconds: map['milliseconds'] ?? 0,
+    minutes: map['minutes'] ?? 0,
+    seconds: map['seconds'] ?? 0,
   );
 }
 
@@ -998,7 +1080,8 @@ ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
     textSelectionHandleColor: parseHexColor(map["textSelectionHandleColor"]),
     textTheme: parseTextTheme(map['textTheme']),
     toggleableActiveColor: parseHexColor(map["toggleableActiveColor"]),
-    toggleButtonsTheme: parseToggleButtonsTheme(map['toggleButtonsTheme']),
+    toggleButtonsTheme:
+    parseToggleButtonsTheme(buildContext, map['toggleButtonsTheme']),
     tooltipTheme: parseTooltipTheme(map['tooltipTheme']),
     typography: parseTypography(map['']),
     unselectedWidgetColor: parseHexColor(map["unselectedWidgetColor"]),
@@ -1229,57 +1312,79 @@ BlendMode parseBlendMode(String blendModeString) {
 }
 
 /// Parse [BoxFit] from [String].
-BoxFit parseBoxFit(String boxFitString) {
-  if (boxFitString == null) {
-    return null;
+BoxFit parseBoxFit(dynamic boxFitString) {
+  if (boxFitString == null || boxFitString is BoxFit) {
+    return boxFitString;
   }
 
-  switch (boxFitString) {
-    case 'fill':
-      return BoxFit.fill;
-    case 'contain':
-      return BoxFit.contain;
-    case 'cover':
-      return BoxFit.cover;
-    case 'fitWidth':
-      return BoxFit.fitWidth;
-    case 'fitHeight':
-      return BoxFit.fitHeight;
-    case 'none':
-      return BoxFit.none;
-    case 'scaleDown':
-      return BoxFit.scaleDown;
+  if (boxFitString is String) {
+    switch (boxFitString) {
+      case 'fill':
+        return BoxFit.fill;
+      case 'contain':
+        return BoxFit.contain;
+      case 'cover':
+        return BoxFit.cover;
+      case 'fitWidth':
+        return BoxFit.fitWidth;
+      case 'fitHeight':
+        return BoxFit.fitHeight;
+      case 'none':
+        return BoxFit.none;
+      case 'scaleDown':
+        return BoxFit.scaleDown;
+      default:
+        return null;
+    }
   }
 
   return null;
 }
 
 /// Parse [ImageRepeat] from [String].
-ImageRepeat parseImageRepeat(String imageRepeatString) {
-  if (imageRepeatString == null) {
-    return null;
+ImageRepeat parseImageRepeat(dynamic imageRepeatString,
+    [ImageRepeat defaultValue = ImageRepeat.noRepeat]) {
+  if (imageRepeatString == null || imageRepeatString is ImageRepeat) {
+    return imageRepeatString ?? defaultValue;
   }
 
-  switch (imageRepeatString) {
-    case 'repeat':
-      return ImageRepeat.repeat;
-    case 'repeatX':
-      return ImageRepeat.repeatX;
-    case 'repeatY':
-      return ImageRepeat.repeatY;
-    case 'noRepeat':
-      return ImageRepeat.noRepeat;
+  if (imageRepeatString is String) {
+    switch (imageRepeatString) {
+      case 'repeat':
+        return ImageRepeat.repeat;
+      case 'repeatX':
+        return ImageRepeat.repeatX;
+      case 'repeatY':
+        return ImageRepeat.repeatY;
+      case 'noRepeat':
+        return ImageRepeat.noRepeat;
 
-    default:
-      return ImageRepeat.noRepeat;
+      default:
+        return defaultValue;
+    }
   }
+
+  return defaultValue;
 }
 
 /// Parse [Rect] from [String].
-Rect parseRect(String fromLTRBString) {
-  var strings = fromLTRBString.split(',');
-  return Rect.fromLTRB(double.parse(strings[0]), double.parse(strings[1]),
-      double.parse(strings[2]), double.parse(strings[3]));
+Rect parseRect(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is Rect) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    var strings = value.split(',');
+
+    return Rect.fromLTRB(
+      double.parse(strings[0]),
+      double.parse(strings[1]),
+      double.parse(strings[2]),
+      double.parse(strings[3]),
+    );
+  }
+
+  return defaultValue;
 }
 
 /// Parse [FilterQuality] from [String].
@@ -1350,18 +1455,23 @@ Overflow parseOverflow(String value) {
 }
 
 /// Parse [Axis] from [String].
-Axis parseAxis(String axisString) {
-  if (axisString == null) {
-    return Axis.horizontal;
+Axis parseAxis(dynamic value, [dynamic defaultValue = Axis.vertical]) {
+  if (value == null || value is Axis) {
+    return value ?? defaultValue;
   }
 
-  switch (axisString) {
-    case "horizontal":
-      return Axis.horizontal;
-    case "vertical":
-      return Axis.vertical;
+  if (value is String) {
+    switch (value) {
+      case "horizontal":
+        return Axis.horizontal;
+      case "vertical":
+        return Axis.vertical;
+      default:
+        return defaultValue;
+    }
   }
-  return Axis.horizontal;
+
+  return defaultValue;
 }
 
 /// Parse [WrapAlignment] from [String].
@@ -1406,21 +1516,27 @@ WrapCrossAlignment parseWrapCrossAlignment(String wrapCrossAlignmentString) {
 }
 
 /// Parse [Clip] from [String].
-Clip parseClipBehavior(String clipBehaviorString) {
-  if (clipBehaviorString == null) {
-    return Clip.antiAlias;
+Clip parseClip(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is Clip) {
+    return value ?? defaultValue;
   }
-  switch (clipBehaviorString) {
-    case "antiAlias":
-      return Clip.antiAlias;
-    case "none":
-      return Clip.none;
-    case "hardEdge":
-      return Clip.hardEdge;
-    case "antiAliasWithSaveLayer":
-      return Clip.antiAliasWithSaveLayer;
+
+  if (value is String) {
+    switch (value) {
+      case "antiAlias":
+        return Clip.antiAlias;
+      case "none":
+        return Clip.none;
+      case "hardEdge":
+        return Clip.hardEdge;
+      case "antiAliasWithSaveLayer":
+        return Clip.antiAliasWithSaveLayer;
+      default:
+        return defaultValue;
+    }
   }
-  return Clip.antiAlias;
+
+  return defaultValue;
 }
 
 /// Parse [TextInputType] from [String].
@@ -1549,4 +1665,722 @@ double parseDouble(dynamic _double) {
   }
 
   return double.nan;
+}
+
+JsonSchema parseJsonSchema(BuildContext buildContext, dynamic value) {
+  if (value is JsonSchema) {
+    return value;
+  }
+
+  if (value is Map<String, dynamic>) {
+    return JsonSchema.createSchema(value);
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  throw Exception("Invalid value on jsonSchema property: $value");
+}
+
+//Map<String, WidgetTemplate> parseTemplateMap(
+//    BuildContext buildContext, Map<String, dynamic> map) {
+//  if (map == null) {
+//    return null;
+//  }
+//
+//  var result = <String, WidgetTemplate>{};
+//
+//  map.forEach((key, value) {
+//    var widget = SchemaWidget.build(buildContext, value);
+//
+//    if (widget != null && widget is WidgetTemplate) {
+//      result[key] = widget;
+//    }
+//  });
+//
+//  return result;
+//}
+//
+//Map<SchemaType, WidgetTemplate> parseTypeTemplateMap(
+//    BuildContext buildContext, dynamic map) {
+//  var templateMap = parseTemplateMap(buildContext, map);
+//
+//  if (templateMap == null) {
+//    return null;
+//  }
+//
+//  var result = <SchemaType, WidgetTemplate>{};
+//
+//  templateMap.forEach((key, value) {
+//    result[SchemaType.fromString(key)] = value;
+//  });
+//
+//  return result;
+//}
+
+FocusNode parseFocusNode(BuildContext buildContext, Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return FocusNode(
+    canRequestFocus: map['canRequestFocus'] ?? true,
+    debugLabel: map['debugLabel'],
+    onKey: SchemaWidget.build(buildContext, map['onKey']),
+    skipTraversal: map['skipTraversal'] ?? false,
+  );
+}
+
+PickerType parsePickerType(String pickerType) {
+  if (pickerType == null) {
+    return null;
+  }
+
+  switch (pickerType) {
+    case 'TimePicker':
+      return PickerType.TimePicker;
+    case 'DatePicker':
+      return PickerType.DatePicker;
+    case 'DateTimePicker':
+      return PickerType.DateTimePicker;
+    default:
+      return null;
+  }
+}
+
+InputDecoration parseInputDecoration(BuildContext buildContext, dynamic map) {
+  if (map == null || map is InputDecoration) {
+    return map;
+  }
+
+  if (map is String) {
+    return SchemaWidget.build(buildContext, map);
+  }
+
+  if (map is Map<String, dynamic>) {
+    return InputDecoration(
+      labelStyle: parseTextStyle(map['labelStyle']),
+      suffixStyle: parseTextStyle(map['suffixStyle']),
+      prefixStyle: parseTextStyle(map['prefixStyle']),
+      hintStyle: parseTextStyle(map['hintStyle']),
+      helperStyle: parseTextStyle(map['helperStyle']),
+      helperMaxLines: map['helperMaxLines'],
+      hasFloatingPlaceholder: map['hasFloatingPlaceholder'] ?? true,
+      focusedErrorBorder:
+      SchemaWidget.build(buildContext, map['focusedErrorBorder']),
+      focusedBorder: SchemaWidget.build(buildContext, map['focusedBorder']),
+      filled: map['filled'],
+      fillColor: parseHexColor(map['fillColor']),
+      errorMaxLines: map['errorMaxLines'],
+      errorBorder: SchemaWidget.build(buildContext, map['errorBorder']),
+      enabledBorder: SchemaWidget.build(buildContext, map['enabledBorder']),
+      disabledBorder: SchemaWidget.build(buildContext, map['disabledBorder']),
+      counterStyle: parseTextStyle(map['counterStyle']),
+      border: SchemaWidget.build(buildContext, map['border']),
+      alignLabelWithHint: map['alignLabelWithHint'],
+      errorStyle: parseTextStyle(map['errorStyle']),
+      isDense: map['isDense'],
+      contentPadding: parseEdgeInsetsGeometry(map['contentPadding']),
+      focusColor: parseHexColor(map['focusColor']),
+      hoverColor: parseHexColor(map['hoverColor']),
+      suffixIcon: SchemaWidget.build(buildContext, map['suffixIcon']),
+      enabled: map['enabled'] ?? true,
+      errorText: map['errorText'],
+      hintText: map['hintText'],
+      labelText: map['labelText'],
+      helperText: map['helperText'],
+      semanticCounterText: map['semanticCounterText'],
+      prefixText: map['prefixText'],
+      counterText: map['counterText'],
+      counter: SchemaWidget.build(buildContext, map['counter']),
+      hintMaxLines: map['hintMaxLines'],
+      icon: SchemaWidget.build(buildContext, map['icon']),
+      prefix: SchemaWidget.build(buildContext, map['prefix']),
+      prefixIcon: SchemaWidget.build(buildContext, map['prefixIcon']),
+      suffix: SchemaWidget.build(buildContext, map['suffix']),
+      suffixText: map['suffixText'],
+    );
+  }
+
+  return null;
+}
+
+FontStyle parseFontStyle(String fontStyle) {
+  if (fontStyle == null) {
+    return null;
+  }
+
+  switch (fontStyle) {
+    case 'italic':
+      return FontStyle.italic;
+    case 'normal':
+      return FontStyle.normal;
+    default:
+      return null;
+  }
+}
+
+StrutStyle parseStrutStyle(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return StrutStyle(
+    debugLabel: map['debugLabel'],
+    height: parseDouble(map['height']),
+    package: map['package'],
+    fontFamilyFallback: map['fontFamilyFallback'],
+    fontFamily: map['fontFamily'],
+    fontSize: parseDouble(map['fontSize']),
+    fontStyle: parseFontStyle(map['fontStyle']),
+    fontWeight: parseFontWeight(map['fontWeight']),
+    forceStrutHeight: map['forceStrutHeight'],
+    leading: parseDouble(map['leading']),
+  );
+}
+
+ToolbarOptions parseToolbarOptions(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  return ToolbarOptions(
+    copy: map['copy'] ?? false,
+    cut: map['cut'] ?? false,
+    paste: map['paste'] ?? false,
+    selectAll: map['selectAll'] ?? false,
+  );
+}
+
+TextAlignVertical parseTextAlignVertical(String y) {
+  if (y == null) {
+    return null;
+  }
+
+  return TextAlignVertical(y: parseDouble(y));
+}
+
+Radius parseRadius(dynamic map, [Radius defaultValue]) {
+  if (map == null || map is Radius) {
+    return map ?? defaultValue;
+  }
+
+  if (map is Map<String, dynamic>) {
+    switch (map["type"]) {
+      case 'zero':
+        return Radius.zero;
+      case 'circular':
+        return Radius.circular(parseDouble(map['radius']));
+      case 'elliptical':
+        return Radius.elliptical(parseDouble(map['x']), parseDouble(map['y']));
+      case 'lerp':
+        return Radius.lerp(
+          parseRadius(map['a']),
+          parseRadius(map['b']),
+          parseDouble(map['t']),
+        );
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
+
+ImageProvider<dynamic> parseImageProvider(Map<String, dynamic> map) {
+  if (map == null) {
+    return null;
+  }
+
+  switch (map['type']) {
+    case 'NetworkImage':
+      return NetworkImage(map['url']);
+    default:
+      return null;
+  }
+}
+
+dynamic parseDoubleWithDefault(dynamic value, {dynamic defaultValue}) {
+  if (value is double) {
+    return value;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'nan':
+        return double.nan;
+      case 'hybrid':
+        return double.infinity;
+      case 'normal':
+        return double.maxFinite;
+      case 'satellite':
+        return double.minPositive;
+      case 'terrain':
+        return double.negativeInfinity;
+      default:
+        return double.tryParse(value) ?? defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
+
+dynamic parseDecoration(BuildContext buildContext, dynamic map) {
+  if (map == null || map is Decoration) {
+    return map;
+  }
+
+  if (map is String) {
+    return SchemaWidget.build(buildContext, map);
+  }
+
+  if (map is Map<String, dynamic>) {
+    switch (map['type']) {
+      case 'BoxDecoration':
+        return parseBoxDecoration(buildContext, map);
+      case 'InputDecoration':
+        return parseInputDecoration(buildContext, map);
+    }
+  }
+
+  return null;
+}
+
+BoxDecoration parseBoxDecoration(BuildContext buildContext, dynamic map) {
+  if (map == null || map is Decoration) {
+    return map;
+  }
+
+  if (map is String) {
+    return SchemaWidget.build(buildContext, map);
+  }
+
+  if (map is Map<String, dynamic>) {
+    return BoxDecoration(
+      shape: parseBoxShape(map['shape']) ?? BoxShape.rectangle,
+      border: parseBoxBorder(map['border']),
+      color: parseHexColor(map['color']),
+      backgroundBlendMode: parseBlendMode(map['backgroundBlendMode']),
+      borderRadius: parseBorderRadius(buildContext, map['borderRadius']),
+      boxShadow: parseListBoxShadow(buildContext, map['boxShadow']),
+      gradient: SchemaWidget.build(buildContext, map['gradient']),
+      image: parseDecorationImage(buildContext, map['image']),
+    );
+  }
+
+  return null;
+}
+
+DecorationImage parseDecorationImage(BuildContext buildContext, dynamic value) {
+  if (value == null || value is DecorationImage) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    return DecorationImage(
+      image: parseImageProvider(value['image']),
+      alignment: parseAlignment(value['alignment'], Alignment.center),
+      centerSlice: parseRect(value['centerSlice']),
+      colorFilter: parseColorFilter(buildContext, value['colorFilter']),
+      fit: parseBoxFit(value['fit']),
+      matchTextDirection: value['matchTextDirection'] ?? false,
+      repeat: parseImageRepeat(value['repeat']),
+    );
+  }
+
+  return null;
+}
+
+ColorFilter parseColorFilter(BuildContext buildContext, dynamic value) {
+  if (value == null || value is ColorFilter) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    switch (value['type']) {
+      case 'linearToSrgbGamma':
+        return ColorFilter.linearToSrgbGamma();
+      case 'srgbToLinearGamma':
+        return ColorFilter.srgbToLinearGamma();
+      case 'mode':
+        return ColorFilter.mode(
+          value['color'],
+          value['blendMode'],
+        );
+      case 'matrix':
+        return ColorFilter.matrix(
+            parseListDouble(buildContext, value['matrix']));
+      default:
+        return null;
+    }
+  }
+
+  return null;
+}
+
+List<double> parseListDouble(BuildContext buildContext, dynamic value) {
+  if (value == null || value is List<double>) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is List) {
+    var result = <double>[];
+
+    for (var item in value) {
+      var itemParsed = parseDoubleWithDefault(item);
+
+      if (itemParsed != null) {
+        result.add(itemParsed);
+      }
+    }
+
+    return result;
+  }
+
+  return null;
+}
+
+List<BoxShadow> parseListBoxShadow(BuildContext buildContext, dynamic value) {
+  if (value == null || value is List<BoxShadow>) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is List) {
+    var result = <BoxShadow>[];
+
+    for (var item in value) {
+      BoxShadow parsedItem = parseBoxShadow(buildContext, item);
+
+      if (parsedItem != null) {
+        result.add(parsedItem);
+      }
+    }
+
+    return result;
+  }
+
+  return null;
+}
+
+BoxShadow parseBoxShadow(BuildContext buildContext, value) {
+  if (value == null || value is List<BoxShadow>) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    return BoxShadow(
+      color: parseHexColor(value['color']) ?? const Color(0xFF000000),
+      blurRadius:
+      parseDoubleWithDefault(value['blurRadius'], defaultValue: 0.0),
+      offset: parseOffset(buildContext, value['offset']),
+      spreadRadius:
+      parseDoubleWithDefault(value['spreadRadius'], defaultValue: 0.0),
+    );
+  }
+
+  return null;
+}
+
+Offset parseOffset(BuildContext buildContext, dynamic value) {
+  if (value == null || value is Offset) {
+    return value;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    switch (value['type']) {
+      case 'zero':
+        return Offset.zero;
+      case 'infinite':
+        return Offset.infinite;
+      case 'fromDirection':
+        return Offset.fromDirection(parseDouble(value['direction']),
+            parseDoubleWithDefault(value['distance'], defaultValue: 1.0));
+      case 'default':
+      default:
+        return Offset(
+          parseDoubleWithDefault(value['dx']),
+          parseDoubleWithDefault(value['dy']),
+        );
+    }
+  }
+
+  return null;
+}
+
+BoxBorder parseBoxBorder(dynamic value) {
+  if (value == null || value is BoxBorder) {
+    return value;
+  }
+
+  if (value is Map<String, dynamic>) {
+    switch (value['type']) {
+      case 'all':
+        return Border.all(
+          color: parseHexColor(value['color']) ?? const Color(0xFF000000),
+          style: parseBorderStyle(value['style']) ?? BorderStyle.solid,
+          width: parseDoubleWithDefault(value['width'], defaultValue: 1.0),
+        );
+    }
+  }
+
+  return null;
+}
+
+BorderStyle parseBorderStyle(dynamic value) {
+  if (value == null || value is BorderStyle) {
+    return value;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'solid':
+        return BorderStyle.solid;
+      case 'none':
+        return BorderStyle.none;
+      default:
+        return null;
+    }
+  }
+
+  return null;
+}
+
+BoxShape parseBoxShape(dynamic value) {
+  if (value == null || value is BoxShape) {
+    return value;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'circle':
+        return BoxShape.circle;
+      case 'rectangle':
+        return BoxShape.rectangle;
+      default:
+        return null;
+    }
+  }
+
+  return null;
+}
+
+Curve parseCurve(dynamic map, [dynamic defaultValue]) {
+  if (map == null || map is Curve) {
+    return map ?? defaultValue;
+  }
+
+  if (map is String) {
+    switch (map) {
+      case 'bounceIn':
+        return Curves.bounceIn;
+      case 'bounceInOut':
+        return Curves.bounceInOut;
+      case 'bounceOut':
+        return Curves.bounceOut;
+      case 'decelerate':
+        return Curves.decelerate;
+      case 'ease':
+        return Curves.ease;
+      case 'easeIn':
+        return Curves.easeIn;
+      case 'easeInBack':
+        return Curves.easeInBack;
+      case 'easeInCirc':
+        return Curves.easeInCirc;
+      case 'easeInCubic':
+        return Curves.easeInCubic;
+      case 'easeInExpo':
+        return Curves.easeInExpo;
+      case 'easeInOut':
+        return Curves.easeInOut;
+      case 'easeInOutBack':
+        return Curves.easeInOutBack;
+      case 'easeInOutCirc':
+        return Curves.easeInOutCirc;
+      case 'easeInOutCubic':
+        return Curves.easeInOutCubic;
+      case 'easeInOutExpo':
+        return Curves.easeInOutExpo;
+      case 'easeInOutQuad':
+        return Curves.easeInOutQuad;
+      case 'easeInOutQuart':
+        return Curves.easeInOutQuart;
+      case 'easeInOutQuint':
+        return Curves.easeInOutQuint;
+      case 'easeInOutSine':
+        return Curves.easeInOutSine;
+      case 'easeInQuad':
+        return Curves.easeInQuad;
+      case 'easeInQuart':
+        return Curves.easeInQuart;
+      case 'easeInQuint':
+        return Curves.easeInQuint;
+      case 'easeInSine':
+        return Curves.easeInSine;
+      case 'easeInToLinear':
+        return Curves.easeInToLinear;
+      case 'easeOut':
+        return Curves.easeOut;
+      case 'easeOutBack':
+        return Curves.easeOutBack;
+      case 'easeOutCirc':
+        return Curves.easeOutCirc;
+      case 'easeOutCubic':
+        return Curves.easeOutCubic;
+      case 'easeOutExpo':
+        return Curves.easeOutExpo;
+      case 'easeOutQuad':
+        return Curves.easeOutQuad;
+      case 'easeOutQuart':
+        return Curves.easeOutQuart;
+      case 'easeOutQuint':
+        return Curves.easeOutQuint;
+      case 'easeOutSine':
+        return Curves.easeOutSine;
+      case 'elasticIn':
+        return Curves.elasticIn;
+      case 'elasticInOut':
+        return Curves.elasticInOut;
+      case 'elasticOut':
+        return Curves.elasticOut;
+      case 'fastLinearToSlowEaseIn':
+        return Curves.fastLinearToSlowEaseIn;
+      case 'fastOutSlowIn':
+        return Curves.fastOutSlowIn;
+      case 'linear':
+        return Curves.linear;
+      case 'linearToEaseOut':
+        return Curves.linearToEaseOut;
+      case 'slowMiddle':
+        return Curves.slowMiddle;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
+
+DragStartBehavior parseDragStartBehavior(dynamic value,
+    [dynamic defaultValue]) {
+  if (value == null || value is DragStartBehavior) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'down':
+        return DragStartBehavior.down;
+      case 'start':
+        return DragStartBehavior.start;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
+
+FloatingActionButtonLocation parseFloatingActionButtonLocation(
+    BuildContext buildContext, dynamic value,
+    [dynamic defaultValue]) {
+  if (value == null || value is FloatingActionButtonLocation) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    switch (value['type']) {
+      case 'centerDocked':
+        return FloatingActionButtonLocation.centerDocked;
+      case 'centerFloat':
+        return FloatingActionButtonLocation.centerFloat;
+      case 'endDocked':
+        return FloatingActionButtonLocation.endDocked;
+      case 'endFloat':
+        return FloatingActionButtonLocation.endFloat;
+      case 'endTop':
+        return FloatingActionButtonLocation.endTop;
+      case 'miniStartTop':
+        return FloatingActionButtonLocation.miniStartTop;
+      case 'startTop':
+        return FloatingActionButtonLocation.startTop;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
+
+FloatingActionButtonAnimator parseFloatingActionButtonAnimator(
+    BuildContext buildContext, dynamic value,
+    [dynamic defaultValue]) {
+  if (value == null || value is FloatingActionButtonAnimator) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    switch (value['type']) {
+      case 'scaling':
+        return FloatingActionButtonAnimator.scaling;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
+
+NavigationType parseNavigationType(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is NavigationType) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'pop':
+        return NavigationType.pop;
+      case 'popAndPush':
+        return NavigationType.popAndPush;
+      case 'push':
+        return NavigationType.push;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }

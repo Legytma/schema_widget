@@ -25,14 +25,14 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create icon', () {
+  // ignore: omit_local_variable_types
+  final Map<String, String> schema = {"type": "RoutedListTile", "route": "/"};
+
+  test('create routed list tile', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
-      "type": "Icon",
-      "codePoint": "#${intToHex(Icons.add.codePoint, 5)}",
-    });
+    final widget = SchemaWidget.build(null, schema);
 
-    expect(widget is Icon, true);
+    expect(widget is ListTile, true);
   });
 }
