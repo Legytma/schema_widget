@@ -57,39 +57,39 @@ class TextSchemaWidgetParser extends SchemaWidgetParser {
 
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    String data = map['data'];
-    String textAlignString = map['textAlign'];
-    String overflow = map['overflow'];
-    int maxLines = map['maxLines'] == null ? 1 : map['maxLines'];
-    String semanticsLabel = map['semanticsLabel'];
-    bool softWrap = map['softWrap'];
-    String textDirectionString = map['textDirection'];
-    double textScaleFactor = map['textScaleFactor'];
-    var textSpan =
-    SchemaWidget.build(buildContext, map['textSpan']) as TextSpan;
+    TextSpan textSpan = SchemaWidget.build(buildContext, map['textSpan']);
+
+    var textAlign = parseTextAlign(map['textAlign']);
+    var overflow = parseTextOverflow(map['overflow']);
+    var maxLines = map['maxLines'];
+    var semanticsLabel = map['semanticsLabel'];
+    var softWrap = map['softWrap'];
+    var textDirection = parseTextDirection(map['textDirection']);
+    var style = parseTextStyle(map['style']);
+    var textScaleFactor = parseDouble(map['textScaleFactor']);
 
     if (textSpan == null) {
       return Text(
-        data,
-        textAlign: parseTextAlign(textAlignString),
-        overflow: parseTextOverflow(overflow),
+        map['data'],
+        textAlign: textAlign,
+        overflow: overflow,
         maxLines: maxLines,
         semanticsLabel: semanticsLabel,
         softWrap: softWrap,
-        textDirection: parseTextDirection(textDirectionString),
-        style: map.containsKey('style') ? parseTextStyle(map['style']) : null,
+        textDirection: textDirection,
+        style: style,
         textScaleFactor: textScaleFactor,
       );
     } else {
       return Text.rich(
         textSpan,
-        textAlign: parseTextAlign(textAlignString),
-        overflow: parseTextOverflow(overflow),
+        textAlign: textAlign,
+        overflow: overflow,
         maxLines: maxLines,
         semanticsLabel: semanticsLabel,
         softWrap: softWrap,
-        textDirection: parseTextDirection(textDirectionString),
-        style: map.containsKey('style') ? parseTextStyle(map['style']) : null,
+        textDirection: textDirection,
+        style: style,
         textScaleFactor: textScaleFactor,
       );
     }

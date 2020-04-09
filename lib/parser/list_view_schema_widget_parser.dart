@@ -72,7 +72,7 @@ class ListViewSchemaWidgetParser extends SchemaWidgetParser {
     var isDemo = map.containsKey("isDemo") ? map["isDemo"] : false;
 
     var params = ListViewParams(
-        scrollDirection,
+        parseAxis(map['scrollDirection']),
         reverse,
         shrinkWrap,
         cacheExtent,

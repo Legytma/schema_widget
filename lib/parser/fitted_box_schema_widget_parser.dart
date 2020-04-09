@@ -52,10 +52,9 @@ class FittedBoxSchemaWidgetParser extends SchemaWidgetParser {
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return FittedBox(
-      alignment: map.containsKey("alignment")
-          ? parseAlignment(map["alignment"])
-          : Alignment.center,
-      fit: map.containsKey("fit") ? parseBoxFit(map["fit"]) : BoxFit.contain,
+      key: SchemaWidget.build(buildContext, map['key']),
+      alignment: parseAlignment(map["alignment"], Alignment.center),
+      fit: parseBoxFit(map["fit"] ?? BoxFit.contain),
       child: SchemaWidget.build(buildContext, map["child"]),
     );
   }

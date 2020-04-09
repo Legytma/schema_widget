@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:json_schema/src/json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
@@ -57,11 +58,32 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser {
     _log.finer(map);
 
     return Scaffold(
-      appBar: SchemaWidget.build(buildContext, map["appBar"]),
-      drawer: SchemaWidget.build(buildContext, map["drawer"]),
+      key: SchemaWidget.build(buildContext, map["key"]),
+      backgroundColor: parseHexColor(map['backgroundColor']),
       body: SchemaWidget.build(buildContext, map["body"]),
+      drawer: SchemaWidget.build(buildContext, map["drawer"]),
+      appBar: SchemaWidget.build(buildContext, map["appBar"]),
       floatingActionButton:
       SchemaWidget.build(buildContext, map["floatingActionButton"]),
+      primary: map['primary'] ?? true,
+      bottomNavigationBar:
+      SchemaWidget.build(buildContext, map["bottomNavigationBar"]),
+      bottomSheet: SchemaWidget.build(buildContext, map["bottomSheet"]),
+      drawerDragStartBehavior: parseDragStartBehavior(
+          map['drawerDragStartBehavior'], DragStartBehavior.start),
+      drawerEdgeDragWidth: parseDouble(map['drawerEdgeDragWidth']),
+      drawerScrimColor: parseHexColor(map['drawerScrimColor']),
+      endDrawer: SchemaWidget.build(buildContext, map["endDrawer"]),
+      extendBody: map['extendBody'] ?? false,
+      extendBodyBehindAppBar: map['extendBodyBehindAppBar'] ?? false,
+      floatingActionButtonAnimator: parseFloatingActionButtonAnimator(
+          buildContext, map['floatingActionButtonAnimator']),
+      floatingActionButtonLocation: parseFloatingActionButtonLocation(
+          buildContext, map['floatingActionButtonLocation']),
+      persistentFooterButtons:
+      SchemaWidget.build(buildContext, map["persistentFooterButtons"]),
+      resizeToAvoidBottomInset: map['resizeToAvoidBottomInset'],
+      resizeToAvoidBottomPadding: map['resizeToAvoidBottomPadding'],
     );
   }
 }

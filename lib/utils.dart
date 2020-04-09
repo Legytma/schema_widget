@@ -21,7 +21,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_schema/json_schema.dart';
-import 'package:schema_widget/schema_widget.dart';
+
+import 'schema_widget.dart';
 
 enum PickerType {
   DateTimePicker,
@@ -36,8 +37,7 @@ enum NavigationType {
 }
 
 /// Parse [TextAlign] from [String].
-TextAlign parseTextAlign(dynamic value,
-    [dynamic defaultValue = TextAlign.start]) {
+TextAlign parseTextAlign(dynamic value, [dynamic defaultValue]) {
   if (value == null || value is TextAlign) {
     return value ?? defaultValue;
   }
@@ -66,8 +66,7 @@ TextAlign parseTextAlign(dynamic value,
 }
 
 /// Parse [TextOverflow] from [String].
-TextOverflow parseTextOverflow(dynamic value,
-    [dynamic defaultValue = TextOverflow.fade]) {
+TextOverflow parseTextOverflow(dynamic value, [dynamic defaultValue]) {
   if (value == null || value is TextOverflow) {
     return value ?? defaultValue;
   }
@@ -130,8 +129,7 @@ String intToHex(int number, int padSize) {
 }
 
 /// Parse [TextDirection] from [String].
-TextDirection parseTextDirection(dynamic value,
-    [dynamic defaultValue = TextDirection.ltr]) {
+TextDirection parseTextDirection(dynamic value, [dynamic defaultValue]) {
   if (value == null || value is TextDirection) {
     return value;
   }
@@ -252,13 +250,6 @@ Map<int, Color> _extractValue(Map<int, Color> swatch, Map<int, dynamic> map,
   return swatch;
 }
 
-/// Parse [int] from [String].
-int parseInt(String hexString) {
-  hexString = hexString?.toUpperCase()?.replaceAll("#", "");
-
-  return int.parse(hexString, radix: 16);
-}
-
 /// Parse [TextStyle] from [Map]<[String], [dynamic]>.
 TextStyle parseTextStyle(Map<String, dynamic> map) {
   if (map == null) {
@@ -270,7 +261,7 @@ TextStyle parseTextStyle(Map<String, dynamic> map) {
     color: parseHexColor(map['color']),
     debugLabel: map['debugLabel'],
     decoration: parseTextDecoration(map['decoration']),
-    fontSize: parseDoubleWithDefault(map['fontSize']),
+    fontSize: parseDouble(map['fontSize']),
     fontFamily: map['fontFamily'],
     fontStyle:
     'italic' == map['fontStyle'] ? FontStyle.italic : FontStyle.normal,
@@ -279,18 +270,18 @@ TextStyle parseTextStyle(Map<String, dynamic> map) {
 //    background: ,
     decorationColor: parseHexColor(map["decorationColor"]),
     decorationStyle: parseTextDecorationStyle(map['decoration']),
-    decorationThickness: parseDoubleWithDefault(map["decorationThickness"]),
+    decorationThickness: parseDouble(map["decorationThickness"]),
     fontFamilyFallback: map["fontFamilyFallback"],
 //    fontFeatures: ,
 //    foreground: ,
-    height: parseDoubleWithDefault(map["height"]),
+    height: parseDouble(map["height"]),
     inherit: map["inherit"] ?? true,
-    letterSpacing: parseDoubleWithDefault(map["letterSpacing"]),
+    letterSpacing: parseDouble(map["letterSpacing"]),
     locale: parseLocale(map["locale"]),
     package: map["package"],
 //    shadows: ,
     textBaseline: parseTextBaseline(map["textBaseline"]),
-    wordSpacing: parseDoubleWithDefault(map["wordSpacing"]),
+    wordSpacing: parseDouble(map["wordSpacing"]),
   );
 }
 
@@ -959,22 +950,48 @@ BorderRadius parseBorderRadius(BuildContext buildContext, dynamic value) {
   return null;
 }
 
-Duration parseDuration(Map<String, dynamic> map) {
-  if (map == null) {
-    return null;
+int parseInt(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is int) {
+    return value ?? defaultValue;
   }
 
-  return Duration(
-    days: map['days'] ?? 0,
-    hours: map['hours'] ?? 0,
-    microseconds: map['microseconds'] ?? 0,
-    milliseconds: map['milliseconds'] ?? 0,
-    minutes: map['minutes'] ?? 0,
-    seconds: map['seconds'] ?? 0,
-  );
+  if (value is String) {
+    if (value.startsWith("#")) {
+      value = value.toUpperCase().replaceAll("#", "");
+
+      return int.tryParse(value, radix: 16) ?? defaultValue;
+    }
+
+    return int.tryParse(value) ?? defaultValue;
+  }
+
+  return defaultValue;
 }
 
-TooltipThemeData parseTooltipTheme(Map<String, dynamic> map) {
+Duration parseDuration(BuildContext buildContext, dynamic value,
+    [dynamic defaultValue]) {
+  if (value == null || value is Duration) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    return SchemaWidget.build(buildContext, value);
+  }
+
+  if (value is Map<String, dynamic>) {
+    return Duration(
+      days: value['days'] ?? 0,
+      hours: value['hours'] ?? 0,
+      microseconds: value['microseconds'] ?? 0,
+      milliseconds: value['milliseconds'] ?? 0,
+      minutes: value['minutes'] ?? 0,
+      seconds: value['seconds'] ?? 0,
+    );
+  }
+}
+
+TooltipThemeData parseTooltipTheme(BuildContext buildContext,
+    Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
@@ -987,9 +1004,9 @@ TooltipThemeData parseTooltipTheme(Map<String, dynamic> map) {
 //      decoration: ,
     excludeFromSemantics: map['excludeFromSemantics'],
     preferBelow: map['preferBelow'],
-    showDuration: parseDuration(map['showDuration']),
+    showDuration: parseDuration(buildContext, map['showDuration']),
     verticalOffset: parseDouble(map['verticalOffset']),
-    waitDuration: parseDuration(map['waitDuration']),
+    waitDuration: parseDuration(buildContext, map['waitDuration']),
   );
 }
 
@@ -1082,7 +1099,7 @@ ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
     toggleableActiveColor: parseHexColor(map["toggleableActiveColor"]),
     toggleButtonsTheme:
     parseToggleButtonsTheme(buildContext, map['toggleButtonsTheme']),
-    tooltipTheme: parseTooltipTheme(map['tooltipTheme']),
+    tooltipTheme: parseTooltipTheme(buildContext, map['tooltipTheme']),
     typography: parseTypography(map['']),
     unselectedWidgetColor: parseHexColor(map["unselectedWidgetColor"]),
   );
@@ -1174,65 +1191,130 @@ BoxConstraints parseBoxConstraints(Map<String, dynamic> map) {
 }
 
 /// Parse [EdgeInsetsGeometry] from [String].
-EdgeInsetsGeometry parseEdgeInsetsGeometry(String edgeInsetsGeometryString) {
+EdgeInsetsGeometry parseEdgeInsetsGeometry(dynamic value,
+    [dynamic defaultValue]) {
   //left,top,right,bottom
-  if (edgeInsetsGeometryString == null ||
-      edgeInsetsGeometryString.trim() == '') {
-    return null;
+  if (value == null || value is EdgeInsetsGeometry) {
+    return value ?? defaultValue;
   }
-  var values = edgeInsetsGeometryString.split(",");
-  return EdgeInsets.only(
-      left: double.parse(values[0]),
-      top: double.parse(values[1]),
-      right: double.parse(values[2]),
-      bottom: double.parse(values[3]));
+
+  if (value is String) {
+    if (value.trim() == '' || !value.contains(",")) {
+      return defaultValue;
+    }
+
+    var values = value.split(",");
+
+    if (values.isEmpty || values.length != 4) {
+      return defaultValue;
+    }
+
+    return EdgeInsets.only(
+      left: parseDouble(values[0], 0.0),
+      top: parseDouble(values[1], 0.0),
+      right: parseDouble(values[2], 0.0),
+      bottom: parseDouble(values[3], 0.0),
+    );
+  }
+
+  return defaultValue;
 }
 
 /// Parse [CrossAxisAlignment] from [String].
-CrossAxisAlignment parseCrossAxisAlignment(String crossAxisAlignmentString) {
-  switch (crossAxisAlignmentString) {
-    case 'start':
-      return CrossAxisAlignment.start;
-    case 'end':
-      return CrossAxisAlignment.end;
-    case 'center':
-      return CrossAxisAlignment.center;
-    case 'stretch':
-      return CrossAxisAlignment.stretch;
-    case 'baseline':
-      return CrossAxisAlignment.baseline;
+CrossAxisAlignment parseCrossAxisAlignment(dynamic value,
+    [dynamic defaultValue]) {
+  if (value == null || value is CrossAxisAlignment) {
+    return value ?? defaultValue;
   }
-  return CrossAxisAlignment.center;
+
+  if (value is String) {
+    switch (value) {
+      case 'start':
+        return CrossAxisAlignment.start;
+      case 'end':
+        return CrossAxisAlignment.end;
+      case 'center':
+        return CrossAxisAlignment.center;
+      case 'stretch':
+        return CrossAxisAlignment.stretch;
+      case 'baseline':
+        return CrossAxisAlignment.baseline;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }
 
 /// Parse [MainAxisAlignment] from [String].
-MainAxisAlignment parseMainAxisAlignment(String mainAxisAlignmentString) {
-  switch (mainAxisAlignmentString) {
-    case 'start':
-      return MainAxisAlignment.start;
-    case 'end':
-      return MainAxisAlignment.end;
-    case 'center':
-      return MainAxisAlignment.center;
-    case 'spaceBetween':
-      return MainAxisAlignment.spaceBetween;
-    case 'spaceAround':
-      return MainAxisAlignment.spaceAround;
-    case 'spaceEvenly':
-      return MainAxisAlignment.spaceEvenly;
+MainAxisAlignment parseMainAxisAlignment(dynamic value,
+    [dynamic defaultValue]) {
+  if (value == null || value is MainAxisAlignment) {
+    return value ?? defaultValue;
   }
-  return MainAxisAlignment.start;
+
+  if (value is String) {
+    switch (value) {
+      case 'start':
+        return MainAxisAlignment.start;
+      case 'end':
+        return MainAxisAlignment.end;
+      case 'center':
+        return MainAxisAlignment.center;
+      case 'spaceBetween':
+        return MainAxisAlignment.spaceBetween;
+      case 'spaceAround':
+        return MainAxisAlignment.spaceAround;
+      case 'spaceEvenly':
+        return MainAxisAlignment.spaceEvenly;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
 }
 
 /// Parse [MainAxisSize] from [String].
-MainAxisSize parseMainAxisSize(String mainAxisSizeString) =>
-    mainAxisSizeString == 'min' ? MainAxisSize.min : MainAxisSize.max;
+MainAxisSize parseMainAxisSize(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is MainAxisSize) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'min':
+        return MainAxisSize.min;
+      case 'max':
+        return MainAxisSize.max;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
 
 /// Parse [TextBaseline] from [String].
-TextBaseline parseTextBaseline(String parseTextBaselineString) =>
-    'alphabetic' == parseTextBaselineString
-        ? TextBaseline.alphabetic
-        : TextBaseline.ideographic;
+TextBaseline parseTextBaseline(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is TextBaseline) {
+    return value ?? defaultValue;
+  }
+
+  if (value is String) {
+    switch (value) {
+      case 'alphabetic':
+        return TextBaseline.alphabetic;
+      case 'ideographic':
+        return TextBaseline.ideographic;
+      default:
+        return defaultValue;
+    }
+  }
+
+  return defaultValue;
+}
 
 /// Parse [VerticalDirection] from [String].
 VerticalDirection parseVerticalDirection(String verticalDirectionString) =>
@@ -1455,7 +1537,7 @@ Overflow parseOverflow(String value) {
 }
 
 /// Parse [Axis] from [String].
-Axis parseAxis(dynamic value, [dynamic defaultValue = Axis.vertical]) {
+Axis parseAxis(dynamic value, [dynamic defaultValue]) {
   if (value == null || value is Axis) {
     return value ?? defaultValue;
   }
@@ -1642,13 +1724,13 @@ MapType parseMapType(String mapType) {
 }
 
 /// Parse [double] from [String] or [double].
-double parseDouble(dynamic _double) {
-  if (_double is double) {
-    return _double;
+double parseDouble(dynamic value, [dynamic defaultValue]) {
+  if (value == null || value is double) {
+    return value ?? defaultValue;
   }
 
-  if (_double is String) {
-    switch (_double) {
+  if (value is String) {
+    switch (value) {
       case 'nan':
         return double.nan;
       case 'hybrid':
@@ -1660,11 +1742,11 @@ double parseDouble(dynamic _double) {
       case 'terrain':
         return double.negativeInfinity;
       default:
-        return double.tryParse(_double);
+        return double.tryParse(value) ?? defaultValue;
     }
   }
 
-  return double.nan;
+  return defaultValue;
 }
 
 JsonSchema parseJsonSchema(BuildContext buildContext, dynamic value) {
@@ -1901,31 +1983,6 @@ ImageProvider<dynamic> parseImageProvider(Map<String, dynamic> map) {
   }
 }
 
-dynamic parseDoubleWithDefault(dynamic value, {dynamic defaultValue}) {
-  if (value is double) {
-    return value;
-  }
-
-  if (value is String) {
-    switch (value) {
-      case 'nan':
-        return double.nan;
-      case 'hybrid':
-        return double.infinity;
-      case 'normal':
-        return double.maxFinite;
-      case 'satellite':
-        return double.minPositive;
-      case 'terrain':
-        return double.negativeInfinity;
-      default:
-        return double.tryParse(value) ?? defaultValue;
-    }
-  }
-
-  return defaultValue;
-}
-
 dynamic parseDecoration(BuildContext buildContext, dynamic map) {
   if (map == null || map is Decoration) {
     return map;
@@ -2040,7 +2097,7 @@ List<double> parseListDouble(BuildContext buildContext, dynamic value) {
     var result = <double>[];
 
     for (var item in value) {
-      var itemParsed = parseDoubleWithDefault(item);
+      var itemParsed = parseDouble(item);
 
       if (itemParsed != null) {
         result.add(itemParsed);
@@ -2091,11 +2148,9 @@ BoxShadow parseBoxShadow(BuildContext buildContext, value) {
   if (value is Map<String, dynamic>) {
     return BoxShadow(
       color: parseHexColor(value['color']) ?? const Color(0xFF000000),
-      blurRadius:
-      parseDoubleWithDefault(value['blurRadius'], defaultValue: 0.0),
+      blurRadius: parseDouble(value['blurRadius'], 0.0),
       offset: parseOffset(buildContext, value['offset']),
-      spreadRadius:
-      parseDoubleWithDefault(value['spreadRadius'], defaultValue: 0.0),
+      spreadRadius: parseDouble(value['spreadRadius'], 0.0),
     );
   }
 
@@ -2119,12 +2174,12 @@ Offset parseOffset(BuildContext buildContext, dynamic value) {
         return Offset.infinite;
       case 'fromDirection':
         return Offset.fromDirection(parseDouble(value['direction']),
-            parseDoubleWithDefault(value['distance'], defaultValue: 1.0));
+            parseDouble(value['distance'], 1.0));
       case 'default':
       default:
         return Offset(
-          parseDoubleWithDefault(value['dx']),
-          parseDoubleWithDefault(value['dy']),
+          parseDouble(value['dx']),
+          parseDouble(value['dy']),
         );
     }
   }
@@ -2143,7 +2198,7 @@ BoxBorder parseBoxBorder(dynamic value) {
         return Border.all(
           color: parseHexColor(value['color']) ?? const Color(0xFF000000),
           style: parseBorderStyle(value['style']) ?? BorderStyle.solid,
-          width: parseDoubleWithDefault(value['width'], defaultValue: 1.0),
+          width: parseDouble(value['width'], 1.0),
         );
     }
   }

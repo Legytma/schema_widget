@@ -57,15 +57,16 @@ class AnimatedContainerSchemaWidgetParser extends SchemaWidgetParser {
       padding: parseEdgeInsetsGeometry(map['padding']),
       color: parseHexColor(map['color']),
       margin: parseEdgeInsetsGeometry(map['margin']),
-      width: parseDoubleWithDefault(map['width']),
-      height: parseDoubleWithDefault(map['height']),
+      width: parseDouble(map['width']),
+      height: parseDouble(map['height']),
       constraints: parseBoxConstraints(map['constraints']),
       child: SchemaWidget.build(buildContext, map['child']),
       decoration: parseDecoration(buildContext, map['decoration']),
       foregroundDecoration:
           parseDecoration(buildContext, map['foregroundDecoration']),
       transform: SchemaWidget.build(buildContext, map['transform']),
-      duration: parseDuration(map['duration']) ?? kThemeAnimationDuration,
+      duration:
+      parseDuration(buildContext, map['duration'], kThemeAnimationDuration),
       curve: parseCurve(map['curve'], Curves.linear),
       onEnd: SchemaWidget.build(buildContext, map['onEnd']),
     );

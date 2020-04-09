@@ -56,7 +56,7 @@ class CardSchemaWidgetParser extends SchemaWidgetParser {
       color: parseHexColor(map['color']),
       child: SchemaWidget.build(buildContext, map['child']),
       shape: SchemaWidget.build(buildContext, map['shape']),
-      elevation: parseDoubleWithDefault(map['elevation']),
+      elevation: parseDouble(map['elevation']),
       borderOnForeground: map['borderOnForeground'] ?? true,
       clipBehavior: parseClip(map['clipBehavior']),
       margin: parseEdgeInsetsGeometry(map['margin']),

@@ -62,9 +62,9 @@ class CircleAvatarSchemaWidgetParser extends SchemaWidgetParser {
       backgroundColor: parseHexColor(map['backgroundColor']),
       backgroundImage: parseImageProvider(map['backgroundImage']),
       foregroundColor: parseHexColor(map['foregroundColor']),
-      maxRadius: parseDoubleWithDefault(map['maxRadius']),
-      minRadius: parseDoubleWithDefault(map['minRadius']),
-      radius: parseDoubleWithDefault(map['radius']),
+      maxRadius: parseDouble(map['maxRadius']),
+      minRadius: parseDouble(map['minRadius']),
+      radius: parseDouble(map['radius']),
     );
   }
 }

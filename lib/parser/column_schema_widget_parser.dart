@@ -52,21 +52,14 @@ class ColumnSchemaWidgetParser extends SchemaWidgetParser {
   @override
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return Column(
-      crossAxisAlignment: map.containsKey('crossAxisAlignment')
-          ? parseCrossAxisAlignment(map['crossAxisAlignment'])
-          : CrossAxisAlignment.center,
-      mainAxisAlignment: map.containsKey('mainAxisAlignment')
-          ? parseMainAxisAlignment(map['mainAxisAlignment'])
-          : MainAxisAlignment.start,
-      mainAxisSize: map.containsKey('mainAxisSize')
-          ? parseMainAxisSize(map['mainAxisSize'])
-          : MainAxisSize.max,
-      textBaseline: map.containsKey('textBaseline')
-          ? parseTextBaseline(map['textBaseline'])
-          : null,
-      textDirection: map.containsKey('textDirection')
-          ? parseTextDirection(map['textDirection'])
-          : null,
+      key: SchemaWidget.build(buildContext, map['key']),
+      crossAxisAlignment: parseCrossAxisAlignment(
+          map['crossAxisAlignment'], CrossAxisAlignment.center),
+      mainAxisAlignment: parseMainAxisAlignment(
+          map['mainAxisAlignment'], MainAxisAlignment.start),
+      mainAxisSize: parseMainAxisSize(map['mainAxisSize'], MainAxisSize.max),
+      textBaseline: parseTextBaseline(map['textBaseline']),
+      textDirection: parseTextDirection(map['textDirection']),
       verticalDirection: map.containsKey('verticalDirection')
           ? parseVerticalDirection(map['verticalDirection'])
           : VerticalDirection.down,

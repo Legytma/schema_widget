@@ -59,8 +59,21 @@
 * Added Card parser;
 * Added AnimatedContainer parser;
 * Added tests for new parsers;
-* Refined SchemaWidget to correct the type of MAP used to enable the addition of the navigation handle dynamically;
+* Refactored ColumnShemaWidgetParser;
+* Refactored ContaingerSchemaWidgetParser;
+* Refactored DrawerHeaderSchemaWidgetParser;
+* Refactored ScaffoldSchemaWidgetParser;
+* Refactored TextSchemaWidgetParser;
+* Refactored SchemaWidget to correct the type of MAP used to enable the addition of the navigation handle dynamically;
 * In the utils.dart file:
+ * Refactored parseInt;
+ * Refactored parseTooltipTheme;
+ * Refactored parseEdgeInsetsGeometry;
+ * Refactored parseCrossAxisAlignment;
+ * Refactored parseMainAxisAlignment;
+ * Refactored parseMainAxisSize;
+ * Refactored parseTextBaseline;
+ * Refactored parseDouble;
  * Refactored parseClipBehavior to parseClip;
  * Refactored parseTextAlign;
  * Refactored parseTextOverflow;
@@ -85,7 +98,6 @@
  * Added parseTextAlignVertical;
  * Added parseRadius;
  * Added parseImageProvider;
- * Added parseDoubleWithDefault;
  * Added parseDecoration;
  * Added parseBoxDecoration;
  * Added parseDecorationImage;

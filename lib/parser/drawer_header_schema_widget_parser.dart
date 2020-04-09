@@ -56,10 +56,17 @@ class DrawerHeaderSchemaWidgetParser extends SchemaWidgetParser {
   Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     _log.finer(map);
 
-    var drawerHeaderChildWidget = map.containsKey("child")
-        ? SchemaWidget.build(buildContext, map["child"])
-        : null;
-
-    return DrawerHeader(child: drawerHeaderChildWidget);
+    return DrawerHeader(
+      key: SchemaWidget.build(buildContext, map['key']),
+      child: SchemaWidget.build(buildContext, map["child"]),
+      decoration: parseDecoration(buildContext, map['decoration']),
+      margin: parseEdgeInsetsGeometry(
+          map['margin'], const EdgeInsets.only(bottom: 8.0)),
+      padding: parseEdgeInsetsGeometry(map['padding']) ??
+          const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
+      curve: parseCurve(map['curve'], Curves.fastOutSlowIn),
+      duration:
+      parseDuration(map['duration'], const Duration(milliseconds: 250)),
+    );
   }
 }

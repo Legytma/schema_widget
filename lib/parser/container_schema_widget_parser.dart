@@ -50,28 +50,21 @@ class ContainerSchemaWidgetParser extends SchemaWidgetParser {
       });
 
   @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
-    var alignment = parseAlignment(layoutMap['alignment']);
-    var color = parseHexColor(layoutMap['color']);
-    var constraints = parseBoxConstraints(layoutMap['constraints']);
-    // TODO: decoration, foregroundDecoration and transform properties to be implemented.
-    var margin = parseEdgeInsetsGeometry(layoutMap['margin']);
-    var padding = parseEdgeInsetsGeometry(layoutMap['padding']);
-    Map<String, dynamic> childMap = layoutMap['child'];
-    var child =
-        childMap == null ? null : SchemaWidget.build(buildContext, childMap);
-
-    var containerWidget = Container(
-      alignment: alignment,
-      padding: padding,
-      color: color,
-      margin: margin,
-      width: layoutMap['width'],
-      height: layoutMap['height'],
-      constraints: constraints,
-      child: child,
+  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+    return Container(
+      key: SchemaWidget.build(buildContext, map['key']),
+      alignment: parseAlignment(map['alignment']),
+      padding: parseEdgeInsetsGeometry(map['padding']),
+      color: parseHexColor(map['color']),
+      margin: parseEdgeInsetsGeometry(map['margin']),
+      width: parseDouble(map['width']),
+      height: parseDouble(map['height']),
+      constraints: parseBoxConstraints(map['constraints']),
+      child: SchemaWidget.build(buildContext, map['child']),
+      decoration: parseDecoration(buildContext, map['decoration']),
+      foregroundDecoration:
+      parseDecoration(buildContext, map['foregroundDecoration']),
+      transform: SchemaWidget.build(buildContext, map['transform']),
     );
-
-    return containerWidget;
   }
 }
