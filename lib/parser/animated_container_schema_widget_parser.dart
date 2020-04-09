@@ -66,7 +66,7 @@ class AnimatedContainerSchemaWidgetParser extends SchemaWidgetParser {
           parseDecoration(buildContext, map['foregroundDecoration']),
       transform: SchemaWidget.build(buildContext, map['transform']),
       duration:
-      parseDuration(buildContext, map['duration'], kThemeAnimationDuration),
+          parseDuration(buildContext, map['duration'], kThemeAnimationDuration),
       curve: parseCurve(map['curve'], Curves.linear),
       onEnd: SchemaWidget.build(buildContext, map['onEnd']),
     );

@@ -66,7 +66,7 @@ class DrawerHeaderSchemaWidgetParser extends SchemaWidgetParser {
           const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
       curve: parseCurve(map['curve'], Curves.fastOutSlowIn),
       duration:
-      parseDuration(map['duration'], const Duration(milliseconds: 250)),
+          parseDuration(map['duration'], const Duration(milliseconds: 250)),
     );
   }
 }

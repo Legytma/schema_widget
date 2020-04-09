@@ -64,10 +64,10 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser {
       drawer: SchemaWidget.build(buildContext, map["drawer"]),
       appBar: SchemaWidget.build(buildContext, map["appBar"]),
       floatingActionButton:
-      SchemaWidget.build(buildContext, map["floatingActionButton"]),
+          SchemaWidget.build(buildContext, map["floatingActionButton"]),
       primary: map['primary'] ?? true,
       bottomNavigationBar:
-      SchemaWidget.build(buildContext, map["bottomNavigationBar"]),
+          SchemaWidget.build(buildContext, map["bottomNavigationBar"]),
       bottomSheet: SchemaWidget.build(buildContext, map["bottomSheet"]),
       drawerDragStartBehavior: parseDragStartBehavior(
           map['drawerDragStartBehavior'], DragStartBehavior.start),
@@ -81,7 +81,7 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser {
       floatingActionButtonLocation: parseFloatingActionButtonLocation(
           buildContext, map['floatingActionButtonLocation']),
       persistentFooterButtons:
-      SchemaWidget.build(buildContext, map["persistentFooterButtons"]),
+          SchemaWidget.build(buildContext, map["persistentFooterButtons"]),
       resizeToAvoidBottomInset: map['resizeToAvoidBottomInset'],
       resizeToAvoidBottomPadding: map['resizeToAvoidBottomPadding'],
     );

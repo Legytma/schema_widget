@@ -63,7 +63,7 @@ class ContainerSchemaWidgetParser extends SchemaWidgetParser {
       child: SchemaWidget.build(buildContext, map['child']),
       decoration: parseDecoration(buildContext, map['decoration']),
       foregroundDecoration:
-      parseDecoration(buildContext, map['foregroundDecoration']),
+          parseDecoration(buildContext, map['foregroundDecoration']),
       transform: SchemaWidget.build(buildContext, map['transform']),
     );
   }

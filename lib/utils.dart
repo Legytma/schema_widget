@@ -57,7 +57,7 @@ TextAlign parseTextAlign(dynamic value, [dynamic defaultValue]) {
       case "end":
         return TextAlign.end;
       default:
-      //left the system decide
+        //left the system decide
         return defaultValue;
     }
   }
@@ -241,8 +241,8 @@ Map<int, Color> _parseSwatchIntColor(Map<int, dynamic> map,
   return swatch;
 }
 
-Map<int, Color> _extractValue(Map<int, Color> swatch, Map<int, dynamic> map,
-    int key) {
+Map<int, Color> _extractValue(
+    Map<int, Color> swatch, Map<int, dynamic> map, int key) {
   if (map.containsKey(key)) {
     swatch[key] = parseHexColor(map[key]);
   }
@@ -264,7 +264,7 @@ TextStyle parseTextStyle(Map<String, dynamic> map) {
     fontSize: parseDouble(map['fontSize']),
     fontFamily: map['fontFamily'],
     fontStyle:
-    'italic' == map['fontStyle'] ? FontStyle.italic : FontStyle.normal,
+        'italic' == map['fontStyle'] ? FontStyle.italic : FontStyle.normal,
     fontWeight: parseFontWeight(map['fontWeight']),
     backgroundColor: parseHexColor(map["backgroundColor"]),
 //    background: ,
@@ -538,7 +538,7 @@ ButtonThemeData parseButtonTheme(Map<String, dynamic> map) {
     height: parseDouble(map['height']) ?? 36.0,
     splashColor: parseHexColor(map['splashColor']),
     materialTapTargetSize:
-    parseMaterialTapTargetSize(map['materialTapTargetSize']),
+        parseMaterialTapTargetSize(map['materialTapTargetSize']),
     hoverColor: parseHexColor(map['hoverColor']),
     highlightColor: parseHexColor(map['highlightColor']),
     focusColor: parseHexColor(map['focusColor']),
@@ -722,8 +722,8 @@ TargetPlatform parseTargetPlatform(String key) {
   }
 }
 
-PageTransitionsTheme parsePageTransitionsTheme(BuildContext buildContext,
-    Map<String, dynamic> map) {
+PageTransitionsTheme parsePageTransitionsTheme(
+    BuildContext buildContext, Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
@@ -805,8 +805,8 @@ SnackBarThemeData parseSnackBarTheme(Map<String, dynamic> map) {
   );
 }
 
-SliderThemeData parseSliderTheme(BuildContext buildContext,
-    Map<String, dynamic> map) {
+SliderThemeData parseSliderTheme(
+    BuildContext buildContext, Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
@@ -816,17 +816,17 @@ SliderThemeData parseSliderTheme(BuildContext buildContext,
     inactiveTrackColor: parseHexColor(map['inactiveTrackColor']),
     activeTickMarkColor: parseHexColor(map['activeTickMarkColor']),
     disabledActiveTickMarkColor:
-    parseHexColor(map['disabledActiveTickMarkColor']),
+        parseHexColor(map['disabledActiveTickMarkColor']),
     disabledActiveTrackColor: parseHexColor(map['disabledActiveTrackColor']),
     disabledInactiveTickMarkColor:
-    parseHexColor(map['disabledInactiveTickMarkColor']),
+        parseHexColor(map['disabledInactiveTickMarkColor']),
     disabledInactiveTrackColor:
-    parseHexColor(map['disabledInactiveTrackColor']),
+        parseHexColor(map['disabledInactiveTrackColor']),
     disabledThumbColor: parseHexColor(map['disabledThumbColor']),
     inactiveTickMarkColor: parseHexColor(map['inactiveTickMarkColor']),
     minThumbSeparation: parseDouble(map['minThumbSeparation']),
     overlappingShapeStrokeColor:
-    parseHexColor(map['overlappingShapeStrokeColor']),
+        parseHexColor(map['overlappingShapeStrokeColor']),
     overlayColor: parseHexColor(map['overlayColor']),
 //      overlayShape: ,
 //      rangeThumbShape: ,
@@ -877,8 +877,8 @@ TabBarTheme parseTabBarTheme(Map<String, dynamic> map) {
   );
 }
 
-ToggleButtonsThemeData parseToggleButtonsTheme(BuildContext buildContext,
-    Map<String, dynamic> map) {
+ToggleButtonsThemeData parseToggleButtonsTheme(
+    BuildContext buildContext, Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
@@ -990,8 +990,8 @@ Duration parseDuration(BuildContext buildContext, dynamic value,
   }
 }
 
-TooltipThemeData parseTooltipTheme(BuildContext buildContext,
-    Map<String, dynamic> map) {
+TooltipThemeData parseTooltipTheme(
+    BuildContext buildContext, Map<String, dynamic> map) {
   if (map == null) {
     return null;
   }
@@ -1034,7 +1034,7 @@ ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
     primarySwatch: parseMaterialColor(map["primarySwatch"]),
     accentColor: parseHexColor(map["accentColor"]),
     accentColorBrightness:
-    parseKeyboardAppearance(map["accentColorBrightness"]),
+        parseKeyboardAppearance(map["accentColorBrightness"]),
     accentIconTheme: parseIconTheme(map["accentIconTheme"]),
     accentTextTheme: parseTextTheme(map["accentTextTheme"]),
     appBarTheme: parseAppBarTheme(map["appBarTheme"]),
@@ -1062,7 +1062,7 @@ ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
     dividerTheme: parseDividerTheme(map['dividerTheme']),
     errorColor: parseHexColor(map["errorColor"]),
     floatingActionButtonTheme:
-    parseFloatingActionButtonTheme(map['floatingActionButtonTheme']),
+        parseFloatingActionButtonTheme(map['floatingActionButtonTheme']),
     focusColor: parseHexColor(map["focusColor"]),
     fontFamily: map['fontFamily'],
     highlightColor: parseHexColor(map["highlightColor"]),
@@ -1071,16 +1071,16 @@ ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
     iconTheme: parseIconTheme(map["iconTheme"]),
     indicatorColor: parseHexColor(map["indicatorColor"]),
     inputDecorationTheme:
-    parseInputDecorationTheme(map['inputDecorationTheme']),
+        parseInputDecorationTheme(map['inputDecorationTheme']),
     materialTapTargetSize:
-    parseMaterialTapTargetSize(map['materialTapTargetSize']),
+        parseMaterialTapTargetSize(map['materialTapTargetSize']),
     pageTransitionsTheme:
-    parsePageTransitionsTheme(buildContext, map['pageTransitionsTheme']),
+        parsePageTransitionsTheme(buildContext, map['pageTransitionsTheme']),
     platform: parseTargetPlatform(map['platform']),
     popupMenuTheme: parsePopupMenuTheme(map['popupMenuTheme']),
     primaryColor: parseHexColor(map["primaryColor"]),
     primaryColorBrightness:
-    parseKeyboardAppearance(map["primaryColorBrightness"]),
+        parseKeyboardAppearance(map["primaryColorBrightness"]),
     primaryColorDark: parseHexColor(map["primaryColorDark"]),
     primaryColorLight: parseHexColor(map["primaryColorLight"]),
     primaryIconTheme: parseIconTheme(map['primaryIconTheme']),
@@ -1098,7 +1098,7 @@ ThemeData parseThemeData(BuildContext buildContext, Map<String, dynamic> map) {
     textTheme: parseTextTheme(map['textTheme']),
     toggleableActiveColor: parseHexColor(map["toggleableActiveColor"]),
     toggleButtonsTheme:
-    parseToggleButtonsTheme(buildContext, map['toggleButtonsTheme']),
+        parseToggleButtonsTheme(buildContext, map['toggleButtonsTheme']),
     tooltipTheme: parseTooltipTheme(buildContext, map['tooltipTheme']),
     typography: parseTypography(map['']),
     unselectedWidgetColor: parseHexColor(map["unselectedWidgetColor"]),
@@ -1850,7 +1850,7 @@ InputDecoration parseInputDecoration(BuildContext buildContext, dynamic map) {
       helperMaxLines: map['helperMaxLines'],
       hasFloatingPlaceholder: map['hasFloatingPlaceholder'] ?? true,
       focusedErrorBorder:
-      SchemaWidget.build(buildContext, map['focusedErrorBorder']),
+          SchemaWidget.build(buildContext, map['focusedErrorBorder']),
       focusedBorder: SchemaWidget.build(buildContext, map['focusedBorder']),
       filled: map['filled'],
       fillColor: parseHexColor(map['fillColor']),
