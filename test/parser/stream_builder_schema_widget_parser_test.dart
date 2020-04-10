@@ -35,6 +35,7 @@ void main() {
       "builder": "builderTest",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is StreamBuilder, true);
   });
 }

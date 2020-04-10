@@ -34,6 +34,7 @@ void main() {
           "https://legytma.com.br/wp-content/uploads/2019/12/Legytma-Solu%C3%A7%C3%B5es-Inteligentes.png",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Image, true);
   });
 }

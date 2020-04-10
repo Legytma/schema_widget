@@ -30,6 +30,7 @@ void main() {
 
     final widget = SchemaWidget.build(null, {"type": "CircleAvatar"});
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is CircleAvatar, true);
   });
 }

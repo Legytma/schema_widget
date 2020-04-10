@@ -14,23 +14,8 @@
  * limitations under the License.
  */
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:logging/logging.dart';
-
-import '../../lib/schema_widget.dart';
-
-void main() {
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord
-      .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
-
-  test('create app bar', () {
-    SchemaWidget.registerParsers();
-
-    final widget = SchemaWidget.build(null, {"type": "AppBar"});
-
-    expect(widget != null, true, reason: "Widget not created.");
-    expect(widget is AppBar, true);
-  });
+enum NavigationType {
+  popAndPush,
+  push,
+  pop,
 }

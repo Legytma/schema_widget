@@ -36,6 +36,7 @@ void main() {
       }
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is IconButton, true);
   });
 }

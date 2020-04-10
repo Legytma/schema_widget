@@ -33,6 +33,7 @@ void main() {
       "borderRadius": "0,0,0,0",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is ClipRRect, true);
   });
 }

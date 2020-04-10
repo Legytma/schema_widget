@@ -30,6 +30,7 @@ void main() {
 
     final widget = SchemaWidget.build(null, {"type": "Row"});
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Row, true);
   });
 }

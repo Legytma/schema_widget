@@ -33,6 +33,7 @@ void main() {
       "color": "#000000",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is SpinKitRotatingCircle, true);
   });
 }

@@ -33,6 +33,7 @@ void main() {
       "opacity": 1.0,
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Opacity, true);
   });
 }

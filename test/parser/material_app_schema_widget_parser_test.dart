@@ -33,6 +33,7 @@ void main() {
       "title": "App Title",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is MaterialApp, true);
   });
 }

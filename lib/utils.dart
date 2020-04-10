@@ -21,20 +21,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_schema/json_schema.dart';
+import 'package:schema_form/enum/PickerType.dart';
 
+import 'enum/NavigationType.dart';
 import 'schema_widget.dart';
-
-enum PickerType {
-  DateTimePicker,
-  DatePicker,
-  TimePicker,
-}
-
-enum NavigationType {
-  popAndPush,
-  push,
-  pop,
-}
 
 /// Parse [TextAlign] from [String].
 TextAlign parseTextAlign(dynamic value, [dynamic defaultValue]) {

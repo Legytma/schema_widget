@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
+import 'package:schema_form/schema_form.dart';
 
 import '../../lib/schema_widget.dart';
 
@@ -24,27 +24,22 @@ void main() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
-  SchemaWidget.registerParsers();
 
-  test('create column', () {
-    final widget = SchemaWidget.build(null, {"type": "Column"});
+  test('create schema form widget', () {
+    SchemaWidget.registerParsers();
 
-    expect(widget != null, true, reason: "Widget not created.");
-    expect(widget is Column, true);
-  });
-
-  test('create column with children', () {
-    final widget = SchemaWidget.build(null, {
-      "type": "Column",
-      "children": [
-        {
-          "type": "Text",
-          "data": "Teste",
-        },
-      ],
-    });
+    final widget = SchemaWidget.build(
+      null,
+      {
+        "type": "SchemaForm",
+        "jsonSchema": {
+          "title": "Test",
+          "type": "string",
+        }
+      },
+    );
 
     expect(widget != null, true, reason: "Widget not created.");
-    expect(widget is Column, true);
+    expect(widget is SchemaFormWidget, true);
   });
 }

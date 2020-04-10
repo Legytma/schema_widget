@@ -16,6 +16,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'enum/NavigationType.dart';
 import 'utils.dart';
 
 mixin RouteHandleMixin {

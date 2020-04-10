@@ -30,6 +30,7 @@ void main() {
 
     final widget = SchemaWidget.build(null, {"type": "Positioned"});
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Positioned, true);
   });
 }

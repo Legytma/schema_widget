@@ -30,6 +30,7 @@ void main() {
 
     final widget = SchemaWidget.build(null, {"type": "PageView"});
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is PageView, true);
   });
 }

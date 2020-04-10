@@ -33,6 +33,7 @@ void main() {
       "codePoint": "#${intToHex(Icons.add.codePoint, 5)}",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Icon, true);
   });
 }

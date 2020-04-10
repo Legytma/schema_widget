@@ -60,10 +60,13 @@ import 'parser/routed_list_tile_schema_widget_parser.dart';
 import 'parser/row_schema_widget_parser.dart';
 import 'parser/safe_area_schema_widget_parser.dart';
 import 'parser/scaffold_schema_widget_parser.dart';
+import 'parser/schema_form_widget_schema_widget_parser.dart';
 import 'parser/sized_box_schema_widget_parser.dart';
 import 'parser/spin_kit_rotating_circle_schema_widget_parser.dart';
 import 'parser/stack_schema_widget_parser.dart';
 import 'parser/stream_builder_schema_widget_parser.dart';
+import 'parser/text_schema_form_field_template_schema_widget_parser.dart';
+import 'parser/text_schema_form_field_widget_schema_widget_parser.dart';
 import 'parser/text_schema_widget_parser.dart';
 import 'parser/wrap_schema_widget_parser.dart';
 import 'schema_widget_parser.dart';
@@ -122,10 +125,13 @@ class SchemaWidget {
       registerParser(RowSchemaWidgetParser());
       registerParser(SafeAreaSchemaWidgetParser());
       registerParser(ScaffoldSchemaWidgetParser());
+      registerParser(SchemaFormWidgetSchemaWidgetParser());
       registerParser(SizedBoxSchemaWidgetParser());
       registerParser(SpinKitRotatingCircleSchemaWidgetParser());
       registerParser(StackSchemaWidgetParser());
       registerParser(StreamBuilderSchemaWidgetParser());
+      registerParser(TextSchemaFormFieldTemplateSchemaWidgetParser());
+      registerParser(TextSchemaFormFieldWidgetSchemaWidgetParser());
       registerParser(TextSchemaWidgetParser());
       registerParser(WrapSchemaWidgetParser());
     }
@@ -271,7 +277,7 @@ class SchemaWidget {
       for (var validationError in listOfValidationErrors) {
         if (validationMessages == null) {
           validationMessages =
-          "${validationError.schemaPath}: ${validationError.message}";
+              "${validationError.schemaPath}: ${validationError.message}";
         } else {
           validationMessages = "$validationMessages\n"
               "${validationError.schemaPath}: ${validationError.message}";

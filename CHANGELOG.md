@@ -58,13 +58,18 @@
 * Added CircleAvatar parser;
 * Added Card parser;
 * Added AnimatedContainer parser;
+* Added SchemaForm parser;
+* Added TextSchemaFormFieldTemplate parser;
+* Added TextSchemaFormFieldWidget parser;
 * Added tests for new parsers;
+* Added NavigationType enum;
 * Refactored ColumnShemaWidgetParser;
 * Refactored ContaingerSchemaWidgetParser;
 * Refactored DrawerHeaderSchemaWidgetParser;
 * Refactored ScaffoldSchemaWidgetParser;
 * Refactored TextSchemaWidgetParser;
 * Refactored SchemaWidget to correct the type of MAP used to enable the addition of the navigation handle dynamically;
+* Refactored SchemaWidgetParser to report better logs on invalid schema;
 * In the utils.dart file:
  * Refactored parseInt;
  * Refactored parseTooltipTheme;

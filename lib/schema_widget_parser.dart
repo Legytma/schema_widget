@@ -16,9 +16,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:json_schema/json_schema.dart';
+import 'package:logging/logging.dart';
 
 /// extends this class to make a Flutter widget parser.
 abstract class SchemaWidgetParser {
+  final Logger _log = Logger("SchemaWidgetParser");
+
   /// Get Parser Name
   String get parserName;
 
@@ -30,8 +33,26 @@ abstract class SchemaWidgetParser {
 
   /// Parse the json map into a flutter widget.
   Widget parse(BuildContext buildContext, Map<String, dynamic> map) {
-    if (!validate(map)) {
-      throw Exception("Invalid schema: $map");
+    var listOfValidationErrors = validateWithErrors(map);
+
+    if (listOfValidationErrors != null && listOfValidationErrors.isNotEmpty) {
+      var validationMessages;
+
+      for (var validationError in listOfValidationErrors) {
+        if (validationMessages == null) {
+          validationMessages =
+              "${validationError.schemaPath}: ${validationError.message}";
+        } else {
+          validationMessages = "$validationMessages\n"
+              "${validationError.schemaPath}: ${validationError.message}";
+        }
+      }
+
+      _log.severe("Invalid schema:");
+      _log.severe("Schema: $map");
+      _log.severe("Errors: $validationMessages");
+
+      return null;
     }
 
     return builder(buildContext, map);
@@ -39,4 +60,8 @@ abstract class SchemaWidgetParser {
 
   /// Validate the json map with [JsonSchema]
   bool validate(Map<String, dynamic> map) => jsonSchema.validate(map);
+
+  /// Validate the json map with [JsonSchema]
+  List<ValidationError> validateWithErrors(Map<String, dynamic> map) =>
+      jsonSchema.validateWithErrors(map);
 }

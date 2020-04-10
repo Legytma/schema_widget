@@ -33,12 +33,14 @@ void main() {
   test('create card', () {
     final widget = SchemaWidget.build(null, schema);
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Card, true);
   });
 
   test('verify default values card', () {
     final Card widget = SchemaWidget.build(null, schema);
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget.key, reference.key);
     expect(widget.child, reference.child);
     expect(widget.borderOnForeground, reference.borderOnForeground);

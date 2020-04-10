@@ -37,6 +37,7 @@ void main() {
 
     _log.fine("widget: $widget");
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Image, true);
   });
 }

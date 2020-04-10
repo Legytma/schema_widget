@@ -33,6 +33,7 @@ void main() {
       "children": [],
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is GridViewWidget, true);
   });
 }

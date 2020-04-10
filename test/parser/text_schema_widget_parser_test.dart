@@ -33,6 +33,7 @@ void main() {
       "data": "Texto a ser exibido",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Text, true);
   });
 }

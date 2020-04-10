@@ -32,6 +32,7 @@ void main() {
       "type": "SizedBox",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is SizedBox, true);
   });
 }

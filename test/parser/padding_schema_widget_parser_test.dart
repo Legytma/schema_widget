@@ -33,6 +33,7 @@ void main() {
       "padding": "0,1,2,3",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Padding, true);
   });
 }

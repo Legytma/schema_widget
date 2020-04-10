@@ -33,6 +33,7 @@ void main() {
 
     final widget = SchemaWidget.build(null, schema);
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is ListTile, true);
   });
 }

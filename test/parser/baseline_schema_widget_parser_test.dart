@@ -34,6 +34,7 @@ void main() {
       "baselineType": "alphabetic",
     });
 
+    expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Baseline, true);
   });
 }
