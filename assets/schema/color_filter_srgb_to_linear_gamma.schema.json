@@ -1,0 +1,16 @@
+{
+  "$id": "https://legytma.com.br/schema/color_filter_srgb_to_linear_gamma.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Color Filter Srgb To Linear Gamma",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 29/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [{"$ref": "https://legytma.com.br/schema/color_filter.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/color_filter.schema.json#properties/type",
+      "const": "srgbToLinearGamma"
+    }
+  }
+}
+

@@ -15,91 +15,25 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../model/grid_view_params.dart';
 import '../schema_widget.dart';
 import '../widget/grid_view_widget.dart';
 
 /// [SchemaWidgetParser] to [GridViewWidget]
-class GridViewSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "GridView";
+@SchemaParser("GridViewWidget", 
+    "https://legytma.com.br/schema/widget/grid_view_widget.schema.json")
+class GridViewSchemaWidgetParser extends SchemaWidgetParser<GridViewWidget> {
+  /// Create instance of parser
+  GridViewSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "children": {
-            "title": "Children",
-            "description": "Array of widgets",
-            "type": "array",
-          }
-        },
-        "required": ["type", "children"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    var scrollDirection = Axis.vertical;
-
-    if (map.containsKey("scrollDirection") && "horizontal" == map[""]) {
-      scrollDirection = Axis.horizontal;
-    }
-
-    int crossAxisCount = map['crossAxisCount'];
-    bool reverse = map.containsKey("reverse") ? map['reverse'] : false;
-    bool shrinkWrap = map.containsKey("shrinkWrap") ? map["shrinkWrap"] : false;
-    double cacheExtent =
-        map.containsKey("cacheExtent") ? map["cacheExtent"] : 0.0;
-    var padding = map.containsKey('padding')
-        ? parseEdgeInsetsGeometry(map['padding'])
-        : null;
-    double mainAxisSpacing =
-        map.containsKey('mainAxisSpacing') ? map['mainAxisSpacing'] : 0.0;
-    double crossAxisSpacing =
-        map.containsKey('crossAxisSpacing') ? map['crossAxisSpacing'] : 0.0;
-    double childAspectRatio =
-        map.containsKey('childAspectRatio') ? map['childAspectRatio'] : 1.0;
-    var children = SchemaWidget.build(buildContext, map['children']);
-
-    var pageSize = map.containsKey("pageSize") ? map["pageSize"] : 10;
-    var loadMoreUrl =
-        map.containsKey("loadMoreUrl") ? map["loadMoreUrl"] : null;
-    var isDemo = map.containsKey("isDemo") ? map["isDemo"] : false;
-
-    var params = GridViewParams(
-        crossAxisCount,
-        scrollDirection,
-        reverse,
-        shrinkWrap,
-        cacheExtent,
-        padding,
-        mainAxisSpacing,
-        crossAxisSpacing,
-        childAspectRatio,
-        children,
-        pageSize,
-        loadMoreUrl,
-        isDemo);
-
-    return GridViewWidget(buildContext, params);
+   GridViewWidget builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    return GridViewWidget(
+      buildContext,
+      SchemaWidget.parse<GridViewParams>(buildContext, value['params']),
+    );
   }
 }

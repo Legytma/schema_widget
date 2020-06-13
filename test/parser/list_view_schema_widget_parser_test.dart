@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
 
@@ -28,7 +29,7 @@ void main() {
   test('create list view', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "ListView"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "ListViewWidget"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is ListViewWidget, true);

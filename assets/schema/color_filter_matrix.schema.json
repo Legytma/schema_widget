@@ -1,0 +1,17 @@
+{
+  "$id": "https://legytma.com.br/schema/color_filter_matrix.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Color Filter Matrix",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 29/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [{"$ref": "https://legytma.com.br/schema/color_filter.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/color_filter.schema.json#properties/type",
+      "const": "matrix"
+    },
+    "matrix": {"$ref": "https://legytma.com.br/schema/list_double.schema.json"}
+  }
+}
+

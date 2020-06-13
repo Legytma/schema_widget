@@ -28,7 +28,7 @@ void main() {
   test('create container', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Container"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Container"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Container, true);

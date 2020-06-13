@@ -15,64 +15,38 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Wrap]
-class WrapSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Wrap";
+@SchemaParser("Wrap", "https://legytma.com.br/schema/widget/wrap.schema.json")
+class WrapSchemaWidgetParser extends SchemaWidgetParser<Wrap> {
+  /// Create instance of parser
+  WrapSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   Wrap builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Wrap(
-      direction: map.containsKey("direction")
-          ? parseAxis(map["direction"])
-          : Axis.horizontal,
-      alignment: map.containsKey("alignment")
-          ? parseWrapAlignment(map["alignment"])
-          : WrapAlignment.start,
-      spacing: map.containsKey("spacing") ? map["spacing"] : 0.0,
-      runAlignment: map.containsKey("runAlignment")
-          ? parseWrapAlignment(map["runAlignment"])
-          : WrapAlignment.start,
-      runSpacing: map.containsKey("runSpacing") ? map["runSpacing"] : 0.0,
-      crossAxisAlignment: map.containsKey("crossAxisAlignment")
-          ? parseWrapCrossAlignment(map["crossAxisAlignment"])
-          : WrapCrossAlignment.start,
-      textDirection: map.containsKey("textDirection")
-          ? parseTextDirection(map["textDirection"])
-          : null,
-      verticalDirection: map.containsKey("verticalDirection")
-          ? parseVerticalDirection(map["verticalDirection"])
-          : VerticalDirection.down,
-      children: SchemaWidget.build(buildContext, map['children']) ?? [],
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      direction: SchemaWidget.parse<Axis>(
+          buildContext, value['direction'], Axis.horizontal),
+      alignment: SchemaWidget.parse<WrapAlignment>(
+          buildContext, value['alignment'], WrapAlignment.start),
+      spacing: SchemaWidget.parse<double>(buildContext, value['spacing'], 0.0),
+      runAlignment: SchemaWidget.parse<WrapAlignment>(
+          buildContext, value['runAlignment'], WrapAlignment.start),
+      runSpacing:
+          SchemaWidget.parse<double>(buildContext, value['runSpacing'], 0.0),
+      crossAxisAlignment: SchemaWidget.parse<WrapCrossAlignment>(
+          buildContext, value['crossAxisAlignment'], WrapCrossAlignment.start),
+      textDirection: SchemaWidget.parse<TextDirection>(
+          buildContext, value["textDirection"]),
+      verticalDirection: SchemaWidget.parse<VerticalDirection>(
+          buildContext, value['verticalDirection'], VerticalDirection.down),
+      children: SchemaWidget.parse<List<Widget>>(
+          buildContext, value['children'], const <Widget>[]),
     );
   }
 }

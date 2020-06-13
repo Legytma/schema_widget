@@ -1,0 +1,9 @@
+{
+  "$id": "https://legytma.com.br/schema/shape_border.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "This parser is not implemented, must be assigned using registerLogic",
+  "title": "Shape Border",
+  "description": "Shape border undefined at moment.",
+  "type": "null"
+}
+

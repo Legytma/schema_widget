@@ -12,7 +12,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SchemaWidget.build(context, {
+    return SchemaWidget.parse<Widget>(context, {
       "type": "MaterialApp",
       "title": 'Flutter Demo',
       "theme": ThemeData(
@@ -50,14 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
       BuildContext buildContext, AsyncSnapshot<dynamic> snapshot) {
     var textStyle = Theme.of(buildContext).textTheme.display1;
 
-    return SchemaWidget.build(buildContext, {
+    return SchemaWidget.parse<Widget>(buildContext, {
       "type": "Text",
       "data": '${snapshot.data}',
       "style": {
         "type": "TextStyle",
-        "color": "#${intToHex(textStyle.color.value, 6)}",
+        "color": "#${textStyle.color.value.toRadixString(16)}",
         "debugLabel": textStyle.debugLabel,
-        "decoration": textDecorationToString(textStyle.decoration),
+        "decoration": "decoration",
         "fontFamily": textStyle.fontFamily,
         "fontSize": textStyle.fontSize,
         "fontWeight": textStyle.fontWeight.toString().substring(11),
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var iconData = Icons.add;
 
-    return SchemaWidget.build(context, {
+    return SchemaWidget.parse<Widget>(context, {
       "type": "Scaffold",
       "appBar": {
         "type": "AppBar",
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
         "tooltip": 'Increment',
         "child": {
           "type": "Icon",
-          "codePoint": "#${intToHex(iconData.codePoint, 5)}",
+          "codePoint": "#${iconData.codePoint.toRadixString(16)}",
           "fontFamily": iconData.fontFamily,
           "matchTextDirection": iconData.matchTextDirection,
         },

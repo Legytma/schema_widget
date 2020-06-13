@@ -1,0 +1,38 @@
+{
+  "$id": "https://legytma.com.br/schema/slider_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Slider Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 23/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "activeTrackColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "inactiveTrackColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "activeTickMarkColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledActiveTickMarkColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledActiveTrackColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledInactiveTickMarkColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledInactiveTrackColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledThumbColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "inactiveTickMarkColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "minThumbSeparation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "overlappingShapeStrokeColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "overlayColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "overlayShape": {"$ref": "https://legytma.com.br/schema/slider_component_shape.schema.json"},
+    "rangeThumbShape": {"$ref": "https://legytma.com.br/schema/range_slider_thumb_shape.schema.json"},
+    "rangeTickMarkShape": {"$ref": "https://legytma.com.br/schema/range_slider_tick_mark_shape.schema.json"},
+    "rangeTrackShape": {"$ref": "https://legytma.com.br/schema/range_slider_track_shape.schema.json"},
+    "rangeValueIndicatorShape": {"$ref": "https://legytma.com.br/schema/range_slider_value_indicator_shape.schema.json"},
+    "showValueIndicator": {"$ref": "https://legytma.com.br/schema/show_value_indicator.schema.json"},
+    "thumbColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "thumbSelector": {"$ref": "https://legytma.com.br/schema/range_thumb_selector.schema.json"},
+    "thumbShape": {"$ref": "https://legytma.com.br/schema/slider_component_shape.schema.json"},
+    "tickMarkShape": {"$ref": "https://legytma.com.br/schema/slider_tick_mark_shape.schema.json"},
+    "trackHeight": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "trackShape": {"$ref": "https://legytma.com.br/schema/slider_track_shape.schema.json"},
+    "valueIndicatorColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "valueIndicatorShape": {"$ref": "https://legytma.com.br/schema/slider_component_shape.schema.json"},
+    "valueIndicatorTextStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"}
+  }
+}
+

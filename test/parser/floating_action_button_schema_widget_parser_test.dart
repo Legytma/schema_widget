@@ -28,7 +28,8 @@ void main() {
   test('create floating action button', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "FloatingActionButton"});
+    final widget =
+        SchemaWidget.parse<Widget>(null, {"type": "FloatingActionButton"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is FloatingActionButton, true);

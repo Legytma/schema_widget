@@ -28,7 +28,7 @@ void main() {
   test('create row', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Row"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Row"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Row, true);

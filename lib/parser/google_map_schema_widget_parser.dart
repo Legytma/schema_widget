@@ -14,60 +14,74 @@
  * limitations under the License.
  */
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [GoogleMap]
-class GoogleMapSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("GoogleMap", "https://legytma.com.br/schema/widget/google_map.schema.json")
+class GoogleMapSchemaWidgetParser extends SchemaWidgetParser<GoogleMap> {
   static final Logger _log = Logger("GoogleMapSchemaWidgetParser");
 
-  @override
-  String get parserName => "GoogleMap";
+  /// Create instance of parser
+  GoogleMapSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer('map: $map');
-
-    var _pMap = map["initialCameraPosition"] ?? {};
-    var _latitude = _pMap["latitude"] ?? 0.0;
-    var _longitude = _pMap["longitude"] ?? 0.0;
-    var _initialCameraPosition =
-        CameraPosition(target: LatLng(_latitude, _longitude));
+   GoogleMap builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer('map: $value');
 
     return GoogleMap(
-      initialCameraPosition: _initialCameraPosition,
-      myLocationEnabled: map["myLocationEnabled"],
-      mapType: parseMapType(map["mapType"]),
-      compassEnabled: map["compassEnabled"],
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      initialCameraPosition: SchemaWidget.parse<CameraPosition>(
+          buildContext, value['initialCameraPosition']),
+      myLocationEnabled: value["myLocationEnabled"] ?? false,
+      mapType: SchemaWidget.parse<MapType>(
+          buildContext, value["mapType"], MapType.normal),
+      compassEnabled: value["compassEnabled"] ?? true,
+      onTap: SchemaWidget.parse<ArgumentCallback<LatLng>>(
+          buildContext, value['onTap']),
+      padding: SchemaWidget.parse<EdgeInsets>(buildContext, value['padding']),
+      onLongPress: SchemaWidget.parse<ArgumentCallback<LatLng>>(
+          buildContext, value['onLongPress']),
+      buildingsEnabled: value['buildingsEnabled'] ?? true,
+      cameraTargetBounds: SchemaWidget.parse<CameraTargetBounds>(
+          buildContext, value['cameraTargetBounds']),
+      circles: SchemaWidget.parse<Set<Circle>>(buildContext, value['circles']),
+      gestureRecognizers:
+          SchemaWidget.parse<Set<Factory<OneSequenceGestureRecognizer>>>(
+              buildContext, value['gestureRecognizers']),
+      indoorViewEnabled: value['indoorViewEnabled'] ?? false,
+      mapToolbarEnabled: value['mapToolbarEnabled'] ?? true,
+      markers: SchemaWidget.parse<Set<Marker>>(buildContext, value['markers']),
+      minMaxZoomPreference: SchemaWidget.parse<MinMaxZoomPreference>(
+          buildContext,
+          value['minMaxZoomPreference'],
+          MinMaxZoomPreference.unbounded),
+      myLocationButtonEnabled: value['myLocationButtonEnabled'] ?? true,
+      onCameraIdle:
+          SchemaWidget.parse<VoidCallback>(buildContext, value['onCameraIdle']),
+      onCameraMove: SchemaWidget.parse<CameraPositionCallback>(
+          buildContext, value['onCameraMove']),
+      onCameraMoveStarted: SchemaWidget.parse<VoidCallback>(
+          buildContext, value['onCameraMoveStarted']),
+      onMapCreated: SchemaWidget.parse<MapCreatedCallback>(
+          buildContext, value['onMapCreated']),
+      polygons:
+          SchemaWidget.parse<Set<Polygon>>(buildContext, value['polygons']),
+      polylines:
+          SchemaWidget.parse<Set<Polyline>>(buildContext, value['polylines']),
+      rotateGesturesEnabled: value['rotateGesturesEnabled'] ?? true,
+      scrollGesturesEnabled: value['scrollGesturesEnabled'] ?? true,
+      tiltGesturesEnabled: value['tiltGesturesEnabled'] ?? true,
+      trafficEnabled: value['trafficEnabled'] ?? false,
+      zoomControlsEnabled: value['zoomControlsEnabled'] ?? true,
+      zoomGesturesEnabled: value['zoomGesturesEnabled'] ?? true,
     );
   }
 }

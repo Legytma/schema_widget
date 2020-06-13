@@ -1,0 +1,35 @@
+{
+  "$id": "https://legytma.com.br/schema/flutter_logo_decoration.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Flutter Logo Decoration",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://legytma.com.br/schema/decoration.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/decoration.schema.json#properties/type",
+      "const": "FlutterLogoDecoration"
+    },
+    "style": {
+      "$ref": "https://legytma.com.br/schema/flutter_logo_style.schema.json",
+      "default": "markOnly"
+    },
+    "margin": {
+      "$ref": "https://legytma.com.br/schema/edge_insets.schema.json",
+      "default": "zero"
+    },
+    "darkColor": {
+      "$ref": "https://legytma.com.br/schema/color.schema.json",
+      "default": "0xFF0D47A1"
+    },
+    "lightColor": {
+      "$ref": "https://legytma.com.br/schema/color.schema.json",
+      "default": "0xFF42A5F5"
+    },
+    "textColor": {
+      "$ref": "https://legytma.com.br/schema/color.schema.json",
+      "default": "0xFF616161"
+    }
+  }
+}

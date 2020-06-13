@@ -1,0 +1,10 @@
+{
+  "$id": "https://legytma.com.br/schema/text_align.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "Text Align",
+  "description": "Determine the text alignment",
+  "type": "string",
+  "examples": ["left", "right", "center", "justify", "start", "end"],
+  "enum": ["left", "right", "center", "justify", "start", "end"]
+}

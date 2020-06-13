@@ -1,0 +1,52 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/raised_button.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Raised Button",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 13/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "RaisedButton"
+    },
+    "onLongPress": {"$ref": "https://legytma.com.br/schema/void_callback.schema.json"},
+    "clipBehavior": {
+      "$ref": "https://legytma.com.br/schema/clip.schema.json",
+      "default": "none"
+    },
+    "shape": {"$ref": "https://legytma.com.br/schema/shape_border.schema.json"},
+    "focusNode": {"$ref": "https://legytma.com.br/schema/focus_node.schema.json"},
+    "autofocus": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "focusColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "highlightColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "hoverColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "textTheme": {"$ref": "https://legytma.com.br/schema/button_text_theme.schema.json"},
+    "animationDuration": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "colorBrightness": {"$ref": "https://legytma.com.br/schema/brightness.schema.json"},
+    "focusElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "highlightElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "hoverElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "materialTapTargetSize": {"$ref": "https://legytma.com.br/schema/material_tap_target_size.schema.json"},
+    "onHighlightChanged": {"$ref": "https://legytma.com.br/schema/value_changed_bool.schema.json"},
+    "color": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "disabledTextColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "elevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "padding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "splashColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "textColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"},
+    "onPressed": {"$ref": "https://legytma.com.br/schema/void_callback.schema.json"}
+  }
+}
+

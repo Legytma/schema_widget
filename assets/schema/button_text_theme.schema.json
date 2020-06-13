@@ -1,0 +1,11 @@
+{
+  "$id": "https://legytma.com.br/schema/button_text_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Button Text Theme",
+  "description": "",
+  "$comment": "",
+  "type": "string",
+  "enum": ["accent", "normal", "primary"],
+  "examples": ["accent", "normal", "primary"]
+}
+

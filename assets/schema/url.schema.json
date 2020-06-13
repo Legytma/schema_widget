@@ -1,0 +1,10 @@
+{
+  "$id": "https://legytma.com.br/schema/url.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Url",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "string",
+  "format": "uri"
+}
+

@@ -15,58 +15,37 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [DrawerHeader].
-class DrawerHeaderSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("DrawerHeader", "https://legytma.com.br/schema/widget/drawer_header.schema.json")
+class DrawerHeaderSchemaWidgetParser extends SchemaWidgetParser<DrawerHeader> {
   static final Logger _log = Logger("DrawerHeaderSchemaWidgetParser");
 
-  @override
-  String get parserName => "DrawerHeader";
+  /// Create instance of parser
+  DrawerHeaderSchemaWidgetParser(JsonSchema jsonSchema): super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
+   DrawerHeader builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
     return DrawerHeader(
-      key: SchemaWidget.build(buildContext, map['key']),
-      child: SchemaWidget.build(buildContext, map["child"]),
-      decoration: parseDecoration(buildContext, map['decoration']),
-      margin: parseEdgeInsetsGeometry(
-          map['margin'], const EdgeInsets.only(bottom: 8.0)),
-      padding: parseEdgeInsetsGeometry(map['padding']) ??
-          const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
-      curve: parseCurve(map['curve'], Curves.fastOutSlowIn),
-      duration:
-          parseDuration(map['duration'], const Duration(milliseconds: 250)),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
+      decoration:
+          SchemaWidget.parse<Decoration>(buildContext, value['decoration']),
+      margin: SchemaWidget.parse<EdgeInsetsGeometry>(
+          buildContext, value['margin'], const EdgeInsets.only(bottom: 8.0)),
+      padding: SchemaWidget.parse<EdgeInsetsGeometry>(buildContext,
+          value['padding'], const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0)),
+      curve: SchemaWidget.parse<Curve>(
+          buildContext, value['curve'], Curves.fastOutSlowIn),
+      duration: SchemaWidget.parse<Duration>(
+          buildContext, value['duration'], const Duration(milliseconds: 250)),
     );
   }
 }

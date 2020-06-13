@@ -1,0 +1,25 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/expanded.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Expanded",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 06/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "Expanded"
+    },
+    "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"},
+    "flex": {
+        "$ref": "https://legytma.com.br/schema/int.schema.json",
+        "default": 1
+    }
+  }
+}
+

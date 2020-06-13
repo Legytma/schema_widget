@@ -14,98 +14,102 @@
  * limitations under the License.
  */
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [GestureDetector]
-class GestureDetectorSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "GestureDetector";
+@SchemaParser("GestureDetector", 
+    "https://legytma.com.br/schema/widget/gesture_detector.schema.json")
+class GestureDetectorSchemaWidgetParser
+    extends SchemaWidgetParser<GestureDetector> {
+  /// Create instance of parser
+  GestureDetectorSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   GestureDetector builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return GestureDetector(
-      onDoubleTap: SchemaWidget.build(buildContext, map['onDoubleTap']),
-      onForcePressEnd: SchemaWidget.build(buildContext, map['onForcePressEnd']),
-      onForcePressPeak:
-          SchemaWidget.build(buildContext, map['onForcePressPeak']),
-      onForcePressStart:
-          SchemaWidget.build(buildContext, map['onForcePressStart']),
-      onForcePressUpdate:
-          SchemaWidget.build(buildContext, map['onForcePressUpdate']),
-      onHorizontalDragCancel:
-          SchemaWidget.build(buildContext, map['onHorizontalDragCancel']),
-      onHorizontalDragDown:
-          SchemaWidget.build(buildContext, map['onHorizontalDragDown']),
-      onHorizontalDragEnd:
-          SchemaWidget.build(buildContext, map['onHorizontalDragEnd']),
-      onHorizontalDragStart:
-          SchemaWidget.build(buildContext, map['onHorizontalDragStart']),
-      onHorizontalDragUpdate:
-          SchemaWidget.build(buildContext, map['onHorizontalDragUpdate']),
-      onLongPress: SchemaWidget.build(buildContext, map['onLongPress']),
-      onLongPressEnd: SchemaWidget.build(buildContext, map['onLongPressEnd']),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      dragStartBehavior: SchemaWidget.parse<DragStartBehavior>(
+          buildContext, value['dragStartBehavior'], DragStartBehavior.start),
+      behavior:
+          SchemaWidget.parse<HitTestBehavior>(buildContext, value['behavior']),
+      excludeFromSemantics: value['excludeFromSemantics'] ?? false,
+      onDoubleTap: SchemaWidget.parse<GestureTapCallback>(
+          buildContext, value['onDoubleTap']),
+      onForcePressEnd: SchemaWidget.parse<GestureForcePressEndCallback>(
+          buildContext, value['onForcePressEnd']),
+      onForcePressPeak: SchemaWidget.parse<GestureForcePressPeakCallback>(
+          buildContext, value['onForcePressPeak']),
+      onForcePressStart: SchemaWidget.parse<GestureForcePressStartCallback>(
+          buildContext, value['onForcePressStart']),
+      onForcePressUpdate: SchemaWidget.parse<GestureForcePressUpdateCallback>(
+          buildContext, value['onForcePressUpdate']),
+      onHorizontalDragCancel: SchemaWidget.parse<GestureDragCancelCallback>(
+          buildContext, value['onHorizontalDragCancel']),
+      onHorizontalDragDown: SchemaWidget.parse<GestureDragDownCallback>(
+          buildContext, value['onHorizontalDragDown']),
+      onHorizontalDragEnd: SchemaWidget.parse<GestureDragEndCallback>(
+          buildContext, value['onHorizontalDragEnd']),
+      onHorizontalDragStart: SchemaWidget.parse<GestureDragStartCallback>(
+          buildContext, value['onHorizontalDragStart']),
+      onHorizontalDragUpdate: SchemaWidget.parse<GestureDragUpdateCallback>(
+          buildContext, value['onHorizontalDragUpdate']),
+      onLongPress: SchemaWidget.parse<GestureLongPressCallback>(
+          buildContext, value['onLongPress']),
+      onLongPressEnd: SchemaWidget.parse<GestureLongPressEndCallback>(
+          buildContext, value['onLongPressEnd']),
       onLongPressMoveUpdate:
-          SchemaWidget.build(buildContext, map['onLongPressMoveUpdate']),
-      onLongPressStart:
-          SchemaWidget.build(buildContext, map['onLongPressStart']),
-      onLongPressUp: SchemaWidget.build(buildContext, map['onLongPressUp']),
-      onPanCancel: SchemaWidget.build(buildContext, map['onPanCancel']),
-      onPanDown: SchemaWidget.build(buildContext, map['onPanDown']),
-      onPanEnd: SchemaWidget.build(buildContext, map['onPanEnd']),
-      onPanStart: SchemaWidget.build(buildContext, map['onPanStart']),
-      onPanUpdate: SchemaWidget.build(buildContext, map['onPanUpdate']),
-      onScaleEnd: SchemaWidget.build(buildContext, map['onScaleEnd']),
-      onScaleStart: SchemaWidget.build(buildContext, map['onScaleStart']),
-      onScaleUpdate: SchemaWidget.build(buildContext, map['onScaleUpdate']),
-      onSecondaryTapCancel:
-          SchemaWidget.build(buildContext, map['onSecondaryTapCancel']),
-      onSecondaryTapDown:
-          SchemaWidget.build(buildContext, map['onSecondaryTapDown']),
-      onSecondaryTapUp:
-          SchemaWidget.build(buildContext, map['onSecondaryTapUp']),
-      onTap: SchemaWidget.build(buildContext, map['onTap']),
-      onTapCancel: SchemaWidget.build(buildContext, map['onTapCancel']),
-      onTapDown: SchemaWidget.build(buildContext, map['onTapDown']),
-      onTapUp: SchemaWidget.build(buildContext, map['onTapUp']),
-      onVerticalDragCancel:
-          SchemaWidget.build(buildContext, map['onVerticalDragCancel']),
-      onVerticalDragDown:
-          SchemaWidget.build(buildContext, map['onVerticalDragDown']),
-      onVerticalDragEnd:
-          SchemaWidget.build(buildContext, map['onVerticalDragEnd']),
-      onVerticalDragStart:
-          SchemaWidget.build(buildContext, map['onVerticalDragStart']),
-      onVerticalDragUpdate:
-          SchemaWidget.build(buildContext, map['onVerticalDragUpdate']),
-      child: SchemaWidget.build(buildContext, map['child']),
+          SchemaWidget.parse<GestureLongPressMoveUpdateCallback>(
+              buildContext, value['onLongPressMoveUpdate']),
+      onLongPressStart: SchemaWidget.parse<GestureLongPressStartCallback>(
+          buildContext, value['onLongPressStart']),
+      onLongPressUp: SchemaWidget.parse<GestureLongPressUpCallback>(
+          buildContext, value['onLongPressUp']),
+      onPanCancel: SchemaWidget.parse<GestureDragCancelCallback>(
+          buildContext, value['onPanCancel']),
+      onPanDown: SchemaWidget.parse<GestureDragDownCallback>(
+          buildContext, value['onPanDown']),
+      onPanEnd: SchemaWidget.parse<GestureDragEndCallback>(
+          buildContext, value['onPanEnd']),
+      onPanStart: SchemaWidget.parse<GestureDragStartCallback>(
+          buildContext, value['onPanStart']),
+      onPanUpdate: SchemaWidget.parse<GestureDragUpdateCallback>(
+          buildContext, value['onPanUpdate']),
+      onScaleEnd: SchemaWidget.parse<GestureScaleEndCallback>(
+          buildContext, value['onScaleEnd']),
+      onScaleStart: SchemaWidget.parse<GestureScaleStartCallback>(
+          buildContext, value['onScaleStart']),
+      onScaleUpdate: SchemaWidget.parse<GestureScaleUpdateCallback>(
+          buildContext, value['onScaleUpdate']),
+      onSecondaryTapCancel: SchemaWidget.parse<GestureTapCancelCallback>(
+          buildContext, value['onSecondaryTapCancel']),
+      onSecondaryTapDown: SchemaWidget.parse<GestureTapDownCallback>(
+          buildContext, value['onSecondaryTapDown']),
+      onSecondaryTapUp: SchemaWidget.parse<GestureTapUpCallback>(
+          buildContext, value['onSecondaryTapUp']),
+      onTap:
+          SchemaWidget.parse<GestureTapCallback>(buildContext, value['onTap']),
+      onTapCancel: SchemaWidget.parse<GestureTapCancelCallback>(
+          buildContext, value['onTapCancel']),
+      onTapDown: SchemaWidget.parse<GestureTapDownCallback>(
+          buildContext, value['onTapDown']),
+      onTapUp: SchemaWidget.parse<GestureTapUpCallback>(
+          buildContext, value['onTapUp']),
+      onVerticalDragCancel: SchemaWidget.parse<GestureDragCancelCallback>(
+          buildContext, value['onVerticalDragCancel']),
+      onVerticalDragDown: SchemaWidget.parse<GestureDragDownCallback>(
+          buildContext, value['onVerticalDragDown']),
+      onVerticalDragEnd: SchemaWidget.parse<GestureDragEndCallback>(
+          buildContext, value['onVerticalDragEnd']),
+      onVerticalDragStart: SchemaWidget.parse<GestureDragStartCallback>(
+          buildContext, value['onVerticalDragStart']),
+      onVerticalDragUpdate: SchemaWidget.parse<GestureDragUpdateCallback>(
+          buildContext, value['onVerticalDragUpdate']),
+      child: SchemaWidget.parse<Widget>(buildContext, value['child']),
     );
   }
 }

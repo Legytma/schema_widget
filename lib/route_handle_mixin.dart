@@ -16,30 +16,33 @@
 
 import 'package:flutter/material.dart';
 
-import 'enum/NavigationType.dart';
-import 'utils.dart';
+import 'enum/navigation_type.dart';
+import 'schema_widget.dart';
 
 mixin RouteHandleMixin {
-  void addHandleOnMap(
-      Map<String, dynamic> map, BuildContext buildContext, String handleName) {
-    map[handleName] = () {
-      routeNavigate(buildContext, map);
-    };
+  void addHandleOnMap(Map<String, dynamic> value, BuildContext buildContext,
+      String handleName) {
+    if (value.containsKey('navigationType') && value.containsKey('route')) {
+      value[handleName] = () {
+        routeNavigate(buildContext, value);
+      };
+    }
   }
 
-  void routeNavigate(BuildContext buildContext, Map<String, dynamic> map) {
+  void routeNavigate(BuildContext buildContext, Map<String, dynamic> value) {
     final navigator = Navigator.of(buildContext);
 
-    switch (parseNavigationType(map['navigationType'])) {
+    switch (SchemaWidget.parse<NavigationType>(
+        buildContext, value['navigationType'])) {
       case NavigationType.pop:
         navigator?.pop();
         break;
-      case NavigationType.push:
-        navigator?.pushNamed(map['route']);
-        break;
       case NavigationType.popAndPush:
+        navigator?.popAndPushNamed(value['route']);
+        break;
+      case NavigationType.push:
       default:
-        navigator?.popAndPushNamed(map['route']);
+        navigator?.pushNamed(value['route']);
     }
   }
 }

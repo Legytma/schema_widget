@@ -21,59 +21,43 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SchemaFormWidget].
-class IconButtonSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("IconButton", "https://legytma.com.br/schema/widget/icon_button.schema.json")
+class IconButtonSchemaWidgetParser extends SchemaWidgetParser<IconButton> {
   static final Logger _log = Logger("IconButtonSchemaWidgetParser");
 
-  @override
-  String get parserName => "IconButton";
+  /// Create instance of parser
+  IconButtonSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
+   IconButton builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
     return IconButton(
-      key: SchemaWidget.build(buildContext, map["key"]),
-      icon: SchemaWidget.build(buildContext, map["icon"]),
-      onPressed: SchemaWidget.build(buildContext, map["onPressed"]),
-      padding:
-          parseEdgeInsetsGeometry(map["padding"]) ?? const EdgeInsets.all(8.0),
-//      focusNode: map["focusNode"],
-      autofocus: map["autofocus"] ?? false,
-      alignment: parseAlignment(map["alignment"], Alignment.center),
-      color: parseHexColor(map["color"]),
-      disabledColor: parseHexColor(map["disabledColor"]),
-      enableFeedback: map["enableFeedback"] ?? true,
-      focusColor: parseHexColor(map["focusColor"]),
-      highlightColor: parseHexColor(map["highlightColor"]),
-      hoverColor: parseHexColor(map["hoverColor"]),
-      iconSize: map["iconSize"] ?? 24.0,
-      splashColor: parseHexColor(map["splashColor"]),
-      tooltip: map["tooltip"],
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      icon: SchemaWidget.parse<Widget>(buildContext, value["icon"]),
+      onPressed:
+          SchemaWidget.parse<VoidCallback>(buildContext, value["onPressed"]),
+      padding: SchemaWidget.parse<EdgeInsetsGeometry>(
+          buildContext, value["padding"], const EdgeInsets.all(8.0)),
+      focusNode:
+          SchemaWidget.parse<FocusNode>(buildContext, value["focusNode"]),
+      autofocus: value["autofocus"] ?? false,
+      alignment: SchemaWidget.parse<AlignmentGeometry>(
+          buildContext, value["alignment"], Alignment.center),
+      color: SchemaWidget.parse<Color>(buildContext, value["color"]),
+      disabledColor:
+          SchemaWidget.parse<Color>(buildContext, value["disabledColor"]),
+      enableFeedback: value["enableFeedback"] ?? true,
+      focusColor: SchemaWidget.parse<Color>(buildContext, value["focusColor"]),
+      highlightColor:
+          SchemaWidget.parse<Color>(buildContext, value["highlightColor"]),
+      hoverColor: SchemaWidget.parse<Color>(buildContext, value["hoverColor"]),
+      iconSize:
+          SchemaWidget.parse<double>(buildContext, value["iconSize"], 24.0),
+      splashColor:
+          SchemaWidget.parse<Color>(buildContext, value["splashColor"]),
+      tooltip: value["tooltip"],
     );
   }
 }

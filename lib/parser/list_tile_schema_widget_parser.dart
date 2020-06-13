@@ -15,55 +15,38 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [ListTile]
-class ListTileSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "ListTile";
+@SchemaParser("ListTile", "https://legytma.com.br/schema/widget/list_tile.schema.json")
+class ListTileSchemaWidgetParser extends SchemaWidgetParser<ListTile>
+    with RouteHandleMixin {
+  /// Create instance of parser
+  ListTileSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
+   ListTile builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    addHandleOnMap(value, buildContext, "onTap");
 
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
     return ListTile(
-      key: SchemaWidget.build(buildContext, map["key"]),
-      isThreeLine: map["isThreeLine"] ?? false,
-      leading: SchemaWidget.build(buildContext, map["leading"]),
-      title: SchemaWidget.build(buildContext, map["title"]),
-      subtitle: SchemaWidget.build(buildContext, map["subtitle"]),
-      trailing: SchemaWidget.build(buildContext, map["trailing"]),
-      dense: map["dense"],
-      contentPadding: parseEdgeInsetsGeometry(map["contentPadding"]),
-      enabled: map["enabled"] ?? true,
-      selected: map["selected"] ?? false,
-      onLongPress: SchemaWidget.build(buildContext, map["onLongPress"]),
-      onTap: SchemaWidget.build(buildContext, map["onTap"]),
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      isThreeLine: value["isThreeLine"] ?? false,
+      leading: SchemaWidget.parse<Widget>(buildContext, value["leading"]),
+      title: SchemaWidget.parse<Widget>(buildContext, value["title"]),
+      subtitle: SchemaWidget.parse<Widget>(buildContext, value["subtitle"]),
+      trailing: SchemaWidget.parse<Widget>(buildContext, value["trailing"]),
+      dense: value["dense"],
+      contentPadding: SchemaWidget.parse<EdgeInsetsGeometry>(
+          buildContext, value["contentPadding"]),
+      enabled: value["enabled"] ?? true,
+      selected: value["selected"] ?? false,
+      onLongPress: SchemaWidget.parse<GestureLongPressCallback>(
+          buildContext, value["onLongPress"]),
+      onTap:
+          SchemaWidget.parse<GestureTapCallback>(buildContext, value["onTap"]),
     );
   }
 }

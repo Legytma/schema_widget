@@ -1,0 +1,31 @@
+{
+  "$id": "https://legytma.com.br/schema/alignment.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "Alignment",
+  "description": "Determine the alignment",
+  "type": "string",
+  "examples": [
+    "topLeft",
+    "topCenter",
+    "topRight",
+    "centerLeft",
+    "center",
+    "centerRight",
+    "bottomLeft",
+    "bottomCenter",
+    "bottomRight"
+  ],
+  "enum": [
+    "topLeft",
+    "topCenter",
+    "topRight",
+    "centerLeft",
+    "center",
+    "centerRight",
+    "bottomLeft",
+    "bottomCenter",
+    "bottomRight"
+  ]
+}
+

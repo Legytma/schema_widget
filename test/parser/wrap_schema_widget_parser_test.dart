@@ -28,7 +28,7 @@ void main() {
   test('create wrap', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Wrap"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Wrap"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Wrap, true);

@@ -1,0 +1,31 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/fitted_box.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Fitted Box",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 06/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "FittedBox"
+    },
+    "alignment": {
+      "$ref": "https://legytma.com.br/schema/int.schema.json",
+      "default": {
+        "type": "center"
+      }
+    },
+    "fit": {
+      "$ref": "https://legytma.com.br/schema/box_fit.schema.json",
+      "default": "contain"
+    },
+    "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"}
+  }
+}
+

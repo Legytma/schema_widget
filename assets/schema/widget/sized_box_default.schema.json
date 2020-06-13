@@ -1,0 +1,22 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/sized_box_default.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Sized Box Default",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 14/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget/sized_box.schema.json"
+    }
+  ],
+  "properties": {
+    "sizedBoxType": {
+      "$ref": "https://legytma.com.br/schema/widget/sized_box.schema.json#properties/sizedBoxType",
+      "const": "default"
+    },
+    "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "width": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

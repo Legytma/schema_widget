@@ -1,0 +1,15 @@
+{
+  "$id": "https://legytma.com.br/schema/material_banner_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Material Banner Theme Data",
+  "description": "Material banner theme data.",
+  "$comment": "This parser is not implemented, must be assigned using registerLogic",
+  "type": "object",
+  "properties": {
+    "backgroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "contentTextStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "leadingPadding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "padding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"}
+  }
+}
+

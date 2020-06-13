@@ -28,7 +28,7 @@ void main() {
   test('create center', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Center"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Center"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Center, true);

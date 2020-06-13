@@ -28,9 +28,9 @@ void main() {
   test('create icon', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "Icon",
-      "codePoint": "#${intToHex(Icons.add.codePoint, 5)}",
+      "codePoint": Icons.add.codePoint,
     });
 
     expect(widget != null, true, reason: "Widget not created.");

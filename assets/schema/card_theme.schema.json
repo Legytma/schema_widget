@@ -1,0 +1,16 @@
+{
+  "$id": "https://legytma.com.br/schema/card_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Card Theme",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 22/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "shape": {"$ref": "https://legytma.com.br/schema/shape_border.schema.json"},
+    "clipBehavior": {"$ref": "https://legytma.com.br/schema/clip.schema.json"},
+    "elevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "color": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "margin": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"}
+  }
+}
+

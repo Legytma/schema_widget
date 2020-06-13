@@ -15,68 +15,65 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [RaisedButton]
-class RaisedButtonSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "RaisedButton";
+@SchemaParser("RaisedButton", "https://legytma.com.br/schema/widget/raised_button.schema.json")
+class RaisedButtonSchemaWidgetParser extends SchemaWidgetParser<RaisedButton> {
+  /// Create instance of parser
+  RaisedButtonSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-//        "type": "Object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-//    String clickEvent =
-//        map.containsKey("click_event") ?  : null;
-
-    var raisedButton = RaisedButton(
-      color: map.containsKey('color') ? parseHexColor(map['color']) : null,
-      disabledColor: map.containsKey('disabledColor')
-          ? parseHexColor(map['disabledColor'])
-          : null,
+   RaisedButton builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    return RaisedButton(
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      onLongPress:
+          SchemaWidget.parse<VoidCallback>(buildContext, value['onLongPress']),
+      clipBehavior: SchemaWidget.parse<Clip>(
+          buildContext, value['clipBehavior'], Clip.none),
+      shape: SchemaWidget.parse<ShapeBorder>(buildContext, value['shape']),
+      focusNode:
+          SchemaWidget.parse<FocusNode>(buildContext, value['focusNode']),
+      autofocus: value['autofocus'] ?? false,
+      focusColor: SchemaWidget.parse<Color>(buildContext, value['focusColor']),
+      highlightColor:
+          SchemaWidget.parse<Color>(buildContext, value['highlightColor']),
+      hoverColor: SchemaWidget.parse<Color>(buildContext, value['hoverColor']),
+      textTheme:
+          SchemaWidget.parse<ButtonTextTheme>(buildContext, value['textTheme']),
+      animationDuration: SchemaWidget.parse<Duration>(
+          buildContext, value['animationDuration']),
+      colorBrightness: SchemaWidget.parse<Brightness>(
+          buildContext, value['colorBrightness']),
+      focusElevation:
+          SchemaWidget.parse<double>(buildContext, value['focusElevation']),
+      highlightElevation:
+          SchemaWidget.parse<double>(buildContext, value['highlightElevation']),
+      hoverElevation:
+          SchemaWidget.parse<double>(buildContext, value['hoverElevation']),
+      materialTapTargetSize: SchemaWidget.parse<MaterialTapTargetSize>(
+          buildContext, value['materialTapTargetSize']),
+      onHighlightChanged: SchemaWidget.parse<ValueChanged<bool>>(
+          buildContext, value['onHighlightChanged']),
+      color: SchemaWidget.parse<Color>(buildContext, value['color']),
+      disabledColor:
+          SchemaWidget.parse<Color>(buildContext, value['disabledColor']),
       disabledElevation:
-          map.containsKey('disabledElevation') ? map['disabledElevation'] : 0.0,
-      disabledTextColor: map.containsKey('disabledTextColor')
-          ? parseHexColor(map['disabledTextColor'])
-          : null,
-      elevation: map.containsKey('elevation') ? map['elevation'] : 0.0,
-      padding: map.containsKey('padding')
-          ? parseEdgeInsetsGeometry(map['padding'])
-          : null,
-      splashColor: map.containsKey('splashColor')
-          ? parseHexColor(map['splashColor'])
-          : null,
-      textColor:
-          map.containsKey('textColor') ? parseHexColor(map['textColor']) : null,
-      child: SchemaWidget.build(buildContext, map['child']),
-      onPressed: SchemaWidget.build(buildContext, map['click_event']),
+          SchemaWidget.parse<double>(buildContext, value['disabledElevation']),
+      disabledTextColor:
+          SchemaWidget.parse<Color>(buildContext, value['disabledTextColor']),
+      elevation: SchemaWidget.parse<double>(buildContext, value['elevation']),
+      padding: SchemaWidget.parse<EdgeInsetsGeometry>(
+          buildContext, value['padding']),
+      splashColor:
+          SchemaWidget.parse<Color>(buildContext, value['splashColor']),
+      textColor: SchemaWidget.parse<Color>(buildContext, value['textColor']),
+      child: SchemaWidget.parse<Widget>(buildContext, value['child']),
+      onPressed:
+          SchemaWidget.parse<VoidCallback>(buildContext, value['onPressed']),
     );
-
-    return raisedButton;
   }
 }

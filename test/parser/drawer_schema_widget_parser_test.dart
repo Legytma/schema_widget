@@ -28,7 +28,7 @@ void main() {
   test('create drawer', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Drawer"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Drawer"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Drawer, true);

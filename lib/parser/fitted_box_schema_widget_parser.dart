@@ -15,47 +15,26 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [FittedBox]
-class FittedBoxSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "FittedBox";
+@SchemaParser("FittedBox", "https://legytma.com.br/schema/widget/fitted_box.schema.json")
+class FittedBoxSchemaWidgetParser extends SchemaWidgetParser<FittedBox> {
+  /// Create instance of parser
+  FittedBoxSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   FittedBox builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return FittedBox(
-      key: SchemaWidget.build(buildContext, map['key']),
-      alignment: parseAlignment(map["alignment"], Alignment.center),
-      fit: parseBoxFit(map["fit"] ?? BoxFit.contain),
-      child: SchemaWidget.build(buildContext, map["child"]),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      alignment: SchemaWidget.parse<AlignmentGeometry>(
+          buildContext, value["alignment"], Alignment.center),
+      fit: SchemaWidget.parse<BoxFit>(
+          buildContext, value["fit"], BoxFit.contain),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
     );
   }
 }

@@ -16,55 +16,38 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SpinKitRotatingCircle]
-class SpinKitRotatingCircleSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("SpinKitRotatingCircle", 
+    "https://legytma.com.br/schema/widget/spin_kit_rotating_circle.schema.json")
+class SpinKitRotatingCircleSchemaWidgetParser
+    extends SchemaWidgetParser<SpinKitRotatingCircle> {
   static final Logger _log = Logger("SpinKitRotatingCircleSchemaWidgetParser");
 
-  @override
-  String get parserName => "SpinKitRotatingCircle";
+  /// Create instance of parser
+  SpinKitRotatingCircleSchemaWidgetParser(JsonSchema jsonSchema)
+      : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "color": {
-            "title": "Color",
-            "description": "Spin color",
-            "type": "string",
-          },
-        },
-        "required": ["type", "color"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer('map: $map');
+   SpinKitRotatingCircle builder(
+      BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer('map: $value');
 
     return SpinKitRotatingCircle(
-      color: parseHexColor(map["color"]),
-      size: map["size"] ?? 50.0,
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      controller: SchemaWidget.parse<AnimationController>(
+          buildContext, value['controller']),
+      duration: SchemaWidget.parse<Duration>(
+          buildContext, value['duration'], const Duration(milliseconds: 1200)),
+      itemBuilder: SchemaWidget.parse<IndexedWidgetBuilder>(
+          buildContext, value['itemBuilder']),
+      color: SchemaWidget.parse<Color>(buildContext, value["color"]),
+      size: SchemaWidget.parse<double>(buildContext, value["size"], 50.0),
     );
   }
 }

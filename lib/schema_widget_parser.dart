@@ -18,50 +18,40 @@ import 'package:flutter/material.dart';
 import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
+import 'schema_widget.dart';
+
 /// extends this class to make a Flutter widget parser.
-abstract class SchemaWidgetParser {
-  final Logger _log = Logger("SchemaWidgetParser");
+abstract class SchemaWidgetParser<T extends Widget>
+    extends TypeSchemaParser<T, Map<String, dynamic>, Widget> {
+  final Logger _log = Logger("SchemaWidgetParser<$T>");
 
-  /// Get Parser Name
-  String get parserName;
+  /// Create Schema Widget Parser
+  SchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
-  /// Get JSON Schema used to validate the json
-  JsonSchema get jsonSchema;
+  @override
+  Type get parserType {
+    if ("$T" == "Widget") {
+      var message = "Invalid declaration of"
+          " WidgetSchemaParser. WidgetSchemaParser type must be descendent of"
+          " Widget and must be specified.";
 
-  /// Builder used to parse the json map into a flutter widget.
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map);
+      _log.severe(message);
 
-  /// Parse the json map into a flutter widget.
-  Widget parse(BuildContext buildContext, Map<String, dynamic> map) {
-    var listOfValidationErrors = validateWithErrors(map);
-
-    if (listOfValidationErrors != null && listOfValidationErrors.isNotEmpty) {
-      var validationMessages;
-
-      for (var validationError in listOfValidationErrors) {
-        if (validationMessages == null) {
-          validationMessages =
-              "${validationError.schemaPath}: ${validationError.message}";
-        } else {
-          validationMessages = "$validationMessages\n"
-              "${validationError.schemaPath}: ${validationError.message}";
-        }
-      }
-
-      _log.severe("Invalid schema:");
-      _log.severe("Schema: $map");
-      _log.severe("Errors: $validationMessages");
-
-      return null;
+      throw Exception(message);
     }
 
-    return builder(buildContext, map);
+    return super.parserType;
   }
 
-  /// Validate the json map with [JsonSchema]
-  bool validate(Map<String, dynamic> map) => jsonSchema.validate(map);
+  @override
+  T parse(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    if (value != null && value is! T && value is! Map) {
+      _log.warning("Invalid value: $value");
 
-  /// Validate the json map with [JsonSchema]
-  List<ValidationError> validateWithErrors(Map<String, dynamic> map) =>
-      jsonSchema.validateWithErrors(map);
+      return defaultValue;
+    }
+
+    return super.parse(buildContext, value, defaultValue);
+  }
 }

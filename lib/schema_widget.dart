@@ -16,64 +16,28 @@
 
 library schema_widget;
 
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:json_schema/json_schema.dart';
+import 'package:json_schema/src/json_schema/constants.dart';
+import 'package:json_schema/src/json_schema/global_platform_functions.dart';
+import 'package:json_schema/vm.dart';
 import 'package:logging/logging.dart';
 
-import 'parser/align_schema_widget_parser.dart';
-import 'parser/animated_container_schema_widget_parser.dart';
-import 'parser/app_bar_schema_widget_parser.dart';
-import 'parser/aspect_ratio_schema_widget_parser.dart';
-import 'parser/asset_image_schema_widget_parser.dart';
-import 'parser/baseline_schema_widget_parser.dart';
-import 'parser/card_schema_widget_parser.dart';
-import 'parser/center_schema_widget_parser.dart';
-import 'parser/circle_avatar_schema_widget_parser.dart';
-import 'parser/clip_r_rect_schema_widget_parser.dart';
-import 'parser/column_schema_widget_parser.dart';
-import 'parser/container_schema_widget_parser.dart';
-import 'parser/divider_schema_widget_parser.dart';
-import 'parser/drawer_header_schema_widget_parser.dart';
-import 'parser/drawer_schema_widget_parser.dart';
-import 'parser/expanded_schema_widget_parser.dart';
-import 'parser/expanded_sized_box_schema_widget_parser.dart';
-import 'parser/fitted_box_schema_widget_parser.dart';
-import 'parser/floating_action_button_schema_widget_parser.dart';
-import 'parser/gesture_detector_schema_widget_parser.dart';
-import 'parser/google_map_schema_widget_parser.dart';
-import 'parser/grid_view_schema_widget_parser.dart';
-import 'parser/icon_button_schema_widget_parser.dart';
-import 'parser/icon_schema_widget_parser.dart';
-import 'parser/indexed_stack_schema_widget_parser.dart';
-import 'parser/list_tile_schema_widget_parser.dart';
-import 'parser/list_view_schema_widget_parser.dart';
-import 'parser/material_app_schema_widget_parser.dart';
-import 'parser/network_image_schema_widget_parser.dart';
-import 'parser/opacity_schema_widget_parser.dart';
-import 'parser/padding_schema_widget_parser.dart';
-import 'parser/page_view_schema_widget_parser.dart';
-import 'parser/placeholder_schema_widget_parser.dart';
-import 'parser/positioned_schema_widget_parser.dart';
-import 'parser/raised_button_schema_widget_parser.dart';
-import 'parser/routed_list_tile_schema_widget_parser.dart';
-import 'parser/row_schema_widget_parser.dart';
-import 'parser/safe_area_schema_widget_parser.dart';
-import 'parser/scaffold_schema_widget_parser.dart';
-import 'parser/schema_form_widget_schema_widget_parser.dart';
-import 'parser/sized_box_schema_widget_parser.dart';
-import 'parser/spin_kit_rotating_circle_schema_widget_parser.dart';
-import 'parser/stack_schema_widget_parser.dart';
-import 'parser/stream_builder_schema_widget_parser.dart';
-import 'parser/text_schema_form_field_template_schema_widget_parser.dart';
-import 'parser/text_schema_form_field_widget_schema_widget_parser.dart';
-import 'parser/text_schema_widget_parser.dart';
-import 'parser/wrap_schema_widget_parser.dart';
+import 'schema_parser_initiator.g.dart';
 import 'schema_widget_parser.dart';
+import 'type_schema_parser.dart';
 
 export 'route_handle_mixin.dart';
+export 'schema_parser_annotation.dart';
 export 'schema_widget_parser.dart';
+export 'type_schema_parser.dart';
 export 'utils.dart';
+export 'variant_schema_widget_parser.dart';
+export 'variant_type_schema_parser.dart';
 
 /// Class to group functions to build Widgets using JSON.
 class SchemaWidget {
@@ -81,86 +45,145 @@ class SchemaWidget {
 
   static final GetIt _getIt = GetIt.instance;
 
+  static Map<String, Map<String, dynamic>> _assetCache;
+  static Map<String, JsonSchema> _jsonSchemaCache = <String, JsonSchema>{};
+
+  // ignore: prefer_final_fields
   static bool _initialized = false;
 
   /// Register implemented parsers
-  static void registerParsers() {
+  static Future<void> registerParsers() async {
     if (!_initialized) {
-      registerParser(AlignSchemaWidgetParser());
-      registerParser(AppBarSchemaWidgetParser());
-      registerParser(AnimatedContainerSchemaWidgetParser());
-      registerParser(AspectRatioSchemaWidgetParser());
-      registerParser(AssetImageSchemaWidgetParser());
-      registerParser(BaselineSchemaWidgetParser());
-      registerParser(CardSchemaWidgetParser());
-      registerParser(CenterSchemaWidgetParser());
-      registerParser(CircleAvatarSchemaWidgetParser());
-      registerParser(ClipRRectSchemaWidgetParser());
-      registerParser(ColumnSchemaWidgetParser());
-      registerParser(ContainerSchemaWidgetParser());
-      registerParser(DividerSchemaWidgetParser());
-      registerParser(DrawerHeaderSchemaWidgetParser());
-      registerParser(DrawerSchemaWidgetParser());
-      registerParser(ExpandedSchemaWidgetParser());
-      registerParser(ExpandedSizedBoxSchemaWidgetParser());
-      registerParser(FittedBoxSchemaWidgetParser());
-      registerParser(FloatingActionButtonSchemaWidgetParser());
-      registerParser(GestureDetectorSchemaWidgetParser());
-      registerParser(GoogleMapSchemaWidgetParser());
-      registerParser(GridViewSchemaWidgetParser());
-      registerParser(IconSchemaWidgetParser());
-      registerParser(IconButtonSchemaWidgetParser());
-      registerParser(IndexedStackSchemaWidgetParser());
-      registerParser(ListTileSchemaWidgetParser());
-      registerParser(ListViewSchemaWidgetParser());
-      registerParser(MaterialAppSchemaWidgetParser());
-      registerParser(NetworkImageSchemaWidgetParser());
-      registerParser(OpacitySchemaWidgetParser());
-      registerParser(PaddingSchemaWidgetParser());
-      registerParser(PageViewSchemaWidgetParser());
-      registerParser(PlaceholderSchemaWidgetParser());
-      registerParser(PositionedSchemaWidgetParser());
-      registerParser(RaisedButtonSchemaWidgetParser());
-      registerParser(RoutedListTileSchemaWidgetParser());
-      registerParser(RowSchemaWidgetParser());
-      registerParser(SafeAreaSchemaWidgetParser());
-      registerParser(ScaffoldSchemaWidgetParser());
-      registerParser(SchemaFormWidgetSchemaWidgetParser());
-      registerParser(SizedBoxSchemaWidgetParser());
-      registerParser(SpinKitRotatingCircleSchemaWidgetParser());
-      registerParser(StackSchemaWidgetParser());
-      registerParser(StreamBuilderSchemaWidgetParser());
-      registerParser(TextSchemaFormFieldTemplateSchemaWidgetParser());
-      registerParser(TextSchemaFormFieldWidgetSchemaWidgetParser());
-      registerParser(TextSchemaWidgetParser());
-      registerParser(WrapSchemaWidgetParser());
+      _initialized = true;
+
+      try {
+        WidgetsFlutterBinding.ensureInitialized();
+
+        await _loadAssetCache();
+
+        _configureJsonSchema();
+
+        await schemaParserRegisterAllTypeParsers();
+
+        await _getIt.allReady(timeout: Duration(seconds: 15));
+        // ignore: avoid_catches_without_on_clauses
+      } catch (e) {
+        _log.severe(e);
+      }
+
+      _log.info("_getIt.allReadySync() = ${_getIt.allReadySync()}");
     }
   }
 
-  /// Register Schema Widget Parser on Instance Create
-  static void registerParser(SchemaWidgetParser schemaWidgetParser) {
-    if (schemaWidgetParser == null) {
-      throw Exception("schemaWidgetParser is invalid");
+  static void registerTypeParser<T>(
+      TypeSchemaParser<T, dynamic, dynamic> typeSchemaParser) {
+//    if (typeSchemaParser is SchemaWidgetParser &&
+//        typeSchemaParser.parserName == "Widget") {
+//      throw Exception("Invalid declaration of WidgetSchemaParser."
+//          " WidgetSchemaParser type must be descendent of Widget and must be"
+//          " specified: typeSchemaParser -> ${typeSchemaParser.runtimeType},"
+//          " T -> $T, parserName: ${typeSchemaParser.parserName}");
+//    }
+
+    var instanceName = "type_parser_${typeSchemaParser.parserName}";
+
+    if (_getIt.isRegistered<TypeSchemaParser<T, dynamic, dynamic>>(
+        instanceName: instanceName)) {
+      var currentTypeParser = _getIt.get<TypeSchemaParser<T, dynamic, dynamic>>(
+          instanceName: instanceName);
+
+      if (currentTypeParser == typeSchemaParser) {
+        _log.finest("Type parser $instanceName already registered!");
+
+        return;
+      }
+
+      _getIt.unregister<TypeSchemaParser<T, dynamic, dynamic>>(
+          instanceName: instanceName);
+
+      _log.warning("Other instance of $instanceName type parser registered,"
+          " removing...");
     }
 
-    if (schemaWidgetParser.parserName == null) {
-      throw Exception("schemaWidgetParser.parserName is invalid");
-    }
+    _getIt.registerSingleton<TypeSchemaParser<T, dynamic, dynamic>>(
+        typeSchemaParser,
+        instanceName: instanceName,
+        signalsReady: true);
 
-    var instanceName = 'parser_${schemaWidgetParser.parserName}';
-
-    _getIt.registerSingleton<SchemaWidgetParser>(schemaWidgetParser,
-        instanceName: instanceName, signalsReady: true);
-
-    _log.finest("Parser $instanceName registered!");
+    _log.finest("Type parser $instanceName registered!");
   }
 
-  static void unregisterParser(String parserName) {
-    var instanceName = 'parser_$parserName';
+  static void registerTypeParserAsync<T>(
+      String typeName,
+      FactoryFuncAsync<TypeSchemaParser<T, dynamic, dynamic>>
+          typeSchemaParserFuture) {
+//    if (typeSchemaParser is SchemaWidgetParser &&
+//        typeSchemaParser.parserName == "Widget") {
+//      throw Exception("Invalid declaration of WidgetSchemaParser."
+//          " WidgetSchemaParser type must be descendent of Widget and must be"
+//          " specified: typeSchemaParser -> ${typeSchemaParser.runtimeType},"
+//          " T -> $T, parserName: ${typeSchemaParser.parserName}");
+//    }
 
-    if (_getIt.isRegistered(instanceName: instanceName)) {
-      _getIt.unregister(instanceName: instanceName);
+    var instanceName = "type_parser_$typeName";
+
+    if (_getIt.isRegistered<TypeSchemaParser<T, dynamic, dynamic>>(
+        instanceName: instanceName)) {
+//      var currentTypeParser = _getIt.get<TypeSchemaParser<T, dynamic, dynamic>>(
+//          instanceName: instanceName);
+//
+//      if (currentTypeParser == typeSchemaParser) {
+//        _log.finest("Type parser $instanceName already registered!");
+//
+//        return;
+//      }
+
+      _getIt.unregister<TypeSchemaParser<T, dynamic, dynamic>>(
+          instanceName: instanceName);
+
+      _log.warning("Other instance of $instanceName type parser registered,"
+          " removing...");
     }
+
+    _getIt.registerSingletonAsync<TypeSchemaParser<T, dynamic, dynamic>>(
+      typeSchemaParserFuture,
+      instanceName: instanceName,
+    );
+
+    _log.finest("Type parser $instanceName registered!");
+  }
+
+  static void unregisterTypeParser<T>(Type type) {
+    var instanceName = 'type_parser_$type';
+
+    if (_getIt.isRegistered<TypeSchemaParser<T, dynamic, dynamic>>(
+        instanceName: instanceName)) {
+      _getIt.unregister<TypeSchemaParser<T, dynamic, dynamic>>(
+          instanceName: instanceName);
+    }
+  }
+
+  static TypeSchemaParser<T, dynamic, dynamic> getParserByType<T>(Type type) {
+    var instanceName = "type_parser_$type";
+
+    _log.finest("Getting type parser $instanceName...");
+
+    return _getIt.get<TypeSchemaParser<T, dynamic, dynamic>>(
+        instanceName: instanceName);
+  }
+
+  /// Get [SchemaWidgetParser] to apply to widget
+  static TypeSchemaParser<T, dynamic, dynamic> getParserByName<T>(String type) {
+    if (type == null) {
+      throw Exception("parseName is invalid");
+    }
+
+    var instanceName = "type_parser_$type";
+
+    _log.finest("Getting parser $instanceName...");
+
+    return _getIt.get<TypeSchemaParser<T, dynamic, dynamic>>(
+        instanceName: instanceName);
   }
 
   /// Register Logic to apply to widget
@@ -200,21 +223,8 @@ class SchemaWidget {
     }
   }
 
-  /// Get [SchemaWidgetParser] to apply to widget
-  static SchemaWidgetParser getParser(String parserName) {
-    if (parserName == null) {
-      throw Exception("parseName is invalid");
-    }
-
-    var instanceName = 'parser_$parserName';
-
-    _log.finest("Getting parser $instanceName...");
-
-    return _getIt.get(instanceName: instanceName);
-  }
-
   /// Get Logic to apply to widget
-  static dynamic _parseLogic(dynamic logic) {
+  static dynamic parseLogic(dynamic logic) {
     if (logic is String) {
       var instanceName = 'logic_$logic';
 
@@ -226,116 +236,170 @@ class SchemaWidget {
     return logic;
   }
 
-  /// Build [Object] depending of input value
-  static dynamic build(BuildContext buildContext, dynamic value) {
-    if (value is Widget) {
-      return value;
+  static T parse<T>(BuildContext buildContext, dynamic value,
+      [dynamic defaultValue]) {
+    if (value == null || value is T) {
+      _log.finest("$value == null || $value is $T");
+
+      return value ?? defaultValue;
     }
 
-    if (value is Map) {
-      return _buildFromMap(buildContext, value);
-    }
+    try {
+      final typeSchemaParser = getParserByType<T>(T);
 
-    if (value is List) {
-      return _buildWidgets(buildContext, value);
-    }
+      _log.finest("typeSchemaParser: $typeSchemaParser");
 
-    return _parseLogic(value);
-  }
+      if (typeSchemaParser == null || !typeSchemaParser.isFromType(value)) {
+        _log.finer("value.runtimeType: ${value.runtimeType},"
+            " typeSchemaParser.parserFromType:"
+            " ${typeSchemaParser?.parserFromType}"
+            " typeSchemaParser.parserFromName:"
+            " ${typeSchemaParser?.parserFromName}");
+        _log.finest("Parsing logic...");
 
-  /// Build [Widget] from [Map]<[String], [dynamic]>
-  static Widget _buildFromMap(
-      BuildContext buildContext, Map<String, dynamic> layoutMap) {
-    if (layoutMap == null) {
-      return null;
-    }
-
-    var jsonSchema = JsonSchema.createSchema({
-      "\$schema": "http://json-schema.org/draft-06/schema#",
-//    "\$id": "#widget-schema",
-      "title": "Container Parser Schema",
-      "description": "Schema to validation of JSON used to parse widget"
-          " Widget.",
-      "type": "object",
-      "\$comment": "You can add all valid properties to complete validation.",
-      "properties": {
-        "type": {
-          "\$comment": "Used to identify parser. Every parser can permit only"
-              " one type",
-          "title": "Type",
-          "description": "Identify the widget type",
-          "type": "string",
-        },
-      },
-      "required": ["type"],
-    });
-
-    var listOfValidationErrors = jsonSchema.validateWithErrors(layoutMap);
-    if (listOfValidationErrors != null && listOfValidationErrors.isNotEmpty) {
-      var validationMessages;
-
-      for (var validationError in listOfValidationErrors) {
-        if (validationMessages == null) {
-          validationMessages =
-              "${validationError.schemaPath}: ${validationError.message}";
-        } else {
-          validationMessages = "$validationMessages\n"
-              "${validationError.schemaPath}: ${validationError.message}";
-        }
+        return parseLogic(value) ?? defaultValue;
       }
 
-      _log.severe("Invalid schema: $validationMessages");
+      return typeSchemaParser.parse(buildContext, value, defaultValue) ??
+          defaultValue;
+      // ignore: avoid_catches_without_on_clauses
+    } catch (e) {
+      _log.warning("Cannot be found parser to $T: $e");
+      _log.finest("Parsing logic...");
 
-      return null;
+      return parseLogic(value) ?? defaultValue;
     }
-
-    if (layoutMap is Map) {
-      var testTypeValueKey = "__testTypeValue__";
-
-      try {
-        layoutMap[testTypeValueKey] = 0;
-        layoutMap[testTypeValueKey] = "";
-        layoutMap[testTypeValueKey] = {};
-        layoutMap[testTypeValueKey] = [];
-
-        layoutMap.remove(testTypeValueKey);
-
-        _log.finer("layoutMap with original type: ${layoutMap.runtimeType}");
-        // ignore: avoid_catches_without_on_clauses
-      } catch (e) {
-        if (layoutMap.containsKey(testTypeValueKey)) {
-          layoutMap.remove(testTypeValueKey);
-        }
-
-        _log.finer("layoutMap type changed from ${layoutMap.values.runtimeType}"
-            " to Map<String, dynamic>");
-
-        layoutMap = <String, dynamic>{}..addAll(layoutMap);
-      }
-    }
-
-    var _schemaWidgetParser = getParser(layoutMap['type']);
-
-    return _schemaWidgetParser.parse(buildContext, layoutMap);
-  }
-
-  /// Build [List]<[Widget]> from [List]<[dynamic]>
-  static List<Widget> _buildWidgets(
-      BuildContext buildContext, List<dynamic> values) {
-    var widgets = <Widget>[];
-
-    if (values != null) {
-      for (var value in values) {
-        widgets.add(_buildFromMap(buildContext, value));
-      }
-    }
-
-    return widgets;
   }
 
   /// Do not create an instance...
   SchemaWidget() {
     throw Exception("Do not create instance of class SchemaWidget. All the"
         " methods are static.");
+  }
+
+  static void _configureJsonSchema() {
+    globalCreateJsonSchemaFromUrl = _createJsonSchemaFromUrl;
+  }
+
+  static Future<JsonSchema> _createJsonSchemaFromUrl(String schemaUrl,
+      {SchemaVersion schemaVersion}) async {
+    var result = _refProvider(schemaUrl, schemaVersion);
+
+    if (result != null) {
+      return result;
+    }
+
+    return createSchemaFromUrlVm(schemaUrl, schemaVersion: schemaVersion);
+  }
+
+  static Future<void> _loadAssetCache() async {
+    if (_assetCache != null) {
+      return;
+    }
+
+    // >> To get paths you need these 2 lines
+    final manifestContent = await rootBundle.loadString('AssetManifest.json');
+
+    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
+    // >> To get paths you need these 2 lines
+
+    final jsonSchemaPaths = manifestMap.keys
+        .where((key) => key.contains('.schema.json') || key.endsWith("/schema"))
+        .toList();
+
+    _assetCache = <String, Map<String, dynamic>>{};
+
+    for (var jsonSchemaPath in jsonSchemaPaths) {
+      var jsonSchemaContent = await rootBundle.loadString(jsonSchemaPath);
+      var jsonSchemaMap = json.decode(jsonSchemaContent);
+
+      _assetCache[jsonSchemaPath] = jsonSchemaMap;
+    }
+  }
+
+  static JsonSchema _refProvider(String ref, [SchemaVersion schemaVersion]) {
+    const bundledSchemaVersionBase = "https://legytma.com.br/";
+    const bundledSchemaDraft06 = 'http://json-schema.org/draft-06/schema#';
+
+    if (ref == null ||
+        (!ref.startsWith(bundledSchemaVersionBase) &&
+            ref != bundledSchemaDraft06)) {
+      return null;
+    }
+
+    if (_jsonSchemaCache.containsKey(ref)) {
+      _log.finest("Returning JsonSchema from cache: $ref");
+
+      return _jsonSchemaCache[ref];
+    }
+
+    var parts = ref.split("#");
+    var baseRef = parts.first;
+    var assetPath;
+
+    if (ref == bundledSchemaDraft06) {
+      assetPath = "schema/schema";
+    } else {
+      assetPath = baseRef.substring(bundledSchemaVersionBase.length);
+    }
+
+    JsonSchema result;
+
+    if (_jsonSchemaCache.containsKey(baseRef)) {
+      result = _jsonSchemaCache[baseRef];
+
+      if (parts.length == 1) {
+        _log.finest("Returning JsonSchema from cache: $ref");
+
+        return result;
+      }
+    }
+
+    if (result == null) {
+      assetPath = "assets/$assetPath";
+
+      if (!_assetCache.containsKey(assetPath)) {
+        return null;
+      }
+
+      var assetValue = _assetCache[assetPath];
+
+      _log.fine("Creating JsonSchema with asset: $assetPath");
+
+      result = JsonSchema.createSchema(
+        assetValue,
+        schemaVersion: schemaVersion,
+        fetchedFromUri: Uri.parse(baseRef),
+        refProvider: _refProvider,
+      );
+
+      _jsonSchemaCache[baseRef] = result;
+
+      if (parts.length == 1) {
+        return result;
+      }
+    }
+
+    _log.fine("Creating JsonSchema with asset: $assetPath, and parts: $parts");
+
+    var properties = parts.last.split("/");
+
+//    if (schemaVersion == null) {
+//      schemaVersion = result.schemaVersion;
+//    }
+
+    for (var key in properties) {
+      if (key == "properties") {
+        continue;
+      }
+
+      result = result.properties[key];
+    }
+
+    _jsonSchemaCache[ref] = result;
+
+    _log.fine("JsonSchema with ref: $ref created!");
+
+    return result;
   }
 }

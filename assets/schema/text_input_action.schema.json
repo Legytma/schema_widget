@@ -1,0 +1,24 @@
+{
+  "$id": "https://legytma.com.br/schema/text_input_action.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Text Input Action",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "string",
+  "enum": [
+    "none",
+    "continueAction",
+    "done",
+    "emergencyCall",
+    "go",
+    "join",
+    "newline",
+    "next",
+    "previous",
+    "route",
+    "search",
+    "send",
+    "unspecified"
+  ]
+}
+

@@ -28,7 +28,7 @@ void main() {
   test('create placeholder', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Placeholder"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Placeholder"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Placeholder, true);

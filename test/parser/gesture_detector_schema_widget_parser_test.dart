@@ -28,7 +28,8 @@ void main() {
   test('create gesture detector', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "GestureDetector"});
+    final widget =
+        SchemaWidget.parse<Widget>(null, {"type": "GestureDetector"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is GestureDetector, true);

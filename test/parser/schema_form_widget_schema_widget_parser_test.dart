@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
 import 'package:schema_form/schema_form.dart';
@@ -28,10 +29,10 @@ void main() {
   test('create schema form widget', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(
+    final widget = SchemaWidget.parse<Widget>(
       null,
       {
-        "type": "SchemaForm",
+        "type": "SchemaFormWidget",
         "jsonSchema": {
           "title": "Test",
           "type": "string",

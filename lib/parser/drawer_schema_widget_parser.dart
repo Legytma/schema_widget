@@ -15,51 +15,30 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Drawer].
-class DrawerSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("Drawer", "https://legytma.com.br/schema/widget/drawer.schema.json")
+class DrawerSchemaWidgetParser extends SchemaWidgetParser<Drawer> {
   static final Logger _log = Logger("DrawerSchemaWidgetParser");
 
-  @override
-  String get parserName => "Drawer";
+  /// Create instance of parser
+  DrawerSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
+   Drawer builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
-
-    var drawerChildWidget = map.containsKey("child")
-        ? SchemaWidget.build(buildContext, map["child"])
-        : null;
-
-    return Drawer(child: drawerChildWidget);
+    return Drawer(
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      elevation:
+          SchemaWidget.parse<double>(buildContext, value['elevation'], 16.0),
+      semanticLabel: value['semanticLabel'],
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
+    );
   }
 }

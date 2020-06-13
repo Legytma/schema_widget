@@ -16,51 +16,31 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
-class CardSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Card";
+/// [SchemaWidgetParser] to [Card]
+@SchemaParser("Card", "https://legytma.com.br/schema/widget/card.schema.json")
+class CardSchemaWidgetParser extends SchemaWidgetParser<Card> {
+  /// Create instance of parser
+  CardSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   Card builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Card(
-      key: SchemaWidget.build(buildContext, map['key']),
-      color: parseHexColor(map['color']),
-      child: SchemaWidget.build(buildContext, map['child']),
-      shape: SchemaWidget.build(buildContext, map['shape']),
-      elevation: parseDouble(map['elevation']),
-      borderOnForeground: map['borderOnForeground'] ?? true,
-      clipBehavior: parseClip(map['clipBehavior']),
-      margin: parseEdgeInsetsGeometry(map['margin']),
-      semanticContainer: map['semanticContainer'] ?? true,
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      color: SchemaWidget.parse<Color>(buildContext, value['color']),
+      child: SchemaWidget.parse<Widget>(buildContext, value['child']),
+      shape: SchemaWidget.parse<ShapeBorder>(buildContext, value['shape']),
+      elevation: SchemaWidget.parse<double>(buildContext, value['elevation']),
+      borderOnForeground: value['borderOnForeground'] ?? true,
+      clipBehavior:
+          SchemaWidget.parse<Clip>(buildContext, value['clipBehavior']),
+      margin:
+          SchemaWidget.parse<EdgeInsetsGeometry>(buildContext, value['margin']),
+      semanticContainer: value['semanticContainer'] ?? true,
     );
   }
 }

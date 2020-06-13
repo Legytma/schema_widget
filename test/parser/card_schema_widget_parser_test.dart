@@ -31,14 +31,14 @@ void main() {
   final reference = Card();
 
   test('create card', () {
-    final widget = SchemaWidget.build(null, schema);
+    final widget = SchemaWidget.parse<Widget>(null, schema);
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Card, true);
   });
 
   test('verify default values card', () {
-    final Card widget = SchemaWidget.build(null, schema);
+    final Card widget = SchemaWidget.parse<Widget>(null, schema);
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget.key, reference.key);

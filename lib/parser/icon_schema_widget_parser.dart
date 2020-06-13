@@ -15,58 +15,27 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Icon]
-class IconSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Icon";
+@SchemaParser("Icon", "https://legytma.com.br/schema/widget/icon.schema.json")
+class IconSchemaWidgetParser extends SchemaWidgetParser<Icon> {
+  /// Create instance of parser
+  IconSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "codePoint": {
-            "title": "Code Point",
-            "description": "Code point value of icon in hexadecimal",
-            "type": "string",
-          }
-        },
-        "required": ["type", "codePoint"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
+   Icon builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Icon(
-      IconData(
-        parseInt(layoutMap['codePoint']),
-        fontFamily: layoutMap['fontFamily'] ?? 'MaterialIcons',
-        fontPackage: layoutMap['fontPackage'],
-        matchTextDirection: layoutMap['matchTextDirection'] ?? false,
-      ),
-      color: parseHexColor(layoutMap['color']),
-      semanticLabel: layoutMap['semanticLabel'],
-      size: layoutMap['size'],
-      textDirection: layoutMap['textDirection'],
+      SchemaWidget.parse<IconData>(buildContext, value['icon']),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      color: SchemaWidget.parse<Color>(buildContext, value['color']),
+      semanticLabel: value['semanticLabel'],
+      size: SchemaWidget.parse<double>(buildContext, value['size']),
+      textDirection: SchemaWidget.parse<TextDirection>(
+          buildContext, value['textDirection']),
     );
   }
 }

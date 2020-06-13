@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:logging/logging.dart';
@@ -28,7 +29,7 @@ void main() {
   test('create google map', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "GoogleMap"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "GoogleMap"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is GoogleMap, true);

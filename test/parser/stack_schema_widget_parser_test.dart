@@ -28,7 +28,7 @@ void main() {
   test('create stack', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Stack"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Stack"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Stack, true);

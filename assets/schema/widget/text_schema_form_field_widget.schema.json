@@ -1,0 +1,24 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/text_schema_form_field_widget.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Text Schema Form Field Widget",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 14/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    },
+    {
+      "$ref": "https://legytma.com.br/schema/widget/text_schema_form_field_template.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "TextSchemaFormFieldWidget"
+    }
+  },
+  "required": ["fieldName"]
+}
+

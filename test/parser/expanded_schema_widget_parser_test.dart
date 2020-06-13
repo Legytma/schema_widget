@@ -28,7 +28,7 @@ void main() {
   test('create expanded', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Expanded"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Expanded"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Expanded, true);

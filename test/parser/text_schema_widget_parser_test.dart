@@ -28,7 +28,7 @@ void main() {
   test('create text', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "Text",
       "data": "Texto a ser exibido",
     });

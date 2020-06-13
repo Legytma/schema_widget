@@ -22,64 +22,41 @@ import 'package:schema_form/schema_form.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SchemaFormWidget].
-class SchemaFormWidgetSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("SchemaFormWidget", 
+    "https://legytma.com.br/schema/widget/schema_form_widget.schema.json")
+class SchemaFormWidgetSchemaWidgetParser
+    extends SchemaWidgetParser<SchemaFormWidget> {
   static final Logger _log = Logger("SchemaFormWidgetSchemaWidgetParser");
 
-  @override
-  String get parserName => "SchemaForm";
+  /// Create instance of parser
+  SchemaFormWidgetSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "jsonSchema": {
-            "title": "JSON Schema",
-            "description": "Schema used to validate and generate form",
-            "type": "object",
-          },
-        },
-        "required": ["type", "jsonSchema"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
+   SchemaFormWidget builder(
+      BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
     return SchemaFormWidget(
-      key: SchemaWidget.build(buildContext, map["key"]),
-      jsonSchema: _parseJsonSchema(map["jsonSchema"]),
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      jsonSchema:
+          SchemaWidget.parse<JsonSchema>(buildContext, value["jsonSchema"]),
       typeTemplateMap:
-          _parseTypeTemplateMap(buildContext, map["typeTemplateMap"]),
-      controlTemplateMap: _parseTemplateMap(
-        buildContext,
-        map["controlTemplateMap"],
-      ),
-      defaultHeader:
-          SchemaWidget.build(buildContext, map["defaultHeader"]) ?? true,
-      child: SchemaWidget.build(buildContext, map["child"]),
-      onChanged: SchemaWidget.build(buildContext, map["onChanged"]),
-      autovalidate:
-          SchemaWidget.build(buildContext, map["autovalidate"]) ?? false,
-      initialData: SchemaWidget.build(buildContext, map["initialData"]),
-      onSave: SchemaWidget.build(buildContext, map["onSave"]),
-      onWillPop: SchemaWidget.build(buildContext, map["onWillPop"]),
+          SchemaWidget.parse<Map<SchemaType, WidgetTemplate<dynamic>>>(
+              buildContext, value["typeTemplateMap"]),
+      controlTemplateMap:
+          SchemaWidget.parse<Map<String, WidgetTemplate<dynamic>>>(
+              buildContext, value["controlTemplateMap"]),
+      defaultHeader: value["defaultHeader"] ?? true,
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
+      onChanged:
+          SchemaWidget.parse<VoidCallback>(buildContext, value["onChanged"]),
+      autovalidate: value["autovalidate"] ?? false,
+      initialData: SchemaWidget.parse<Map<String, dynamic>>(
+          buildContext, value["initialData"]),
+      onSave: SchemaWidget.parse<SaveCallback>(buildContext, value["onSave"]),
+      onWillPop:
+          SchemaWidget.parse<WillPopCallback>(buildContext, value["onWillPop"]),
     );
   }
 
@@ -93,41 +70,5 @@ class SchemaFormWidgetSchemaWidgetParser extends SchemaWidgetParser {
     }
 
     return JsonSchema.createSchema(value);
-  }
-
-  Map<String, WidgetTemplate> _parseTemplateMap(
-      BuildContext buildContext, Map<String, dynamic> map) {
-    if (map == null) {
-      return null;
-    }
-
-    var result = <String, WidgetTemplate>{};
-
-    map.forEach((key, value) {
-      var widget = SchemaWidget.build(buildContext, value);
-
-      if (widget != null && widget is WidgetTemplate) {
-        result[key] = widget;
-      }
-    });
-
-    return result;
-  }
-
-  Map<SchemaType, WidgetTemplate> _parseTypeTemplateMap(
-      BuildContext buildContext, dynamic map) {
-    var templateMap = _parseTemplateMap(buildContext, map);
-
-    if (templateMap == null) {
-      return null;
-    }
-
-    var result = <SchemaType, WidgetTemplate>{};
-
-    templateMap.forEach((key, value) {
-      result[SchemaType.fromString(key)] = value;
-    });
-
-    return result;
   }
 }

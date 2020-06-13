@@ -1,0 +1,26 @@
+{
+  "$id": "https://legytma.com.br/schema/text_span.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Text Span",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 14/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "style": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "children": {"$ref": "https://legytma.com.br/schema/list_inline_span.schema.json"},
+    "recognizer": {"$ref": "https://legytma.com.br/schema/gesture_recognizer.schema.json"},
+    "semanticsLabel": {
+      "title": "Semantics Label",
+      "description": "",
+      "$comment": "",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "description": "",
+      "$comment": "",
+      "type": "string"
+    }
+  }
+}
+

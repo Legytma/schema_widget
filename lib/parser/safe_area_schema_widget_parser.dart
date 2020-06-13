@@ -15,60 +15,30 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [SafeArea]
-class SafeAreaSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "SafeArea";
+@SchemaParser("SafeArea", "https://legytma.com.br/schema/widget/safe_area.schema.json")
+class SafeAreaSchemaWidgetParser extends SchemaWidgetParser<SafeArea> {
+  /// Create instance of parser
+  SafeAreaSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    var left = map.containsKey("left") ? map["left"] : true;
-    var right = map.containsKey("right") ? map["right"] : true;
-    var top = map.containsKey("top") ? map["top"] : true;
-    var bottom = map.containsKey("bottom") ? map["bottom"] : true;
-    var edgeInsets = map.containsKey("minimum")
-        ? parseEdgeInsetsGeometry(map['minimum'])
-        : EdgeInsets.zero;
-    var maintainBottomViewPadding = map.containsKey("maintainBottomViewPadding")
-        ? map["maintainBottomViewPadding"]
-        : false;
+   SafeArea builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return SafeArea(
-      left: left,
-      right: right,
-      top: top,
-      bottom: bottom,
-      minimum: edgeInsets,
-      maintainBottomViewPadding: maintainBottomViewPadding,
-      child: SchemaWidget.build(buildContext, map["child"]),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      left: SchemaWidget.parse<bool>(buildContext, value['left'], true),
+      right: SchemaWidget.parse<bool>(buildContext, value['right'], true),
+      top: SchemaWidget.parse<bool>(buildContext, value['top'], true),
+      bottom: SchemaWidget.parse<bool>(buildContext, value['bottom'], true),
+      minimum: SchemaWidget.parse<EdgeInsets>(
+          buildContext, value['minimum'], EdgeInsets.zero),
+      maintainBottomViewPadding: SchemaWidget.parse<bool>(
+          buildContext, value['maintainBottomViewPadding'], false),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
     );
   }
 }

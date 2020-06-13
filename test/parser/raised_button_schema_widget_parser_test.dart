@@ -28,7 +28,7 @@ void main() {
   test('create raised button', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "RaisedButton"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "RaisedButton"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is RaisedButton, true);

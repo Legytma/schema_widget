@@ -25,10 +25,24 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create container', () {
-    SchemaWidget.registerParsers();
+  SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "ListTile"});
+  // ignore: omit_local_variable_types
+  final Map<String, String> schema = {
+    "type": "ListTile",
+    "navigationType": "popAndPush",
+    "route": "/",
+  };
+
+  test('create routed list tile', () {
+    final widget = SchemaWidget.parse<Widget>(null, schema);
+
+    expect(widget != null, true, reason: "Widget not created.");
+    expect(widget is ListTile, true);
+  });
+
+  test('create list tile', () {
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "ListTile"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is ListTile, true);

@@ -15,51 +15,29 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Placeholder]
-class PlaceholderSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Placeholder";
+@SchemaParser("Placeholder", "https://legytma.com.br/schema/widget/place_holder.schema.json")
+class PlaceholderSchemaWidgetParser extends SchemaWidgetParser<Placeholder> {
+  /// Create instance of parser
+  PlaceholderSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   Placeholder builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Placeholder(
-      color: map.containsKey('color')
-          ? parseHexColor(map['color'])
-          : const Color(0xFF455A64),
-      strokeWidth: map.containsKey('strokeWidth') ? map['strokeWidth'] : 2.0,
-      fallbackWidth:
-          map.containsKey('fallbackWidth') ? map['fallbackWidth'] : 400.0,
-      fallbackHeight:
-          map.containsKey('fallbackHeight') ? map['fallbackHeight'] : 400.0,
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      color: SchemaWidget.parse<Color>(
+          buildContext, value['color'], const Color(0xFF455A64)),
+      strokeWidth:
+          SchemaWidget.parse<double>(buildContext, value['strokeWidth'], 2.0),
+      fallbackWidth: SchemaWidget.parse<double>(
+          buildContext, value['fallbackWidth'], 400.0),
+      fallbackHeight: SchemaWidget.parse<double>(
+          buildContext, value['fallbackHeight'], 400.0),
     );
   }
 }

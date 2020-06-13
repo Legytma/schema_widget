@@ -14,23 +14,79 @@
  * limitations under the License.
  */
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
 
 import '../../lib/schema_widget.dart';
 
-void main() {
+final Logger _logger = Logger('align_schema_widget_parser_test');
+
+Future<void> main() async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   Logger.root.level = Level.ALL;
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create align', () {
-    SchemaWidget.registerParsers();
+  return SchemaWidget.registerParsers().then((_) {
+    runSchemaWidgetParserTests<Align>();
+    runSchemaWidgetParserTests<Alignment>();
+  });
+}
 
-    final widget = SchemaWidget.build(null, {"type": "Align"});
+void runSchemaWidgetParserTests<T>() {
+  final type = T;
+  final file = File("./test/parser/schema/$type.json");
+  final fileContent = file.readAsStringSync();
+  final Map<String, dynamic> fileMap = json.decode(fileContent);
+  final String groupDescription = fileMap['description'];
+  final List<dynamic> validTestMaps = fileMap['valid_schemas'];
+  final List<dynamic> invalidTestMaps = fileMap['invalid_schemas'];
 
-    expect(widget != null, true, reason: "Widget not created.");
-    expect(widget is Align, true);
+  group(groupDescription, () {
+    group('$groupDescription (Valid)', () {
+      for (final validTestMap in validTestMaps) {
+        final String testDescription = validTestMap['description'];
+        final validTestValue = validTestMap['value'];
+
+        test(testDescription, () {
+          try {
+            final object = SchemaWidget.parse<T>(null, validTestValue);
+
+            expect(object != null, true, reason: "$type not created.");
+            expect(object is T, true, reason: "Object is not $type");
+            // ignore: avoid_catches_without_on_clauses
+          } catch (e, stack) {
+            _logger.severe("Fail on run '$testDescription':", e, stack);
+
+            fail('Schema is expected to be valid, but was not.');
+          }
+        });
+      }
+    });
+
+    group('$groupDescription (Invalid)', () {
+      for (final invalidTestMap in invalidTestMaps) {
+        final String testDescription = invalidTestMap['description'];
+        final invalidTestValue = invalidTestMap['value'];
+
+        test(testDescription, () {
+          try {
+            final object = SchemaWidget.parse<T>(null, invalidTestValue);
+
+            expect(object == null && object is! T, true,
+                reason: "Schema is expected to be valid, but was not.");
+            // ignore: avoid_catches_without_on_clauses
+          } catch (e, stack) {
+            _logger.info(
+                "Fail on run '$testDescription': ${e.runtimeType}", e, stack);
+          }
+        });
+      }
+    });
   });
 }

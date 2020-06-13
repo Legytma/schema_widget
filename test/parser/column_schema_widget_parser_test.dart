@@ -27,14 +27,14 @@ void main() {
   SchemaWidget.registerParsers();
 
   test('create column', () {
-    final widget = SchemaWidget.build(null, {"type": "Column"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Column"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Column, true);
   });
 
   test('create column with children', () {
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "Column",
       "children": [
         {

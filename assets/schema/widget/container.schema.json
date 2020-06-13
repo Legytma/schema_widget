@@ -1,0 +1,31 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/container.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Container",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 04/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "Container"
+    },
+    "alignment": {"$ref": "https://legytma.com.br/schema/alignment_geometry.schema.json"},
+    "padding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "color": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "margin": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "width": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "constraints": {"$ref": "https://legytma.com.br/schema/box_constraints.schema.json"},
+    "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"},
+    "decoration": {"$ref": "https://legytma.com.br/schema/decoration.schema.json"},
+    "foregroundDecoration": {"$ref": "https://legytma.com.br/schema/decoration.schema.json"},
+    "transform": {"$ref": "https://legytma.com.br/schema/matrix4.schema.json"}
+  }
+}
+

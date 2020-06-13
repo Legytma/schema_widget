@@ -28,7 +28,7 @@ void main() {
   test('create circle avatar', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "CircleAvatar"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "CircleAvatar"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is CircleAvatar, true);

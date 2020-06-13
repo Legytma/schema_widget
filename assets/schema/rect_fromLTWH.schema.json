@@ -1,0 +1,20 @@
+{
+  "$id": "https://legytma.com.br/schema/rect_fromLTWH.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Rect From LTWH",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [{"$ref": "https://legytma.com.br/schema/rect.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/rect.schema.json#properties/type",
+      "const": "fromLTWH"
+    },
+    "left": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "top": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "width": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

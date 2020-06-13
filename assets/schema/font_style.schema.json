@@ -1,0 +1,11 @@
+{
+  "$id": "https://legytma.com.br/schema/font_style.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Font Style",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 27/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "string",
+  "enum": ["italic", "normal"],
+  "examples": ["italic", "normal"]
+}
+

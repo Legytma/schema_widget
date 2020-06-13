@@ -28,7 +28,7 @@ void main() {
   test('create positioned', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Positioned"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Positioned"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Positioned, true);

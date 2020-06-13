@@ -1,0 +1,1 @@
+{"$id":"https://legytma.com.br/schema/paint.schema.json","$schema":"http://json-schema.org/draft-06/schema#","$comment":"This parser is not implemented, must be assigned using registerLogic","title":"Paint","description":"Paint undefined at moment.","type":"null"}

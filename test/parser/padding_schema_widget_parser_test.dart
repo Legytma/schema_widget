@@ -28,7 +28,7 @@ void main() {
   test('create padding', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "Padding",
       "padding": "0,1,2,3",
     });

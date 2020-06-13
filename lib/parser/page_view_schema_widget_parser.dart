@@ -14,53 +14,37 @@
  * limitations under the License.
  */
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [PageView]
-class PageViewSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "PageView";
+@SchemaParser("PageView", "https://legytma.com.br/schema/widget/page_view.schema.json")
+class PageViewSchemaWidgetParser extends SchemaWidgetParser<PageView> {
+  /// Create instance of parser
+  PageViewSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    var scrollDirection = Axis.horizontal;
-    if (map.containsKey("scrollDirection")) {
-      scrollDirection = map["scrollDirection"];
-    }
+   PageView builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return PageView(
-      scrollDirection: scrollDirection,
-      reverse: map.containsKey("reverse") ? map["reverse"] : false,
-      pageSnapping:
-          map.containsKey("pageSnapping") ? map["pageSnapping"] : true,
-      children: SchemaWidget.build(buildContext, map['children']) ?? [],
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      controller:
+          SchemaWidget.parse<PageController>(buildContext, value['controller']),
+      physics:
+          SchemaWidget.parse<ScrollPhysics>(buildContext, value['physics']),
+      dragStartBehavior: SchemaWidget.parse<DragStartBehavior>(
+          buildContext, value['dragStartBehavior'], DragStartBehavior.start),
+      onPageChanged: SchemaWidget.parse<ValueChanged<int>>(
+          buildContext, value['onPageChanged']),
+      scrollDirection: SchemaWidget.parse<Axis>(
+          buildContext, value['scrollDirection'], Axis.horizontal),
+      reverse: value["reverse"] ?? false,
+      pageSnapping: value["pageSnapping"] ?? true,
+      children: SchemaWidget.parse<List<Widget>>(
+          buildContext, value['children'], const <Widget>[]),
     );
   }
 }

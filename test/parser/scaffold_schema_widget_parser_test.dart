@@ -28,7 +28,7 @@ void main() {
   test('create scaffold', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "Scaffold"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "Scaffold"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is Scaffold, true);

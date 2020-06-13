@@ -1,0 +1,1 @@
+{"$id":"https://legytma.com.br/schema/material_tap_target_size.schema.json","$schema":"http://json-schema.org/draft-06/schema#","title":"Material Tap Target Size","description":"","$comment":"","type":"string","examples":["padded","shrinkWrap"],"enum":["padded","shrinkWrap"]}

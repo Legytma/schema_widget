@@ -15,50 +15,27 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Align]
-class AlignSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Align";
+@SchemaParser("Align", "https://legytma.com.br/schema/widget/align.schema.json")
+class AlignSchemaWidgetParser extends SchemaWidgetParser<Align> {
+  AlignSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+  Align builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Align(
-      alignment: map.containsKey("alignment")
-          ? parseAlignment(map["alignment"])
-          : Alignment.center,
-      widthFactor: map.containsKey("widthFactor") ? map["widthFactor"] : null,
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      alignment: SchemaWidget.parse<Alignment>(
+          buildContext, value["alignment"], Alignment.center),
+      widthFactor:
+          SchemaWidget.parse<double>(buildContext, value["widthFactor"]),
       heightFactor:
-          map.containsKey("heightFactor") ? map["heightFactor"] : null,
-      child: SchemaWidget.build(buildContext, map["child"]),
+          SchemaWidget.parse<double>(buildContext, value["heightFactor"]),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
     );
   }
 }

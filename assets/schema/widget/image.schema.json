@@ -1,0 +1,65 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/image.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Image",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 09/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "Image"
+    },
+    "imageType": {
+      "title": "Image Type",
+      "description": "",
+      "$comment": "",
+      "type": "string",
+      "enum": ["asset", "network", "file", "memory", "default"]
+    },
+    "frameBuilder": {"$ref": "https://legytma.com.br/schema/image_frame_builder.schema.json"},
+    "semanticLabel": {
+      "title": "Semantic Label",
+      "description": "",
+      "$comment": "",
+      "type": "string"
+    },
+    "excludeFromSemantics": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "width": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "color": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "blendMode": {"$ref": "https://legytma.com.br/schema/blend_mode.schema.json"},
+    "boxFit": {"$ref": "https://legytma.com.br/schema/box_fit.schema.json"},
+    "alignment": {
+      "$ref": "https://legytma.com.br/schema/alignment_geometry.schema.json",
+      "default": "center"
+    },
+    "repeat": {
+      "$ref": "https://legytma.com.br/schema/image_repeat.schema.json",
+      "default": "noRepeat"
+    },
+    "centerSlice": {"$ref": "https://legytma.com.br/schema/rect.schema.json"},
+    "matchTextDirection": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "gaplessPlayback": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "filterQuality": {
+      "$ref": "https://legytma.com.br/schema/filter_quality.schema.json",
+      "default": "low"
+    }
+  },
+  "required": ["imageType"]
+}
+

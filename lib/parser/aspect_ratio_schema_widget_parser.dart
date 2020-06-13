@@ -15,55 +15,24 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [AspectRatio]
-class AspectRatioSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "AspectRatio";
+@SchemaParser("AspectRatio", "https://legytma.com.br/schema/widget/aspect_ratio.schema.json")
+class AspectRatioSchemaWidgetParser extends SchemaWidgetParser<AspectRatio> {
+  /// Create instance of parser
+  AspectRatioSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "aspectRatio": {
-            "title": "Aspect Ratio",
-            "description": "Define the aspect ratio",
-            "type": "number",
-          },
-          "child": {
-            "title": "Child",
-            "description": "Content of this widget",
-            "type": "object",
-          }
-        },
-        "required": ["type", "aspectRatio"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   AspectRatio builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return AspectRatio(
-      aspectRatio: map["aspectRatio"],
-      child: SchemaWidget.build(buildContext, map["child"]),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      aspectRatio:
+          SchemaWidget.parse<double>(buildContext, value["aspectRatio"]),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
     );
   }
 }

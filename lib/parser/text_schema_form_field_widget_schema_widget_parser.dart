@@ -15,101 +15,103 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:flutter/services.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
+import 'package:rxdart/subjects.dart';
+import 'package:schema_form/enum/PickerType.dart';
 import 'package:schema_form/widget/control/schema/text_schema_form_field_widget.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [TextSchemaFormFieldWidget]
-class TextSchemaFormFieldWidgetSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("TextSchemaFormFieldWidget", 
+    "https://legytma.com.br/schema/widget/text_schema_form_field_widget.schema.json")
+class TextSchemaFormFieldWidgetSchemaWidgetParser
+    extends SchemaWidgetParser<TextSchemaFormFieldWidget> {
   static final Logger _log =
       Logger("TextSchemaFormFieldWidgetSchemaWidgetParser");
 
-  @override
-  String get parserName => "TextSchemaFormField";
+  /// Create instance of parser
+  TextSchemaFormFieldWidgetSchemaWidgetParser(JsonSchema jsonSchema)
+      : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "fieldName": {
-            "title": "Field Name",
-            "description": "Name of field into schema",
-            "type": "string",
-          }
-        },
-        "required": ["type", "fieldName"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer('map: $map');
+   TextSchemaFormFieldWidget builder(
+      BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer('map: $value');
 
     return TextSchemaFormFieldWidget(
-      key: SchemaWidget.build(buildContext, map["key"]),
-      fieldName: map['fieldName'],
-      onChanged: SchemaWidget.build(buildContext, map["onChanged"]),
-      autovalidate: map["autovalidate"],
-      autofocus: map['autofocus'],
-      focusNode: parseFocusNode(buildContext, map['focusNode']),
-      keyboardAppearance: parseKeyboardAppearance(map['keyboardAppearance']),
-      keyboardType: parseKeyboardType(map['keyboardType']),
-      controller: SchemaWidget.build(buildContext, map['controller']),
-      pickerType: parsePickerType(map['pickerType']),
-      onTap: SchemaWidget.build(buildContext, map['onTap']),
-      enabled: map['enabled'],
-      decoration: parseInputDecoration(buildContext, map['decoration']),
-      initialValue: map['initialValue'],
-      onSaved: SchemaWidget.build(buildContext, map['onSaved']),
-      validator: SchemaWidget.build(buildContext, map['validator']),
-      textAlign: parseTextAlign(map['textAlign']),
-      strutStyle: parseStrutStyle(map['strutStyle']),
-      toolbarOptions: parseToolbarOptions(map['toolbarOptions']),
-      textInputAction: parseTextInputAction(map['textInputAction']),
-      textCapitalization: parseTextCapitalization(map['textCapitalization']),
-      textAlignVertical: parseTextAlignVertical(map['textAlignVertical']),
-      showCursor: map['showCursor'],
-      scrollPadding: parseEdgeInsetsGeometry(map['scrollPadding']),
-      readOnly: map['readOnly'],
-      onFieldSubmitted:
-          SchemaWidget.build(buildContext, map['onFieldSubmitted']),
-      onEditingComplete:
-          SchemaWidget.build(buildContext, map['onEditingComplete']),
-      obscureText: map['obscureText'],
-      maxLengthEnforced: map['maxLengthEnforced'],
-      minLines: map['minLines'],
-      maxLength: map['maxLength'],
-      inputFormatters: SchemaWidget.build(buildContext, map['inputFormatters']),
-      expands: map['expands'],
-      enableSuggestions: map['enableSuggestions'],
-      enableInteractiveSelection: map['enableInteractiveSelection'],
-      cursorWidth: parseDouble(map['cursorWidth']),
-      cursorRadius: parseRadius(map['cursorRadius']),
-      cursorColor: parseHexColor(map['cursorColor']),
-      buildCounter: SchemaWidget.build(buildContext, map['buildCounter']),
-      autocorrect: map['autocorrect'],
-      textDirection: parseTextDirection(map['textDirection']),
-      maxLines: map['maxLines'],
-      style: parseTextStyle(map['style']),
-      dateFormat: map['dateFormat'],
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      fieldName: value['fieldName'],
+      onChanged: SchemaWidget.parse<ValueChanged<String>>(
+          buildContext, value["onChanged"]),
+      autovalidate: value["autovalidate"],
+      autofocus: value['autofocus'],
+      focusNode:
+          SchemaWidget.parse<FocusNode>(buildContext, value['focusNode']),
+      keyboardAppearance: SchemaWidget.parse<Brightness>(
+          buildContext, value['keyboardAppearance']),
+      keyboardType: SchemaWidget.parse<TextInputType>(
+          buildContext, value['keyboardType']),
+      controller: SchemaWidget.parse<BehaviorSubject<String>>(
+          buildContext, value['controller']),
+      pickerType:
+          SchemaWidget.parse<PickerType>(buildContext, value['pickerType']),
+      onTap:
+          SchemaWidget.parse<GestureTapCallback>(buildContext, value['onTap']),
+      enabled: value['enabled'],
+      decoration: SchemaWidget.parse<InputDecoration>(
+          buildContext, value['decoration']),
+      initialValue: value['initialValue'],
+      onSaved: SchemaWidget.parse<FormFieldSetter<String>>(
+          buildContext, value['onSaved']),
+      validator: SchemaWidget.parse<FormFieldValidator<String>>(
+          buildContext, value['validator']),
+      textAlign:
+          SchemaWidget.parse<TextAlign>(buildContext, value['textAlign']),
+      strutStyle:
+          SchemaWidget.parse<StrutStyle>(buildContext, value['strutStyle']),
+      toolbarOptions: SchemaWidget.parse<ToolbarOptions>(
+          buildContext, value['toolbarOptions']),
+      textInputAction: SchemaWidget.parse<TextInputAction>(
+          buildContext, value['textInputAction']),
+      textCapitalization: SchemaWidget.parse<TextCapitalization>(
+          buildContext, value['textCapitalization']),
+      textAlignVertical: SchemaWidget.parse<TextAlignVertical>(
+          buildContext, value['textAlignVertical']),
+      showCursor: value['showCursor'],
+      scrollPadding:
+          SchemaWidget.parse<EdgeInsets>(buildContext, value['scrollPadding']),
+      readOnly: value['readOnly'],
+      onFieldSubmitted: SchemaWidget.parse<ValueChanged<String>>(
+          buildContext, value['onFieldSubmitted']),
+      onEditingComplete: SchemaWidget.parse<VoidCallback>(
+          buildContext, value['onEditingComplete']),
+      obscureText: value['obscureText'],
+      maxLengthEnforced: value['maxLengthEnforced'],
+      minLines: SchemaWidget.parse<int>(buildContext, value['minLines']),
+      maxLength: SchemaWidget.parse<int>(buildContext, value['maxLength']),
+      inputFormatters: SchemaWidget.parse<List<TextInputFormatter>>(
+          buildContext, value['inputFormatters']),
+      expands: value['expands'],
+      enableSuggestions: value['enableSuggestions'],
+      enableInteractiveSelection: value['enableInteractiveSelection'],
+      cursorWidth:
+          SchemaWidget.parse<double>(buildContext, value['cursorWidth']),
+      cursorRadius:
+          SchemaWidget.parse<Radius>(buildContext, value['cursorRadius']),
+      cursorColor:
+          SchemaWidget.parse<Color>(buildContext, value['cursorColor']),
+      buildCounter: SchemaWidget.parse<InputCounterWidgetBuilder>(
+          buildContext, value['buildCounter']),
+      autocorrect: value['autocorrect'],
+      textDirection: SchemaWidget.parse<TextDirection>(
+          buildContext, value['textDirection']),
+      maxLines: SchemaWidget.parse<int>(buildContext, value['maxLines']),
+      style: SchemaWidget.parse<TextStyle>(buildContext, value['style']),
+      dateFormat: value['dateFormat'],
     );
   }
 }

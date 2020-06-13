@@ -1,0 +1,27 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/circle_avatar.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Circle Avatar",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 04/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "CircleAvatar"
+    },
+    "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"},
+    "backgroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "backgroundImage": {"$ref": "https://legytma.com.br/schema/image_provider_dynamic.schema.json"},
+    "foregroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "maxRadius": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "minRadius": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "radius": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

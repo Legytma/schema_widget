@@ -28,11 +28,11 @@ void main() {
   test('create icon button', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "IconButton",
       "icon": {
         "type": "Icon",
-        "codePoint": "#${intToHex(Icons.add.codePoint, 5)}",
+        "codePoint": Icons.add.codePoint,
       }
     });
 

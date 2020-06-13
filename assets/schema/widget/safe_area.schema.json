@@ -1,0 +1,47 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/safe_area.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Safe Area",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 13/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "SafeArea"
+    },
+    "left": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": true
+    },
+    "right": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": true
+    },
+    "top": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": true
+    },
+    "bottom": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": true
+    },
+    "minimum": {
+      "$ref": "https://legytma.com.br/schema/edge_insets.schema.json",
+      "default": {
+        "type": "zero"
+      }
+    },
+    "maintainBottomViewPadding": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"}
+  }
+}
+

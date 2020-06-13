@@ -28,7 +28,7 @@ void main() {
   test('create baseline', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "Baseline",
       "baseline": 1.0,
       "baselineType": "alphabetic",

@@ -21,16 +21,18 @@ import 'package:logging/logging.dart';
 import '../../lib/schema_widget.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   Logger.root.level = Level.ALL;
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create safe area', () {
-    SchemaWidget.registerParsers();
+  test('create safe area', () async {
+    return SchemaWidget.registerParsers().then((_) {
+      final widget = SchemaWidget.parse<Widget>(null, {"type": "SafeArea"});
 
-    final widget = SchemaWidget.build(null, {"type": "SafeArea"});
-
-    expect(widget != null, true, reason: "Widget not created.");
-    expect(widget is SafeArea, true);
+      expect(widget != null, true, reason: "Widget not created.");
+      expect(widget is SafeArea, true);
+    });
   });
 }

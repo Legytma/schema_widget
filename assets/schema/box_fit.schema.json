@@ -1,0 +1,10 @@
+{
+  "$id": "https://legytma.com.br/schema/box_fit.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Box Fit",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "string",
+  "enum": ["fill", "contain", "cover", "fitWidth", "fitHeight", "none", "scaleDown"]
+}
+

@@ -16,74 +16,60 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Scaffold].
-class ScaffoldSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("Scaffold", "https://legytma.com.br/schema/widget/scaffold.schema.json")
+class ScaffoldSchemaWidgetParser extends SchemaWidgetParser<Scaffold> {
   static final Logger _log = Logger("ScaffoldSchemaWidgetParser");
 
-  @override
-  String get parserName => "Scaffold";
+  /// Create instance of parser
+  ScaffoldSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
+   Scaffold builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
     return Scaffold(
-      key: SchemaWidget.build(buildContext, map["key"]),
-      backgroundColor: parseHexColor(map['backgroundColor']),
-      body: SchemaWidget.build(buildContext, map["body"]),
-      drawer: SchemaWidget.build(buildContext, map["drawer"]),
-      appBar: SchemaWidget.build(buildContext, map["appBar"]),
-      floatingActionButton:
-          SchemaWidget.build(buildContext, map["floatingActionButton"]),
-      primary: map['primary'] ?? true,
-      bottomNavigationBar:
-          SchemaWidget.build(buildContext, map["bottomNavigationBar"]),
-      bottomSheet: SchemaWidget.build(buildContext, map["bottomSheet"]),
-      drawerDragStartBehavior: parseDragStartBehavior(
-          map['drawerDragStartBehavior'], DragStartBehavior.start),
-      drawerEdgeDragWidth: parseDouble(map['drawerEdgeDragWidth']),
-      drawerScrimColor: parseHexColor(map['drawerScrimColor']),
-      endDrawer: SchemaWidget.build(buildContext, map["endDrawer"]),
-      extendBody: map['extendBody'] ?? false,
-      extendBodyBehindAppBar: map['extendBodyBehindAppBar'] ?? false,
-      floatingActionButtonAnimator: parseFloatingActionButtonAnimator(
-          buildContext, map['floatingActionButtonAnimator']),
-      floatingActionButtonLocation: parseFloatingActionButtonLocation(
-          buildContext, map['floatingActionButtonLocation']),
-      persistentFooterButtons:
-          SchemaWidget.build(buildContext, map["persistentFooterButtons"]),
-      resizeToAvoidBottomInset: map['resizeToAvoidBottomInset'],
-      resizeToAvoidBottomPadding: map['resizeToAvoidBottomPadding'],
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      backgroundColor:
+          SchemaWidget.parse<Color>(buildContext, value['backgroundColor']),
+      body: SchemaWidget.parse<Widget>(buildContext, value["body"]),
+      drawer: SchemaWidget.parse<Widget>(buildContext, value["drawer"]),
+      appBar: SchemaWidget.parse<PreferredSizeWidget>(
+          buildContext, value["appBar"]),
+      floatingActionButton: SchemaWidget.parse<Widget>(
+          buildContext, value["floatingActionButton"]),
+      primary: value['primary'] ?? true,
+      bottomNavigationBar: SchemaWidget.parse<Widget>(
+          buildContext, value["bottomNavigationBar"]),
+      bottomSheet:
+          SchemaWidget.parse<Widget>(buildContext, value["bottomSheet"]),
+      drawerDragStartBehavior: SchemaWidget.parse<DragStartBehavior>(
+          buildContext,
+          value['drawerDragStartBehavior'],
+          DragStartBehavior.start),
+      drawerEdgeDragWidth: SchemaWidget.parse<double>(
+          buildContext, value['drawerEdgeDragWidth']),
+      drawerScrimColor:
+          SchemaWidget.parse<Color>(buildContext, value['drawerScrimColor']),
+      endDrawer: SchemaWidget.parse<Widget>(buildContext, value["endDrawer"]),
+      extendBody: value['extendBody'] ?? false,
+      extendBodyBehindAppBar: value['extendBodyBehindAppBar'] ?? false,
+      floatingActionButtonAnimator:
+          SchemaWidget.parse<FloatingActionButtonAnimator>(buildContext,
+              buildContext, value['floatingActionButtonAnimator']),
+      floatingActionButtonLocation:
+          SchemaWidget.parse<FloatingActionButtonLocation>(buildContext,
+              buildContext, value['floatingActionButtonLocation']),
+      persistentFooterButtons: SchemaWidget.parse<List<Widget>>(
+          buildContext, value["persistentFooterButtons"]),
+      resizeToAvoidBottomInset: value['resizeToAvoidBottomInset'],
+      resizeToAvoidBottomPadding: value['resizeToAvoidBottomPadding'],
     );
   }
 }

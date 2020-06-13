@@ -1,0 +1,15 @@
+{
+  "$id": "https://legytma.com.br/schema/floating_action_button_animator.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Floating Action Button Animator",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 28/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "enum": ["scaling"]
+    }
+  }
+}
+

@@ -1,0 +1,9 @@
+{
+  "$id": "https://legytma.com.br/schema/list_shadow.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "List of Shadow",
+  "description": "Shadow list",
+  "type": "array",
+  "items": {"$ref": "https://legytma.com.br/schema/shadow.schema.json"}
+}

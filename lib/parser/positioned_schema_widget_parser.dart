@@ -15,50 +15,28 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Positioned]
-class PositionedSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Positioned";
+@SchemaParser("Positioned", "https://legytma.com.br/schema/widget/positioned.schema.json")
+class PositionedSchemaWidgetParser extends SchemaWidgetParser<Positioned> {
+  /// Create instance of parser
+  PositionedSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   Positioned builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Positioned(
-      child: SchemaWidget.build(buildContext, map["child"]),
-      top: map.containsKey("top") ? map["top"] : null,
-      right: map.containsKey("right") ? map["right"] : null,
-      bottom: map.containsKey("bottom") ? map["bottom"] : null,
-      left: map.containsKey("left") ? map["left"] : null,
-      width: map.containsKey("width") ? map["width"] : null,
-      height: map.containsKey("height") ? map["height"] : null,
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
+      top: SchemaWidget.parse<double>(buildContext, value['top']),
+      right: SchemaWidget.parse<double>(buildContext, value["right"]),
+      bottom: SchemaWidget.parse<double>(buildContext, value["bottom"]),
+      left: SchemaWidget.parse<double>(buildContext, value["left"]),
+      width: SchemaWidget.parse<double>(buildContext, value["width"]),
+      height: SchemaWidget.parse<double>(buildContext, value["height"]),
     );
   }
 }

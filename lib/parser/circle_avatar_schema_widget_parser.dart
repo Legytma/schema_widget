@@ -16,55 +16,35 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
-class CircleAvatarSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("CircleAvatar", "https://legytma.com.br/schema/widget/circle_avatar.schema.json")
+class CircleAvatarSchemaWidgetParser extends SchemaWidgetParser<CircleAvatar> {
   Logger _log = Logger("CircleAvatarSchemaWidgetParser");
 
-  @override
-  String get parserName => "CircleAvatar";
+  /// Create instance of parser
+  CircleAvatarSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finest(map);
+   CircleAvatar builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finest(value);
 
     return CircleAvatar(
-      key: SchemaWidget.build(buildContext, map['key']),
-      child: SchemaWidget.build(buildContext, map['child']),
-      backgroundColor: parseHexColor(map['backgroundColor']),
-      backgroundImage: parseImageProvider(map['backgroundImage']),
-      foregroundColor: parseHexColor(map['foregroundColor']),
-      maxRadius: parseDouble(map['maxRadius']),
-      minRadius: parseDouble(map['minRadius']),
-      radius: parseDouble(map['radius']),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      child: SchemaWidget.parse<Widget>(buildContext, value['child']),
+      backgroundColor:
+          SchemaWidget.parse<Color>(buildContext, value['backgroundColor']),
+      backgroundImage: SchemaWidget.parse<ImageProvider<dynamic>>(
+          buildContext, value['backgroundImage']),
+      foregroundColor:
+          SchemaWidget.parse<Color>(buildContext, value['foregroundColor']),
+      maxRadius: SchemaWidget.parse<double>(buildContext, value['maxRadius']),
+      minRadius: SchemaWidget.parse<double>(buildContext, value['minRadius']),
+      radius: SchemaWidget.parse<double>(buildContext, value['radius']),
     );
   }
 }

@@ -1,0 +1,53 @@
+{
+  "$id": "https://legytma.com.br/schema/duration.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Duration",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 27/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "days": {
+      "title": "Days",
+      "description": "Number of days",
+      "$comment": "",
+      "type": "integer",
+      "default": 0
+    },
+    "hours": {
+      "title": "Hours",
+      "description": "Number of hours",
+      "$comment": "",
+      "type": "integer",
+      "default": 0
+    },
+    "minutes": {
+      "title": "Minutes",
+      "description": "Number of minutes",
+      "$comment": "",
+      "type": "integer",
+      "default": 0
+    },
+    "seconds": {
+      "title": "Seconds",
+      "description": "Number of seconds",
+      "$comment": "",
+      "type": "integer",
+      "default": 0
+    },
+    "milliseconds": {
+      "title": "Milliseconds",
+      "description": "Number of milliseconds",
+      "$comment": "",
+      "type": "integer",
+      "default": 0
+    },
+    "microseconds": {
+      "title": "Microseconds",
+      "description": "Number of microseconds",
+      "$comment": "",
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+

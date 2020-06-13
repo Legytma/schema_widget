@@ -28,7 +28,7 @@ void main() {
   test('create app bar', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "AppBar"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "AppBar"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is AppBar, true);

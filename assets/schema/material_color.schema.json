@@ -1,0 +1,41 @@
+{
+  "$id": "https://legytma.com.br/schema/material_color.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "Material Color",
+  "description": "Identify the widget type",
+  "type": "object",
+  "properties": {
+    "primary": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "swatch": {
+      "title": "Swatch",
+      "description": "Swatch colors",
+      "type": "object",
+      "properties": {
+        "50": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "100": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "200": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "300": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "400": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "500": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "600": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "700": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "800": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+        "900": {"$ref": "https://legytma.com.br/schema/color.schema.json"}
+      },
+      "examples": [{
+        "50": "0xFF0000FF",
+        "100": "0xFF000F0F",
+        "200": "0xFF000FF0",
+        "300": "0xFF00F0F0",
+        "400": "0xFF00FF00",
+        "500": "0xFF0F000F",
+        "600": "0xFF0F00F0",
+        "700": "0xFF0F0F00",
+        "800": "0xFF0FF000",
+        "900": "0xFFF0000F"
+      }]
+    }
+  },
+  "required": ["primary"]
+}

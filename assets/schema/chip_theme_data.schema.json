@@ -1,0 +1,28 @@
+{
+  "$id": "https://legytma.com.br/schema/chip_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Chip Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 22/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "backgroundColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "disabledColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "selectedColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "secondarySelectedColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "labelPadding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "padding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "shape": {"$ref": "https://legytma.com.br/schema/shape_border.schema.json"},
+    "labelStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "secondaryLabelStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "brightness": {"$ref": "https://legytma.com.br/schema/brightness.schema.json"},
+    "elevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "checkmarkColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "deleteIconColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "pressElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "selectedShadowColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "shadowColor": {"$ref": "https://legytma.com.br/schema/color_scheme.schema.json"},
+    "showCheckmark": {"$ref": "https://legytma.com.br/schema/bool.schema.json"}
+  }
+}
+

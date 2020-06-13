@@ -15,64 +15,58 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [FloatingActionButton]
-class FloatingActionButtonSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "FloatingActionButton";
+@SchemaParser("FloatingActionButton", 
+    "https://legytma.com.br/schema/widget/floating_action_button.schema.json")
+class FloatingActionButtonSchemaWidgetParser
+    extends SchemaWidgetParser<FloatingActionButton> {
+  /// Create instance of parser
+  FloatingActionButtonSchemaWidgetParser(JsonSchema jsonSchema)
+      : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> layoutMap) {
+   FloatingActionButton builder(
+      BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return FloatingActionButton(
-      onPressed: SchemaWidget.build(buildContext, layoutMap['onPressed']),
-      autofocus: layoutMap['autofocus'] ?? false,
-      backgroundColor: parseHexColor(layoutMap['backgroundColor']),
-      child: SchemaWidget.build(buildContext, layoutMap['child']),
-      clipBehavior: parseClip(layoutMap['clipBehavior'], Clip.none),
-      disabledElevation: layoutMap['disabledElevation'],
-      elevation: layoutMap['elevation'],
-      focusColor: parseHexColor(layoutMap['focusColor']),
-      focusElevation: layoutMap['focusElevation'],
-//      focusNode: ,
-      foregroundColor: parseHexColor(layoutMap['foregroundColor']),
-//      heroTag: ,
-      highlightElevation: layoutMap['highlightElevation'],
-      hoverColor: parseHexColor(layoutMap['hoverColor']),
-      hoverElevation: layoutMap['hoverElevation'],
-      isExtended: layoutMap['isExtended'] ?? false,
-//      materialTapTargetSize: ,
-      mini: layoutMap['mini'] ?? false,
-//      shape: ,
-      splashColor: parseHexColor(layoutMap['splashColor']),
-      tooltip: layoutMap['tooltip'],
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      onPressed:
+          SchemaWidget.parse<VoidCallback>(buildContext, value['onPressed']),
+      autofocus: value['autofocus'] ?? false,
+      backgroundColor:
+          SchemaWidget.parse<Color>(buildContext, value['backgroundColor']),
+      child: SchemaWidget.parse<Widget>(buildContext, value['child']),
+      clipBehavior: SchemaWidget.parse<Clip>(
+          buildContext, value['clipBehavior'], Clip.none),
+      disabledElevation:
+          SchemaWidget.parse<double>(buildContext, value['disabledElevation']),
+      elevation: SchemaWidget.parse<double>(buildContext, value['elevation']),
+      focusColor: SchemaWidget.parse<Color>(buildContext, value['focusColor']),
+      focusElevation:
+          SchemaWidget.parse<double>(buildContext, value['focusElevation']),
+      focusNode:
+          SchemaWidget.parse<FocusNode>(buildContext, value['focusNode']),
+      foregroundColor:
+          SchemaWidget.parse<Color>(buildContext, value['foregroundColor']),
+      // FIXME: Impossible create because default value is private a object.
+      //heroTag: SchemaWidget.parse<Object>(buildContext, value['heroTag']),
+      highlightElevation:
+          SchemaWidget.parse<double>(buildContext, value['highlightElevation']),
+      hoverColor: SchemaWidget.parse<Color>(buildContext, value['hoverColor']),
+      hoverElevation:
+          SchemaWidget.parse<double>(buildContext, value['hoverElevation']),
+      isExtended: value['isExtended'] ?? false,
+      materialTapTargetSize: SchemaWidget.parse<MaterialTapTargetSize>(
+          buildContext, value['materialTapTargetSize']),
+      mini: value['mini'] ?? false,
+      shape: SchemaWidget.parse<ShapeBorder>(buildContext, value['shape']),
+      splashColor:
+          SchemaWidget.parse<Color>(buildContext, value['splashColor']),
+      tooltip: value['tooltip'],
     );
   }
 }

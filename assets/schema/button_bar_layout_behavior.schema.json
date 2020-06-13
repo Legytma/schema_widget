@@ -1,0 +1,11 @@
+{
+  "$id": "https://legytma.com.br/schema/button_bar_layout_behavior.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Button Bar Layout Behavior",
+  "description": "",
+  "$comment": "",
+  "type": "string",
+  "enum": ["constrained", "padded"],
+  "examples": ["constrained", "padded"]
+}
+

@@ -28,7 +28,7 @@ void main() {
   test('create fitedbox', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "FittedBox"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "FittedBox"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is FittedBox, true);

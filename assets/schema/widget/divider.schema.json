@@ -1,0 +1,25 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/divider.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Divider",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 05/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "Divider"
+    },
+    "thickness": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "color": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "endIndent": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "indent": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

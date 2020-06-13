@@ -1,0 +1,19 @@
+{
+  "$id": "https://legytma.com.br/schema/offset_lerp.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Offset Lerp",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 29/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [{"$ref": "https://legytma.com.br/schema/offset.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/offset.schema.json#properties/type",
+      "const": "lerp"
+    },
+    "a": {"$ref": "https://legytma.com.br/schema/offset.schema.json"},
+    "b": {"$ref": "https://legytma.com.br/schema/offset.schema.json"},
+    "t": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

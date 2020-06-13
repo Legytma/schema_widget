@@ -1,0 +1,22 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/grid_view_widget.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Grid View Widget",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 07/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "GridViewWidget"
+    },
+    "params": {"$ref": "https://legytma.com.br/schema/grid_view_params.schema.json"}
+  },
+  "required": ["params"]
+}
+

@@ -1,0 +1,17 @@
+{
+  "$id": "https://legytma.com.br/schema/cupertino_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Cupertino Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 22/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "textTheme": {"$ref": "https://legytma.com.br/schema/cupertino_text_theme_data.schema.json"},
+    "brightness": {"$ref": "https://legytma.com.br/schema/brightness.schema.json"},
+    "scaffoldBackgroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "primaryColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "barBackgroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "primaryContrastingColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"}
+  }
+}
+

@@ -1,0 +1,18 @@
+{
+  "$id": "https://legytma.com.br/schema/rect_fromPoints.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Rect From Points",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [{"$ref": "https://legytma.com.br/schema/rect.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/rect.schema.json#properties/type",
+      "const": "fromPoints"
+    },
+    "a": {"$ref": "https://legytma.com.br/schema/offset.schema.json"},
+    "b": {"$ref": "https://legytma.com.br/schema/offset.schema.json"}
+  }
+}
+

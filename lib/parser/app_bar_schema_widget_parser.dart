@@ -15,67 +15,53 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [AppBar].
-class AppBarSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("AppBar", "https://legytma.com.br/schema/widget/app_bar.schema.json")
+class AppBarSchemaWidgetParser extends SchemaWidgetParser<AppBar> {
   static final Logger _log = Logger("AppBarSchemaWidgetParser");
 
-  @override
-  String get parserName => "AppBar";
+  /// Create instance of parser
+  AppBarSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
+   AppBar builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
     return AppBar(
-//      key: SchemaWidget.build(buildContext, map["key"]),
-      title: SchemaWidget.build(buildContext, map["title"]),
-      primary: map["primary"] ?? true,
-      actions: SchemaWidget.build(buildContext, map["actions"]),
-//      actionsIconTheme: SchemaWidget.build(buildContext, map["actionsIconTheme"]),
-      automaticallyImplyLeading: map["automaticallyImplyLeading"] ?? true,
-      backgroundColor: parseHexColor(map["backgroundColor"]),
-      bottom: SchemaWidget.build(buildContext, map["bottom"]),
-      bottomOpacity: map["bottomOpacity"] ?? 1.0,
-//      brightness: SchemaWidget.build(buildContext, map["brightness"]),
-      centerTitle: map["centerTitle"],
-      elevation: map["elevation"],
-      flexibleSpace: SchemaWidget.build(buildContext, map["flexibleSpace"]),
-//      iconTheme: SchemaWidget.build(buildContext, map["iconTheme"]),
-      leading: SchemaWidget.build(buildContext, map["leading"]),
-//      shape: SchemaWidget.build(buildContext, map["shape"]),
-//      textTheme: SchemaWidget.build(buildContext, map["textTheme"]),
-      titleSpacing: map["titleSpacing"] ?? NavigationToolbar.kMiddleSpacing,
-      toolbarOpacity: map["toolbarOpacity"] ?? 1.0,
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      title: SchemaWidget.parse<Widget>(buildContext, value["title"]),
+      primary: value["primary"] ?? true,
+      actions: SchemaWidget.parse<List<Widget>>(buildContext, value["actions"]),
+      actionsIconTheme: SchemaWidget.parse<IconThemeData>(
+          buildContext, value["actionsIconTheme"]),
+      automaticallyImplyLeading: value["automaticallyImplyLeading"] ?? true,
+      backgroundColor:
+          SchemaWidget.parse<Color>(buildContext, value["backgroundColor"]),
+      bottom: SchemaWidget.parse<PreferredSizeWidget>(
+          buildContext, value["bottom"]),
+      bottomOpacity: value["bottomOpacity"] ?? 1.0,
+      brightness:
+          SchemaWidget.parse<Brightness>(buildContext, value["brightness"]),
+      centerTitle: value["centerTitle"],
+      elevation: value["elevation"],
+      flexibleSpace:
+          SchemaWidget.parse<Widget>(buildContext, value["flexibleSpace"]),
+      iconTheme:
+          SchemaWidget.parse<IconThemeData>(buildContext, value["iconTheme"]),
+      leading: SchemaWidget.parse<Widget>(buildContext, value["leading"]),
+      shape: SchemaWidget.parse<ShapeBorder>(buildContext, value["shape"]),
+      textTheme:
+          SchemaWidget.parse<TextTheme>(buildContext, value["textTheme"]),
+      titleSpacing: SchemaWidget.parse<double>(buildContext,
+          value["titleSpacing"], NavigationToolbar.kMiddleSpacing),
+      toolbarOpacity: SchemaWidget.parse<double>(
+          buildContext, value["toolbarOpacity"], 1.0),
     );
   }
 }

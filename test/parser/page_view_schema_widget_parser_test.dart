@@ -28,7 +28,7 @@ void main() {
   test('create page view', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {"type": "PageView"});
+    final widget = SchemaWidget.parse<Widget>(null, {"type": "PageView"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is PageView, true);

@@ -1,0 +1,9 @@
+{
+  "$id": "https://legytma.com.br/schema/map_string_widget_template_dynamic.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Map String Widget Template Dynamic",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 13/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object"
+}
+

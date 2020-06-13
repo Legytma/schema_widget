@@ -25,10 +25,10 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
+  setUp(() async => await SchemaWidget.registerParsers());
   test('create animated container', () {
-    SchemaWidget.registerParsers();
-
-    final widget = SchemaWidget.build(null, {"type": "AnimatedContainer"});
+    final widget =
+        SchemaWidget.parse<Widget>(null, {"type": "AnimatedContainer"});
 
     expect(widget != null, true, reason: "Widget not created.");
     expect(widget is AnimatedContainer, true);

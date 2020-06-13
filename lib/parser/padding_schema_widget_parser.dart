@@ -15,52 +15,24 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Padding]
-class PaddingSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Padding";
+@SchemaParser("Padding", "https://legytma.com.br/schema/widget/padding.schema.json")
+class PaddingSchemaWidgetParser extends SchemaWidgetParser<Padding> {
+  /// Create instance of parser
+  PaddingSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "padding": {
-            "title": "Padding",
-            "description": "Padding values separed by comma",
-            "type": "string",
-            "default": "0.0,0.0,0.0,0.0",
-            "example": ["0.0,0.0,0.0,0.0", "0.1,2.3,4.5,6.7"],
-          },
-        },
-        "required": ["type", "padding"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   Padding builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Padding(
-      padding: parseEdgeInsetsGeometry(map["padding"]),
-      child: SchemaWidget.build(buildContext, map["child"]),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      padding: SchemaWidget.parse<EdgeInsetsGeometry>(
+          buildContext, value["padding"]),
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
     );
   }
 }

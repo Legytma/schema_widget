@@ -30,8 +30,8 @@ void main() {
 
     SchemaWidget.registerLogic("builderTest", (context, snapshot) => null);
 
-    final widget = SchemaWidget.build(null, {
-      "type": "StreamBuilder",
+    final widget = SchemaWidget.parse<Widget>(null, {
+      "type": "StreamBuilder<dynamic>",
       "builder": "builderTest",
     });
 

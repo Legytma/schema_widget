@@ -1,0 +1,34 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/image_memory.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Image Memory",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 12/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget/image.schema.json"
+    }
+  ],
+  "properties": {
+    "imageType": {
+      "$ref": "https://legytma.com.br/schema/widget/image.schema.json#properties/imageType",
+      "const": "memory"
+    },
+    "bytes": {
+      "title": "Bytes",
+      "description": "",
+      "$comment": "",
+      "type": "array",
+      "items": [{"type": "integer", "minimum": 0, "maximum": 255}]
+    },
+    "cacheHeight": {"$ref": "https://legytma.com.br/schema/int.schema.json"},
+    "cacheWidth": {"$ref": "https://legytma.com.br/schema/int.schema.json"},
+    "scale": {
+      "$ref": "https://legytma.com.br/schema/double.schema.json",
+      "default": 1.0
+    }
+  },
+  "required": ["imageType", "bytes"]
+}
+

@@ -25,10 +25,50 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create sized box', () {
-    SchemaWidget.registerParsers();
+  SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+  test('create sized box expand', () {
+    final widget = SchemaWidget.parse<Widget>(null, {
+      "type": "SizedBox",
+      "sizedBoxType": "expand",
+    });
+
+    expect(widget != null, true, reason: "Widget not created.");
+    expect(widget is SizedBox, true);
+  });
+
+  test('create sized box from size', () {
+    final widget = SchemaWidget.parse<Widget>(null, {
+      "type": "SizedBox",
+      "sizedBoxType": "fromSize",
+    });
+
+    expect(widget != null, true, reason: "Widget not created.");
+    expect(widget is SizedBox, true);
+  });
+
+  test('create sized box shrink', () {
+    final widget = SchemaWidget.parse<Widget>(null, {
+      "type": "SizedBox",
+      "sizedBoxType": "shrink",
+    });
+
+    expect(widget != null, true, reason: "Widget not created.");
+    expect(widget is SizedBox, true);
+  });
+
+  test('create sized box', () {
+    final widget = SchemaWidget.parse<Widget>(null, {
+      "type": "SizedBox",
+      "sizedBoxType": "SizedBox",
+    });
+
+    expect(widget != null, true, reason: "Widget not created.");
+    expect(widget is SizedBox, true);
+  });
+
+  test('create sized box default', () {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "SizedBox",
     });
 

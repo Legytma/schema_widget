@@ -28,7 +28,7 @@ void main() {
   test('create opacity', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
+    final widget = SchemaWidget.parse<Widget>(null, {
       "type": "Opacity",
       "opacity": 1.0,
     });

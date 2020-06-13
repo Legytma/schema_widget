@@ -1,0 +1,9 @@
+{
+  "$id": "https://legytma.com.br/schema/list_widget.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "List of Widgets",
+  "description": "List of Schema to validation of JSON used to parse Widgets.",
+  "type": "array",
+  "$comment": "You can add any widget inheritance's.",
+  "items": {"$ref": "https://legytma.com.br/schema/widget.schema.json"}
+}

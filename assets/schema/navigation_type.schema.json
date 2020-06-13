@@ -1,0 +1,11 @@
+{
+  "$id": "https://legytma.com.br/schema/navigation_type.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Navigation Type",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 28/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "string",
+  "enum": ["pop", "popAndPush", "push"],
+  "examples": ["pop", "popAndPush", "push"]
+}
+

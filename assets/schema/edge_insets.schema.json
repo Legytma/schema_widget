@@ -1,0 +1,16 @@
+{
+  "$id": "https://legytma.com.br/schema/edge_insets.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Edge Insets",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "oneOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/edge_insets_string.schema.json"
+    },
+    {
+      "$ref": "https://legytma.com.br/schema/edge_insets_object.schema.json"
+    }
+  ]
+}
+

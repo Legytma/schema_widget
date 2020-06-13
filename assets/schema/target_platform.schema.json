@@ -1,0 +1,11 @@
+{
+  "$id": "https://legytma.com.br/schema/target_platform.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Target Platform",
+  "description": "Determine the target platform",
+  "$comment": "",
+  "type": "string",
+  "examples": ["android", "fuchsia", "iOS"],
+  "enum": ["android", "fuchsia", "iOS"]
+}
+

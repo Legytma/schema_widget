@@ -1,0 +1,15 @@
+{
+  "$id": "https://legytma.com.br/schema/border_radius.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Border Radius",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 24/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/border_radius_geometry.schema.json#properties/type",
+      "enum": ["all", "circular", "horizontal", "lerp", "only", "vertical", "zero"]
+    }
+  }
+}
+

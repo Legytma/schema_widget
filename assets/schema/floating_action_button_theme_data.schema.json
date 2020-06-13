@@ -1,0 +1,22 @@
+{
+  "$id": "https://legytma.com.br/schema/floating_action_button_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Floating Action Button Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 23/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "backgroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "shape": {"$ref": "https://legytma.com.br/schema/shape_border.schema.json"},
+    "elevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "focusColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "hoverColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "splashColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "disabledElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "focusElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "foregroundColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "highlightElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "hoverElevation": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

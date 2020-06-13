@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
 
@@ -25,11 +26,11 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  test('create container', () {
+  test('create grid view', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(null, {
-      "type": "GridView",
+    final widget = SchemaWidget.parse<Widget>(null, {
+      "type": "GridViewWidget",
       "children": [],
     });
 

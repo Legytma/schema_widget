@@ -1,0 +1,27 @@
+{
+  "$id": "https://legytma.com.br/schema/toolbar_options.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Toolbar Options",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "copy": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "cut": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "paste": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "selectAll": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    }
+  }
+}
+

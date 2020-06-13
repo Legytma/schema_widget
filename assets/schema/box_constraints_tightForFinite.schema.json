@@ -1,0 +1,24 @@
+{
+  "$id": "https://legytma.com.br/schema/box_constraints_tightForFinite.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Box Constraints Tight For Finite",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://legytma.com.br/schema/box_constraints.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/box_constraints.schema.json#properties/type",
+      "const": "tightForFinite"
+    },
+    "width": {
+      "$ref": "https://legytma.com.br/schema/double.schema.json",
+      "default": "infinity"
+    },
+    "height": {
+      "$ref": "https://legytma.com.br/schema/double.schema.json",
+      "default": "infinity"
+    }
+  }
+}
+

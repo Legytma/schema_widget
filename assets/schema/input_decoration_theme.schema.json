@@ -1,0 +1,50 @@
+{
+  "$id": "https://legytma.com.br/schema/input_decoration_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Input Decoration Theme",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 23/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "hoverColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "focusColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "contentPadding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "isDense": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "errorStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "alignLabelWithHint": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "border": {"$ref": "https://legytma.com.br/schema/input_border.schema.json"},
+    "counterStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "disabledBorder": {"$ref": "https://legytma.com.br/schema/input_border.schema.json"},
+    "enabledBorder": {"$ref": "https://legytma.com.br/schema/input_border.schema.json"},
+    "errorBorder": {"$ref": "https://legytma.com.br/schema/input_border.schema.json"},
+    "errorMaxLines": {"$ref": "https://legytma.com.br/schema/int.schema.json"},
+    "fillColor": {"$ref": "https://legytma.com.br/schema/color.schema.json"},
+    "filled": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "focusedBorder": {"$ref": "https://legytma.com.br/schema/input_border.schema.json"},
+    "focusedErrorBorder": {"$ref": "https://legytma.com.br/schema/input_border.schema.json"},
+    "hasFloatingPlaceholder": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": true
+    },
+    "helperMaxLines": {"$ref": "https://legytma.com.br/schema/int.schema.json"},
+    "helperStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "hintStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "isCollapsed": {
+      "$ref": "https://legytma.com.br/schema/bool.schema.json",
+      "default": false
+    },
+    "labelStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "prefixStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"},
+    "suffixStyle": {"$ref": "https://legytma.com.br/schema/text_style.schema.json"}
+  }
+}
+

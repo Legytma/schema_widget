@@ -16,91 +16,69 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [MaterialApp].
-class MaterialAppSchemaWidgetParser extends SchemaWidgetParser {
+@SchemaParser("MaterialApp", "https://legytma.com.br/schema/widget/material_app.schema.json")
+class MaterialAppSchemaWidgetParser extends SchemaWidgetParser<MaterialApp> {
   static final Logger _log = Logger("MaterialAppSchemaWidgetParser");
 
-  @override
-  String get parserName => "MaterialApp";
+  /// Create instance of parser
+  MaterialAppSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "title": {
-            "title": "Title",
-            "description": "App title",
-            "type": "string",
-          },
-        },
-        "required": ["type", "title"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    _log.finer(map);
-
-    Map<String, dynamic> localeMap =
-        map.containsKey("locale") ? map["locale"] : null;
+   MaterialApp builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    _log.finer(value);
 
     return MaterialApp(
-      locale: parseLocale(localeMap),
-      title: map["title"] ?? '',
-      home: SchemaWidget.build(buildContext, map["home"]),
-      theme: parseThemeData(buildContext, map["theme"]),
-      key: SchemaWidget.build(buildContext, map["key"]),
-      color: parseHexColor(map['color']),
-      routes: SchemaWidget.build(buildContext, map['routes']) ??
-          const <String, WidgetBuilder>{},
-      onUnknownRoute: SchemaWidget.build(buildContext, map['onUnknownRoute']),
-      onGenerateTitle: SchemaWidget.build(buildContext, map['onGenerateTitle']),
-      onGenerateRoute: SchemaWidget.build(buildContext, map['onGenerateRoute']),
-      initialRoute: map['initialRoute'],
-      navigatorObservers:
-      SchemaWidget.build(buildContext, map['navigatorObservers']) ??
-          const <NavigatorObserver>[],
-      navigatorKey: SchemaWidget.build(buildContext, map['navigatorKey']),
-      builder: SchemaWidget.build(buildContext, map['builder']),
-      checkerboardOffscreenLayers: map['checkerboardOffscreenLayers'] ?? false,
+      locale: SchemaWidget.parse<Locale>(buildContext, value["locale"]),
+      title: value["title"] ?? '',
+      home: SchemaWidget.parse<Widget>(buildContext, value["home"]),
+      theme: SchemaWidget.parse<ThemeData>(buildContext, value["theme"]),
+      key: SchemaWidget.parse<Key>(buildContext, value["key"]),
+      color: SchemaWidget.parse<Color>(buildContext, value['color']),
+      routes: SchemaWidget.parse<Map<String, WidgetBuilder>>(
+          buildContext, value['routes'], const <String, WidgetBuilder>{}),
+      onUnknownRoute: SchemaWidget.parse<RouteFactory>(
+          buildContext, value['onUnknownRoute']),
+      onGenerateTitle: SchemaWidget.parse<GenerateAppTitle>(
+          buildContext, value['onGenerateTitle']),
+      onGenerateRoute: SchemaWidget.parse<RouteFactory>(
+          buildContext, value['onGenerateRoute']),
+      initialRoute: value['initialRoute'],
+      navigatorObservers: SchemaWidget.parse<List<NavigatorObserver>>(
+          buildContext,
+          value['navigatorObservers'], const <NavigatorObserver>[]),
+      navigatorKey: SchemaWidget.parse<GlobalKey<NavigatorState>>(
+          buildContext, value['navigatorKey']),
+      builder:
+          SchemaWidget.parse<TransitionBuilder>(buildContext, value['builder']),
+      checkerboardOffscreenLayers:
+          value['checkerboardOffscreenLayers'] ?? false,
       checkerboardRasterCacheImages:
-      map['checkerboardRasterCacheImages'] ?? false,
-      darkTheme: parseThemeData(buildContext, map['darkTheme']),
-      debugShowCheckedModeBanner: map['debugShowCheckedModeBanner'] ?? true,
-      debugShowMaterialGrid: map['debugShowMaterialGrid'] ?? false,
+          value['checkerboardRasterCacheImages'] ?? false,
+      darkTheme:
+          SchemaWidget.parse<ThemeData>(buildContext, value['darkTheme']),
+      debugShowCheckedModeBanner: value['debugShowCheckedModeBanner'] ?? true,
+      debugShowMaterialGrid: value['debugShowMaterialGrid'] ?? false,
       localeListResolutionCallback:
-      SchemaWidget.build(buildContext, map['localeListResolutionCallback']),
-      localeResolutionCallback:
-      SchemaWidget.build(buildContext, map['localeResolutionCallback']),
+          SchemaWidget.parse<LocaleListResolutionCallback>(
+              buildContext, value['localeListResolutionCallback']),
+      localeResolutionCallback: SchemaWidget.parse<LocaleResolutionCallback>(
+          buildContext, value['localeResolutionCallback']),
       localizationsDelegates:
-      SchemaWidget.build(buildContext, map['localizationsDelegates']),
-      showPerformanceOverlay: map['showPerformanceOverlay'] ?? false,
-      showSemanticsDebugger: map['showSemanticsDebugger'] ?? false,
-      supportedLocales:
-      SchemaWidget.build(buildContext, map['supportedLocales']) ??
-          const <Locale>[Locale('en', 'US')],
-      themeMode: parseThemeMode(map['themeMode']) ?? ThemeMode.system,
+          SchemaWidget.parse<Iterable<LocalizationsDelegate<dynamic>>>(
+              buildContext, value['localizationsDelegates']),
+      showPerformanceOverlay: value['showPerformanceOverlay'] ?? false,
+      showSemanticsDebugger: value['showSemanticsDebugger'] ?? false,
+      supportedLocales: SchemaWidget.parse<Iterable<Locale>>(buildContext,
+          value['supportedLocales'], const <Locale>[Locale('en', 'US')]),
+      themeMode: SchemaWidget.parse<ThemeMode>(
+          buildContext, value['themeMode'], ThemeMode.system),
     );
   }
 }

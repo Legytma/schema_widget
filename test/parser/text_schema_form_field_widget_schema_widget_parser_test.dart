@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
 import 'package:schema_form/widget/control/schema/text_schema_form_field_widget.dart';
@@ -28,10 +29,10 @@ void main() {
   test('create text schema form field widget', () {
     SchemaWidget.registerParsers();
 
-    final widget = SchemaWidget.build(
+    final widget = SchemaWidget.parse<Widget>(
       null,
       {
-        "type": "TextSchemaFormField",
+        "type": "TextSchemaFormFieldWidget",
         "fieldName": "test",
       },
     );

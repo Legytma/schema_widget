@@ -1,0 +1,18 @@
+{
+  "$id": "https://legytma.com.br/schema/box_constraints_expand.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Box Constraints Expand",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://legytma.com.br/schema/box_constraints.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/box_constraints.schema.json#properties/type",
+      "const": "expand"
+    },
+    "width": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
+  }
+}
+

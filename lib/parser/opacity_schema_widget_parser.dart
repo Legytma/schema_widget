@@ -15,57 +15,24 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Opacity]
-class OpacitySchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Opacity";
+@SchemaParser("Opacity", "https://legytma.com.br/schema/widget/opacity.schema.json")
+class OpacitySchemaWidgetParser extends SchemaWidgetParser<Opacity> {
+  /// Create instance of parser
+  OpacitySchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-          "opacity": {
-            "title": "Opacity",
-            "description": "Opacity value",
-            "type": "number",
-            "minimum": 0.0,
-            "maximum": 1.0,
-            "default": 0.0,
-            "examples": [0.2, 1],
-          },
-        },
-        "required": ["type", "opacity"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
+   Opacity builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
     return Opacity(
-      opacity: map["opacity"],
-      alwaysIncludeSemantics: map.containsKey("alwaysIncludeSemantics")
-          ? map["alwaysIncludeSemantics"]
-          : false,
-      child: SchemaWidget.build(buildContext, map["child"]),
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      opacity: SchemaWidget.parse<double>(buildContext, value["opacity"]),
+      alwaysIncludeSemantics: value["alwaysIncludeSemantics"] ?? false,
+      child: SchemaWidget.parse<Widget>(buildContext, value["child"]),
     );
   }
 }

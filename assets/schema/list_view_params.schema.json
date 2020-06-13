@@ -1,0 +1,21 @@
+{
+  "$id": "https://legytma.com.br/schema/list_view_params.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "List View Params",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 12/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "scrollDirection": {"$ref": "https://legytma.com.br/schema/axis.schema.json"},
+    "reverse": {"$ref": "https://legytma.com.br/schema/bool.schema.json"},
+    "shrinkWrap": {"$ref": "https://legytma.com.br/schema/bool.schema.json"},
+    "cacheExtent": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "padding": {"$ref": "https://legytma.com.br/schema/edge_insets_geometry.schema.json"},
+    "itemExtent": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
+    "children": {"$ref": "https://legytma.com.br/schema/list_widget.schema.json"},
+    "pageSize": {"$ref": "https://legytma.com.br/schema/int.schema.json"},
+    "loadMoreUrl": {"$ref": "https://legytma.com.br/schema/url.schema.json"},
+    "isDemo": {"$ref": "https://legytma.com.br/schema/bool.schema.json"}
+  }
+}
+

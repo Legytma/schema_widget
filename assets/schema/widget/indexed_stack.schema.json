@@ -1,0 +1,37 @@
+{
+  "$id": "https://legytma.com.br/schema/widget/indexed_stack.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Indexed Stack",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 12/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
+      "const": "IndexedStack"
+    },
+    "sizing": {
+      "$ref": "https://legytma.com.br/schema/stack_fit.schema.json",
+      "default": "loose"
+    },
+    "index": {
+      "$ref": "https://legytma.com.br/schema/int.schema.json",
+      "default": 0
+    },
+    "alignment": {
+      "$ref": "https://legytma.com.br/schema/alignment_geometry.schema.json",
+      "default": "topStart"
+    },
+    "textDirection": {"$ref": "https://legytma.com.br/schema/text_direction.schema.json"},
+    "children": {
+      "$ref": "https://legytma.com.br/schema/list_widget.schema.json",
+      "default": []
+    }
+  }
+}
+

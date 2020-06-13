@@ -15,49 +15,26 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Divider].
-class DividerSchemaWidgetParser extends SchemaWidgetParser {
-  @override
-  String get parserName => "Divider";
+@SchemaParser("Divider", "https://legytma.com.br/schema/widget/divider.schema.json")
+class DividerSchemaWidgetParser extends SchemaWidgetParser<Divider> {
+  /// Create instance of parser
+  DividerSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-  JsonSchema get jsonSchema => JsonSchema.createSchema({
-        "\$schema": "http://json-schema.org/draft-06/schema#",
-//        "\$id": "#widget-schema",
-        "title": "Container Parser Schema",
-        "description": "Schema to validation of JSON used to parse Container"
-            " Widget.",
-        "type": "object",
-        "\$comment": "You can add all valid properties to complete validation.",
-        "properties": {
-          "type": {
-            "\$comment": "Used to identify parser. Every parser can permit only"
-                " one type",
-            "title": "Type",
-            "description": "Identify the widget type",
-            "type": "string",
-            "default": parserName,
-            "examples": [parserName],
-            "enum": [parserName],
-            "const": parserName,
-          },
-        },
-        "required": ["type"],
-      });
-
-  @override
-  Widget builder(BuildContext buildContext, Map<String, dynamic> map) {
-    var divider = Divider(
-      color: map.containsKey('color') ? parseHexColor(map['color']) : null,
-      endIndent: map.containsKey('endIndent') ? map['endIndent'] : 0.0,
-      height: map.containsKey('height') ? map['height'] : 16.0,
-      indent: map.containsKey('indent') ? map['indent'] : 0.0,
+   Divider builder(BuildContext buildContext, Map<String, dynamic> value,
+      [Widget defaultValue]) {
+    return Divider(
+      key: SchemaWidget.parse<Key>(buildContext, value['key']),
+      thickness: SchemaWidget.parse<double>(buildContext, value['thickness']),
+      color: SchemaWidget.parse<Color>(buildContext, value['color']),
+      endIndent: SchemaWidget.parse<double>(buildContext, value['endIndent']),
+      height: SchemaWidget.parse<double>(buildContext, value['height']),
+      indent: SchemaWidget.parse<double>(buildContext, value['indent']),
     );
-
-    return divider;
   }
 }

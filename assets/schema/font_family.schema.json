@@ -1,0 +1,8 @@
+{
+  "$id": "https://legytma.com.br/schema/font_family.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "Font Family",
+  "description": "Font family",
+  "type": "string"
+}
