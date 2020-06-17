@@ -15,7 +15,7 @@
       "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
       "const": "SchemaFormWidget"
     },
-    "jsonSchema": {"$ref": "http://json-schema.org/draft-06/schema"},
+    "jsonSchema": {"$ref": "https://json-schema.org/draft-06/schema#"},
     "typeTemplateMap": {"$ref": "https://legytma.com.br/schema/map_schema_type_widget_template_dynamic.schema.json"},
     "controlTemplateMap": {"$ref": "https://legytma.com.br/schema/map_string_widget_template_dynamic.schema.json"},
     "defaultHeader": {

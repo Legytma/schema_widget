@@ -1,0 +1,15 @@
+{
+	"$id": "FittedBox.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "FittedBox Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/fitted-box.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal FittedBox widget",
+			"schema": {
+				"type": "FittedBox"
+			},
+			"valid": true
+		}
+	]
+}

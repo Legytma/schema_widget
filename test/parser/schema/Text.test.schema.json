@@ -1,0 +1,16 @@
+{
+	"$id": "Text.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Text Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/text.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Text widget",
+			"schema": {
+				"type": "Text",
+				"data": "Texto a ser exibido"
+			},
+			"valid": true
+		}
+	]
+}

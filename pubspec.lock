@@ -106,13 +106,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.3.2"
-  built_mirrors:
-    dependency: "direct dev"
-    description:
-      name: built_mirrors
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.11.0"
   built_value:
     dependency: transitive
     description:

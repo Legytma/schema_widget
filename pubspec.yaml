@@ -29,7 +29,6 @@ dev_dependencies:
   effective_dart: ^1.2.1
   build_test: ^1.0.0
   build_runner: ^1.10.0
-  built_mirrors: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

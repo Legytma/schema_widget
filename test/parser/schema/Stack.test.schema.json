@@ -1,0 +1,15 @@
+{
+	"$id": "Stack.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Stack Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/stack.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Stack widget",
+			"schema": {
+				"type": "Stack"
+			},
+			"valid": true
+		}
+	]
+}

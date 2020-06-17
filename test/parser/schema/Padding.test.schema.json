@@ -1,0 +1,16 @@
+{
+	"$id": "Padding.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Padding Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/padding.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Padding widget",
+			"schema": {
+				"type": "Padding",
+				"padding": "0,1,2,3"
+			},
+			"valid": true
+		}
+	]
+}

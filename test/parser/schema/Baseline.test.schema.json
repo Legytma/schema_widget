@@ -1,0 +1,17 @@
+{
+	"$id": "Baseline.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Baseline Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/baseline.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Baseline widget",
+			"schema": {
+				"type": "Baseline",
+				"baseline": 1.0,
+				"baselineType": "alphabetic"
+			},
+			"valid": true
+		}
+	]
+}

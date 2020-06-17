@@ -10,6 +10,7 @@
     "bearing": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
     "tilt": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
     "zoom": {"$ref": "https://legytma.com.br/schema/double.schema.json"}
-  }
+  },
+  "required": ["target"]
 }
 

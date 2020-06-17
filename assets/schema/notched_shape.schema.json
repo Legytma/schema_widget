@@ -4,6 +4,6 @@
   "$comment": "This parser is not implemented, must be assigned using registerLogic",
   "title": "Notched Shape",
   "description": "Notched shape undefined at moment.",
-  "type": "null"
+  "$ref": "https://legytma.com.br/schema/dynamic.schema.json"
 }
 

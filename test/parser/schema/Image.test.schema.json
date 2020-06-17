@@ -1,0 +1,17 @@
+{
+	"$id": "Image.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Image Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/image.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Image widget",
+			"schema": {
+				"type": "Image",
+				"imageType": "network",
+				"src": "https://legytma.com.br/wp-content/uploads/2019/12/Legytma-Solu%C3%A7%C3%B5es-Inteligentes.png"
+			},
+			"valid": true
+		}
+	]
+}

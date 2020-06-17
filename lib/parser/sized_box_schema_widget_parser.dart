@@ -21,7 +21,7 @@ import '../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 14/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("SizedBox", 
+@SchemaParser("SizedBox",
     "https://legytma.com.br/schema/widget/sized_box.schema.json", <String>[
   "expand",
   "fromSize",
@@ -37,15 +37,8 @@ class SizedBoxSchemaWidgetParser extends VariantSchemaWidgetParser<SizedBox> {
   @override
   String extractType(Map<String, dynamic> value) => value['sizedBoxType'];
 
-  // FIXME: REMOVE-ME
-  /*
   @override
-  VariantSchemaWidgetParser<SizedBox> newVariantInstance(String schemaUri) =>
-      SizedBoxSchemaWidgetParser(schemaUri, null);
-  */
-
-  @override
-   SizedBox builderVariant(BuildContext buildContext, Map<String, dynamic> value,
+  SizedBox builderVariant(BuildContext buildContext, Map<String, dynamic> value,
       Widget defaultValue) {
     var key = SchemaWidget.parse<Key>(buildContext, value['key']);
     var child = SchemaWidget.parse<Widget>(buildContext, value["child"]);

@@ -1,0 +1,15 @@
+{
+	"$id": "Center.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Center Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/center.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Center widget",
+			"schema": {
+				"type": "Center"
+			},
+			"valid": true
+		}
+	]
+}

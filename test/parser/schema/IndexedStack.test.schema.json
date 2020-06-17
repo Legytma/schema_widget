@@ -1,0 +1,15 @@
+{
+	"$id": "IndexedStack.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "IndexedStack Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/indexed-stack.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal IndexedStack widget",
+			"schema": {
+				"type": "IndexedStack"
+			},
+			"valid": true
+		}
+	]
+}

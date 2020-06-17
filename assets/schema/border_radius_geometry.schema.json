@@ -9,8 +9,9 @@
     "type": {
       "title": "Type",
       "description": "Define o tipo de Border Radius",
-      "$schema": ""
+      "type": "string"
     }
-  }
+  },
+  "required": ["type"]
 }
 

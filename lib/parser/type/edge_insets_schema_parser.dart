@@ -23,7 +23,8 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("EdgeInsets", "https://legytma.com.br/schema/edge_insets.schema.json", <String>[
+@SchemaParser("EdgeInsets",
+    "https://legytma.com.br/schema/edge_insets.schema.json", <String>[
   "string",
   "zero",
   "all",
@@ -45,16 +46,8 @@ class EdgeInsetsSchemaParser
   String extractType(dynamic value) =>
       value is Map<String, dynamic> ? value['type'] : "string";
 
-  // FIXME: REMOVE-ME
-  /*
   @override
-  VariantTypeSchemaParser<EdgeInsets, dynamic, EdgeInsets> newVariantInstance(
-          String schemaUri) =>
-      EdgeInsetsSchemaParser(schemaUri, null);
-  */
-
-  @override
-   EdgeInsets builderVariant(
+  EdgeInsets builderVariant(
       BuildContext buildContext, dynamic value, EdgeInsets defaultValue) {
     if (value is String) {
       if (value.trim() == '' || !value.contains(",")) {

@@ -1,0 +1,16 @@
+{
+	"$id": "ListViewWidget.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "ListViewWidget Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/list-view-widget.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal ListViewWidget widget",
+			"schema": {
+				"type": "ListViewWidget",
+				"params": {}
+			},
+			"valid": true
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$id": "Opacity.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Opacity Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/opacity.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Opacity widget",
+			"schema": {
+				"type": "Opacity",
+				"opacity": 1.0
+			},
+			"valid": true
+		}
+	]
+}

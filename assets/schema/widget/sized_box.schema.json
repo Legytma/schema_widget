@@ -23,6 +23,7 @@
       "enum": ["expand", "fromSize", "shrink", "default"]
     },
     "child": {"$ref": "https://legytma.com.br/schema/widget.schema.json"}
-  }
+  },
+  "required": ["sizedBoxType"]
 }
 

@@ -1,0 +1,21 @@
+{
+	"$id": "GoogleMap.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "GoogleMap Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/google-map.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal GoogleMap widget",
+			"schema": {
+				"type": "GoogleMap",
+				"initialCameraPosition": {
+					"target": {
+						"latitude": 0.0,
+						"longitude": 0.0
+					}
+				}
+			},
+			"valid": true
+		}
+	]
+}

@@ -4,13 +4,9 @@
   "title": "Radius",
   "description": "",
   "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
-  "type": "object",
-  "properties": {
-    "type": {
-      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
-      "enum": ["zero", "circular", "elliptical", "lerp"]
-    }
-  },
-  "required": ["type"]
+  "oneOf": [
+    {"$ref": "https://legytma.com.br/schema/radius_string.schema.json"},
+    {"$ref": "https://legytma.com.br/schema/radius_object.schema.json"}
+  ]
 }
 

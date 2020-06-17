@@ -1,0 +1,16 @@
+{
+	"$id": "ClipRRect.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "ClipRRect Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/clip-r-rect.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal ClipRRect widget",
+			"schema": {
+				"type": "ClipRRect",
+				"borderRadius": "0,0,0,0"
+			},
+			"valid": true
+		}
+	]
+}

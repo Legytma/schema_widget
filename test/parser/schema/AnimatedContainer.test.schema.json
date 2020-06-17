@@ -1,0 +1,15 @@
+{
+  "$id": "AnimatedContainer.test.schema.json",
+  "$schema": "https://legytma.com.br/schema/test.schema.json",
+  "description": "AnimatedContainer Schema Parser",
+  "testSchema": "https://legytma.com.br/schema/widget/animated-container.schema.json",
+  "tests": [
+    {
+      "description": "Create minimal AnimatedContainer Widget",
+      "schema": {
+        "type": "AnimatedContainer"
+      },
+      "valid": true
+    }
+  ]
+}

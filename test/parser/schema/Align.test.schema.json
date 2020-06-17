@@ -1,0 +1,23 @@
+{
+  "$id": "Align.test.schema.json",
+  "$schema": "https://legytma.com.br/schema/test.schema.json",
+  "description": "Align Schema Parser",
+  "testSchema": "https://legytma.com.br/schema/widget/align.schema.json",
+  "tests": [
+    {
+      "description": "Create Align Widget with invalid alignment",
+      "schema": {
+        "type": "Align",
+        "alignment": "invalid"
+      },
+      "valid": false
+    },
+    {
+      "description": "Create minimal Align Widget",
+      "schema": {
+        "type": "Align"
+      },
+      "valid": true
+    }
+  ]
+}

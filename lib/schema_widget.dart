@@ -319,7 +319,7 @@ class SchemaWidget {
 
   static JsonSchema _refProvider(String ref, [SchemaVersion schemaVersion]) {
     const bundledSchemaVersionBase = "https://legytma.com.br/";
-    const bundledSchemaDraft06 = 'http://json-schema.org/draft-06/schema#';
+    const bundledSchemaDraft06 = 'https://json-schema.org/draft-06/schema#';
 
     if (ref == null ||
         (!ref.startsWith(bundledSchemaVersionBase) &&
@@ -388,12 +388,28 @@ class SchemaWidget {
 //      schemaVersion = result.schemaVersion;
 //    }
 
+    var pathProperties = false;
+    var pathDefinitions = false;
+
     for (var key in properties) {
-      if (key == "properties") {
+      if (key == null || key.isEmpty) {
         continue;
       }
 
-      result = result.properties[key];
+      if (key == "properties" || key == "definitions") {
+        pathProperties = key == "properties";
+        pathDefinitions = key == "definitions";
+
+        continue;
+      }
+
+      if (pathProperties) {
+        result = result.properties[key];
+      } else if (pathDefinitions) {
+        result = result.definitions[key];
+      } else {
+        throw "Unespected path: $key in $ref";
+      }
     }
 
     _jsonSchemaCache[ref] = result;

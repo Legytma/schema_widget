@@ -22,20 +22,21 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 07/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("CameraPosition", "https://legytma.com.br/schema/camera_position.schema.json")
+@SchemaParser("CameraPosition",
+    "https://legytma.com.br/schema/camera_position.schema.json")
 class CameraPositionSchemaParser extends TypeSchemaParser<CameraPosition,
     Map<String, dynamic>, CameraPosition> {
   /// Create instance of parser using [JsonSchema] to validate values.
   CameraPositionSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   CameraPosition builder(BuildContext buildContext, Map<String, dynamic> value,
+  CameraPosition builder(BuildContext buildContext, Map<String, dynamic> value,
       [CameraPosition defaultValue]) {
     return CameraPosition(
       target: SchemaWidget.parse<LatLng>(buildContext, value['target']),
-      bearing: SchemaWidget.parse<double>(buildContext, value['bearing']),
-      tilt: SchemaWidget.parse<double>(buildContext, value['tilt']),
-      zoom: SchemaWidget.parse<double>(buildContext, value['zoom']),
+      bearing: SchemaWidget.parse<double>(buildContext, value['bearing'], 0.0),
+      tilt: SchemaWidget.parse<double>(buildContext, value['tilt'], 0.0),
+      zoom: SchemaWidget.parse<double>(buildContext, value['zoom'], 0.0),
     );
   }
 }

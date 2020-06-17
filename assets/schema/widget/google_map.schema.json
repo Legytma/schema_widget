@@ -91,6 +91,7 @@
       "$ref": "https://legytma.com.br/schema/bool.schema.json",
       "default": true
     }
-  }
+  },
+  "required": ["initialCameraPosition"]
 }
 

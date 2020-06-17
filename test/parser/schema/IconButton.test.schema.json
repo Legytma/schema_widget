@@ -1,0 +1,21 @@
+{
+	"$id": "IconButton.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "IconButton Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/icon-button.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal IconButton widget",
+			"schema": {
+				"type": "IconButton",
+				"icon": {
+					"type": "Icon",
+					"icon": {
+						"codePoint": "0xe145"
+					}
+				}
+			},
+			"valid": true
+		}
+	]
+}

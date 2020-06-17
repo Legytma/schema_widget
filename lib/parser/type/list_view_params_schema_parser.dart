@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../model/list_view_params.dart';
 import '../../schema_widget.dart';
@@ -22,14 +22,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 12/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ListViewParams", "https://legytma.com.br/schema/list_view_params.schema.json")
+@SchemaParser("ListViewParams",
+    "https://legytma.com.br/schema/list_view_params.schema.json")
 class ListViewParamsSchemaParser extends TypeSchemaParser<ListViewParams,
     Map<String, dynamic>, ListViewParams> {
   /// Create instance of parser using [JsonSchema] to validate values.
   ListViewParamsSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   ListViewParams builder(BuildContext buildContext, Map<String, dynamic> value,
+  ListViewParams builder(BuildContext buildContext, Map<String, dynamic> value,
       [ListViewParams defaultValue]) {
     return ListViewParams(
       SchemaWidget.parse<Axis>(buildContext, value['scrollDirection']),

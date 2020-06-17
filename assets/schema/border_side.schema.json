@@ -7,7 +7,7 @@
   "type": "object",
   "properties": {
     "type": {
-      "$ref": "https://legytma.com.br/schema/widget.schema.json#porperties/type",
+      "$ref": "https://legytma.com.br/schema/widget.schema.json#properties/type",
       "enum": ["default", "none", "merge", "lerp"]
     }
   }

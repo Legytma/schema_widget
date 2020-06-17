@@ -24,6 +24,31 @@ void main() {
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
+  test('Verify Double validation', () async {
+    await SchemaWidget.registerParsers();
+
+    final schemaUrl = "https://legytma.com.br/schema/double.schema.json";
+    final jsonSchema = await JsonSchema.createSchemaFromUrl(schemaUrl);
+
+    var validationResults = jsonSchema.validateWithErrors(1.0);
+
+    if (validationResults != null && validationResults.isNotEmpty) {
+      fail(validationResults.toString());
+    }
+
+    validationResults = jsonSchema.validateWithErrors("normal");
+
+    if (validationResults != null && validationResults.isNotEmpty) {
+      fail(validationResults.toString());
+    }
+
+    validationResults = jsonSchema.validateWithErrors("-1.2");
+
+    if (validationResults != null && validationResults.isNotEmpty) {
+      fail(validationResults.toString());
+    }
+  });
+
   test('Create Json Schema widget', () async {
     await SchemaWidget.registerParsers();
 

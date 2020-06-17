@@ -4,6 +4,6 @@
   "title": "Transition Builder",
   "description": "",
   "$comment": "Created by Windol <windol@legytma.com.br> at 15/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
-  "type": "null"
+  "$ref": "https://legytma.com.br/schema/dynamic.schema.json"
 }
 

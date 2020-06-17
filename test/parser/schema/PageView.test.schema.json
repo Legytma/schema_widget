@@ -1,0 +1,15 @@
+{
+	"$id": "PageView.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "PageView Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/page-view.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal PageView widget",
+			"schema": {
+				"type": "PageView"
+			},
+			"valid": true
+		}
+	]
+}

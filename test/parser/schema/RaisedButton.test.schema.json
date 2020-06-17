@@ -1,0 +1,15 @@
+{
+	"$id": "RaisedButton.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "RaisedButton Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/raised-button.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal RaisedButton widget",
+			"schema": {
+				"type": "RaisedButton"
+			},
+			"valid": true
+		}
+	]
+}

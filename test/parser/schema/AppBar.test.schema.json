@@ -1,0 +1,15 @@
+{
+	"$id": "AppBar.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "AppBar Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/app-bar.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal AppBar widget",
+			"schema": {
+				"type": "AppBar"
+			},
+			"valid": true
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$id": "GestureDetector.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "GestureDetector Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/gesture-detector.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal GestureDetector widget",
+			"schema": {
+				"type": "GestureDetector"
+			},
+			"valid": true
+		}
+	]
+}

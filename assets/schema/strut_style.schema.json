@@ -5,6 +5,14 @@
   "description": "",
   "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
   "type": "object",
+  "definitions": {
+    "fontFamily": {
+      "title": "Font Family",
+      "description": "",
+      "$comment": "",
+      "type": "string"
+    }
+  },
   "properties": {
     "debugLabel": {"$ref": "https://legytma.com.br/schema/debug_label.schema.json"},
     "height": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
@@ -19,13 +27,10 @@
       "description": "List of alternative font families",
       "$comment": "",
       "type": "array",
-      "items": [{"$ref": "https://legytma.com.br/schema/strut_style.schema.json#properties/fontFamily"}]
+      "items": [{"$ref": "#/definitions/fontFamily"}]
     },
     "fontFamily": {
-      "title": "Font Family",
-      "description": "",
-      "$comment": "",
-      "type": "string"
+      "$ref": "#/definitions/fontFamily"
     },
     "fontSize": {"$ref": "https://legytma.com.br/schema/double.schema.json"},
     "fontStyle": {"$ref": "https://legytma.com.br/schema/font_style.schema.json"},

@@ -1,0 +1,15 @@
+{
+	"$id": "Positioned.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Positioned Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/positioned.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Positioned widget",
+			"schema": {
+				"type": "Positioned"
+			},
+			"valid": true
+		}
+	]
+}

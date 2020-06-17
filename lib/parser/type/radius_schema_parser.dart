@@ -21,55 +21,61 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Radius", "https://legytma.com.br/schema/radius.schema.json", <String>[
+@SchemaParser(
+    "Radius", "https://legytma.com.br/schema/radius.schema.json", <String>[
+  "string",
   "zero",
   "circular",
   "elliptical",
   "lerp",
 ])
 class RadiusSchemaParser
-    extends VariantTypeSchemaParser<Radius, Map<String, dynamic>, Radius> {
+    extends VariantTypeSchemaParser<Radius, dynamic, Radius> {
   /// Create instance of parser using [JsonSchema] to validate values.
   RadiusSchemaParser(JsonSchema jsonSchema,
-      [Map<String,
-              VariantTypeSchemaParser<Radius, Map<String, dynamic>, Radius>>
+      [Map<String, VariantTypeSchemaParser<Radius, dynamic, Radius>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 
   @override
-  String extractType(Map<String, dynamic> value) => value["type"];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<Radius, Map<String, dynamic>, Radius>
-      newVariantInstance(String schemaUri) =>
-          RadiusSchemaParser(schemaUri, null);
-  */
+  String extractType(dynamic value) =>
+      value is Map<String, dynamic> ? value['type'] : "string";
 
   @override
-   Radius builderVariant(BuildContext buildContext, Map<String, dynamic> value,
-      Radius defaultValue) {
-    switch (value["type"]) {
-      case 'zero':
-        return Radius.zero;
-      case 'circular':
-        return Radius.circular(
-          SchemaWidget.parse<double>(buildContext, value['radius']),
-        );
-      case 'elliptical':
-        return Radius.elliptical(
-          SchemaWidget.parse<double>(buildContext, value['x']),
-          SchemaWidget.parse<double>(buildContext, value['y']),
-        );
-      case 'lerp':
-        return Radius.lerp(
-          SchemaWidget.parse<Radius>(buildContext, value['a']),
-          SchemaWidget.parse<Radius>(buildContext, value['b']),
-          SchemaWidget.parse<double>(buildContext, value['t']),
-        );
-      default:
+  Radius builderVariant(
+      BuildContext buildContext, dynamic value, Radius defaultValue) {
+    if (value is String) {
+      if (value.trim().isEmpty) {
         return defaultValue;
+      }
+
+      return Radius.circular(SchemaWidget.parse<double>(buildContext, value));
     }
+
+    if (value is Map<String, dynamic>) {
+      switch (value["type"]) {
+        case 'zero':
+          return Radius.zero;
+        case 'circular':
+          return Radius.circular(
+            SchemaWidget.parse<double>(buildContext, value['radius']),
+          );
+        case 'elliptical':
+          return Radius.elliptical(
+            SchemaWidget.parse<double>(buildContext, value['x']),
+            SchemaWidget.parse<double>(buildContext, value['y']),
+          );
+        case 'lerp':
+          return Radius.lerp(
+            SchemaWidget.parse<Radius>(buildContext, value['a']),
+            SchemaWidget.parse<Radius>(buildContext, value['b']),
+            SchemaWidget.parse<double>(buildContext, value['t']),
+          );
+        default:
+          return defaultValue;
+      }
+    }
+
+    return defaultValue;
   }
 }

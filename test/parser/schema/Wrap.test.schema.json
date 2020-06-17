@@ -1,0 +1,15 @@
+{
+	"$id": "Wrap.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Wrap Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/wrap.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Wrap widget",
+			"schema": {
+				"type": "Wrap"
+			},
+			"valid": true
+		}
+	]
+}

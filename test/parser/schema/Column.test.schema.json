@@ -1,0 +1,21 @@
+{
+	"$id": "Column.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Column Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/column.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Column widget",
+			"schema": {
+				"type": "Column",
+				"children": [
+					{
+						"type": "Text",
+						"data": "Teste"
+					}
+				]
+			},
+			"valid": true
+		}
+	]
+}

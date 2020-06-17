@@ -1,0 +1,16 @@
+{
+	"$id": "SpinKitRotatingCircle.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "SpinKitRotatingCircle Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/spin-kit-rotating-circle.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal SpinKitRotatingCircle widget",
+			"schema": {
+				"type": "SpinKitRotatingCircle",
+				"color": "#000000"
+			},
+			"valid": true
+		}
+	]
+}

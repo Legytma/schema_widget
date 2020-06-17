@@ -1,0 +1,15 @@
+{
+	"$id": "FloatingActionButton.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "FloatingActionButton Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/floating-action-button.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal FloatingActionButton widget",
+			"schema": {
+				"type": "FloatingActionButton"
+			},
+			"valid": true
+		}
+	]
+}

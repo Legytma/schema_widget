@@ -1,0 +1,15 @@
+{
+	"$id": "Placeholder.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Placeholder Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/placeholder.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Placeholder widget",
+			"schema": {
+				"type": "Placeholder"
+			},
+			"valid": true
+		}
+	]
+}

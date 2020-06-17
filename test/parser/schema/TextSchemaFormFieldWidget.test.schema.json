@@ -1,0 +1,16 @@
+{
+	"$id": "TextSchemaFormFieldWidget.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "TextSchemaFormFieldWidget Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/text-schema-form-field-widget.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal TextSchemaFormFieldWidget widget",
+			"schema": {
+				"type": "TextSchemaFormFieldWidget",
+				"fieldName": "test"
+			},
+			"valid": true
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"$id": "TextSchemaFormFieldTemplate.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "TextSchemaFormFieldTemplate Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/text-schema-form-field-template.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal TextSchemaFormFieldTemplate widget",
+			"schema": {
+				"type": "TextSchemaFormFieldTemplate"
+			},
+			"valid": true
+		}
+	]
+}

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../model/grid_view_params.dart';
 import '../../schema_widget.dart';
@@ -22,14 +22,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 07/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("GridViewParams", "https://legytma.com.br/schema/grid_view_params.schema.json")
+@SchemaParser("GridViewParams",
+    "https://legytma.com.br/schema/grid_view_params.schema.json")
 class GridViewParamsSchemaParser extends TypeSchemaParser<GridViewParams,
     Map<String, dynamic>, GridViewParams> {
   /// Create instance of parser using [JsonSchema] to validate values.
   GridViewParamsSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   GridViewParams builder(BuildContext buildContext, Map<String, dynamic> value,
+  GridViewParams builder(BuildContext buildContext, Map<String, dynamic> value,
       [GridViewParams defaultValue]) {
     return GridViewParams(
         SchemaWidget.parse<int>(buildContext, value['crossAxisCount']),

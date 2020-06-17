@@ -1,0 +1,16 @@
+{
+	"$id": "SizedBox.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "SizedBox Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/sized-box.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal SizedBox widget",
+			"schema": {
+				"type": "SizedBox",
+				"sizedBoxType": "default"
+			},
+			"valid": true
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$id": "MaterialApp.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "MaterialApp Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/material-app.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal MaterialApp widget",
+			"schema": {
+				"type": "MaterialApp",
+				"title": "App Title"
+			},
+			"valid": true
+		}
+	]
+}

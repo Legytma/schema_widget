@@ -1,0 +1,15 @@
+{
+	"$id": "CircleAvatar.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "CircleAvatar Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/circle-avatar.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal CircleAvatar widget",
+			"schema": {
+				"type": "CircleAvatar"
+			},
+			"valid": true
+		}
+	]
+}

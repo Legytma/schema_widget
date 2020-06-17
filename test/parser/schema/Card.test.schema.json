@@ -1,0 +1,15 @@
+{
+	"$id": "Card.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Card Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/card.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Card widget",
+			"schema": {
+				"type": "Card"
+			},
+			"valid": true
+		}
+	]
+}

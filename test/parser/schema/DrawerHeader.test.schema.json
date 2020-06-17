@@ -1,0 +1,15 @@
+{
+	"$id": "DrawerHeader.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "DrawerHeader Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/drawer-header.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal DrawerHeader widget",
+			"schema": {
+				"type": "DrawerHeader"
+			},
+			"valid": true
+		}
+	]
+}

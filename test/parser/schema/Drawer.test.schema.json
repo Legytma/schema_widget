@@ -1,0 +1,15 @@
+{
+	"$id": "Drawer.test.schema.json",
+	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"description": "Drawer Schema Parser",
+	"testSchema": "https://legytma.com.br/schema/widget/drawer.schema.json",
+	"tests": [
+		{
+			"description": "Create minimal Drawer widget",
+			"schema": {
+				"type": "Drawer"
+			},
+			"valid": true
+		}
+	]
+}

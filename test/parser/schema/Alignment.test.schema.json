@@ -1,0 +1,23 @@
+{
+  "$id": "Alignment.test.schema.json",
+  "$schema": "https://legytma.com.br/schema/test.schema.json",
+  "description": "Alignment Schema Parser",
+  "testSchema": "https://legytma.com.br/schema/alignment.schema.json",
+  "tests": [
+    {
+      "description": "Create Alignment enum with invalid value",
+      "schema": "invalid",
+      "valid": false
+    },
+    {
+      "description": "Create Alignment enum left",
+      "schema": "left",
+      "valid": false
+    },
+    {
+      "description": "Create Alignment enum topLeft",
+      "schema": "topLeft",
+      "valid": true
+    }
+  ]
+}
