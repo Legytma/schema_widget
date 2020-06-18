@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "post-update-cmd": "ln -f assets/schema ../schema",
+        "post-install-cmd": "ln -f assets/schema ../schema",
+        "post-autoload-dump": "ln -f assets/schema ../schema",
+        "post-create-project-cmd": "ln -f assets/schema ../schema"
+    }
+}
