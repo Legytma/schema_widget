@@ -1,9 +1,0 @@
-{
-  "$id": "https://legytma.com.br/schema/int.schema.json",
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Used to identify parser. Every parser can permit only one type",
-  "title": "Integer",
-  "description": "Define the representation of integer acceptable.",
-  "type": ["string", "integer"],
-  "examples": ["123", "#32", "0b111001", "$23", "0x162", 123]
-}

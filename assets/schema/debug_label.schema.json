@@ -1,8 +1,0 @@
-{
-  "$id": "https://legytma.com.br/schema/debug_label.schema.json",
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Used to identify parser. Every parser can permit only one type",
-  "title": "Debug Label",
-  "description": "Used to identify during debug",
-  "type": "string"
-}

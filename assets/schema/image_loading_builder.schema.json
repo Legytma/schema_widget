@@ -1,9 +1,0 @@
-{
-  "$id": "https://legytma.com.br/schema/image_loading_builder.schema.json",
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "title": "Image Loading Builder",
-  "description": "",
-  "$comment": "Created by Windol <windol@legytma.com.br> at 15/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
-  "$ref": "https://legytma.com.br/schema/dynamic.schema.json"
-}
-

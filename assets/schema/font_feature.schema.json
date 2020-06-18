@@ -1,8 +1,0 @@
-{
-  "$id": "https://legytma.com.br/schema/font_feature.schema.json",
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "$comment": "Used to identify parser. Every parser can permit only one type",
-  "title": "Font Feature",
-  "description": "Font feature",
-  "$ref": "https://legytma.com.br/schema/dynamic.schema.json"
-}
