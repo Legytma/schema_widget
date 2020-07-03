@@ -1,0 +1,30 @@
+{
+  "name": "schema_documentation_builder",
+  "version": "1.1.1",
+  "description": "Schema Documentation Builder",
+  "scripts": {
+    "release": "standard-version -a -t \"\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Legytma/LegytmaSchemas.git"
+  },
+  "keywords": [
+    "Legytma",
+    "json-schema",
+    "LegytmaSchemas",
+    "Documentation"
+  ],
+  "author": "Alex Manoel Ferreira Silva <alex@legytma.com.br>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Legytma/LegytmaSchemas/issues"
+  },
+  "homepage": "https://github.com/Legytma/LegytmaSchemas#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "replace-in-file": "^6.1.0",
+    "standard-version": "^8.0.0",
+    "yaml": "^1.10.0"
+  }
+}

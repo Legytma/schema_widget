@@ -76,3 +76,4 @@ build/
 
 /examples/
 *.g.dart
+node_modules
