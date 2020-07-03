@@ -304,7 +304,7 @@ class SchemaWidget {
     // >> To get paths you need these 2 lines
 
     final jsonSchemaPaths = manifestMap.keys
-        .where((key) => key.contains('.schema.json') || key.endsWith("/schema"))
+        .where((key) => key.contains('draft06.schema.json'))
         .toList();
 
     _assetCache = <String, Map<String, dynamic>>{};
@@ -338,9 +338,10 @@ class SchemaWidget {
     var assetPath;
 
     if (ref == bundledSchemaDraft06) {
-      assetPath = "schema/schema";
+      assetPath = "draft06.schema.json";
     } else {
       assetPath = baseRef.substring(bundledSchemaVersionBase.length);
+      assetPath = "LegytmaSchemas/$assetPath";
     }
 
     JsonSchema result;
