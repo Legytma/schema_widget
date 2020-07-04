@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Rect", "https://legytma.com.br/schema/rect.schema.json", <String>[
+@SchemaParser("Rect", "https://schema.legytma.com.br/1.1.2/schema/rect.schema.json", <String>[
   "zero",
   "largest",
   "fromPoints",

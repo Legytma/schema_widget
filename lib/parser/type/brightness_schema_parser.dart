@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Brightness", "https://legytma.com.br/schema/brightness.schema.json")
+@SchemaParser("Brightness", "https://schema.legytma.com.br/1.1.2/schema/brightness.schema.json")
 class BrightnessSchemaParser
     extends TypeSchemaParser<Brightness, String, Brightness> {
   /// Create instance of parser using [JsonSchema] to validate values.

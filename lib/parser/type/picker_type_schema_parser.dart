@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 27/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("PickerType", "https://legytma.com.br/schema/picker_type.schema.json")
+@SchemaParser("PickerType", "https://schema.legytma.com.br/1.1.2/schema/picker_type.schema.json")
 class PickerTypeSchemaParser
     extends TypeSchemaParser<PickerType, String, PickerType> {
   /// Create instance of parser using [JsonSchema] to validate values.

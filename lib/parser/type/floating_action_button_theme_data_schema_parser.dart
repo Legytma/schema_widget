@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("FloatingActionButtonThemeData", 
-    "https://legytma.com.br/schema/floating_action_button_theme_data.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/floating_action_button_theme_data.schema.json")
 class FloatingActionButtonThemeDataSchemaParser extends TypeSchemaParser<
     FloatingActionButtonThemeData,
     Map<String, dynamic>,

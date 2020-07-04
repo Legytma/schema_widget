@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 22/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ChipThemeData", "https://legytma.com.br/schema/chip_theme_data.schema.json")
+@SchemaParser("ChipThemeData", "https://schema.legytma.com.br/1.1.2/schema/chip_theme_data.schema.json")
 class ChipThemeDataSchemaParser extends TypeSchemaParser<ChipThemeData,
     Map<String, dynamic>, ChipThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.

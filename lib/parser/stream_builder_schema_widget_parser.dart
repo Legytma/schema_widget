@@ -21,7 +21,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [StreamBuilder]
 @SchemaParser("StreamBuilder<dynamic>",
-    "https://legytma.com.br/schema/widget/stream_builder_dynamic.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/widget/stream_builder_dynamic.schema.json")
 class StreamBuilderSchemaWidgetParser
     extends SchemaWidgetParser<StreamBuilder<dynamic>> {
   /// Create instance of parser

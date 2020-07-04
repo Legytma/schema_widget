@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ToolbarOptions", "https://legytma.com.br/schema/toolbar_options.schema.json")
+@SchemaParser("ToolbarOptions", "https://schema.legytma.com.br/1.1.2/schema/toolbar_options.schema.json")
 class ToolbarOptionsSchemaParser extends TypeSchemaParser<ToolbarOptions,
     Map<String, dynamic>, ToolbarOptions> {
   /// Create instance of parser using [JsonSchema] to validate values.

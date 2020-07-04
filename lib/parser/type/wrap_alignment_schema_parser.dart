@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("WrapAlignment", "https://legytma.com.br/schema/wrap_alignment.schema.json")
+@SchemaParser("WrapAlignment", "https://schema.legytma.com.br/1.1.2/schema/wrap_alignment.schema.json")
 class WrapAlignmentSchemaParser
     extends TypeSchemaParser<WrapAlignment, String, WrapAlignment> {
   /// Create instance of parser using [JsonSchema] to validate values.

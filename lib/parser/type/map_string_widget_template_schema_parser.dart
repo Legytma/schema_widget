@@ -24,7 +24,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 13/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("Map<String, WidgetTemplate<dynamic>>",
-    "https://legytma.com.br/schema/map_string_widget_template_dynamic.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/map_string_widget_template_dynamic.schema.json")
 class MapStringWidgetTemplateSchemaParser extends TypeSchemaParser<
     Map<String, WidgetTemplate<dynamic>>,
     Map<String, dynamic>,

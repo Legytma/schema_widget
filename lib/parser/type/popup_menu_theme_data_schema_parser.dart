@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("PopupMenuThemeData", "https://legytma.com.br/schema/popup_menu_theme_data.schema.json")
+@SchemaParser("PopupMenuThemeData", "https://schema.legytma.com.br/1.1.2/schema/popup_menu_theme_data.schema.json")
 class PopupMenuThemeDataSchemaParser extends TypeSchemaParser<
     PopupMenuThemeData, Map<String, dynamic>, PopupMenuThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.

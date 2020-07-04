@@ -20,7 +20,7 @@ import 'package:logging/logging.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("Widget", "https://legytma.com.br/schema/widget.schema.json")
+@SchemaParser("Widget", "https://schema.legytma.com.br/1.1.2/schema/widget.schema.json")
 class WidgetSchemaParser extends TypeSchemaParser<Widget, dynamic, Widget> {
   final Logger _log = Logger("WidgetSchemaParser");
 

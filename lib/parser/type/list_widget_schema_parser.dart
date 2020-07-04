@@ -19,7 +19,7 @@ import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("List<Widget>", "https://legytma.com.br/schema/list_widget.schema.json")
+@SchemaParser("List<Widget>", "https://schema.legytma.com.br/1.1.2/schema/list_widget.schema.json")
 class ListWidgetSchemaParser
     extends TypeSchemaParser<List<Widget>, dynamic, List<Widget>> {
 //  final Logger _log = Logger("ListWidgetSchemaParser");

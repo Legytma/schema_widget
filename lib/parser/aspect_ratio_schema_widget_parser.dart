@@ -20,7 +20,7 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [AspectRatio]
-@SchemaParser("AspectRatio", "https://legytma.com.br/schema/widget/aspect_ratio.schema.json")
+@SchemaParser("AspectRatio", "https://schema.legytma.com.br/1.1.2/schema/widget/aspect_ratio.schema.json")
 class AspectRatioSchemaWidgetParser extends SchemaWidgetParser<AspectRatio> {
   /// Create instance of parser
   AspectRatioSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);

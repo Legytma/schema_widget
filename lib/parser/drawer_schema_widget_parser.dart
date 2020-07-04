@@ -21,7 +21,7 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Drawer].
-@SchemaParser("Drawer", "https://legytma.com.br/schema/widget/drawer.schema.json")
+@SchemaParser("Drawer", "https://schema.legytma.com.br/1.1.2/schema/widget/drawer.schema.json")
 class DrawerSchemaWidgetParser extends SchemaWidgetParser<Drawer> {
   static final Logger _log = Logger("DrawerSchemaWidgetParser");
 

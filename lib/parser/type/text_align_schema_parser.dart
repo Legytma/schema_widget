@@ -19,7 +19,7 @@ import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("TextAlign", "https://legytma.com.br/schema/text_align.schema.json")
+@SchemaParser("TextAlign", "https://schema.legytma.com.br/1.1.2/schema/text_align.schema.json")
 class TextAlignSchemaParser
     extends TypeSchemaParser<TextAlign, String, TextAlign> {
   TextAlignSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

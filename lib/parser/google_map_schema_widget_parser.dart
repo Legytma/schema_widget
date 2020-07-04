@@ -24,7 +24,7 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [GoogleMap]
-@SchemaParser("GoogleMap", "https://legytma.com.br/schema/widget/google_map.schema.json")
+@SchemaParser("GoogleMap", "https://schema.legytma.com.br/1.1.2/schema/widget/google_map.schema.json")
 class GoogleMapSchemaWidgetParser extends SchemaWidgetParser<GoogleMap> {
   static final Logger _log = Logger("GoogleMapSchemaWidgetParser");
 

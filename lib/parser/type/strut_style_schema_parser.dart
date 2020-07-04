@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("StrutStyle", "https://legytma.com.br/schema/strut_style.schema.json")
+@SchemaParser("StrutStyle", "https://schema.legytma.com.br/1.1.2/schema/strut_style.schema.json")
 class StrutStyleSchemaParser
     extends TypeSchemaParser<StrutStyle, Map<String, dynamic>, StrutStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.

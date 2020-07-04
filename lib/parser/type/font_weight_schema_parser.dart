@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 15/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("FontWeight", "https://legytma.com.br/schema/font_weight.schema.json")
+@SchemaParser("FontWeight", "https://schema.legytma.com.br/1.1.2/schema/font_weight.schema.json")
 class FontWeightSchemaParser
     extends TypeSchemaParser<FontWeight, String, FontWeight> {
   FontWeightSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

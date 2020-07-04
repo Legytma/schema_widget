@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("FlutterLogoStyle", "https://legytma.com.br/schema/flutter_logo_style.schema.json")
+@SchemaParser("FlutterLogoStyle", "https://schema.legytma.com.br/1.1.2/schema/flutter_logo_style.schema.json")
 class FlutterLogoStyleSchemaParser
     extends TypeSchemaParser<FlutterLogoStyle, String, FlutterLogoStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.

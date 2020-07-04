@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 22/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("CardTheme", "https://legytma.com.br/schema/card_theme.schema.json")
+@SchemaParser("CardTheme", "https://schema.legytma.com.br/1.1.2/schema/card_theme.schema.json")
 class CardThemeSchemaParser
     extends TypeSchemaParser<CardTheme, Map<String, dynamic>, CardTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.

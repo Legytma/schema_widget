@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 15/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextDirection", "https://legytma.com.br/schema/text_direction.schema.json")
+@SchemaParser("TextDirection", "https://schema.legytma.com.br/1.1.2/schema/text_direction.schema.json")
 class TextDirectionSchemaParser
     extends TypeSchemaParser<TextDirection, String, TextDirection> {
   TextDirectionSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

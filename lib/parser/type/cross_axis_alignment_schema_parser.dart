@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("CrossAxisAlignment", "https://legytma.com.br/schema/cross_axis_alignment.schema.json")
+@SchemaParser("CrossAxisAlignment", "https://schema.legytma.com.br/1.1.2/schema/cross_axis_alignment.schema.json")
 class CrossAxisAlignmentSchemaParser
     extends TypeSchemaParser<CrossAxisAlignment, String, CrossAxisAlignment> {
   /// Create instance of parser using [JsonSchema] to validate values.

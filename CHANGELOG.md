@@ -1,3 +1,15 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 0.1.10 (2020-07-04)
+
+
+### Features
+
+* add submodule LegytmaSchemas with schemas and documentations ([2d75026](https://github.com/Legytma/LegytmaSchemas/commit/2d75026211076ad6e9741db36d46308a3b536401))
+* add support to standard-version, updating schema $id ([224a9fd](https://github.com/Legytma/LegytmaSchemas/commit/224a9fd3aadd73fce66f41346cf3ff66d572d054))
+
 ## [0.1.9] - Adding the ability to create fully functional applications using only JSON Schema
 
 * Change google_maps_flutter version from 0.5.25+1 to 0.5.25+3;

@@ -20,7 +20,7 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [SafeArea]
-@SchemaParser("SafeArea", "https://legytma.com.br/schema/widget/safe_area.schema.json")
+@SchemaParser("SafeArea", "https://schema.legytma.com.br/1.1.2/schema/widget/safe_area.schema.json")
 class SafeAreaSchemaWidgetParser extends SchemaWidgetParser<SafeArea> {
   /// Create instance of parser
   SafeAreaSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);

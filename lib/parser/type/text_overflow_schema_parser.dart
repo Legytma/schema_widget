@@ -19,7 +19,7 @@ import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("TextOverflow", "https://legytma.com.br/schema/text_overflow.schema.json")
+@SchemaParser("TextOverflow", "https://schema.legytma.com.br/1.1.2/schema/text_overflow.schema.json")
 class TextOverflowSchemaParser
     extends TypeSchemaParser<TextOverflow, String, TextOverflow> {
   TextOverflowSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

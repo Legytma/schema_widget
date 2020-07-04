@@ -23,7 +23,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 22/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("CupertinoTextThemeData", 
-    "https://legytma.com.br/schema/cupertino_text_theme_data.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/cupertino_text_theme_data.schema.json")
 class CupertinoTextThemeDataSchemaParser extends TypeSchemaParser<
     CupertinoTextThemeData, Map<String, dynamic>, CupertinoTextThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.

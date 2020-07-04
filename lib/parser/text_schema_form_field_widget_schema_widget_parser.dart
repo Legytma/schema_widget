@@ -26,7 +26,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [TextSchemaFormFieldWidget]
 @SchemaParser("TextSchemaFormFieldWidget", 
-    "https://legytma.com.br/schema/widget/text_schema_form_field_widget.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/widget/text_schema_form_field_widget.schema.json")
 class TextSchemaFormFieldWidgetSchemaWidgetParser
     extends SchemaWidgetParser<TextSchemaFormFieldWidget> {
   static final Logger _log =

@@ -23,7 +23,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SchemaFormWidget].
 @SchemaParser("SchemaFormWidget", 
-    "https://legytma.com.br/schema/widget/schema_form_widget.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/widget/schema_form_widget.schema.json")
 class SchemaFormWidgetSchemaWidgetParser
     extends SchemaWidgetParser<SchemaFormWidget> {
   static final Logger _log = Logger("SchemaFormWidgetSchemaWidgetParser");

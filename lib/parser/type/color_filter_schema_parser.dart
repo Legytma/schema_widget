@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("ColorFilter", 
-    "https://legytma.com.br/schema/color_filter.schema.json", <String>[
+    "https://schema.legytma.com.br/1.1.2/schema/color_filter.schema.json", <String>[
   "linear_to_srgb_gamma",
   "srgb_to_linear_gamma",
   "mode",

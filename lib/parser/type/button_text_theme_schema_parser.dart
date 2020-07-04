@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ButtonTextTheme", "https://legytma.com.br/schema/button_text_theme.schema.json")
+@SchemaParser("ButtonTextTheme", "https://schema.legytma.com.br/1.1.2/schema/button_text_theme.schema.json")
 class ButtonTextThemeSchemaParser
     extends TypeSchemaParser<ButtonTextTheme, String, ButtonTextTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.

@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("BlendMode", "https://legytma.com.br/schema/blend_mode.schema.json")
+@SchemaParser("BlendMode", "https://schema.legytma.com.br/1.1.2/schema/blend_mode.schema.json")
 class BlendModeSchemaParser
     extends TypeSchemaParser<BlendMode, String, BlendMode> {
   /// Create instance of parser using [JsonSchema] to validate values.

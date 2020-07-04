@@ -23,7 +23,7 @@ import '../widget/list_view_widget.dart';
 
 /// [SchemaWidgetParser] to [ListViewWidget]
 @SchemaParser("ListViewWidget", 
-    "https://legytma.com.br/schema/widget/list_view_widget.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/widget/list_view_widget.schema.json")
 class ListViewSchemaWidgetParser extends SchemaWidgetParser<ListViewWidget> {
   /// Create instance of parser
   ListViewSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);

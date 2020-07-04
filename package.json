@@ -1,6 +1,6 @@
 {
   "name": "schema_documentation_builder",
-  "version": "1.1.1",
+  "version": "0.1.10",
   "description": "Schema Documentation Builder",
   "scripts": {
     "release": "standard-version -a -t \"\""

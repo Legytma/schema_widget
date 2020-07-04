@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextInputType", "https://legytma.com.br/schema/text_input_type.schema.json")
+@SchemaParser("TextInputType", "https://schema.legytma.com.br/1.1.2/schema/text_input_type.schema.json")
 class TextInputTypeSchemaParser
     extends TypeSchemaParser<TextInputType, String, TextInputType> {
   /// Create instance of parser using [JsonSchema] to validate values.

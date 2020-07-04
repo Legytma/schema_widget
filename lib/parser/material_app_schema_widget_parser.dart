@@ -22,7 +22,7 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [MaterialApp].
-@SchemaParser("MaterialApp", "https://legytma.com.br/schema/widget/material_app.schema.json")
+@SchemaParser("MaterialApp", "https://schema.legytma.com.br/1.1.2/schema/widget/material_app.schema.json")
 class MaterialAppSchemaWidgetParser extends SchemaWidgetParser<MaterialApp> {
   static final Logger _log = Logger("MaterialAppSchemaWidgetParser");
 

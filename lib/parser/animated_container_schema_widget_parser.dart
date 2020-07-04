@@ -21,7 +21,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Container]
 @SchemaParser("AnimatedContainer", 
-    "https://legytma.com.br/schema/widget/animated_container.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/widget/animated_container.schema.json")
 class AnimatedContainerSchemaWidgetParser
     extends SchemaWidgetParser<AnimatedContainer> {
   AnimatedContainerSchemaWidgetParser(JsonSchema jsonSchema)

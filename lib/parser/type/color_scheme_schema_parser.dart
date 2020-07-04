@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ColorScheme", "https://legytma.com.br/schema/color_scheme.schema.json")
+@SchemaParser("ColorScheme", "https://schema.legytma.com.br/1.1.2/schema/color_scheme.schema.json")
 class ColorSchemeSchemaParser
     extends TypeSchemaParser<ColorScheme, Map<String, dynamic>, ColorScheme> {
   /// Create instance of parser using [JsonSchema] to validate values.

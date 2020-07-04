@@ -1,8 +1,8 @@
 {
 	"$id": "Padding.test.schema.json",
-	"$schema": "https://legytma.com.br/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/1.1.2/schema/test.schema.json",
 	"description": "Padding Schema Parser",
-	"testSchema": "https://legytma.com.br/schema/widget/padding.schema.json",
+	"testSchema": "https://schema.legytma.com.br/1.1.2/schema/widget/padding.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal Padding widget",

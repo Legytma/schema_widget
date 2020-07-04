@@ -21,7 +21,7 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [DrawerHeader].
-@SchemaParser("DrawerHeader", "https://legytma.com.br/schema/widget/drawer_header.schema.json")
+@SchemaParser("DrawerHeader", "https://schema.legytma.com.br/1.1.2/schema/widget/drawer_header.schema.json")
 class DrawerHeaderSchemaWidgetParser extends SchemaWidgetParser<DrawerHeader> {
   static final Logger _log = Logger("DrawerHeaderSchemaWidgetParser");
 

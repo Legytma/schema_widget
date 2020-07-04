@@ -20,7 +20,7 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Positioned]
-@SchemaParser("Positioned", "https://legytma.com.br/schema/widget/positioned.schema.json")
+@SchemaParser("Positioned", "https://schema.legytma.com.br/1.1.2/schema/widget/positioned.schema.json")
 class PositionedSchemaWidgetParser extends SchemaWidgetParser<Positioned> {
   /// Create instance of parser
   PositionedSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);

@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 07/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("LatLng", "https://legytma.com.br/schema/lat_lng.schema.json")
+@SchemaParser("LatLng", "https://schema.legytma.com.br/1.1.2/schema/lat_lng.schema.json")
 class LatLngSchemaParser
     extends TypeSchemaParser<LatLng, Map<String, dynamic>, LatLng> {
   /// Create instance of parser using [JsonSchema] to validate values.

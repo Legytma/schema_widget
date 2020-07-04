@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 20/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Alignment", "https://legytma.com.br/schema/alignment.schema.json")
+@SchemaParser("Alignment", "https://schema.legytma.com.br/1.1.2/schema/alignment.schema.json")
 class AlignmentSchemaParser
     extends TypeSchemaParser<Alignment, String, Alignment> {
   /// Create instance of parser
@@ -30,7 +30,7 @@ class AlignmentSchemaParser
   // FIXME: REMOVE-ME
   /*static Future<AlignmentSchemaParser> instance() async {
     var jsonSchema = await JsonSchema.createSchemaFromUrl(
-      "https://legytma.com.br/schema/alignment.schema.json",
+      "https://schema.legytma.com.br/1.1.2/schema/alignment.schema.json",
     );
 
     return AlignmentSchemaParser(jsonSchema);

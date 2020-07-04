@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ShowValueIndicator", "https://legytma.com.br/schema/show_value_indicator.schema.json")
+@SchemaParser("ShowValueIndicator", "https://schema.legytma.com.br/1.1.2/schema/show_value_indicator.schema.json")
 class ShowValueIndicatorSchemaParser
     extends TypeSchemaParser<ShowValueIndicator, String, ShowValueIndicator> {
   /// Create instance of parser using [JsonSchema] to validate values.

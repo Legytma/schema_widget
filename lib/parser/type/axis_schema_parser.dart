@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Axis", "https://legytma.com.br/schema/axis.schema.json")
+@SchemaParser("Axis", "https://schema.legytma.com.br/1.1.2/schema/axis.schema.json")
 class AxisSchemaParser extends TypeSchemaParser<Axis, String, Axis> {
   /// Create instance of parser using [JsonSchema] to validate values.
   AxisSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

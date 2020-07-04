@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("NavigationType", "https://legytma.com.br/schema/navigation_type.schema.json")
+@SchemaParser("NavigationType", "https://schema.legytma.com.br/1.1.2/schema/navigation_type.schema.json")
 class NavigationTypeSchemaParser
     extends TypeSchemaParser<NavigationType, String, NavigationType> {
   /// Create instance of parser using [JsonSchema] to validate values.

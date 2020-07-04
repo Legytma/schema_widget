@@ -21,7 +21,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [FloatingActionButton]
 @SchemaParser("FloatingActionButton", 
-    "https://legytma.com.br/schema/widget/floating_action_button.schema.json")
+    "https://schema.legytma.com.br/1.1.2/schema/widget/floating_action_button.schema.json")
 class FloatingActionButtonSchemaWidgetParser
     extends SchemaWidgetParser<FloatingActionButton> {
   /// Create instance of parser
