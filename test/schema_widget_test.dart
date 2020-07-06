@@ -22,7 +22,7 @@ void main() {
   final _log = Logger('schema_widget_test');
 
   setUpAll(() async {
-    TestWidgetsFlutterBinding.ensureInitialized();
+//    TestWidgetsFlutterBinding.ensureInitialized();
 
     Logger.root.level = Level.ALL;
     Logger.root.onRecord.listen(
@@ -31,7 +31,8 @@ void main() {
 
   test('Register Parsers', () async {
     try {
-      var registerParsersFuture = SchemaWidget.registerParsers();
+      var registerParsersFuture =
+          SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
 
       expect(registerParsersFuture != null, true,
           reason: "registerParsersFuture not instancied.");

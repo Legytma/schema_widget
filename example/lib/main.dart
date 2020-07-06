@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:schema_widget/schema_widget.dart';
 
 void main() {
-  SchemaWidget.registerParsers();
-
-  runApp(MyApp());
+  SchemaWidget.registerParsersWithDefaultJsonSchemaResolver().then(
+    (value) => runApp(MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {

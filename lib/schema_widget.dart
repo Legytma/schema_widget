@@ -16,17 +16,15 @@
 
 library schema_widget;
 
-import 'dart:convert';
-
+import 'package:dio/dio.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:json_schema/json_schema.dart';
-import 'package:json_schema/src/json_schema/constants.dart';
 import 'package:json_schema/src/json_schema/global_platform_functions.dart';
-import 'package:json_schema/vm.dart';
 import 'package:logging/logging.dart';
 
+import 'json_schema_resolver.dart';
 import 'schema_parser_initiator.g.dart';
 import 'schema_widget_parser.dart';
 import 'type_schema_parser.dart';
@@ -51,17 +49,29 @@ class SchemaWidget {
   // ignore: prefer_final_fields
   static bool _initialized = false;
 
+  /// Return default [JsonSchemaResolver]
+  static JsonSchemaResolver get _defaultJsonSchemaResolver =>
+      JsonSchemaResolver(
+        DioCacheManager(CacheConfig()),
+        buildCacheOptions(Duration(days: 7)),
+        Dio(),
+      );
+
+  /// Register implemented parsers with default [JsonSchemaResolver]
+  static Future<void> registerParsersWithDefaultJsonSchemaResolver() {
+    return registerParsers(_defaultJsonSchemaResolver);
+  }
+
   /// Register implemented parsers
-  static Future<void> registerParsers() async {
+  static Future<void> registerParsers(
+      JsonSchemaResolver jsonSchemaResolver) async {
     if (!_initialized) {
       _initialized = true;
 
       try {
         WidgetsFlutterBinding.ensureInitialized();
 
-        await _loadAssetCache();
-
-        _configureJsonSchema();
+        _configureJsonSchema(jsonSchemaResolver);
 
         await schemaParserRegisterAllTypeParsers();
 
@@ -277,146 +287,8 @@ class SchemaWidget {
         " methods are static.");
   }
 
-  static void _configureJsonSchema() {
-    globalCreateJsonSchemaFromUrl = _createJsonSchemaFromUrl;
-  }
-
-  static Future<JsonSchema> _createJsonSchemaFromUrl(String schemaUrl,
-      {SchemaVersion schemaVersion}) async {
-    var result = _refProvider(schemaUrl, schemaVersion);
-
-    if (result != null) {
-      return result;
-    }
-
-    return createSchemaFromUrlVm(schemaUrl, schemaVersion: schemaVersion);
-  }
-
-  static Future<void> _loadAssetCache() async {
-    if (_assetCache != null) {
-      return;
-    }
-
-    // >> To get paths you need these 2 lines
-    final manifestContent = await rootBundle.loadString('AssetManifest.json');
-
-    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-    // >> To get paths you need these 2 lines
-
-    final jsonSchemaPaths = manifestMap.keys
-        .where((key) => key.contains('draft06.schema.json'))
-        .toList();
-
-    _assetCache = <String, Map<String, dynamic>>{};
-
-    for (var jsonSchemaPath in jsonSchemaPaths) {
-      var jsonSchemaContent = await rootBundle.loadString(jsonSchemaPath);
-      var jsonSchemaMap = json.decode(jsonSchemaContent);
-
-      _assetCache[jsonSchemaPath] = jsonSchemaMap;
-    }
-  }
-
-  static JsonSchema _refProvider(String ref, [SchemaVersion schemaVersion]) {
-    const bundledSchemaVersionBase = "https://legytma.com.br/";
-    const bundledSchemaDraft06 = 'https://json-schema.org/draft-06/schema#';
-
-    if (ref == null ||
-        (!ref.startsWith(bundledSchemaVersionBase) &&
-            ref != bundledSchemaDraft06)) {
-      return null;
-    }
-
-    if (_jsonSchemaCache.containsKey(ref)) {
-      _log.finest("Returning JsonSchema from cache: $ref");
-
-      return _jsonSchemaCache[ref];
-    }
-
-    var parts = ref.split("#");
-    var baseRef = parts.first;
-    var assetPath;
-
-    if (ref == bundledSchemaDraft06) {
-      assetPath = "draft06.schema.json";
-    } else {
-      assetPath = baseRef.substring(bundledSchemaVersionBase.length);
-      assetPath = "LegytmaSchemas/$assetPath";
-    }
-
-    JsonSchema result;
-
-    if (_jsonSchemaCache.containsKey(baseRef)) {
-      result = _jsonSchemaCache[baseRef];
-
-      if (parts.length == 1) {
-        _log.finest("Returning JsonSchema from cache: $ref");
-
-        return result;
-      }
-    }
-
-    if (result == null) {
-      assetPath = "assets/$assetPath";
-
-      if (!_assetCache.containsKey(assetPath)) {
-        return null;
-      }
-
-      var assetValue = _assetCache[assetPath];
-
-      _log.fine("Creating JsonSchema with asset: $assetPath");
-
-      result = JsonSchema.createSchema(
-        assetValue,
-        schemaVersion: schemaVersion,
-        fetchedFromUri: Uri.parse(baseRef),
-        refProvider: _refProvider,
-      );
-
-      _jsonSchemaCache[baseRef] = result;
-
-      if (parts.length == 1) {
-        return result;
-      }
-    }
-
-    _log.fine("Creating JsonSchema with asset: $assetPath, and parts: $parts");
-
-    var properties = parts.last.split("/");
-
-//    if (schemaVersion == null) {
-//      schemaVersion = result.schemaVersion;
-//    }
-
-    var pathProperties = false;
-    var pathDefinitions = false;
-
-    for (var key in properties) {
-      if (key == null || key.isEmpty) {
-        continue;
-      }
-
-      if (key == "properties" || key == "definitions") {
-        pathProperties = key == "properties";
-        pathDefinitions = key == "definitions";
-
-        continue;
-      }
-
-      if (pathProperties) {
-        result = result.properties[key];
-      } else if (pathDefinitions) {
-        result = result.definitions[key];
-      } else {
-        throw "Unespected path: $key in $ref";
-      }
-    }
-
-    _jsonSchemaCache[ref] = result;
-
-    _log.fine("JsonSchema with ref: $ref created!");
-
-    return result;
+  static void _configureJsonSchema(JsonSchemaResolver jsonSchemaResolver) {
+    globalCreateJsonSchemaFromUrl =
+        jsonSchemaResolver.createSchemaFromUrl;
   }
 }

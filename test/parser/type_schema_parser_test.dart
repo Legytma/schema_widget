@@ -35,13 +35,13 @@ part 'type_schema_parser_test.g.dart';
 final Logger _logger = Logger('align_schema_widget_parser_test');
 
 Future<void> main() async {
-  TestWidgetsFlutterBinding.ensureInitialized();
+//  TestWidgetsFlutterBinding.ensureInitialized();
 
   Logger.root.level = Level.ALL;
   Logger.root.onRecord
       .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
 
-  return SchemaWidget.registerParsers().then((_) {
+  return SchemaWidget.registerParsersWithDefaultJsonSchemaResolver().then((_) {
     SchemaWidget.registerLogic("builderTest", _builderTest);
 
     runAllTypeSchemaParserTests();
