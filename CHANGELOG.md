@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/Legytma/LegytmaSchemas/compare/0.1.10...0.1.11) (2020-07-06)
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* change implementation of json_schema cache ([2a0e68a](https://github.com/Legytma/LegytmaSchemas/commit/2a0e68a4a1c997ba728cabe7d38148a2537fe4b7))
+
 ### 0.1.10 (2020-07-04)
 
 
