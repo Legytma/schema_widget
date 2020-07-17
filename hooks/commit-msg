@@ -1,0 +1,3 @@
+#!/bin/sh
+
+conform enforce --commit-msg-file $1
