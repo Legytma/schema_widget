@@ -1,0 +1,18 @@
+commit-msg:
+  scripts:
+    "conform.sh":
+      runner: bash
+
+pre-commit:
+  commands:
+    pretty:
+      glob: '*.dart'
+      run: flutter format {staged_files} && git add {staged_files}
+
+pre-push:
+  parallel: true
+  commands:
+    tests:
+      run: flutter test
+    linter:
+      run: flutter analyze
