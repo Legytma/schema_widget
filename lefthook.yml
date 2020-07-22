@@ -13,6 +13,6 @@ pre-push:
   parallel: true
   commands:
     tests:
-      run: flutter test
+      run: flutter test test
     linter:
       run: flutter analyze
