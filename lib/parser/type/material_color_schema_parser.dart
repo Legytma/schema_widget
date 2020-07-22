@@ -21,13 +21,14 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 19/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("MaterialColor", "https://schema.legytma.com.br/1.1.2/schema/material_color.schema.json")
+@SchemaParser("MaterialColor",
+    "https://schema.legytma.com.br/1.1.2/schema/material_color.schema.json")
 class MaterialColorSchemaParser extends TypeSchemaParser<MaterialColor,
     Map<String, dynamic>, MaterialColor> {
   MaterialColorSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   MaterialColor builder(BuildContext buildContext, Map<String, dynamic> value,
+  MaterialColor builder(BuildContext buildContext, Map<String, dynamic> value,
       [MaterialColor defaultValue]) {
     var primary = SchemaWidget.parse<Color>(buildContext, value["primary"]);
     var swatch = _parseSwatchIntColor(buildContext, value["swatch"], primary);
@@ -36,7 +37,7 @@ class MaterialColorSchemaParser extends TypeSchemaParser<MaterialColor,
   }
 
   Map<int, Color> _parseSwatchIntColor(
-      BuildContext buildContext, Map<int, dynamic> map,
+      BuildContext buildContext, Map<String, dynamic> map,
       [Color primary]) {
     if (map == null) {
       if (primary == null) {
@@ -74,9 +75,9 @@ class MaterialColorSchemaParser extends TypeSchemaParser<MaterialColor,
   }
 
   Map<int, Color> _extractValue(BuildContext buildContext,
-      Map<int, Color> swatch, Map<int, dynamic> map, int key) {
+      Map<int, Color> swatch, Map<String, dynamic> map, int key) {
     if (map.containsKey(key)) {
-      swatch[key] = SchemaWidget.parse<Color>(buildContext, map[key]);
+      swatch[key] = SchemaWidget.parse<Color>(buildContext, map['$key']);
     }
 
     return swatch;

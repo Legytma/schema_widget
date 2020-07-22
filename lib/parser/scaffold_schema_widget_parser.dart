@@ -22,7 +22,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Scaffold].
-@SchemaParser("Scaffold", "https://schema.legytma.com.br/1.1.2/schema/widget/scaffold.schema.json")
+@SchemaParser("Scaffold",
+    "https://schema.legytma.com.br/1.1.2/schema/widget/scaffold.schema.json")
 class ScaffoldSchemaWidgetParser extends SchemaWidgetParser<Scaffold> {
   static final Logger _log = Logger("ScaffoldSchemaWidgetParser");
 
@@ -30,7 +31,7 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser<Scaffold> {
   ScaffoldSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Scaffold builder(BuildContext buildContext, Map<String, dynamic> value,
+  Scaffold builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer(value);
 
@@ -61,10 +62,10 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser<Scaffold> {
       extendBody: value['extendBody'] ?? false,
       extendBodyBehindAppBar: value['extendBodyBehindAppBar'] ?? false,
       floatingActionButtonAnimator:
-          SchemaWidget.parse<FloatingActionButtonAnimator>(buildContext,
+          SchemaWidget.parse<FloatingActionButtonAnimator>(
               buildContext, value['floatingActionButtonAnimator']),
       floatingActionButtonLocation:
-          SchemaWidget.parse<FloatingActionButtonLocation>(buildContext,
+          SchemaWidget.parse<FloatingActionButtonLocation>(
               buildContext, value['floatingActionButtonLocation']),
       persistentFooterButtons: SchemaWidget.parse<List<Widget>>(
           buildContext, value["persistentFooterButtons"]),

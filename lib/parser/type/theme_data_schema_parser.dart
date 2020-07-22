@@ -22,14 +22,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 27/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ThemeData", "https://schema.legytma.com.br/1.1.2/schema/theme_data.schema.json")
+@SchemaParser("ThemeData",
+    "https://schema.legytma.com.br/1.1.2/schema/theme_data.schema.json")
 class ThemeDataSchemaParser
     extends TypeSchemaParser<ThemeData, Map<String, dynamic>, ThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
   ThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   ThemeData builder(BuildContext buildContext, Map<String, dynamic> value,
+  ThemeData builder(BuildContext buildContext, Map<String, dynamic> value,
       [ThemeData defaultValue]) {
     return ThemeData(
       primarySwatch: SchemaWidget.parse<MaterialColor>(
@@ -105,7 +106,7 @@ class ThemeDataSchemaParser
       materialTapTargetSize: SchemaWidget.parse<MaterialTapTargetSize>(
           buildContext, value['materialTapTargetSize']),
       pageTransitionsTheme: SchemaWidget.parse<PageTransitionsTheme>(
-          buildContext, buildContext, value['pageTransitionsTheme']),
+          buildContext, value['pageTransitionsTheme']),
       platform:
           SchemaWidget.parse<TargetPlatform>(buildContext, value['platform']),
       popupMenuTheme: SchemaWidget.parse<PopupMenuThemeData>(

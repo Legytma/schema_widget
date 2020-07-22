@@ -1,25 +1,141 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:logging/logging.dart';
 import 'package:schema_widget/schema_widget.dart';
+import 'package:schema_widget/widget/schema_widget_splash_screen.dart';
+
+Logger _logMain = Logger("main");
 
 void main() {
-  SchemaWidget.registerParsersWithDefaultJsonSchemaResolver().then(
-    (value) => runApp(MyApp()),
+  const _logIgnore = <String>[
+    "JsonSchema",
+    "JsonSchemaResolverStatistics",
+    "FactoryStatistics",
+//    "Validator",
+  ];
+
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((rec) {
+    if (_logIgnore.contains(rec.loggerName)) {
+      return;
+    }
+
+    print('${rec.loggerName} - ${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
+//      .listen((rec) => print(
+//      '${rec.loggerName} - ${rec.level.name}: ${rec.time}: ${rec.message}'));
+//  .listen((rec) => developer.log(
+//  rec.message,
+//  level: rec.level.value,
+//  error: rec.error,
+//  name: rec.loggerName,
+//  sequenceNumber: rec.sequenceNumber,
+//  stackTrace: rec.stackTrace,
+//  time: rec.time,
+//  zone: rec.zone,
+//  ));
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SchemaWidget.registerParsers();
+
+  SchemaWidget.registerLogic(
+    "onGenerateRoute",
+    _onGenerateRoute,
+  );
+  SchemaWidget.registerLogic(
+    "onUnknownRoute",
+    _onUnknownRoute,
+  );
+  SchemaWidget.registerLogic(
+    "navigatorKey",
+    _navigatorKey,
+  );
+
+  return runApp(MyApp());
+}
+
+GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+
+Route _onGenerateRoute(RouteSettings settings) {
+  _logMain.finest("_onGenerateRoute -> settings: $settings");
+
+  return MaterialPageRoute(
+    builder: (buildContext) => MyHomePage(title: "Flutter Demo"),
+    settings: settings,
+  );
+}
+
+Route _onUnknownRoute(RouteSettings settings) {
+  _logMain.finest("_onUnknownRoute -> settings: $settings");
+
+  return MaterialPageRoute(
+    builder: (buildContext) => MyHomePage(title: "Flutter Demo"),
+    settings: settings.copyWith(name: "home"),
   );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SchemaWidget.parse<Widget>(context, {
-      "type": "MaterialApp",
-      "title": 'Flutter Demo',
-      "theme": ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      "home": MyHomePage(title: 'Flutter Demo Home Page'),
-    });
+    return FutureBuilder(
+      future: GetIt.I.allReady(ignorePendingAsyncCreation: false),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          _logMain.info("Loading JSON...");
+
+//          return MaterialApp(
+//            title: 'Flutter Demo',
+//            theme: ThemeData(
+//              primarySwatch: Colors.blue,
+//            ),
+//            navigatorKey: _navigatorKey,
+//            initialRoute: 'home',
+//            onGenerateRoute: _onGenerateRoute,
+//            onUnknownRoute: _onUnknownRoute,
+//          );
+
+          return SchemaWidget.parse<Widget>(context, {
+                "type": "MaterialApp",
+                "title": 'Flutter Demo',
+                "theme": {
+                  "primarySwatch": {
+                    "primary": 0xFF2196F3,
+                    "swatch": {
+                      "50": 0xFFE3F2FD,
+                      "100": 0xFFBBDEFB,
+                      "200": 0xFF90CAF9,
+                      "300": 0xFF64B5F6,
+                      "400": 0xFF42A5F5,
+                      "500": 0xFF2196F3,
+                      "600": 0xFF1E88E5,
+                      "700": 0xFF1976D2,
+                      "800": 0xFF1565C0,
+                      "900": 0xFF0D47A1,
+                    },
+                  },
+                },
+                "navigatorKey": "navigatorKey",
+                "initialRoute": "home",
+                "onGenerateRoute": "onGenerateRoute",
+                "onUnknownRoute": "onUnknownRoute"
+              }) ??
+              Container();
+        }
+
+        _logMain.info("Loading SplashScreen...");
+        return MaterialApp(
+          home: Scaffold(
+            body: SchemaWidgetSplashScreen(),
+          ),
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -40,6 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState() {
     SchemaWidget.registerLogic("streamInt", _streamControllerInt.stream);
     SchemaWidget.registerLogic("buildTextCounter", _buildTextCounter);
+    SchemaWidget.registerLogic("incrementCounter", _incrementCounter);
   }
 
   void _incrementCounter() {
@@ -52,12 +169,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return SchemaWidget.parse<Widget>(buildContext, {
       "type": "Text",
-      "data": '${snapshot.data}',
+      "data": 'You have pushed the button this many times: ${snapshot.data}',
       "style": {
         "type": "TextStyle",
         "color": "#${textStyle.color.value.toRadixString(16)}",
         "debugLabel": textStyle.debugLabel,
-        "decoration": "decoration",
+        "decoration": textStyle.decoration.toString().substring(15),
         "fontFamily": textStyle.fontFamily,
         "fontSize": textStyle.fontSize,
         "fontWeight": textStyle.fontWeight.toString().substring(11),
@@ -70,6 +187,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     var iconData = Icons.add;
+
+//    return Container(child: IconButton(icon: Icon(iconData)));
 
     return SchemaWidget.parse<Widget>(context, {
       "type": "Scaffold",
@@ -87,11 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
           "mainAxisAlignment": "center",
           "children": [
             {
-              "type": "Text",
-              "data": 'You have pushed the button this many times:',
-            },
-            {
-              "type": "StreamBuilder",
+              "type": "StreamBuilder<dynamic>",
               "stream": "streamInt",
               "initialData": _counter,
               "builder": "buildTextCounter",
@@ -101,13 +216,14 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       "floatingActionButton": {
         "type": "FloatingActionButton",
-        "onPressed": _incrementCounter,
+        "onPressed": "incrementCounter",
         "tooltip": 'Increment',
         "child": {
           "type": "Icon",
-          "codePoint": "#${iconData.codePoint.toRadixString(16)}",
-          "fontFamily": iconData.fontFamily,
-          "matchTextDirection": iconData.matchTextDirection,
+          "icon": {
+            "codePoint": 0xe145,
+            "fontFamily": "MaterialIcons",
+          },
         },
       },
     });

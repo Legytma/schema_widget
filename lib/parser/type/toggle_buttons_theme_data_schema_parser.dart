@@ -47,7 +47,7 @@ class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
       borderColor:
           SchemaWidget.parse<Color>(buildContext, value['borderColor']),
       borderRadius: SchemaWidget.parse<BorderRadius>(
-          buildContext, buildContext, value['borderRadius']),
+          buildContext, value['borderRadius']),
       borderWidth:
           SchemaWidget.parse<double>(buildContext, value['borderWidth']),
       constraints: SchemaWidget.parse<BoxConstraints>(

@@ -18,21 +18,17 @@ import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:schema_widget/schema_widget.dart';
 
+import 'common.dart';
+
 void main() {
   final _log = Logger('schema_widget_test');
 
-  setUpAll(() async {
-//    TestWidgetsFlutterBinding.ensureInitialized();
-
-    Logger.root.level = Level.ALL;
-    Logger.root.onRecord.listen(
-        (rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
-  });
+  initLogger();
 
   test('Register Parsers', () async {
     try {
       var registerParsersFuture =
-          SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+          SchemaWidget.registerParsers(localJsonSchemaResolver);
 
       expect(registerParsersFuture != null, true,
           reason: "registerParsersFuture not instancied.");

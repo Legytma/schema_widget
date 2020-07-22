@@ -22,26 +22,20 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:logging/logging.dart';
-import 'package:schema_form/schema_form.dart';
-import 'package:schema_form/widget/control/schema/template/text_schema_form_field_template.dart';
-import 'package:schema_form/widget/control/schema/text_schema_form_field_widget.dart';
+import 'package:schema_widget/schema_widget.dart';
+import 'package:schema_widget/widget/grid_view_widget.dart';
+import 'package:schema_widget/widget/list_view_widget.dart';
 
-import '../../lib/schema_widget.dart';
-import '../../lib/widget/grid_view_widget.dart';
-import '../../lib/widget/list_view_widget.dart';
+import '../common.dart';
 
 part 'type_schema_parser_test.g.dart';
 
-final Logger _logger = Logger('align_schema_widget_parser_test');
+final Logger _logger = Logger('type_schema_parser_test');
 
 Future<void> main() async {
-//  TestWidgetsFlutterBinding.ensureInitialized();
+  initLogger();
 
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord
-      .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
-
-  return SchemaWidget.registerParsersWithDefaultJsonSchemaResolver().then((_) {
+  return SchemaWidget.registerParsers(localJsonSchemaResolver).then((_) {
     SchemaWidget.registerLogic("builderTest", _builderTest);
 
     runAllTypeSchemaParserTests();

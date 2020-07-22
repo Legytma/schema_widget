@@ -11,24 +11,25 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import 'package:flutter_driver/driver_extension.dart';
+//import 'package:flutter_driver/driver_extension.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:json_schema/json_schema.dart';
-import 'package:logging/logging.dart';
-import 'package:test/test.dart';
+import 'package:schema_widget/schema_widget.dart';
 
-import '../lib/schema_widget.dart';
+import 'common.dart';
 
 void main() {
-  enableFlutterDriverExtension();
+//  enableFlutterDriverExtension();
 
 //  TestWidgetsFlutterBinding.ensureInitialized();
 
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord
-      .listen((rec) => print('${rec.level.name}: ${rec.time}: ${rec.message}'));
+  initLogger();
 
+  // runs once before all tests
   setUpAll(() async {
-    await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//    TestWidgetsFlutterBinding.ensureInitialized();
+
+    await SchemaWidget.registerParsers(localJsonSchemaResolver);
   });
 
   group("Double validation", () {
@@ -45,7 +46,7 @@ void main() {
     });
 
     test('Verify Double Named', () async {
-      await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//      await SchemaWidget.registerParsers();
 
       final schemaUrl =
           "https://schema.legytma.com.br/1.1.2/schema/double.schema.json";
@@ -59,7 +60,7 @@ void main() {
     });
 
     test('Verify Double as String', () async {
-      await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//      await SchemaWidget.registerParsers();
 
       final schemaUrl =
           "https://schema.legytma.com.br/1.1.2/schema/double.schema.json";
@@ -75,7 +76,7 @@ void main() {
 
   group("Create Json Schema", () {
     test('widget', () async {
-      await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//      await SchemaWidget.registerParsers();
 
       var schemaUrl =
           "https://schema.legytma.com.br/1.1.2/schema/widget.schema.json";
@@ -91,7 +92,7 @@ void main() {
     });
 
     test('axis', () async {
-      await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//      await SchemaWidget.registerParsers();
 
       var schemaUrl =
           "https://schema.legytma.com.br/1.1.2/schema/axis.schema.json";
@@ -107,7 +108,7 @@ void main() {
     });
 
     test('edge_insets', () async {
-      await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//      await SchemaWidget.registerParsers();
 
       var schemaUrl =
           "https://schema.legytma.com.br/1.1.2/schema/edge_insets.schema.json";
@@ -123,7 +124,7 @@ void main() {
     });
 
     test('safe_area', () async {
-      await SchemaWidget.registerParsersWithDefaultJsonSchemaResolver();
+//      await SchemaWidget.registerParsers();
 
       var schemaUrl =
           "https://schema.legytma.com.br/1.1.2/schema/widget/safe_area.schema.json";

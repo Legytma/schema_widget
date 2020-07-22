@@ -78,3 +78,4 @@ build/
 # *.g.dart
 node_modules
 lefthook-local.yml
+.gradle

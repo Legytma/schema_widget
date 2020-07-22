@@ -21,10 +21,13 @@ import '../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 14/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Text", "https://schema.legytma.com.br/1.1.2/schema/widget/text.schema.json", <String>[
-  "default",
-  "rich",
-])
+@SchemaParser(
+    "Text",
+    "https://schema.legytma.com.br/1.1.2/schema/widget/text.schema.json",
+    <String>[
+      "default",
+      "rich",
+    ])
 class TextSchemaWidgetParser extends VariantSchemaWidgetParser<Text> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TextSchemaWidgetParser(JsonSchema jsonSchema,
@@ -35,15 +38,8 @@ class TextSchemaWidgetParser extends VariantSchemaWidgetParser<Text> {
   String extractType(Map<String, dynamic> value) =>
       value.containsKey("textSpan") ? "rich" : "default";
 
-  // FIXME: REMOVE-ME
-  /*
   @override
-  VariantSchemaWidgetParser<Text> newVariantInstance(String schemaUri) =>
-      TextSchemaWidgetParser(schemaUri, null);
-  */
-
-  @override
-   Text builderVariant(BuildContext buildContext, Map<String, dynamic> value,
+  Text builderVariant(BuildContext buildContext, Map<String, dynamic> value,
       Widget defaultValue) {
     var key = SchemaWidget.parse<Key>(buildContext, value['key']);
     var style = SchemaWidget.parse<TextStyle>(buildContext, value['style']);
