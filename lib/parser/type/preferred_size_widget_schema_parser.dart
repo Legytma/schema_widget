@@ -14,32 +14,32 @@
 
 import 'package:flutter/material.dart';
 import 'package:json_schema/src/json_schema/json_schema.dart';
-import 'package:schema_form/enum/PickerType.dart';
 
 import '../../schema_widget.dart';
 
-/// Schema parser from [String] to [PickerType]
+/// Schema parser from [Map<String, dynamic>] to [PreferredSizeWidget]
 ///
-/// Created by Windol <windol@legytma.com.br> at 27/04/2020.
+/// Created by Alex at 15/07/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("PickerType", "https://schema.legytma.com.br/1.1.2/schema/picker_type.schema.json")
-class PickerTypeSchemaParser
-    extends TypeSchemaParser<PickerType, String, PickerType> {
+@SchemaParser("PreferredSizeWidget",
+    "https://schema.legytma.com.br/1.1.2/schema/preferred_size_widget.schema.json")
+class PreferredSizeWidgetSchemaParser extends TypeSchemaParser<
+    PreferredSizeWidget, Map<String, dynamic>, PreferredSizeWidget> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  PickerTypeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  PreferredSizeWidgetSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   PickerType builder(BuildContext buildContext, String value,
-      [PickerType defaultValue]) {
-    switch (value) {
-      case 'TimePicker':
-        return PickerType.TimePicker;
-      case 'DatePicker':
-        return PickerType.DatePicker;
-      case 'DateTimePicker':
-        return PickerType.DateTimePicker;
-      default:
-        return defaultValue;
+  PreferredSizeWidget builder(
+      BuildContext buildContext, Map<String, dynamic> value,
+      [PreferredSizeWidget defaultValue]) {
+    var result =
+        SchemaWidget.parse<Widget>(buildContext, value, defaultValue) ??
+            defaultValue;
+
+    if (result is PreferredSizeWidget) {
+      return result;
     }
+
+    return defaultValue;
   }
 }
