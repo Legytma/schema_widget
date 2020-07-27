@@ -8,7 +8,7 @@ policies:
         invalidLastCharacters: .
       body:
         required: true
-      dco: true
+      dco: false
       gpg: false
       spellcheck:
         locale: US
@@ -28,6 +28,7 @@ policies:
           - "test"
         scopes:
           - "lefthook"
+          - "release"
         descriptionLength: 72
   - type: license
     spec:

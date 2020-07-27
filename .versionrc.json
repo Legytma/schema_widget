@@ -31,5 +31,8 @@
 			"filename": "package-lock.json",
 			"type": "json"
 		}
-	]
+	],
+	"tag-prefix": "",
+	"releaseCommitMessageFormat": "chore(release): version {{currentTag}}\n\nAuto generated version.",
+	"sign": false
 }

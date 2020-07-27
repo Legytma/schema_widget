@@ -79,3 +79,4 @@ build/
 node_modules
 lefthook-local.yml
 .gradle
+coverage
