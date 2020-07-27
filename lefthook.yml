@@ -4,6 +4,9 @@ commit-msg:
       runner: bash
 
 pre-commit:
+  scripts:
+    "eslint.sh":
+      runner: bash
   commands:
     pretty:
       glob: '*.dart'
@@ -12,6 +15,8 @@ pre-commit:
 pre-push:
   parallel: true
   commands:
+    dependencies:
+      run: dependency_validator --exclude-dir example
     tests:
       run: flutter test test
     linter:

@@ -1,9 +1,9 @@
 {
-  "name": "schema_documentation_builder",
+  "name": "schema_widget_builder",
   "version": "0.1.11",
   "description": "Schema Documentation Builder",
   "scripts": {
-    "release": "standard-version -a -t \"\""
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/Legytma/LegytmaSchemas#readme",
   "devDependencies": {
-    "@commitlint/cli": "^9.0.1",
+    "@commitlint/cli": "^9.1.2",
+    "eslint": "^7.5.0",
+    "eslint-config-google": "^0.14.0",
     "replace-in-file": "^6.1.0",
-    "standard-version": "^8.0.0",
+    "standard-version": "^8.0.2",
     "yaml": "^1.10.0"
   }
 }
