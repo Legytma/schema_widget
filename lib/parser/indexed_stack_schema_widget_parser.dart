@@ -15,19 +15,19 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [IndexedStack]
-@SchemaParser("IndexedStack", "https://schema.legytma.com.br/1.1.2/schema/widget/indexed_stack.schema.json")
+@SchemaParser("IndexedStack",
+    "https://schema.legytma.com.br/1.1.2/schema/widget/indexed_stack.schema.json")
 class IndexedStackSchemaWidgetParser extends SchemaWidgetParser<IndexedStack> {
   /// Create instance of parser
   IndexedStackSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   IndexedStack builder(BuildContext buildContext, Map<String, dynamic> value,
+  IndexedStack builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return IndexedStack(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

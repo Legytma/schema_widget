@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ButtonBarLayoutBehavior", 
+@SchemaParser("ButtonBarLayoutBehavior",
     "https://schema.legytma.com.br/1.1.2/schema/button_bar_layout_behavior.schema.json")
 class ButtonBarLayoutBehaviorSchemaParser extends TypeSchemaParser<
     ButtonBarLayoutBehavior, String, ButtonBarLayoutBehavior> {
@@ -30,7 +30,7 @@ class ButtonBarLayoutBehaviorSchemaParser extends TypeSchemaParser<
       : super(jsonSchema);
 
   @override
-   ButtonBarLayoutBehavior builder(BuildContext buildContext, String value,
+  ButtonBarLayoutBehavior builder(BuildContext buildContext, String value,
       [ButtonBarLayoutBehavior defaultValue]) {
     switch (value) {
       case 'constrained':

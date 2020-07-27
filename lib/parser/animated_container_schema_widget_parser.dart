@@ -20,15 +20,16 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Container]
-@SchemaParser("AnimatedContainer", 
+@SchemaParser("AnimatedContainer",
     "https://schema.legytma.com.br/1.1.2/schema/widget/animated_container.schema.json")
 class AnimatedContainerSchemaWidgetParser
     extends SchemaWidgetParser<AnimatedContainer> {
+  /// Create instance of parser
   AnimatedContainerSchemaWidgetParser(JsonSchema jsonSchema)
       : super(jsonSchema);
 
   @override
-   AnimatedContainer builder(
+  AnimatedContainer builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return AnimatedContainer(

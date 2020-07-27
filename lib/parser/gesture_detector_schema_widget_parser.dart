@@ -21,7 +21,7 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [GestureDetector]
-@SchemaParser("GestureDetector", 
+@SchemaParser("GestureDetector",
     "https://schema.legytma.com.br/1.1.2/schema/widget/gesture_detector.schema.json")
 class GestureDetectorSchemaWidgetParser
     extends SchemaWidgetParser<GestureDetector> {
@@ -29,7 +29,7 @@ class GestureDetectorSchemaWidgetParser
   GestureDetectorSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   GestureDetector builder(BuildContext buildContext, Map<String, dynamic> value,
+  GestureDetector builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return GestureDetector(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

@@ -13,9 +13,9 @@
 // limitations under the License.
 
 import 'package:build/build.dart';
-import 'package:schema_widget/generator/type_schema_parser_test_builder.dart';
 
 import 'schema_parser_initiator_builder.dart';
+import 'type_schema_parser_test_builder.dart';
 
 /// Schema Parser Initiator Builder Factory
 Builder schemaParserInitiatorBuilder(BuilderOptions options) =>

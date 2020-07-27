@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,13 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ColorFilter", 
-    "https://schema.legytma.com.br/1.1.2/schema/color_filter.schema.json", <String>[
-  "linear_to_srgb_gamma",
-  "srgb_to_linear_gamma",
-  "mode",
-  "matrix",
-])
+@SchemaParser(
+    "ColorFilter",
+    "https://schema.legytma.com.br/1.1.2/schema/color_filter.schema.json",
+    <String>[
+      "linear_to_srgb_gamma",
+      "srgb_to_linear_gamma",
+      "mode",
+      "matrix",
+    ])
 class ColorFilterSchemaParser extends VariantTypeSchemaParser<ColorFilter,
     Map<String, dynamic>, ColorFilter> {
   /// Create instance of parser using [JsonSchema] to validate values.
@@ -51,7 +53,7 @@ class ColorFilterSchemaParser extends VariantTypeSchemaParser<ColorFilter,
   */
 
   @override
-   ColorFilter builderVariant(BuildContext buildContext,
+  ColorFilter builderVariant(BuildContext buildContext,
       Map<String, dynamic> value, ColorFilter defaultValue) {
     switch (value['type']) {
       case 'linearToSrgbGamma':

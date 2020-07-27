@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,12 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("BorderSide", "https://schema.legytma.com.br/1.1.2/schema/border_side.schema.json", <String>[
-  "default",
-  "none",
-  "merge",
-  "lerp",
-])
+@SchemaParser(
+    "BorderSide",
+    "https://schema.legytma.com.br/1.1.2/schema/border_side.schema.json",
+    <String>[
+      "default",
+      "none",
+      "merge",
+      "lerp",
+    ])
 class BorderSideSchemaParser extends VariantTypeSchemaParser<BorderSide,
     Map<String, dynamic>, BorderSide> {
   /// Create instance of parser using [JsonSchema] to validate values.
@@ -41,16 +44,8 @@ class BorderSideSchemaParser extends VariantTypeSchemaParser<BorderSide,
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
 
-  // FIXME: REMOVE-ME
-  /*
   @override
-  VariantTypeSchemaParser<BorderSide, Map<String, dynamic>, BorderSide>
-      newVariantInstance(String schemaUri) =>
-          BorderSideSchemaParser(schemaUri, null);
-  */
-
-  @override
-   BorderSide builderVariant(BuildContext buildContext,
+  BorderSide builderVariant(BuildContext buildContext,
       Map<String, dynamic> value, BorderSide defaultValue) {
     switch (value['type']) {
       case 'default':
@@ -74,6 +69,8 @@ class BorderSideSchemaParser extends VariantTypeSchemaParser<BorderSide,
           SchemaWidget.parse<BorderSide>(buildContext, value['b']),
           SchemaWidget.parse<double>(buildContext, value['t']),
         );
+      default:
+        return defaultValue;
     }
   }
 }

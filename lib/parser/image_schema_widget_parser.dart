@@ -16,7 +16,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
@@ -24,14 +24,16 @@ import '../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 09/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Image", 
-    "https://schema.legytma.com.br/1.1.2/schema/widget/image.schema.json", <String>[
-  "asset",
-  "network",
-  "file",
-  "memory",
-  "default",
-])
+@SchemaParser(
+    "Image",
+    "https://schema.legytma.com.br/1.1.2/schema/widget/image.schema.json",
+    <String>[
+      "asset",
+      "network",
+      "file",
+      "memory",
+      "default",
+    ])
 class ImageSchemaWidgetParser extends VariantSchemaWidgetParser<Image> {
   /// Create instance of parser using [JsonSchema] to validate values.
   ImageSchemaWidgetParser(JsonSchema jsonSchema,
@@ -49,7 +51,7 @@ class ImageSchemaWidgetParser extends VariantSchemaWidgetParser<Image> {
   */
 
   @override
-   Image builderVariant(BuildContext buildContext, Map<String, dynamic> value,
+  Image builderVariant(BuildContext buildContext, Map<String, dynamic> value,
       Widget defaultValue) {
     var key = SchemaWidget.parse<Key>(buildContext, value['key']);
     var frameBuilder = SchemaWidget.parse<ImageFrameBuilder>(

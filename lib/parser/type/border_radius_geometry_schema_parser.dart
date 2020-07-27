@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 24/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("BorderRadiusGeometry", 
+@SchemaParser("BorderRadiusGeometry",
     "https://schema.legytma.com.br/1.1.2/schema/border_radius_geometry.schema.json")
 class BorderRadiusGeometrySchemaParser extends TypeSchemaParser<
     BorderRadiusGeometry, Map<String, dynamic>, BorderRadiusGeometry> {
@@ -29,7 +29,7 @@ class BorderRadiusGeometrySchemaParser extends TypeSchemaParser<
   BorderRadiusGeometrySchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   BorderRadiusGeometry builder(
+  BorderRadiusGeometry builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [BorderRadiusGeometry defaultValue]) {
     return SchemaWidget.parse<BorderRadius>(

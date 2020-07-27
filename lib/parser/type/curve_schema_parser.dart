@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,13 +21,14 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Curve", "https://schema.legytma.com.br/1.1.2/schema/curve.schema.json")
+@SchemaParser(
+    "Curve", "https://schema.legytma.com.br/1.1.2/schema/curve.schema.json")
 class CurveSchemaParser extends TypeSchemaParser<Curve, String, Curve> {
   /// Create instance of parser using [JsonSchema] to validate values.
   CurveSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Curve builder(BuildContext buildContext, String value, [Curve defaultValue]) {
+  Curve builder(BuildContext buildContext, String value, [Curve defaultValue]) {
     switch (value) {
       case 'bounceIn':
         return Curves.bounceIn;

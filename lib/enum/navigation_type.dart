@@ -14,8 +14,14 @@
  * limitations under the License.
  */
 
+/// Enum used to identify intention type navigation
 enum NavigationType {
+  /// Pop and Push
   popAndPush,
+
+  /// Push
   push,
+
+  /// Pop
   pop,
 }

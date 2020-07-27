@@ -165,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildTextCounter(
       BuildContext buildContext, AsyncSnapshot<dynamic> snapshot) {
-    var textStyle = Theme.of(buildContext).textTheme.display1;
+    var textStyle = Theme.of(buildContext).textTheme.headline4;
 
     return SchemaWidget.parse<Widget>(buildContext, {
       "type": "Text",
@@ -221,8 +221,8 @@ class _MyHomePageState extends State<MyHomePage> {
         "child": {
           "type": "Icon",
           "icon": {
-            "codePoint": 0xe145,
-            "fontFamily": "MaterialIcons",
+            "codePoint": iconData.codePoint,
+            "fontFamily": iconData.fontFamily,
           },
         },
       },

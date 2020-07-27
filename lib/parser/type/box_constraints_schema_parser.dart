@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,15 +21,17 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("BoxConstraints", 
-    "https://schema.legytma.com.br/1.1.2/schema/box_constraints.schema.json", <String>[
-  "loose",
-  "tightFor",
-  "expand",
-  "tightForFinite",
-  "lerp",
-  "default",
-])
+@SchemaParser(
+    "BoxConstraints",
+    "https://schema.legytma.com.br/1.1.2/schema/box_constraints.schema.json",
+    <String>[
+      "loose",
+      "tightFor",
+      "expand",
+      "tightForFinite",
+      "lerp",
+      "default",
+    ])
 class BoxConstraintsSchemaParser extends VariantTypeSchemaParser<BoxConstraints,
     Map<String, dynamic>, BoxConstraints> {
   /// Create instance of parser using [JsonSchema] to validate values.
@@ -53,7 +55,7 @@ class BoxConstraintsSchemaParser extends VariantTypeSchemaParser<BoxConstraints,
   */
 
   @override
-   BoxConstraints builderVariant(BuildContext buildContext,
+  BoxConstraints builderVariant(BuildContext buildContext,
       Map<String, dynamic> value, BoxConstraints defaultValue) {
     switch (value['type']) {
       case 'loose':
@@ -94,6 +96,8 @@ class BoxConstraintsSchemaParser extends VariantTypeSchemaParser<BoxConstraints,
           maxHeight: SchemaWidget.parse<double>(
               buildContext, value['maxHeight'], double.infinity),
         );
+      default:
+        return defaultValue;
     }
   }
 }

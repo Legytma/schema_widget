@@ -15,21 +15,22 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:json_schema/json_schema.dart';
 import 'package:logging/logging.dart';
 
 import '../schema_widget.dart';
 
-@SchemaParser("CircleAvatar", "https://schema.legytma.com.br/1.1.2/schema/widget/circle_avatar.schema.json")
+/// [SchemaWidgetParser] to [CircleAvatar]
+@SchemaParser("CircleAvatar",
+    "https://schema.legytma.com.br/1.1.2/schema/widget/circle_avatar.schema.json")
 class CircleAvatarSchemaWidgetParser extends SchemaWidgetParser<CircleAvatar> {
-  Logger _log = Logger("CircleAvatarSchemaWidgetParser");
+  final Logger _log = Logger("CircleAvatarSchemaWidgetParser");
 
   /// Create instance of parser
   CircleAvatarSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   CircleAvatar builder(BuildContext buildContext, Map<String, dynamic> value,
+  CircleAvatar builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finest(value);
 

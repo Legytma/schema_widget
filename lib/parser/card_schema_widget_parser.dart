@@ -15,19 +15,19 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:json_schema/json_schema.dart';
 
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Card]
-@SchemaParser("Card", "https://schema.legytma.com.br/1.1.2/schema/widget/card.schema.json")
+@SchemaParser("Card",
+    "https://schema.legytma.com.br/1.1.2/schema/widget/card.schema.json")
 class CardSchemaWidgetParser extends SchemaWidgetParser<Card> {
   /// Create instance of parser
   CardSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Card builder(BuildContext buildContext, Map<String, dynamic> value,
+  Card builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return Card(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

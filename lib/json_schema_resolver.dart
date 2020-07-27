@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ignore_for_file: implementation_imports
+
 import 'package:json_schema/json_schema.dart';
 import 'package:json_schema/src/json_schema/utils.dart';
 import 'package:logging/logging.dart';
@@ -37,8 +39,6 @@ class JsonSchemaResolverStatistics {
   final DateTime _started = DateTime.now();
 
   DateTime _lastNotify;
-
-  JsonSchemaResolverStatistics();
 
   void _notify() {
     _controller.add(this);
@@ -102,34 +102,68 @@ class JsonSchemaResolverStatistics {
     _notify();
   }
 
+  /// Get [JsonSchemaResolverStatistics] [Stream]
   Stream<JsonSchemaResolverStatistics> get stream =>
       _controller.asBroadcastStream();
 
+  /// Get [Duration] between start and last change
   Duration get duration => _lastNotify.difference(_started);
 
+  /// Get transactions [List]
   List<String> get transactions => List<String>.unmodifiable(_transactions);
+
+  /// Get cached transactions [List]
   List<String> get cachedTransactions =>
       List<String>.unmodifiable(_cachedTransactions);
+
+  /// Get unique transactions [List]
   List<String> get uniqueTransactions =>
       List<String>.unmodifiable(_uniqueTransactions);
+
+  /// Get urls [List]
   List<String> get urls => List<String>.unmodifiable(_urls);
+
+  /// Get cached [List]
   List<String> get cached => List<String>.unmodifiable(_cached);
+
+  /// Get parent cached [List]
   List<String> get parentCached => List<String>.unmodifiable(_parentCached);
+
+  /// Get fetched [List]
   List<String> get fetched => List<String>.unmodifiable(_fetched);
+
+  /// Get failed [List]
   List<String> get failed => List<String>.unmodifiable(_failed);
 
+  /// Get transaction list length
   int get transactionCount => _transactions.length;
+
+  /// Get cached transaction list length
   int get cachedTransactionCount => _cachedTransactions.length;
+
+  /// Get unique transaction list length
   int get uniqueTransactionCount => _uniqueTransactions.length;
+
+  /// Get url list length
   int get urlCount => _urls.length;
+
+  /// Get cached list length
   int get cachedCount => _cached.length;
+
+  /// Get parent cached list length
   int get parentCachedCount => _parentCached.length;
+
+  /// Get fetched list length
   int get fetchedCount => _fetched.length;
+
+  /// Get failed list length
   int get failedCount => _failed.length;
 
+  /// Get conclusion percentage of transactions
   num get transactionValue =>
       (cachedCount + parentCachedCount + fetchedCount + failedCount) / urlCount;
 
+  /// Get conclusion percentage of requests
   num get requestValue =>
       (cachedCount + parentCachedCount + fetchedCount + failedCount) / urlCount;
 

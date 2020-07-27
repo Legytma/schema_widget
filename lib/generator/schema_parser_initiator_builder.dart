@@ -76,13 +76,16 @@ class SchemaParserInitiatorBuilder implements Builder {
 
         if (c.element is ClassElement) {
           var classElement = c.element as ClassElement;
+          var builderReturnType =
+              classElement.lookUpMethod("builder", library).returnType;
 
-          typeName =
-              "${classElement.lookUpMethod("builder", library).returnType}";
+          typeName = "$builderReturnType";
 
           if (typeName == "T") {
-            typeName =
-                "${classElement.lookUpMethod("builderVariant", library).returnType}";
+            var builderVariantReturnType =
+                classElement.lookUpMethod("builderVariant", library).returnType;
+
+            typeName = "$builderVariantReturnType";
           }
         }
 
@@ -112,8 +115,8 @@ class SchemaParserInitiatorBuilder implements Builder {
               varants = '$varants\t\t\t\t"$subTypeValue": $elemetName(\n';
               varants =
                   "$varants\t\t\t\t\tawait JsonSchema.createSchemaFromUrl(\n";
-              varants =
-                  '$varants\t\t\t\t\t\t"${elementIdBase}_$subTypeValue.schema.json",\n';
+              varants = '$varants\t\t\t\t\t\t"'
+                  '${elementIdBase}_$subTypeValue.schema.json",\n';
               varants = "$varants\t\t\t\t\t),\n";
               varants = '$varants\t\t\t\t),\n';
             }

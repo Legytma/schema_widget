@@ -14,7 +14,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 22/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("CupertinoTextThemeData", 
+@SchemaParser("CupertinoTextThemeData",
     "https://schema.legytma.com.br/1.1.2/schema/cupertino_text_theme_data.schema.json")
 class CupertinoTextThemeDataSchemaParser extends TypeSchemaParser<
     CupertinoTextThemeData, Map<String, dynamic>, CupertinoTextThemeData> {
@@ -30,7 +30,7 @@ class CupertinoTextThemeDataSchemaParser extends TypeSchemaParser<
   CupertinoTextThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   CupertinoTextThemeData builder(
+  CupertinoTextThemeData builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [CupertinoTextThemeData defaultValue]) {
     return CupertinoTextThemeData(

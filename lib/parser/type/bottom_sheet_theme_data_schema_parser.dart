@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("BottomSheetThemeData", 
+@SchemaParser("BottomSheetThemeData",
     "https://schema.legytma.com.br/1.1.2/schema/bottom_sheet_theme_data.schema.json")
 class BottomSheetThemeDataSchemaParser extends TypeSchemaParser<
     BottomSheetThemeData, Map<String, dynamic>, BottomSheetThemeData> {
@@ -29,7 +29,7 @@ class BottomSheetThemeDataSchemaParser extends TypeSchemaParser<
   BottomSheetThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   BottomSheetThemeData builder(
+  BottomSheetThemeData builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [BottomSheetThemeData defaultValue]) {
     return BottomSheetThemeData(

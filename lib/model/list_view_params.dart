@@ -51,6 +51,7 @@ class ListViewParams {
   /// Create [ListViewParams]
   ListViewParams(
       this.scrollDirection,
+      // ignore: avoid_positional_boolean_parameters
       this.reverse,
       this.shrinkWrap,
       this.cacheExtent,
