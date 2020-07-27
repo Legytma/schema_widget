@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("InputDecorationTheme", 
+@SchemaParser("InputDecorationTheme",
     "https://schema.legytma.com.br/1.1.2/schema/input_decoration_theme.schema.json")
 class InputDecorationThemeSchemaParser extends TypeSchemaParser<
     InputDecorationTheme, Map<String, dynamic>, InputDecorationTheme> {
@@ -29,7 +29,7 @@ class InputDecorationThemeSchemaParser extends TypeSchemaParser<
   InputDecorationThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   InputDecorationTheme builder(
+  InputDecorationTheme builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [InputDecorationTheme defaultValue]) {
     return InputDecorationTheme(
@@ -57,7 +57,8 @@ class InputDecorationThemeSchemaParser extends TypeSchemaParser<
           SchemaWidget.parse<InputBorder>(buildContext, value['focusedBorder']),
       focusedErrorBorder: SchemaWidget.parse<InputBorder>(
           buildContext, value['focusedErrorBorder']),
-      hasFloatingPlaceholder: value['hasFloatingPlaceholder'] ?? true,
+      floatingLabelBehavior: SchemaWidget.parse<FloatingLabelBehavior>(
+          buildContext, value['floatingLabelBehavior']),
       helperMaxLines: value['helperMaxLines'],
       helperStyle:
           SchemaWidget.parse<TextStyle>(buildContext, value['helperStyle']),

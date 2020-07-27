@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../enum/navigation_type.dart';
 import '../../schema_widget.dart';
@@ -22,14 +22,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("NavigationType", "https://schema.legytma.com.br/1.1.2/schema/navigation_type.schema.json")
+@SchemaParser("NavigationType",
+    "https://schema.legytma.com.br/1.1.2/schema/navigation_type.schema.json")
 class NavigationTypeSchemaParser
     extends TypeSchemaParser<NavigationType, String, NavigationType> {
   /// Create instance of parser using [JsonSchema] to validate values.
   NavigationTypeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   NavigationType builder(BuildContext buildContext, String value,
+  NavigationType builder(BuildContext buildContext, String value,
       [NavigationType defaultValue]) {
     switch (value) {
       case 'pop':

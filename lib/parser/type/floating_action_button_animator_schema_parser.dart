@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("FloatingActionButtonAnimator", 
+@SchemaParser("FloatingActionButtonAnimator",
     "https://schema.legytma.com.br/1.1.2/schema/floating_action_button_animator.schema.json")
 class FloatingActionButtonAnimatorSchemaParser extends TypeSchemaParser<
     FloatingActionButtonAnimator,
@@ -32,7 +32,7 @@ class FloatingActionButtonAnimatorSchemaParser extends TypeSchemaParser<
       : super(jsonSchema);
 
   @override
-   FloatingActionButtonAnimator builder(
+  FloatingActionButtonAnimator builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [FloatingActionButtonAnimator defaultValue]) {
     switch (value['type']) {

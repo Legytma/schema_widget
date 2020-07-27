@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 22/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("DialogTheme", "https://schema.legytma.com.br/1.1.2/schema/dialog_theme.schema.json")
+@SchemaParser("DialogTheme",
+    "https://schema.legytma.com.br/1.1.2/schema/dialog_theme.schema.json")
 class DialogThemeSchemaParser
     extends TypeSchemaParser<DialogTheme, Map<String, dynamic>, DialogTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
   DialogThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   DialogTheme builder(BuildContext buildContext, Map<String, dynamic> value,
+  DialogTheme builder(BuildContext buildContext, Map<String, dynamic> value,
       [DialogTheme defaultValue]) {
     return DialogTheme(
       elevation: SchemaWidget.parse<double>(buildContext, value['elevation']),

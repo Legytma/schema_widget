@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("PageTransitionsTheme", 
+@SchemaParser("PageTransitionsTheme",
     "https://schema.legytma.com.br/1.1.2/schema/page_transitions_theme.schema.json")
 class PageTransitionsThemeSchemaParser extends TypeSchemaParser<
     PageTransitionsTheme, Map<String, dynamic>, PageTransitionsTheme> {
@@ -29,7 +29,7 @@ class PageTransitionsThemeSchemaParser extends TypeSchemaParser<
   PageTransitionsThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   PageTransitionsTheme builder(
+  PageTransitionsTheme builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [PageTransitionsTheme defaultValue]) {
     var pageTransitionsBuilders = <TargetPlatform, PageTransitionsBuilder>{};

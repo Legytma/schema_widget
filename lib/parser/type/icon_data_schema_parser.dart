@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 09/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("IconData", "https://schema.legytma.com.br/1.1.2/schema/icon_data.schema.json")
+@SchemaParser("IconData",
+    "https://schema.legytma.com.br/1.1.2/schema/icon_data.schema.json")
 class IconDataSchemaParser
     extends TypeSchemaParser<IconData, Map<String, dynamic>, IconData> {
   /// Create instance of parser using [JsonSchema] to validate values.
   IconDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   IconData builder(BuildContext buildContext, Map<String, dynamic> value,
+  IconData builder(BuildContext buildContext, Map<String, dynamic> value,
       [IconData defaultValue]) {
     return IconData(
       SchemaWidget.parse<int>(buildContext, value['codePoint']),

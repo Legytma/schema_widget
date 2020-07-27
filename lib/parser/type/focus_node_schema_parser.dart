@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 27/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("FocusNode", "https://schema.legytma.com.br/1.1.2/schema/focus_node.schema.json")
+@SchemaParser("FocusNode",
+    "https://schema.legytma.com.br/1.1.2/schema/focus_node.schema.json")
 class FocusNodeSchemaParser
     extends TypeSchemaParser<FocusNode, Map<String, dynamic>, FocusNode> {
   /// Create instance of parser using [JsonSchema] to validate values.
   FocusNodeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   FocusNode builder(BuildContext buildContext, Map<String, dynamic> value,
+  FocusNode builder(BuildContext buildContext, Map<String, dynamic> value,
       [FocusNode defaultValue]) {
     return FocusNode(
       canRequestFocus: value['canRequestFocus'] ?? true,

@@ -14,7 +14,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -22,13 +22,14 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("MapType", "https://schema.legytma.com.br/1.1.2/schema/map_type.schema.json")
+@SchemaParser("MapType",
+    "https://schema.legytma.com.br/1.1.2/schema/map_type.schema.json")
 class MapTypeSchemaParser extends TypeSchemaParser<MapType, String, MapType> {
   /// Create instance of parser using [JsonSchema] to validate values.
   MapTypeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   MapType builder(BuildContext buildContext, String value,
+  MapType builder(BuildContext buildContext, String value,
       [MapType defaultValue]) {
     switch (value) {
       case 'none':

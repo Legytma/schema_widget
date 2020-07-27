@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("MaterialBannerThemeData", 
+@SchemaParser("MaterialBannerThemeData",
     "https://schema.legytma.com.br/1.1.2/schema/material_banner_theme_data.schema.json")
 class MaterialBannerThemeDataSchemaParser extends TypeSchemaParser<
     MaterialBannerThemeData, Map<String, dynamic>, MaterialBannerThemeData> {
@@ -30,7 +30,7 @@ class MaterialBannerThemeDataSchemaParser extends TypeSchemaParser<
       : super(jsonSchema);
 
   @override
-   MaterialBannerThemeData builder(
+  MaterialBannerThemeData builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [MaterialBannerThemeData defaultValue]) {
     return MaterialBannerThemeData(

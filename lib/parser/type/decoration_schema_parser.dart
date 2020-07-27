@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Decoration", "https://schema.legytma.com.br/1.1.2/schema/decoration.schema.json")
+@SchemaParser("Decoration",
+    "https://schema.legytma.com.br/1.1.2/schema/decoration.schema.json")
 class DecorationSchemaParser
     extends TypeSchemaParser<Decoration, Map<String, dynamic>, Decoration> {
   /// Create instance of parser using [JsonSchema] to validate values.
   DecorationSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Decoration builder(BuildContext buildContext, Map<String, dynamic> value,
+  Decoration builder(BuildContext buildContext, Map<String, dynamic> value,
       [Decoration defaultValue]) {
     switch (value['type']) {
       case 'BoxDecoration':

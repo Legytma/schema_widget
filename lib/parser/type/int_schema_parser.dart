@@ -21,12 +21,14 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 17/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("int", "https://schema.legytma.com.br/1.1.2/schema/int.schema.json")
+@SchemaParser(
+    "int", "https://schema.legytma.com.br/1.1.2/schema/int.schema.json")
 class IntSchemaParser extends TypeSchemaParser<int, String, int> {
+  /// Create instance of parser
   IntSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   int builder(BuildContext buildContext, String value, [int defaultValue]) {
+  int builder(BuildContext buildContext, String value, [int defaultValue]) {
     value = value.replaceAll("#", "0x").replaceAll("\$", "0x");
 
     return int.tryParse(value) ?? defaultValue;

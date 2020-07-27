@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 27/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("InputDecoration", "https://schema.legytma.com.br/1.1.2/schema/input_decoration.schema.json")
+@SchemaParser("InputDecoration",
+    "https://schema.legytma.com.br/1.1.2/schema/input_decoration.schema.json")
 class InputDecorationSchemaParser extends TypeSchemaParser<InputDecoration,
     Map<String, dynamic>, InputDecoration> {
   /// Create instance of parser using [JsonSchema] to validate values.
   InputDecorationSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   InputDecoration builder(BuildContext buildContext, Map<String, dynamic> value,
+  InputDecoration builder(BuildContext buildContext, Map<String, dynamic> value,
       [InputDecoration defaultValue]) {
     return InputDecoration(
       labelStyle:
@@ -43,7 +44,12 @@ class InputDecorationSchemaParser extends TypeSchemaParser<InputDecoration,
           SchemaWidget.parse<TextStyle>(buildContext, value['helperStyle']),
       helperMaxLines:
           SchemaWidget.parse<int>(buildContext, value['helperMaxLines']),
-      hasFloatingPlaceholder: value['hasFloatingPlaceholder'] ?? true,
+      floatingLabelBehavior: SchemaWidget.parse<FloatingLabelBehavior>(
+          buildContext, value['floatingLabelBehavior']),
+      prefixIconConstraints: SchemaWidget.parse<BoxConstraints>(
+          buildContext, value['prefixIconConstraints']),
+      suffixIconConstraints: SchemaWidget.parse<BoxConstraints>(
+          buildContext, value['suffixIconConstraints']),
       focusedErrorBorder: SchemaWidget.parse<InputBorder>(
           buildContext, value['focusedErrorBorder']),
       focusedBorder:

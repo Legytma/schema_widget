@@ -19,7 +19,9 @@ import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("List<Widget>", "https://schema.legytma.com.br/1.1.2/schema/list_widget.schema.json")
+/// [SchemaWidgetParser] to [List]<[Widget]>
+@SchemaParser("List<Widget>",
+    "https://schema.legytma.com.br/1.1.2/schema/list_widget.schema.json")
 class ListWidgetSchemaParser
     extends TypeSchemaParser<List<Widget>, dynamic, List<Widget>> {
 //  final Logger _log = Logger("ListWidgetSchemaParser");
@@ -28,7 +30,7 @@ class ListWidgetSchemaParser
   ListWidgetSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   List<Widget> builder(BuildContext buildContext, dynamic value,
+  List<Widget> builder(BuildContext buildContext, dynamic value,
       [List<Widget> defaultValue]) {
     if (value is! List<Map<String, dynamic>>) {
       return defaultValue;

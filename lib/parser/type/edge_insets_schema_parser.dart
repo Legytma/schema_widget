@@ -15,7 +15,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -23,17 +23,19 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("EdgeInsets",
-    "https://schema.legytma.com.br/1.1.2/schema/edge_insets.schema.json", <String>[
-  "string",
-  "zero",
-  "all",
-  "fromWindowPadding",
-  "lerp",
-  "symmetric",
-  "fromLTRB",
-  "only",
-])
+@SchemaParser(
+    "EdgeInsets",
+    "https://schema.legytma.com.br/1.1.2/schema/edge_insets.schema.json",
+    <String>[
+      "string",
+      "zero",
+      "all",
+      "fromWindowPadding",
+      "lerp",
+      "symmetric",
+      "fromLTRB",
+      "only",
+    ])
 class EdgeInsetsSchemaParser
     extends VariantTypeSchemaParser<EdgeInsets, dynamic, EdgeInsets> {
   /// Create instance of parser using [JsonSchema] to validate values.

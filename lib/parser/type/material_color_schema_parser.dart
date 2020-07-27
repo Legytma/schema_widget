@@ -25,6 +25,7 @@ import '../../schema_widget.dart';
     "https://schema.legytma.com.br/1.1.2/schema/material_color.schema.json")
 class MaterialColorSchemaParser extends TypeSchemaParser<MaterialColor,
     Map<String, dynamic>, MaterialColor> {
+  /// Create instance of parser
   MaterialColorSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override

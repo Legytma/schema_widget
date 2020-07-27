@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,13 +21,14 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("double", "https://schema.legytma.com.br/1.1.2/schema/double.schema.json")
+@SchemaParser(
+    "double", "https://schema.legytma.com.br/1.1.2/schema/double.schema.json")
 class DoubleSchemaParser extends TypeSchemaParser<double, String, double> {
   /// Create instance of parser using [JsonSchema] to validate values.
   DoubleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   double builder(BuildContext buildContext, String value,
+  double builder(BuildContext buildContext, String value,
       [double defaultValue]) {
     switch (value) {
       case 'nan':

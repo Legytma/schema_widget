@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 27/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Duration", "https://schema.legytma.com.br/1.1.2/schema/duration.schema.json")
+@SchemaParser("Duration",
+    "https://schema.legytma.com.br/1.1.2/schema/duration.schema.json")
 class DurationSchemaParser
     extends TypeSchemaParser<Duration, Map<String, dynamic>, Duration> {
   /// Create instance of parser using [JsonSchema] to validate values.
   DurationSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Duration builder(BuildContext buildContext, Map<String, dynamic> value,
+  Duration builder(BuildContext buildContext, Map<String, dynamic> value,
       [Duration defaultValue]) {
     return Duration(
       days: SchemaWidget.parse<int>(buildContext, value['days'], 0),

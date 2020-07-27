@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -28,7 +28,7 @@ class JsonSchemaSchemaParser
   JsonSchemaSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   JsonSchema builder(BuildContext buildContext, Map<String, dynamic> value,
+  JsonSchema builder(BuildContext buildContext, Map<String, dynamic> value,
       [JsonSchema defaultValue]) {
     if (value is Map<String, dynamic>) {
       return JsonSchema.createSchema(value);
