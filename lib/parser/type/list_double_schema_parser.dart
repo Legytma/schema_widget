@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("List<double>",
-    "https://schema.legytma.com.br/1.1.2/schema/list_double.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/list_double.schema.json")
 class ListDoubleSchemaParser
     extends TypeSchemaParser<List<double>, List, List<double>> {
   /// Create instance of parser using [JsonSchema] to validate values.

@@ -23,7 +23,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 14/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("TextSpan",
-    "https://schema.legytma.com.br/1.1.2/schema/text_span.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/text_span.schema.json")
 class TextSpanSchemaParser
     extends TypeSchemaParser<TextSpan, Map<String, dynamic>, TextSpan> {
   /// Create instance of parser using [JsonSchema] to validate values.

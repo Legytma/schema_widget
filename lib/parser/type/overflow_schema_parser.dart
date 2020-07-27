@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("Overflow",
-    "https://schema.legytma.com.br/1.1.2/schema/overflow.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/overflow.schema.json")
 class OverflowSchemaParser
     extends TypeSchemaParser<Overflow, String, Overflow> {
   /// Create instance of parser using [JsonSchema] to validate values.

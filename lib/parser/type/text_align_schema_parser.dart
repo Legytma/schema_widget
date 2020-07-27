@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [TextAlign]
 @SchemaParser("TextAlign",
-    "https://schema.legytma.com.br/1.1.2/schema/text_align.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/text_align.schema.json")
 class TextAlignSchemaParser
     extends TypeSchemaParser<TextAlign, String, TextAlign> {
   /// Create instance of parser

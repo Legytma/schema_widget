@@ -172,7 +172,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Align",
     () async => AlignSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/align.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/align.schema.json",
       ),
     ),
   );
@@ -181,7 +181,7 @@ void schemaParserRegisterAllTypeParsers() {
     "AnimatedContainer",
     () async => AnimatedContainerSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/animated_container.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/animated_container.schema.json",
       ),
     ),
   );
@@ -190,7 +190,7 @@ void schemaParserRegisterAllTypeParsers() {
     "AppBar",
     () async => AppBarSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/app_bar.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/app_bar.schema.json",
       ),
     ),
   );
@@ -199,7 +199,7 @@ void schemaParserRegisterAllTypeParsers() {
     "AspectRatio",
     () async => AspectRatioSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/aspect_ratio.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/aspect_ratio.schema.json",
       ),
     ),
   );
@@ -208,7 +208,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Baseline",
     () async => BaselineSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/base_line.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/base_line.schema.json",
       ),
     ),
   );
@@ -217,7 +217,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Card",
     () async => CardSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/card.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/card.schema.json",
       ),
     ),
   );
@@ -226,7 +226,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Center",
     () async => CenterSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/center.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/center.schema.json",
       ),
     ),
   );
@@ -235,7 +235,7 @@ void schemaParserRegisterAllTypeParsers() {
     "CircleAvatar",
     () async => CircleAvatarSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/circle_avatar.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/circle_avatar.schema.json",
       ),
     ),
   );
@@ -244,7 +244,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ClipRRect",
     () async => ClipRRectSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/clip_r_rect.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/clip_r_rect.schema.json",
       ),
     ),
   );
@@ -253,7 +253,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Column",
     () async => ColumnSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/column.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/column.schema.json",
       ),
     ),
   );
@@ -262,7 +262,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Container",
     () async => ContainerSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/container.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/container.schema.json",
       ),
     ),
   );
@@ -271,7 +271,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Divider",
     () async => DividerSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/divider.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/divider.schema.json",
       ),
     ),
   );
@@ -280,7 +280,7 @@ void schemaParserRegisterAllTypeParsers() {
     "DrawerHeader",
     () async => DrawerHeaderSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/drawer_header.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/drawer_header.schema.json",
       ),
     ),
   );
@@ -289,7 +289,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Drawer",
     () async => DrawerSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/drawer.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/drawer.schema.json",
       ),
     ),
   );
@@ -298,7 +298,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Expanded",
     () async => ExpandedSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/expanded.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/expanded.schema.json",
       ),
     ),
   );
@@ -307,7 +307,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FittedBox",
     () async => FittedBoxSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/fitted_box.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/fitted_box.schema.json",
       ),
     ),
   );
@@ -316,7 +316,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FloatingActionButton",
     () async => FloatingActionButtonSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/floating_action_button.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/floating_action_button.schema.json",
       ),
     ),
   );
@@ -325,7 +325,7 @@ void schemaParserRegisterAllTypeParsers() {
     "GestureDetector",
     () async => GestureDetectorSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/gesture_detector.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/gesture_detector.schema.json",
       ),
     ),
   );
@@ -334,7 +334,7 @@ void schemaParserRegisterAllTypeParsers() {
     "GoogleMap",
     () async => GoogleMapSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/google_map.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/google_map.schema.json",
       ),
     ),
   );
@@ -343,7 +343,7 @@ void schemaParserRegisterAllTypeParsers() {
     "GridViewWidget",
     () async => GridViewSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/grid_view_widget.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/grid_view_widget.schema.json",
       ),
     ),
   );
@@ -352,7 +352,7 @@ void schemaParserRegisterAllTypeParsers() {
     "IconButton",
     () async => IconButtonSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/icon_button.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/icon_button.schema.json",
       ),
     ),
   );
@@ -361,7 +361,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Icon",
     () async => IconSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/icon.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/icon.schema.json",
       ),
     ),
   );
@@ -370,32 +370,32 @@ void schemaParserRegisterAllTypeParsers() {
     "Image",
     () async => ImageSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/image.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/image.schema.json",
       ),
       <String, ImageSchemaWidgetParser>{
         "asset": ImageSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/image_asset.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/image_asset.schema.json",
           ),
         ),
         "network": ImageSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/image_network.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/image_network.schema.json",
           ),
         ),
         "file": ImageSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/image_file.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/image_file.schema.json",
           ),
         ),
         "memory": ImageSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/image_memory.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/image_memory.schema.json",
           ),
         ),
         "default": ImageSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/image_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/image_default.schema.json",
           ),
         ),
       },
@@ -406,7 +406,7 @@ void schemaParserRegisterAllTypeParsers() {
     "IndexedStack",
     () async => IndexedStackSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/indexed_stack.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/indexed_stack.schema.json",
       ),
     ),
   );
@@ -415,7 +415,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ListTile",
     () async => ListTileSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/list_tile.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/list_tile.schema.json",
       ),
     ),
   );
@@ -424,7 +424,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ListViewWidget",
     () async => ListViewSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/list_view_widget.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/list_view_widget.schema.json",
       ),
     ),
   );
@@ -433,7 +433,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MaterialApp",
     () async => MaterialAppSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/material_app.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/material_app.schema.json",
       ),
     ),
   );
@@ -442,7 +442,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Opacity",
     () async => OpacitySchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/opacity.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/opacity.schema.json",
       ),
     ),
   );
@@ -451,7 +451,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Padding",
     () async => PaddingSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/padding.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/padding.schema.json",
       ),
     ),
   );
@@ -460,7 +460,7 @@ void schemaParserRegisterAllTypeParsers() {
     "PageView",
     () async => PageViewSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/page_view.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/page_view.schema.json",
       ),
     ),
   );
@@ -469,7 +469,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Placeholder",
     () async => PlaceholderSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/place_holder.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/place_holder.schema.json",
       ),
     ),
   );
@@ -478,7 +478,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Positioned",
     () async => PositionedSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/positioned.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/positioned.schema.json",
       ),
     ),
   );
@@ -487,7 +487,7 @@ void schemaParserRegisterAllTypeParsers() {
     "RaisedButton",
     () async => RaisedButtonSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/raised_button.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/raised_button.schema.json",
       ),
     ),
   );
@@ -496,7 +496,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Row",
     () async => RowSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/row.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/row.schema.json",
       ),
     ),
   );
@@ -505,7 +505,7 @@ void schemaParserRegisterAllTypeParsers() {
     "SafeArea",
     () async => SafeAreaSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/safe_area.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/safe_area.schema.json",
       ),
     ),
   );
@@ -514,7 +514,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Scaffold",
     () async => ScaffoldSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/scaffold.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/scaffold.schema.json",
       ),
     ),
   );
@@ -523,27 +523,27 @@ void schemaParserRegisterAllTypeParsers() {
     "SizedBox",
     () async => SizedBoxSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/sized_box.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/sized_box.schema.json",
       ),
       <String, SizedBoxSchemaWidgetParser>{
         "expand": SizedBoxSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/sized_box_expand.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/sized_box_expand.schema.json",
           ),
         ),
         "fromSize": SizedBoxSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/sized_box_fromSize.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/sized_box_fromSize.schema.json",
           ),
         ),
         "shrink": SizedBoxSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/sized_box_shrink.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/sized_box_shrink.schema.json",
           ),
         ),
         "default": SizedBoxSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/sized_box_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/sized_box_default.schema.json",
           ),
         ),
       },
@@ -554,7 +554,7 @@ void schemaParserRegisterAllTypeParsers() {
     "SpinKitRotatingCircle",
     () async => SpinKitRotatingCircleSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/spin_kit_rotating_circle.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/spin_kit_rotating_circle.schema.json",
       ),
     ),
   );
@@ -563,7 +563,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Stack",
     () async => StackSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/stack.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/stack.schema.json",
       ),
     ),
   );
@@ -572,7 +572,7 @@ void schemaParserRegisterAllTypeParsers() {
     "StreamBuilder<dynamic>",
     () async => StreamBuilderSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/stream_builder_dynamic.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/stream_builder_dynamic.schema.json",
       ),
     ),
   );
@@ -581,17 +581,17 @@ void schemaParserRegisterAllTypeParsers() {
     "Text",
     () async => TextSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/text.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/text.schema.json",
       ),
       <String, TextSchemaWidgetParser>{
         "default": TextSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/text_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/text_default.schema.json",
           ),
         ),
         "rich": TextSchemaWidgetParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/widget/text_rich.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/widget/text_rich.schema.json",
           ),
         ),
       },
@@ -602,7 +602,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Alignment",
     () async => AlignmentSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/alignment.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/alignment.schema.json",
       ),
     ),
   );
@@ -611,7 +611,7 @@ void schemaParserRegisterAllTypeParsers() {
     "AppBarTheme",
     () async => AppBarThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/app_bar_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/app_bar_theme.schema.json",
       ),
     ),
   );
@@ -620,7 +620,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Axis",
     () async => AxisSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/axis.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/axis.schema.json",
       ),
     ),
   );
@@ -629,7 +629,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BlendMode",
     () async => BlendModeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/blend_mode.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/blend_mode.schema.json",
       ),
     ),
   );
@@ -638,7 +638,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BorderRadiusGeometry",
     () async => BorderRadiusGeometrySchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/border_radius_geometry.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/border_radius_geometry.schema.json",
       ),
     ),
   );
@@ -647,47 +647,47 @@ void schemaParserRegisterAllTypeParsers() {
     "BorderRadius",
     () async => BorderRadiusSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/border_radius.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/border_radius.schema.json",
       ),
       <String, BorderRadiusSchemaParser>{
         "string": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_string.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_string.schema.json",
           ),
         ),
         "only": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_only.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_only.schema.json",
           ),
         ),
         "all": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_all.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_all.schema.json",
           ),
         ),
         "circular": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_circular.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_circular.schema.json",
           ),
         ),
         "zero": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_zero.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_zero.schema.json",
           ),
         ),
         "horizontal": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_horizontal.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_horizontal.schema.json",
           ),
         ),
         "vertical": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_vertical.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_vertical.schema.json",
           ),
         ),
         "lerp": BorderRadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_radius_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_radius_lerp.schema.json",
           ),
         ),
       },
@@ -698,32 +698,32 @@ void schemaParserRegisterAllTypeParsers() {
     "Border",
     () async => BorderSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/border.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/border.schema.json",
       ),
       <String, BorderSchemaParser>{
         "default": BorderSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_default.schema.json",
           ),
         ),
         "all": BorderSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_all.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_all.schema.json",
           ),
         ),
         "fromBorderSide": BorderSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_fromBorderSide.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_fromBorderSide.schema.json",
           ),
         ),
         "merge": BorderSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_merge.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_merge.schema.json",
           ),
         ),
         "lerp": BorderSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_lerp.schema.json",
           ),
         ),
       },
@@ -734,27 +734,27 @@ void schemaParserRegisterAllTypeParsers() {
     "BorderSide",
     () async => BorderSideSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/border_side.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/border_side.schema.json",
       ),
       <String, BorderSideSchemaParser>{
         "default": BorderSideSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_side_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_side_default.schema.json",
           ),
         ),
         "none": BorderSideSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_side_none.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_side_none.schema.json",
           ),
         ),
         "merge": BorderSideSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_side_merge.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_side_merge.schema.json",
           ),
         ),
         "lerp": BorderSideSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/border_side_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/border_side_lerp.schema.json",
           ),
         ),
       },
@@ -765,7 +765,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BorderStyle",
     () async => BorderStyleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/border_style.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/border_style.schema.json",
       ),
     ),
   );
@@ -774,7 +774,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BottomAppBarTheme",
     () async => BottomAppBarThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/bottom_app_bar_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/bottom_app_bar_theme.schema.json",
       ),
     ),
   );
@@ -783,7 +783,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BottomSheetThemeData",
     () async => BottomSheetThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/bottom_sheet_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/bottom_sheet_theme_data.schema.json",
       ),
     ),
   );
@@ -792,7 +792,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BoxBorder",
     () async => BoxBorderSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/box_border.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/box_border.schema.json",
       ),
     ),
   );
@@ -801,37 +801,37 @@ void schemaParserRegisterAllTypeParsers() {
     "BoxConstraints",
     () async => BoxConstraintsSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/box_constraints.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/box_constraints.schema.json",
       ),
       <String, BoxConstraintsSchemaParser>{
         "loose": BoxConstraintsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/box_constraints_loose.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/box_constraints_loose.schema.json",
           ),
         ),
         "tightFor": BoxConstraintsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/box_constraints_tightFor.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/box_constraints_tightFor.schema.json",
           ),
         ),
         "expand": BoxConstraintsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/box_constraints_expand.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/box_constraints_expand.schema.json",
           ),
         ),
         "tightForFinite": BoxConstraintsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/box_constraints_tightForFinite.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/box_constraints_tightForFinite.schema.json",
           ),
         ),
         "lerp": BoxConstraintsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/box_constraints_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/box_constraints_lerp.schema.json",
           ),
         ),
         "default": BoxConstraintsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/box_constraints_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/box_constraints_default.schema.json",
           ),
         ),
       },
@@ -842,7 +842,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BoxDecoration",
     () async => BoxDecorationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/box_decoration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/box_decoration.schema.json",
       ),
     ),
   );
@@ -851,7 +851,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BoxFit",
     () async => BoxFitSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/box_fit.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/box_fit.schema.json",
       ),
     ),
   );
@@ -860,7 +860,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BoxShadow",
     () async => BoxShadowSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/box_shadow.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/box_shadow.schema.json",
       ),
     ),
   );
@@ -869,7 +869,7 @@ void schemaParserRegisterAllTypeParsers() {
     "BoxShape",
     () async => BoxShapeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/box_shape.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/box_shape.schema.json",
       ),
     ),
   );
@@ -878,7 +878,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Brightness",
     () async => BrightnessSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/brightness.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/brightness.schema.json",
       ),
     ),
   );
@@ -887,7 +887,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ButtonBarLayoutBehavior",
     () async => ButtonBarLayoutBehaviorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/button_bar_layout_behavior.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/button_bar_layout_behavior.schema.json",
       ),
     ),
   );
@@ -896,7 +896,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ButtonBarThemeData",
     () async => ButtonBarThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/button_bar_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/button_bar_theme_data.schema.json",
       ),
     ),
   );
@@ -905,7 +905,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ButtonTextTheme",
     () async => ButtonTextThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/button_text_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/button_text_theme.schema.json",
       ),
     ),
   );
@@ -914,7 +914,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ButtonThemeData",
     () async => ButtonThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/button_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/button_theme_data.schema.json",
       ),
     ),
   );
@@ -923,7 +923,7 @@ void schemaParserRegisterAllTypeParsers() {
     "CameraPosition",
     () async => CameraPositionSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/camera_position.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/camera_position.schema.json",
       ),
     ),
   );
@@ -932,7 +932,7 @@ void schemaParserRegisterAllTypeParsers() {
     "CardTheme",
     () async => CardThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/card_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/card_theme.schema.json",
       ),
     ),
   );
@@ -941,7 +941,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ChipThemeData",
     () async => ChipThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/chip_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/chip_theme_data.schema.json",
       ),
     ),
   );
@@ -950,7 +950,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Clip",
     () async => ClipSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/clip.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/clip.schema.json",
       ),
     ),
   );
@@ -959,27 +959,27 @@ void schemaParserRegisterAllTypeParsers() {
     "ColorFilter",
     () async => ColorFilterSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/color_filter.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/color_filter.schema.json",
       ),
       <String, ColorFilterSchemaParser>{
         "linear_to_srgb_gamma": ColorFilterSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/color_filter_linear_to_srgb_gamma.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/color_filter_linear_to_srgb_gamma.schema.json",
           ),
         ),
         "srgb_to_linear_gamma": ColorFilterSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/color_filter_srgb_to_linear_gamma.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/color_filter_srgb_to_linear_gamma.schema.json",
           ),
         ),
         "mode": ColorFilterSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/color_filter_mode.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/color_filter_mode.schema.json",
           ),
         ),
         "matrix": ColorFilterSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/color_filter_matrix.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/color_filter_matrix.schema.json",
           ),
         ),
       },
@@ -990,7 +990,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Color",
     () async => ColorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/color.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/color.schema.json",
       ),
     ),
   );
@@ -999,7 +999,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ColorScheme",
     () async => ColorSchemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/color_scheme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/color_scheme.schema.json",
       ),
     ),
   );
@@ -1008,7 +1008,7 @@ void schemaParserRegisterAllTypeParsers() {
     "CrossAxisAlignment",
     () async => CrossAxisAlignmentSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/cross_axis_alignment.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/cross_axis_alignment.schema.json",
       ),
     ),
   );
@@ -1017,7 +1017,7 @@ void schemaParserRegisterAllTypeParsers() {
     "CupertinoTextThemeData",
     () async => CupertinoTextThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/cupertino_text_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/cupertino_text_theme_data.schema.json",
       ),
     ),
   );
@@ -1026,7 +1026,7 @@ void schemaParserRegisterAllTypeParsers() {
     "CupertinoThemeData",
     () async => CupertinoThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/cupertino_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/cupertino_theme_data.schema.json",
       ),
     ),
   );
@@ -1035,7 +1035,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Curve",
     () async => CurveSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/curve.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/curve.schema.json",
       ),
     ),
   );
@@ -1044,7 +1044,7 @@ void schemaParserRegisterAllTypeParsers() {
     "DecorationImage",
     () async => DecorationImageSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/decoration_image.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/decoration_image.schema.json",
       ),
     ),
   );
@@ -1053,7 +1053,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Decoration",
     () async => DecorationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/decoration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/decoration.schema.json",
       ),
     ),
   );
@@ -1062,7 +1062,7 @@ void schemaParserRegisterAllTypeParsers() {
     "DialogTheme",
     () async => DialogThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/dialog_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/dialog_theme.schema.json",
       ),
     ),
   );
@@ -1071,7 +1071,7 @@ void schemaParserRegisterAllTypeParsers() {
     "DividerThemeData",
     () async => DividerThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/divider_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/divider_theme_data.schema.json",
       ),
     ),
   );
@@ -1080,7 +1080,7 @@ void schemaParserRegisterAllTypeParsers() {
     "double",
     () async => DoubleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/double.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/double.schema.json",
       ),
     ),
   );
@@ -1089,7 +1089,7 @@ void schemaParserRegisterAllTypeParsers() {
     "DragStartBehavior",
     () async => DragStartBehaviorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/drag_start_behavior.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/drag_start_behavior.schema.json",
       ),
     ),
   );
@@ -1098,7 +1098,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Duration",
     () async => DurationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/duration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/duration.schema.json",
       ),
     ),
   );
@@ -1107,7 +1107,7 @@ void schemaParserRegisterAllTypeParsers() {
     "EdgeInsetsGeometry",
     () async => EdgeInsetsGeometrySchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/edge_insets_geometry.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/edge_insets_geometry.schema.json",
       ),
     ),
   );
@@ -1116,47 +1116,47 @@ void schemaParserRegisterAllTypeParsers() {
     "EdgeInsets",
     () async => EdgeInsetsSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/edge_insets.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/edge_insets.schema.json",
       ),
       <String, EdgeInsetsSchemaParser>{
         "string": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_string.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_string.schema.json",
           ),
         ),
         "zero": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_zero.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_zero.schema.json",
           ),
         ),
         "all": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_all.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_all.schema.json",
           ),
         ),
         "fromWindowPadding": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_fromWindowPadding.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_fromWindowPadding.schema.json",
           ),
         ),
         "lerp": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_lerp.schema.json",
           ),
         ),
         "symmetric": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_symmetric.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_symmetric.schema.json",
           ),
         ),
         "fromLTRB": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_fromLTRB.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_fromLTRB.schema.json",
           ),
         ),
         "only": EdgeInsetsSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/edge_insets_only.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/edge_insets_only.schema.json",
           ),
         ),
       },
@@ -1167,7 +1167,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FilterQuality",
     () async => FilterQualitySchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/filter_quality.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/filter_quality.schema.json",
       ),
     ),
   );
@@ -1176,7 +1176,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FloatingActionButtonAnimator",
     () async => FloatingActionButtonAnimatorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/floating_action_button_animator.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/floating_action_button_animator.schema.json",
       ),
     ),
   );
@@ -1185,7 +1185,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FloatingActionButtonLocation",
     () async => FloatingActionButtonLocationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/floating_action_button_location.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/floating_action_button_location.schema.json",
       ),
     ),
   );
@@ -1194,7 +1194,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FloatingActionButtonThemeData",
     () async => FloatingActionButtonThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/floating_action_button_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/floating_action_button_theme_data.schema.json",
       ),
     ),
   );
@@ -1203,7 +1203,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FlutterLogoDecoration",
     () async => FlutterLogoDecorationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/flutter_logo_decoration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/flutter_logo_decoration.schema.json",
       ),
     ),
   );
@@ -1212,7 +1212,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FlutterLogoStyle",
     () async => FlutterLogoStyleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/flutter_logo_style.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/flutter_logo_style.schema.json",
       ),
     ),
   );
@@ -1221,7 +1221,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FocusNode",
     () async => FocusNodeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/focus_node.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/focus_node.schema.json",
       ),
     ),
   );
@@ -1230,7 +1230,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FontStyle",
     () async => FontStyleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/font_style.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/font_style.schema.json",
       ),
     ),
   );
@@ -1239,7 +1239,7 @@ void schemaParserRegisterAllTypeParsers() {
     "FontWeight",
     () async => FontWeightSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/font_weight.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/font_weight.schema.json",
       ),
     ),
   );
@@ -1248,7 +1248,7 @@ void schemaParserRegisterAllTypeParsers() {
     "GridViewParams",
     () async => GridViewParamsSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/grid_view_params.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/grid_view_params.schema.json",
       ),
     ),
   );
@@ -1257,7 +1257,7 @@ void schemaParserRegisterAllTypeParsers() {
     "IconData",
     () async => IconDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/icon_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/icon_data.schema.json",
       ),
     ),
   );
@@ -1266,7 +1266,7 @@ void schemaParserRegisterAllTypeParsers() {
     "IconThemeData",
     () async => IconThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/icon_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/icon_theme_data.schema.json",
       ),
     ),
   );
@@ -1275,7 +1275,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ImageProvider<dynamic>",
     () async => ImageProviderDynamicSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/image_provider_dynamic.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/image_provider_dynamic.schema.json",
       ),
     ),
   );
@@ -1284,7 +1284,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ImageRepeat",
     () async => ImageRepeatSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/image_repeat.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/image_repeat.schema.json",
       ),
     ),
   );
@@ -1293,7 +1293,7 @@ void schemaParserRegisterAllTypeParsers() {
     "InputDecoration",
     () async => InputDecorationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/input_decoration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/input_decoration.schema.json",
       ),
     ),
   );
@@ -1302,7 +1302,7 @@ void schemaParserRegisterAllTypeParsers() {
     "InputDecorationTheme",
     () async => InputDecorationThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/input_decoration_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/input_decoration_theme.schema.json",
       ),
     ),
   );
@@ -1311,7 +1311,7 @@ void schemaParserRegisterAllTypeParsers() {
     "int",
     () async => IntSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/int.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/int.schema.json",
       ),
     ),
   );
@@ -1329,7 +1329,7 @@ void schemaParserRegisterAllTypeParsers() {
     "LatLng",
     () async => LatLngSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/lat_lng.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/lat_lng.schema.json",
       ),
     ),
   );
@@ -1338,7 +1338,7 @@ void schemaParserRegisterAllTypeParsers() {
     "List<BoxShadow>",
     () async => ListBoxShadowSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/list_box_shadow.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/list_box_shadow.schema.json",
       ),
     ),
   );
@@ -1347,7 +1347,7 @@ void schemaParserRegisterAllTypeParsers() {
     "List<double>",
     () async => ListDoubleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/list_double.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/list_double.schema.json",
       ),
     ),
   );
@@ -1356,7 +1356,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ListViewParams",
     () async => ListViewParamsSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/list_view_params.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/list_view_params.schema.json",
       ),
     ),
   );
@@ -1365,7 +1365,7 @@ void schemaParserRegisterAllTypeParsers() {
     "List<Widget>",
     () async => ListWidgetSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/list_widget.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/list_widget.schema.json",
       ),
     ),
   );
@@ -1374,7 +1374,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Locale",
     () async => LocaleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/locale.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/locale.schema.json",
       ),
     ),
   );
@@ -1383,7 +1383,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MainAxisAlignment",
     () async => MainAxisAlignmentSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/main_axis_alignment.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/main_axis_alignment.schema.json",
       ),
     ),
   );
@@ -1392,7 +1392,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MainAxisSize",
     () async => MainAxisSizeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/main_axis_size.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/main_axis_size.schema.json",
       ),
     ),
   );
@@ -1401,7 +1401,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MapType",
     () async => MapTypeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/map_type.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/map_type.schema.json",
       ),
     ),
   );
@@ -1410,7 +1410,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MaterialBannerThemeData",
     () async => MaterialBannerThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/material_banner_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/material_banner_theme_data.schema.json",
       ),
     ),
   );
@@ -1419,7 +1419,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MaterialColor",
     () async => MaterialColorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/material_color.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/material_color.schema.json",
       ),
     ),
   );
@@ -1428,7 +1428,7 @@ void schemaParserRegisterAllTypeParsers() {
     "MaterialTapTargetSize",
     () async => MaterialTapTargetSizeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/material_tap_target_size.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/material_tap_target_size.schema.json",
       ),
     ),
   );
@@ -1437,7 +1437,7 @@ void schemaParserRegisterAllTypeParsers() {
     "NavigationType",
     () async => NavigationTypeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/navigation_type.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/navigation_type.schema.json",
       ),
     ),
   );
@@ -1446,7 +1446,7 @@ void schemaParserRegisterAllTypeParsers() {
     "NetworkImage",
     () async => NetworkImageSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/network_image.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/network_image.schema.json",
       ),
     ),
   );
@@ -1455,32 +1455,32 @@ void schemaParserRegisterAllTypeParsers() {
     "Offset",
     () async => OffsetSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/offset.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/offset.schema.json",
       ),
       <String, OffsetSchemaParser>{
         "default": OffsetSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/offset_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/offset_default.schema.json",
           ),
         ),
         "fromDirection": OffsetSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/offset_fromDirection.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/offset_fromDirection.schema.json",
           ),
         ),
         "infinite": OffsetSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/offset_infinite.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/offset_infinite.schema.json",
           ),
         ),
         "lerp": OffsetSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/offset_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/offset_lerp.schema.json",
           ),
         ),
         "zero": OffsetSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/offset_zero.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/offset_zero.schema.json",
           ),
         ),
       },
@@ -1491,7 +1491,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Overflow",
     () async => OverflowSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/overflow.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/overflow.schema.json",
       ),
     ),
   );
@@ -1500,7 +1500,7 @@ void schemaParserRegisterAllTypeParsers() {
     "PageTransitionsTheme",
     () async => PageTransitionsThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/page_transitions_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/page_transitions_theme.schema.json",
       ),
     ),
   );
@@ -1509,7 +1509,7 @@ void schemaParserRegisterAllTypeParsers() {
     "PopupMenuThemeData",
     () async => PopupMenuThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/popup_menu_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/popup_menu_theme_data.schema.json",
       ),
     ),
   );
@@ -1518,7 +1518,7 @@ void schemaParserRegisterAllTypeParsers() {
     "PreferredSizeWidget",
     () async => PreferredSizeWidgetSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/preferred_size_widget.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/preferred_size_widget.schema.json",
       ),
     ),
   );
@@ -1527,32 +1527,32 @@ void schemaParserRegisterAllTypeParsers() {
     "Radius",
     () async => RadiusSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/radius.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/radius.schema.json",
       ),
       <String, RadiusSchemaParser>{
         "string": RadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/radius_string.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/radius_string.schema.json",
           ),
         ),
         "zero": RadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/radius_zero.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/radius_zero.schema.json",
           ),
         ),
         "circular": RadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/radius_circular.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/radius_circular.schema.json",
           ),
         ),
         "elliptical": RadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/radius_elliptical.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/radius_elliptical.schema.json",
           ),
         ),
         "lerp": RadiusSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/radius_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/radius_lerp.schema.json",
           ),
         ),
       },
@@ -1563,47 +1563,47 @@ void schemaParserRegisterAllTypeParsers() {
     "Rect",
     () async => RectSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/rect.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/rect.schema.json",
       ),
       <String, RectSchemaParser>{
         "zero": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_zero.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_zero.schema.json",
           ),
         ),
         "largest": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_largest.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_largest.schema.json",
           ),
         ),
         "fromPoints": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_fromPoints.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_fromPoints.schema.json",
           ),
         ),
         "fromCircle": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_fromCircle.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_fromCircle.schema.json",
           ),
         ),
         "fromCenter": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_fromCenter.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_fromCenter.schema.json",
           ),
         ),
         "lerp": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_lerp.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_lerp.schema.json",
           ),
         ),
         "fromLTRB": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_fromLTRB.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_fromLTRB.schema.json",
           ),
         ),
         "fromLTWH": RectSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/rect_fromLTWH.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/rect_fromLTWH.schema.json",
           ),
         ),
       },
@@ -1614,7 +1614,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ShapeDecoration",
     () async => ShapeDecorationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/shape_decoration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/shape_decoration.schema.json",
       ),
     ),
   );
@@ -1623,7 +1623,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ShowValueIndicator",
     () async => ShowValueIndicatorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/show_value_indicator.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/show_value_indicator.schema.json",
       ),
     ),
   );
@@ -1632,42 +1632,42 @@ void schemaParserRegisterAllTypeParsers() {
     "Size",
     () async => SizeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/size.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/size.schema.json",
       ),
       <String, SizeSchemaParser>{
         "zero": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_zero.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_zero.schema.json",
           ),
         ),
         "infinite": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_infinite.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_infinite.schema.json",
           ),
         ),
         "fromHeight": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_fromHeight.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_fromHeight.schema.json",
           ),
         ),
         "fromRadius": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_fromRadius.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_fromRadius.schema.json",
           ),
         ),
         "fromWidth": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_fromWidth.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_fromWidth.schema.json",
           ),
         ),
         "square": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_square.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_square.schema.json",
           ),
         ),
         "default": SizeSchemaParser(
           await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/1.1.2/schema/size_default.schema.json",
+            "https://schema.legytma.com.br/2.0.0/schema/size_default.schema.json",
           ),
         ),
       },
@@ -1678,7 +1678,7 @@ void schemaParserRegisterAllTypeParsers() {
     "SliderThemeData",
     () async => SliderThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/slider_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/slider_theme_data.schema.json",
       ),
     ),
   );
@@ -1687,7 +1687,7 @@ void schemaParserRegisterAllTypeParsers() {
     "SnackBarBehavior",
     () async => SnackBarBehaviorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/snack_bar_behavior.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/snack_bar_behavior.schema.json",
       ),
     ),
   );
@@ -1696,7 +1696,7 @@ void schemaParserRegisterAllTypeParsers() {
     "SnackBarThemeData",
     () async => SnackBarThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/snack_bar_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/snack_bar_theme_data.schema.json",
       ),
     ),
   );
@@ -1705,7 +1705,7 @@ void schemaParserRegisterAllTypeParsers() {
     "StackFit",
     () async => StackFitSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/stack_fit.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/stack_fit.schema.json",
       ),
     ),
   );
@@ -1714,7 +1714,7 @@ void schemaParserRegisterAllTypeParsers() {
     "StrutStyle",
     () async => StrutStyleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/strut_style.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/strut_style.schema.json",
       ),
     ),
   );
@@ -1723,7 +1723,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TabBarIndicatorSize",
     () async => TabBarIndicatorSizeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/tab_bar_indicator_size.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/tab_bar_indicator_size.schema.json",
       ),
     ),
   );
@@ -1732,7 +1732,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TabBarTheme",
     () async => TabBarThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/tab_bar_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/tab_bar_theme.schema.json",
       ),
     ),
   );
@@ -1741,7 +1741,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TargetPlatform",
     () async => TargetPlatformSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/target_platform.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/target_platform.schema.json",
       ),
     ),
   );
@@ -1750,7 +1750,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextAlign",
     () async => TextAlignSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_align.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_align.schema.json",
       ),
     ),
   );
@@ -1759,7 +1759,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextAlignVertical",
     () async => TextAlignVerticalSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_align_vertical.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_align_vertical.schema.json",
       ),
     ),
   );
@@ -1768,7 +1768,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextBaseline",
     () async => TextBaselineSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_baseline.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_baseline.schema.json",
       ),
     ),
   );
@@ -1777,7 +1777,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextCapitalization",
     () async => TextCapitalizationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_capitalization.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_capitalization.schema.json",
       ),
     ),
   );
@@ -1786,7 +1786,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextDecoration",
     () async => TextDecorationSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_decoration.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_decoration.schema.json",
       ),
     ),
   );
@@ -1795,7 +1795,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextDecorationStyle",
     () async => TextDecorationStyleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_decoration_style.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_decoration_style.schema.json",
       ),
     ),
   );
@@ -1804,7 +1804,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextDirection",
     () async => TextDirectionSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_direction.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_direction.schema.json",
       ),
     ),
   );
@@ -1813,7 +1813,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextInputAction",
     () async => TextInputActionSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_input_action.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_input_action.schema.json",
       ),
     ),
   );
@@ -1822,7 +1822,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextInputType",
     () async => TextInputTypeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_input_type.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_input_type.schema.json",
       ),
     ),
   );
@@ -1831,7 +1831,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextOverflow",
     () async => TextOverflowSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_overflow.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_overflow.schema.json",
       ),
     ),
   );
@@ -1840,7 +1840,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextSpan",
     () async => TextSpanSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_span.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_span.schema.json",
       ),
     ),
   );
@@ -1849,7 +1849,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextStyle",
     () async => TextStyleSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_style.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_style.schema.json",
       ),
     ),
   );
@@ -1858,7 +1858,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TextTheme",
     () async => TextThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/text_theme.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/text_theme.schema.json",
       ),
     ),
   );
@@ -1867,7 +1867,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ThemeData",
     () async => ThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/theme_data.schema.json",
       ),
     ),
   );
@@ -1876,7 +1876,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ThemeMode",
     () async => ThemeModeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/theme_mode.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/theme_mode.schema.json",
       ),
     ),
   );
@@ -1885,7 +1885,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ToggleButtonsThemeData",
     () async => ToggleButtonsThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/toggle_buttons_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/toggle_buttons_theme_data.schema.json",
       ),
     ),
   );
@@ -1894,7 +1894,7 @@ void schemaParserRegisterAllTypeParsers() {
     "ToolbarOptions",
     () async => ToolbarOptionsSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/toolbar_options.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/toolbar_options.schema.json",
       ),
     ),
   );
@@ -1903,7 +1903,7 @@ void schemaParserRegisterAllTypeParsers() {
     "TooltipThemeData",
     () async => TooltipThemeDataSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/tooltip_theme_data.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/tooltip_theme_data.schema.json",
       ),
     ),
   );
@@ -1912,7 +1912,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Typography",
     () async => TypographySchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/typography.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/typography.schema.json",
       ),
     ),
   );
@@ -1921,7 +1921,7 @@ void schemaParserRegisterAllTypeParsers() {
     "UnderlineTabIndicator",
     () async => UnderlineTabIndicatorSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/underline_tab_indicator.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/underline_tab_indicator.schema.json",
       ),
     ),
   );
@@ -1930,7 +1930,7 @@ void schemaParserRegisterAllTypeParsers() {
     "VerticalDirection",
     () async => VerticalDirectionSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/vertical_direction.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/vertical_direction.schema.json",
       ),
     ),
   );
@@ -1939,7 +1939,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Widget",
     () async => WidgetSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget.schema.json",
       ),
     ),
   );
@@ -1948,7 +1948,7 @@ void schemaParserRegisterAllTypeParsers() {
     "WrapAlignment",
     () async => WrapAlignmentSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/wrap_alignment.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/wrap_alignment.schema.json",
       ),
     ),
   );
@@ -1957,7 +1957,7 @@ void schemaParserRegisterAllTypeParsers() {
     "WrapCrossAlignment",
     () async => WrapCrossAlignmentSchemaParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/wrap_cross_alignment.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/wrap_cross_alignment.schema.json",
       ),
     ),
   );
@@ -1966,7 +1966,7 @@ void schemaParserRegisterAllTypeParsers() {
     "Wrap",
     () async => WrapSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/1.1.2/schema/widget/wrap.schema.json",
+        "https://schema.legytma.com.br/2.0.0/schema/widget/wrap.schema.json",
       ),
     ),
   );

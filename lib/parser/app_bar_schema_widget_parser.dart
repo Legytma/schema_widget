@@ -21,7 +21,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [AppBar].
-@SchemaParser("AppBar", "https://schema.legytma.com.br/1.1.2/schema/widget/app_bar.schema.json")
+@SchemaParser("AppBar",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/app_bar.schema.json")
 class AppBarSchemaWidgetParser extends SchemaWidgetParser<AppBar> {
   static final Logger _log = Logger("AppBarSchemaWidgetParser");
 
@@ -29,7 +30,7 @@ class AppBarSchemaWidgetParser extends SchemaWidgetParser<AppBar> {
   AppBarSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   AppBar builder(BuildContext buildContext, Map<String, dynamic> value,
+  AppBar builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer(value);
 

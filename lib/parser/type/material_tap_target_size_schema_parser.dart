@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("MaterialTapTargetSize",
-    "https://schema.legytma.com.br/1.1.2/schema/material_tap_target_size.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/material_tap_target_size.schema.json")
 class MaterialTapTargetSizeSchemaParser extends TypeSchemaParser<
     MaterialTapTargetSize, String, MaterialTapTargetSize> {
   /// Create instance of parser using [JsonSchema] to validate values.

@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser(
-    "Curve", "https://schema.legytma.com.br/1.1.2/schema/curve.schema.json")
+    "Curve", "https://schema.legytma.com.br/2.0.0/schema/curve.schema.json")
 class CurveSchemaParser extends TypeSchemaParser<Curve, String, Curve> {
   /// Create instance of parser using [JsonSchema] to validate values.
   CurveSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

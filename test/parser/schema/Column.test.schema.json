@@ -1,8 +1,8 @@
 {
 	"$id": "Column.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/1.1.2/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
 	"description": "Column Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/1.1.2/schema/widget/column.schema.json",
+	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/column.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal Column widget",

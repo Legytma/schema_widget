@@ -20,13 +20,14 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Stack]
-@SchemaParser("Stack", "https://schema.legytma.com.br/1.1.2/schema/widget/stack.schema.json")
+@SchemaParser("Stack",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/stack.schema.json")
 class StackSchemaWidgetParser extends SchemaWidgetParser<Stack> {
   /// Create instance of parser
   StackSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Stack builder(BuildContext buildContext, Map<String, dynamic> value,
+  Stack builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return Stack(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

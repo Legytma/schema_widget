@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 24/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("ToggleButtonsThemeData",
-    "https://schema.legytma.com.br/1.1.2/schema/toggle_buttons_theme_data.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/toggle_buttons_theme_data.schema.json")
 class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
     ToggleButtonsThemeData, Map<String, dynamic>, ToggleButtonsThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.

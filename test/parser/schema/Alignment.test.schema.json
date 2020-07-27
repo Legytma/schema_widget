@@ -1,8 +1,8 @@
 {
   "$id": "Alignment.test.schema.json",
-  "$schema": "https://schema.legytma.com.br/1.1.2/schema/test.schema.json",
+  "$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
   "description": "Alignment Schema Parser",
-  "testSchema": "https://schema.legytma.com.br/1.1.2/schema/alignment.schema.json",
+  "testSchema": "https://schema.legytma.com.br/2.0.0/schema/alignment.schema.json",
   "tests": [
     {
       "description": "Create Alignment enum with invalid value",

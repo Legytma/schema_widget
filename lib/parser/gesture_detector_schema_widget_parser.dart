@@ -22,7 +22,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [GestureDetector]
 @SchemaParser("GestureDetector",
-    "https://schema.legytma.com.br/1.1.2/schema/widget/gesture_detector.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/widget/gesture_detector.schema.json")
 class GestureDetectorSchemaWidgetParser
     extends SchemaWidgetParser<GestureDetector> {
   /// Create instance of parser

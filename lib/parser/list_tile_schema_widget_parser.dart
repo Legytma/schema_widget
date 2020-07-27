@@ -20,14 +20,15 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [ListTile]
-@SchemaParser("ListTile", "https://schema.legytma.com.br/1.1.2/schema/widget/list_tile.schema.json")
+@SchemaParser("ListTile",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/list_tile.schema.json")
 class ListTileSchemaWidgetParser extends SchemaWidgetParser<ListTile>
     with RouteHandleMixin {
   /// Create instance of parser
   ListTileSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   ListTile builder(BuildContext buildContext, Map<String, dynamic> value,
+  ListTile builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     addHandleOnMap(value, buildContext, "onTap");
 

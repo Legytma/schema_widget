@@ -21,14 +21,14 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [StreamBuilder]
 @SchemaParser("StreamBuilder<dynamic>",
-    "https://schema.legytma.com.br/1.1.2/schema/widget/stream_builder_dynamic.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/widget/stream_builder_dynamic.schema.json")
 class StreamBuilderSchemaWidgetParser
     extends SchemaWidgetParser<StreamBuilder<dynamic>> {
   /// Create instance of parser
   StreamBuilderSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   StreamBuilder<dynamic> builder(
+  StreamBuilder<dynamic> builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return StreamBuilder<dynamic>(

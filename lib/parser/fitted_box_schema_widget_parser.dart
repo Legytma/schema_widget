@@ -20,13 +20,14 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [FittedBox]
-@SchemaParser("FittedBox", "https://schema.legytma.com.br/1.1.2/schema/widget/fitted_box.schema.json")
+@SchemaParser("FittedBox",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/fitted_box.schema.json")
 class FittedBoxSchemaWidgetParser extends SchemaWidgetParser<FittedBox> {
   /// Create instance of parser
   FittedBoxSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   FittedBox builder(BuildContext buildContext, Map<String, dynamic> value,
+  FittedBox builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return FittedBox(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

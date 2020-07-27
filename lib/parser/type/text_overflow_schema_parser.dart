@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [TextOverflow]
 @SchemaParser("TextOverflow",
-    "https://schema.legytma.com.br/1.1.2/schema/text_overflow.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/text_overflow.schema.json")
 class TextOverflowSchemaParser
     extends TypeSchemaParser<TextOverflow, String, TextOverflow> {
   /// Create instance of parser

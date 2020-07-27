@@ -24,7 +24,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [GoogleMap]
-@SchemaParser("GoogleMap", "https://schema.legytma.com.br/1.1.2/schema/widget/google_map.schema.json")
+@SchemaParser("GoogleMap",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/google_map.schema.json")
 class GoogleMapSchemaWidgetParser extends SchemaWidgetParser<GoogleMap> {
   static final Logger _log = Logger("GoogleMapSchemaWidgetParser");
 
@@ -32,7 +33,7 @@ class GoogleMapSchemaWidgetParser extends SchemaWidgetParser<GoogleMap> {
   GoogleMapSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   GoogleMap builder(BuildContext buildContext, Map<String, dynamic> value,
+  GoogleMap builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer('map: $value');
 

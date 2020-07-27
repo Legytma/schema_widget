@@ -20,8 +20,8 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [FloatingActionButton]
-@SchemaParser("FloatingActionButton", 
-    "https://schema.legytma.com.br/1.1.2/schema/widget/floating_action_button.schema.json")
+@SchemaParser("FloatingActionButton",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/floating_action_button.schema.json")
 class FloatingActionButtonSchemaWidgetParser
     extends SchemaWidgetParser<FloatingActionButton> {
   /// Create instance of parser
@@ -29,7 +29,7 @@ class FloatingActionButtonSchemaWidgetParser
       : super(jsonSchema);
 
   @override
-   FloatingActionButton builder(
+  FloatingActionButton builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return FloatingActionButton(

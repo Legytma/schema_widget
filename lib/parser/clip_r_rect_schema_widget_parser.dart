@@ -20,13 +20,14 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [ClipRRect]
-@SchemaParser("ClipRRect", "https://schema.legytma.com.br/1.1.2/schema/widget/clip_r_rect.schema.json")
+@SchemaParser("ClipRRect",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/clip_r_rect.schema.json")
 class ClipRRectSchemaWidgetParser extends SchemaWidgetParser<ClipRRect> {
   /// Create instance of parser
   ClipRRectSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   ClipRRect builder(BuildContext buildContext, Map<String, dynamic> value,
+  ClipRRect builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return ClipRRect(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

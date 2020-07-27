@@ -22,7 +22,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [MaterialApp].
-@SchemaParser("MaterialApp", "https://schema.legytma.com.br/1.1.2/schema/widget/material_app.schema.json")
+@SchemaParser("MaterialApp",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/material_app.schema.json")
 class MaterialAppSchemaWidgetParser extends SchemaWidgetParser<MaterialApp> {
   static final Logger _log = Logger("MaterialAppSchemaWidgetParser");
 
@@ -30,7 +31,7 @@ class MaterialAppSchemaWidgetParser extends SchemaWidgetParser<MaterialApp> {
   MaterialAppSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   MaterialApp builder(BuildContext buildContext, Map<String, dynamic> value,
+  MaterialApp builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer(value);
 

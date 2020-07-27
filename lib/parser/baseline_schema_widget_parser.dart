@@ -20,13 +20,14 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Baseline]
-@SchemaParser("Baseline", "https://schema.legytma.com.br/1.1.2/schema/widget/base_line.schema.json")
+@SchemaParser("Baseline",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/base_line.schema.json")
 class BaselineSchemaWidgetParser extends SchemaWidgetParser<Baseline> {
   /// Create instance of parser
   BaselineSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Baseline builder(BuildContext buildContext, Map<String, dynamic> value,
+  Baseline builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return Baseline(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

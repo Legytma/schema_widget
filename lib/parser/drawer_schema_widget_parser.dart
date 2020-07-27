@@ -21,7 +21,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Drawer].
-@SchemaParser("Drawer", "https://schema.legytma.com.br/1.1.2/schema/widget/drawer.schema.json")
+@SchemaParser("Drawer",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/drawer.schema.json")
 class DrawerSchemaWidgetParser extends SchemaWidgetParser<Drawer> {
   static final Logger _log = Logger("DrawerSchemaWidgetParser");
 
@@ -29,7 +30,7 @@ class DrawerSchemaWidgetParser extends SchemaWidgetParser<Drawer> {
   DrawerSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Drawer builder(BuildContext buildContext, Map<String, dynamic> value,
+  Drawer builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer(value);
 

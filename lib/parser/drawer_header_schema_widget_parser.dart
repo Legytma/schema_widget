@@ -21,15 +21,16 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [DrawerHeader].
-@SchemaParser("DrawerHeader", "https://schema.legytma.com.br/1.1.2/schema/widget/drawer_header.schema.json")
+@SchemaParser("DrawerHeader",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/drawer_header.schema.json")
 class DrawerHeaderSchemaWidgetParser extends SchemaWidgetParser<DrawerHeader> {
   static final Logger _log = Logger("DrawerHeaderSchemaWidgetParser");
 
   /// Create instance of parser
-  DrawerHeaderSchemaWidgetParser(JsonSchema jsonSchema): super(jsonSchema);
+  DrawerHeaderSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   DrawerHeader builder(BuildContext buildContext, Map<String, dynamic> value,
+  DrawerHeader builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer(value);
 

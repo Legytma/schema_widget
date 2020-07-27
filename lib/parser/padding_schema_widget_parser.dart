@@ -20,13 +20,14 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Padding]
-@SchemaParser("Padding", "https://schema.legytma.com.br/1.1.2/schema/widget/padding.schema.json")
+@SchemaParser("Padding",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/padding.schema.json")
 class PaddingSchemaWidgetParser extends SchemaWidgetParser<Padding> {
   /// Create instance of parser
   PaddingSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Padding builder(BuildContext buildContext, Map<String, dynamic> value,
+  Padding builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return Padding(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

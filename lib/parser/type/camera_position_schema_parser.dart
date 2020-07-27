@@ -23,7 +23,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 07/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("CameraPosition",
-    "https://schema.legytma.com.br/1.1.2/schema/camera_position.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/camera_position.schema.json")
 class CameraPositionSchemaParser extends TypeSchemaParser<CameraPosition,
     Map<String, dynamic>, CameraPosition> {
   /// Create instance of parser using [JsonSchema] to validate values.

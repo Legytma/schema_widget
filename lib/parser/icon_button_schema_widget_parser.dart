@@ -21,7 +21,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SchemaFormWidget].
-@SchemaParser("IconButton", "https://schema.legytma.com.br/1.1.2/schema/widget/icon_button.schema.json")
+@SchemaParser("IconButton",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/icon_button.schema.json")
 class IconButtonSchemaWidgetParser extends SchemaWidgetParser<IconButton> {
   static final Logger _log = Logger("IconButtonSchemaWidgetParser");
 
@@ -29,7 +30,7 @@ class IconButtonSchemaWidgetParser extends SchemaWidgetParser<IconButton> {
   IconButtonSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   IconButton builder(BuildContext buildContext, Map<String, dynamic> value,
+  IconButton builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer(value);
 

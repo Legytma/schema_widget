@@ -22,14 +22,14 @@ import '../schema_widget.dart';
 import '../widget/list_view_widget.dart';
 
 /// [SchemaWidgetParser] to [ListViewWidget]
-@SchemaParser("ListViewWidget", 
-    "https://schema.legytma.com.br/1.1.2/schema/widget/list_view_widget.schema.json")
+@SchemaParser("ListViewWidget",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/list_view_widget.schema.json")
 class ListViewSchemaWidgetParser extends SchemaWidgetParser<ListViewWidget> {
   /// Create instance of parser
   ListViewSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   ListViewWidget builder(BuildContext buildContext, Map<String, dynamic> value,
+  ListViewWidget builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return ListViewWidget(
       buildContext,

@@ -20,13 +20,14 @@ import 'package:json_schema/json_schema.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Row]
-@SchemaParser("Row", "https://schema.legytma.com.br/1.1.2/schema/widget/row.schema.json")
+@SchemaParser(
+    "Row", "https://schema.legytma.com.br/2.0.0/schema/widget/row.schema.json")
 class RowSchemaWidgetParser extends SchemaWidgetParser<Row> {
   /// Create instance of parser
   RowSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   Row builder(BuildContext buildContext, Map<String, dynamic> value,
+  Row builder(BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     return Row(
       key: SchemaWidget.parse<Key>(buildContext, value['key']),

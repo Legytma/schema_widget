@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("DecorationImage",
-    "https://schema.legytma.com.br/1.1.2/schema/decoration_image.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/decoration_image.schema.json")
 class DecorationImageSchemaParser extends TypeSchemaParser<DecorationImage,
     Map<String, dynamic>, DecorationImage> {
   /// Create instance of parser using [JsonSchema] to validate values.

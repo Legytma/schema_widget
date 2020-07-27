@@ -1,8 +1,8 @@
 {
 	"$id": "Scaffold.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/1.1.2/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
 	"description": "Scaffold Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/1.1.2/schema/widget/scaffold.schema.json",
+	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/scaffold.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal Scaffold widget",

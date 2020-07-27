@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser(
-    "Clip", "https://schema.legytma.com.br/1.1.2/schema/clip.schema.json")
+    "Clip", "https://schema.legytma.com.br/2.0.0/schema/clip.schema.json")
 class ClipSchemaParser extends TypeSchemaParser<Clip, String, Clip> {
   /// Create instance of parser using [JsonSchema] to validate values.
   ClipSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);

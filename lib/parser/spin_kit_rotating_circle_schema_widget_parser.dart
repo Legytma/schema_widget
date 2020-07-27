@@ -22,8 +22,8 @@ import 'package:logging/logging.dart';
 import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SpinKitRotatingCircle]
-@SchemaParser("SpinKitRotatingCircle", 
-    "https://schema.legytma.com.br/1.1.2/schema/widget/spin_kit_rotating_circle.schema.json")
+@SchemaParser("SpinKitRotatingCircle",
+    "https://schema.legytma.com.br/2.0.0/schema/widget/spin_kit_rotating_circle.schema.json")
 class SpinKitRotatingCircleSchemaWidgetParser
     extends SchemaWidgetParser<SpinKitRotatingCircle> {
   static final Logger _log = Logger("SpinKitRotatingCircleSchemaWidgetParser");
@@ -33,7 +33,7 @@ class SpinKitRotatingCircleSchemaWidgetParser
       : super(jsonSchema);
 
   @override
-   SpinKitRotatingCircle builder(
+  SpinKitRotatingCircle builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [Widget defaultValue]) {
     _log.finer('map: $value');

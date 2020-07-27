@@ -1,8 +1,8 @@
 {
 	"$id": "SizedBox.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/1.1.2/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
 	"description": "SizedBox Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/1.1.2/schema/widget/sized-box.schema.json",
+	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/sized-box.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal SizedBox widget",

@@ -7,10 +7,8 @@ pre-commit:
   scripts:
     "eslint.sh":
       runner: bash
-  commands:
-    pretty:
-      glob: '*.dart'
-      run: flutter format {staged_files} && git add {staged_files}
+    "pretty.sh":
+      runner: bash
 
 pre-push:
   parallel: true

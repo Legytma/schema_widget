@@ -23,7 +23,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Scaffold].
 @SchemaParser("Scaffold",
-    "https://schema.legytma.com.br/1.1.2/schema/widget/scaffold.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/widget/scaffold.schema.json")
 class ScaffoldSchemaWidgetParser extends SchemaWidgetParser<Scaffold> {
   static final Logger _log = Logger("ScaffoldSchemaWidgetParser");
 

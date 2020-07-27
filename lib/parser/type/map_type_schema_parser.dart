@@ -23,7 +23,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("MapType",
-    "https://schema.legytma.com.br/1.1.2/schema/map_type.schema.json")
+    "https://schema.legytma.com.br/2.0.0/schema/map_type.schema.json")
 class MapTypeSchemaParser extends TypeSchemaParser<MapType, String, MapType> {
   /// Create instance of parser using [JsonSchema] to validate values.
   MapTypeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
