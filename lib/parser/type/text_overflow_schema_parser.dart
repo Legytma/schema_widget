@@ -19,13 +19,16 @@ import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("TextOverflow", "https://schema.legytma.com.br/1.1.2/schema/text_overflow.schema.json")
+/// [SchemaWidgetParser] to [TextOverflow]
+@SchemaParser("TextOverflow",
+    "https://schema.legytma.com.br/1.1.2/schema/text_overflow.schema.json")
 class TextOverflowSchemaParser
     extends TypeSchemaParser<TextOverflow, String, TextOverflow> {
+  /// Create instance of parser
   TextOverflowSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextOverflow builder(BuildContext buildContext, String value,
+  TextOverflow builder(BuildContext buildContext, String value,
       [TextOverflow defaultValue]) {
     switch (value) {
       case "ellipsis":

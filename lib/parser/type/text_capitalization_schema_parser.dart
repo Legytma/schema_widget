@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextCapitalization", "https://schema.legytma.com.br/1.1.2/schema/text_capitalization.schema.json")
+@SchemaParser("TextCapitalization",
+    "https://schema.legytma.com.br/1.1.2/schema/text_capitalization.schema.json")
 class TextCapitalizationSchemaParser
     extends TypeSchemaParser<TextCapitalization, String, TextCapitalization> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TextCapitalizationSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextCapitalization builder(BuildContext buildContext, String value,
+  TextCapitalization builder(BuildContext buildContext, String value,
       [TextCapitalization defaultValue]) {
     switch (value) {
       case 'characters':

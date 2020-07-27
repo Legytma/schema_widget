@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "6.0.0"
   analyzer:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.39.13"
+    version: "0.39.14"
   archive:
     dependency: transitive
     description:
@@ -127,6 +127,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0+1"
+  cli_util:
+    dependency: transitive
+    description:
+      name: cli_util
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
   clock:
     dependency: transitive
     description:
@@ -204,13 +211,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.0"
-  driver_extensions:
-    dependency: "direct dev"
-    description:
-      name: driver_extensions
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0+1"
   effective_dart:
     dependency: "direct dev"
     description:
@@ -238,7 +238,7 @@ packages:
       name: fluri
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.8"
+    version: "1.3.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -271,7 +271,7 @@ packages:
     source: hosted
     version: "4.1.2+1"
   flutter_test:
-    dependency: transitive
+    dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -286,9 +286,9 @@ packages:
       name: get_it
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.3"
+    version: "4.0.4"
   glob:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: glob
       url: "https://pub.dartlang.org"
@@ -388,10 +388,10 @@ packages:
   json_schema:
     dependency: "direct main"
     description:
-      path: "C:/Users/windo/Documents/Flutter/json_schema"
-      relative: false
-    source: path
-    version: "2.2.2"
+      name: json_schema
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
   logging:
     dependency: "direct main"
     description:
@@ -420,13 +420,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
-  mockito:
-    dependency: "direct dev"
-    description:
-      name: mockito
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.1.1"
   multi_server_socket:
     dependency: transitive
     description:
@@ -470,7 +463,7 @@ packages:
     source: hosted
     version: "1.0.10"
   path:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path
       url: "https://pub.dartlang.org"
@@ -568,7 +561,7 @@ packages:
     source: hosted
     version: "2.1.3"
   rxdart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: rxdart
       url: "https://pub.dartlang.org"
@@ -722,7 +715,7 @@ packages:
     source: hosted
     version: "1.1.0"
   test:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: test
       url: "https://pub.dartlang.org"

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 24/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("ToggleButtonsThemeData", 
+@SchemaParser("ToggleButtonsThemeData",
     "https://schema.legytma.com.br/1.1.2/schema/toggle_buttons_theme_data.schema.json")
 class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
     ToggleButtonsThemeData, Map<String, dynamic>, ToggleButtonsThemeData> {
@@ -29,7 +29,7 @@ class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
   ToggleButtonsThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   ToggleButtonsThemeData builder(
+  ToggleButtonsThemeData builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [ToggleButtonsThemeData defaultValue]) {
     return ToggleButtonsThemeData(
@@ -46,8 +46,8 @@ class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
           SchemaWidget.parse<TextStyle>(buildContext, value['textStyle']),
       borderColor:
           SchemaWidget.parse<Color>(buildContext, value['borderColor']),
-      borderRadius: SchemaWidget.parse<BorderRadius>(
-          buildContext, value['borderRadius']),
+      borderRadius:
+          SchemaWidget.parse<BorderRadius>(buildContext, value['borderRadius']),
       borderWidth:
           SchemaWidget.parse<double>(buildContext, value['borderWidth']),
       constraints: SchemaWidget.parse<BoxConstraints>(

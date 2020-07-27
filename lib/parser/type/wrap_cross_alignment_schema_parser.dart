@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("WrapCrossAlignment", "https://schema.legytma.com.br/1.1.2/schema/wrap_cross_alignment.schema.json")
+@SchemaParser("WrapCrossAlignment",
+    "https://schema.legytma.com.br/1.1.2/schema/wrap_cross_alignment.schema.json")
 class WrapCrossAlignmentSchemaParser
     extends TypeSchemaParser<WrapCrossAlignment, String, WrapCrossAlignment> {
   /// Create instance of parser using [JsonSchema] to validate values.
   WrapCrossAlignmentSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   WrapCrossAlignment builder(BuildContext buildContext, String value,
+  WrapCrossAlignment builder(BuildContext buildContext, String value,
       [WrapCrossAlignment defaultValue]) {
     switch (value) {
       case "start":

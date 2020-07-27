@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TabBarTheme", "https://schema.legytma.com.br/1.1.2/schema/tab_bar_theme.schema.json")
+@SchemaParser("TabBarTheme",
+    "https://schema.legytma.com.br/1.1.2/schema/tab_bar_theme.schema.json")
 class TabBarThemeSchemaParser
     extends TypeSchemaParser<TabBarTheme, Map<String, dynamic>, TabBarTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TabBarThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TabBarTheme builder(BuildContext buildContext, Map<String, dynamic> value,
+  TabBarTheme builder(BuildContext buildContext, Map<String, dynamic> value,
       [TabBarTheme defaultValue]) {
     return TabBarTheme(
       labelStyle:

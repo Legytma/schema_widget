@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("SnackBarThemeData", "https://schema.legytma.com.br/1.1.2/schema/snack_bar_theme_data.schema.json")
+@SchemaParser("SnackBarThemeData",
+    "https://schema.legytma.com.br/1.1.2/schema/snack_bar_theme_data.schema.json")
 class SnackBarThemeDataSchemaParser extends TypeSchemaParser<SnackBarThemeData,
     Map<String, dynamic>, SnackBarThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
   SnackBarThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   SnackBarThemeData builder(
+  SnackBarThemeData builder(
       BuildContext buildContext, Map<String, dynamic> value,
       [SnackBarThemeData defaultValue]) {
     return SnackBarThemeData(

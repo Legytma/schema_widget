@@ -19,13 +19,16 @@ import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("TextAlign", "https://schema.legytma.com.br/1.1.2/schema/text_align.schema.json")
+/// [SchemaWidgetParser] to [TextAlign]
+@SchemaParser("TextAlign",
+    "https://schema.legytma.com.br/1.1.2/schema/text_align.schema.json")
 class TextAlignSchemaParser
     extends TypeSchemaParser<TextAlign, String, TextAlign> {
+  /// Create instance of parser
   TextAlignSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextAlign builder(BuildContext buildContext, String value,
+  TextAlign builder(BuildContext buildContext, String value,
       [TextAlign defaultValue]) {
     switch (value) {
       case "left":

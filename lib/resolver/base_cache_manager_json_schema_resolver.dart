@@ -13,8 +13,6 @@
 // limitations under the License.
 
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:flutter_cache_manager/src/cache_store.dart';
-import 'package:flutter_cache_manager/src/web/web_helper.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
@@ -23,6 +21,7 @@ import '../json_schema_resolver.dart';
 /// Default implementation of [BaseCacheManager] to
 /// [BaseCacheManagerJsonSchemaResolver]
 class JsonSchemaDefaultCacheManager extends BaseCacheManager {
+  /// Cache key
   static const key = 'jsonSchemaDefaultCacheManager';
 
   static JsonSchemaDefaultCacheManager _instance;
@@ -32,15 +31,11 @@ class JsonSchemaDefaultCacheManager extends BaseCacheManager {
     Duration maxAgeCacheObject,
     int maxNrOfCacheObjects = 1000,
     FileService fileService,
-    CacheStore cacheStore,
-    WebHelper webHelper,
   }) {
     _instance ??= JsonSchemaDefaultCacheManager._(
       maxAgeCacheObject: maxAgeCacheObject,
       maxNrOfCacheObjects: maxNrOfCacheObjects,
       fileService: fileService,
-      cacheStore: cacheStore,
-      webHelper: webHelper,
     );
 
     return _instance;
@@ -50,15 +45,11 @@ class JsonSchemaDefaultCacheManager extends BaseCacheManager {
     Duration maxAgeCacheObject,
     int maxNrOfCacheObjects = 1000,
     FileService fileService,
-    CacheStore cacheStore,
-    WebHelper webHelper,
   }) : super(
           key,
           maxAgeCacheObject: maxAgeCacheObject,
           maxNrOfCacheObjects: maxNrOfCacheObjects,
           fileService: fileService,
-          cacheStore: cacheStore,
-          webHelper: webHelper,
         );
 
   @override

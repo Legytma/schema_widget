@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// ignore_for_file: implementation_imports
+
 library schema_widget;
 
 import 'package:flutter/cupertino.dart';
@@ -87,20 +89,37 @@ class FactoryStatistics {
     _notify();
   }
 
+  /// Get [FactoryStatistics] [Stream]
   Stream<FactoryStatistics> get stream => _controller.asBroadcastStream();
 
+  /// Get [Duration] between start and last change
   Duration get duration => _lastNotify.difference(_started);
 
+  /// Get factories [List]
   List<String> get factories => List<String>.unmodifiable(_factories);
+
+  /// Get loading [List]
   List<String> get loading => List<String>.unmodifiable(_loading);
+
+  /// Get loaded [List]
   List<String> get loaded => List<String>.unmodifiable(_loaded);
+
+  /// Get failed [List]
   List<String> get failed => List<String>.unmodifiable(_failed);
 
+  /// Get factory list length
   int get factoryCount => _factories.length;
+
+  /// Get loading list length
   int get loadingCount => _loading.length;
+
+  /// Get loaded list length
   int get loadedCount => _loaded.length;
+
+  /// Get failed list length
   int get failedCount => _failed.length;
 
+  /// Get conclusion percentage
   num get value => (loadedCount + failedCount) / factoryCount;
 
   @override

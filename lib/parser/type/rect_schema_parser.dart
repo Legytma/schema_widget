@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,8 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("Rect", "https://schema.legytma.com.br/1.1.2/schema/rect.schema.json", <String>[
+@SchemaParser("Rect",
+    "https://schema.legytma.com.br/1.1.2/schema/rect.schema.json", <String>[
   "zero",
   "largest",
   "fromPoints",
@@ -51,7 +52,7 @@ class RectSchemaParser
   */
 
   @override
-   Rect builderVariant(BuildContext buildContext, Map<String, dynamic> value,
+  Rect builderVariant(BuildContext buildContext, Map<String, dynamic> value,
       Rect defaultValue) {
     switch (extractType(value)) {
       case 'zero':

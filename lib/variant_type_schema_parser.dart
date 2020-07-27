@@ -17,6 +17,7 @@ import 'package:json_schema/json_schema.dart';
 
 import 'type_schema_parser.dart';
 
+/// extends this class to make a variant parser.
 abstract class VariantTypeSchemaParser<T extends D, F, D>
     extends TypeSchemaParser<T, F, D> {
   final Map<String, VariantTypeSchemaParser<T, F, D>> _typeSchemaParsers;
@@ -25,6 +26,7 @@ abstract class VariantTypeSchemaParser<T extends D, F, D>
   VariantTypeSchemaParser(JsonSchema jsonSchema, [this._typeSchemaParsers])
       : super(jsonSchema);
 
+  /// Get [VariantTypeSchemaParser] [Map]
   Map<String, VariantTypeSchemaParser<T, F, D>> get typeSchemaParsers =>
       _typeSchemaParsers;
 
@@ -40,7 +42,9 @@ abstract class VariantTypeSchemaParser<T extends D, F, D>
     return builderVariant(buildContext, value, defaultValue);
   }
 
+  /// Extract type name from [value]
   String extractType(F value);
 
+  /// Build variant object
   T builderVariant(BuildContext buildContext, F value, D defaultValue);
 }

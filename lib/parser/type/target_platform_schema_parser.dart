@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TargetPlatform", "https://schema.legytma.com.br/1.1.2/schema/target_platform.schema.json")
+@SchemaParser("TargetPlatform",
+    "https://schema.legytma.com.br/1.1.2/schema/target_platform.schema.json")
 class TargetPlatformSchemaParser
     extends TypeSchemaParser<TargetPlatform, String, TargetPlatform> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TargetPlatformSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TargetPlatform builder(BuildContext buildContext, String value,
+  TargetPlatform builder(BuildContext buildContext, String value,
       [TargetPlatform defaultValue]) {
     switch (value) {
       case 'android':

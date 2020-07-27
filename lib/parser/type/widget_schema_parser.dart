@@ -20,11 +20,13 @@ import 'package:logging/logging.dart';
 
 import '../../schema_widget.dart';
 
-@SchemaParser("Widget", "https://schema.legytma.com.br/1.1.2/schema/widget.schema.json")
+/// [SchemaWidgetParser] to [Widget]
+@SchemaParser(
+    "Widget", "https://schema.legytma.com.br/1.1.2/schema/widget.schema.json")
 class WidgetSchemaParser extends TypeSchemaParser<Widget, dynamic, Widget> {
   final Logger _log = Logger("WidgetSchemaParser");
 
-  /// Create instance
+  /// Create instance of parser
   WidgetSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override

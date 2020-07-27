@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,7 +21,7 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TabBarIndicatorSize", 
+@SchemaParser("TabBarIndicatorSize",
     "https://schema.legytma.com.br/1.1.2/schema/tab_bar_indicator_size.schema.json")
 class TabBarIndicatorSizeSchemaParser
     extends TypeSchemaParser<TabBarIndicatorSize, String, TabBarIndicatorSize> {
@@ -29,7 +29,7 @@ class TabBarIndicatorSizeSchemaParser
   TabBarIndicatorSizeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TabBarIndicatorSize builder(BuildContext buildContext, String value,
+  TabBarIndicatorSize builder(BuildContext buildContext, String value,
       [TabBarIndicatorSize defaultValue]) {
     switch (value) {
       case 'label':

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextDecorationStyle", "https://schema.legytma.com.br/1.1.2/schema/text_decoration_style.schema.json")
+@SchemaParser("TextDecorationStyle",
+    "https://schema.legytma.com.br/1.1.2/schema/text_decoration_style.schema.json")
 class TextDecorationStyleSchemaParser
     extends TypeSchemaParser<TextDecorationStyle, String, TextDecorationStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TextDecorationStyleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextDecorationStyle builder(BuildContext buildContext, String value,
+  TextDecorationStyle builder(BuildContext buildContext, String value,
       [TextDecorationStyle defaultValue]) {
     switch (value) {
       case "dashed":

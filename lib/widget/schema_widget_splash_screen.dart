@@ -13,13 +13,16 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:schema_widget/json_schema_resolver.dart';
 
+import '../json_schema_resolver.dart';
 import '../schema_widget.dart';
 
+///
 class SchemaWidgetSplashScreen extends StatefulWidget {
+  /// Child [Widget]
   final Widget child;
 
+  /// Create [SchemaWidgetSplashScreen] instance
   const SchemaWidgetSplashScreen({Key key, this.child}) : super(key: key);
 
   @override

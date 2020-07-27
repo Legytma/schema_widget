@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,14 +21,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextAlignVertical", "https://schema.legytma.com.br/1.1.2/schema/text_align_vertical.schema.json")
+@SchemaParser("TextAlignVertical",
+    "https://schema.legytma.com.br/1.1.2/schema/text_align_vertical.schema.json")
 class TextAlignVerticalSchemaParser
     extends TypeSchemaParser<TextAlignVertical, dynamic, TextAlignVertical> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TextAlignVerticalSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextAlignVertical builder(BuildContext buildContext, dynamic value,
+  TextAlignVertical builder(BuildContext buildContext, dynamic value,
       [TextAlignVertical defaultValue]) {
     if (value is double) {
       return TextAlignVertical(y: value);

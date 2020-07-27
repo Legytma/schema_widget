@@ -28,6 +28,7 @@ class SchemaParser {
   const SchemaParser(this.typeName, this.schemaId, [this.subTypes]);
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is SchemaParser &&
@@ -37,6 +38,7 @@ class SchemaParser {
           subTypes == other.subTypes;
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode => schemaId.hashCode ^ typeName.hashCode ^ subTypes.hashCode;
 
   @override

@@ -19,12 +19,12 @@ import '../json_schema_resolver.dart';
 /// JsonSchema resolver abstract
 class LocalJsonSchemaResolver extends JsonSchemaResolver {
   final JsonSchemaResolverStatistics _jsonSchemaResolverStatistics;
-  final String Function(Uri uri) mapUriToPath;
+  final String Function(Uri uri) _mapUriToPath;
 
   /// create instance
   LocalJsonSchemaResolver(
     this._jsonSchemaResolverStatistics,
-    this.mapUriToPath,
+    this._mapUriToPath,
   );
 
   @override
@@ -33,7 +33,7 @@ class LocalJsonSchemaResolver extends JsonSchemaResolver {
 
   @override
   Future<dynamic> requestSchemaData(Uri uri) async {
-    final filePath = mapUriToPath(uri);
+    final filePath = _mapUriToPath(uri);
 
     if (filePath != null) {
       final file = File(filePath);

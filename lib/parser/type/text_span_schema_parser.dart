@@ -14,7 +14,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -22,14 +22,15 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> at 14/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextSpan", "https://schema.legytma.com.br/1.1.2/schema/text_span.schema.json")
+@SchemaParser("TextSpan",
+    "https://schema.legytma.com.br/1.1.2/schema/text_span.schema.json")
 class TextSpanSchemaParser
     extends TypeSchemaParser<TextSpan, Map<String, dynamic>, TextSpan> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TextSpanSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextSpan builder(BuildContext buildContext, Map<String, dynamic> value,
+  TextSpan builder(BuildContext buildContext, Map<String, dynamic> value,
       [TextSpan defaultValue]) {
     return TextSpan(
       style: SchemaWidget.parse<TextStyle>(buildContext, value['style']),

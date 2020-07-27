@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
+import 'package:json_schema/json_schema.dart';
 
 import '../../schema_widget.dart';
 
@@ -21,29 +21,40 @@ import '../../schema_widget.dart';
 ///
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
-@SchemaParser("TextTheme", "https://schema.legytma.com.br/1.1.2/schema/text_theme.schema.json")
+@SchemaParser("TextTheme",
+    "https://schema.legytma.com.br/1.1.2/schema/text_theme.schema.json")
 class TextThemeSchemaParser
     extends TypeSchemaParser<TextTheme, Map<String, dynamic>, TextTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
   TextThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
 
   @override
-   TextTheme builder(BuildContext buildContext, Map<String, dynamic> value,
+  TextTheme builder(BuildContext buildContext, Map<String, dynamic> value,
       [TextTheme defaultValue]) {
     return TextTheme(
-      body1: SchemaWidget.parse<TextStyle>(buildContext, value["body1"]),
-      body2: SchemaWidget.parse<TextStyle>(buildContext, value["body2"]),
+      bodyText1:
+          SchemaWidget.parse<TextStyle>(buildContext, value["bodyText1"]),
+      bodyText2:
+          SchemaWidget.parse<TextStyle>(buildContext, value["bodyText2"]),
       button: SchemaWidget.parse<TextStyle>(buildContext, value["button"]),
       caption: SchemaWidget.parse<TextStyle>(buildContext, value["caption"]),
-      display1: SchemaWidget.parse<TextStyle>(buildContext, value["display1"]),
-      display2: SchemaWidget.parse<TextStyle>(buildContext, value["display2"]),
-      display3: SchemaWidget.parse<TextStyle>(buildContext, value["display3"]),
-      display4: SchemaWidget.parse<TextStyle>(buildContext, value["display4"]),
-      headline: SchemaWidget.parse<TextStyle>(buildContext, value["headline"]),
+      headline1:
+          SchemaWidget.parse<TextStyle>(buildContext, value["headline1"]),
+      headline2:
+          SchemaWidget.parse<TextStyle>(buildContext, value["headline2"]),
+      headline3:
+          SchemaWidget.parse<TextStyle>(buildContext, value["headline3"]),
+      headline4:
+          SchemaWidget.parse<TextStyle>(buildContext, value["headline4"]),
+      headline5:
+          SchemaWidget.parse<TextStyle>(buildContext, value["headline5"]),
+      headline6:
+          SchemaWidget.parse<TextStyle>(buildContext, value["headline6"]),
       overline: SchemaWidget.parse<TextStyle>(buildContext, value["overline"]),
-      subhead: SchemaWidget.parse<TextStyle>(buildContext, value["subhead"]),
-      subtitle: SchemaWidget.parse<TextStyle>(buildContext, value["subtitle"]),
-      title: SchemaWidget.parse<TextStyle>(buildContext, value["title"]),
+      subtitle1:
+          SchemaWidget.parse<TextStyle>(buildContext, value["subtitle1"]),
+      subtitle2:
+          SchemaWidget.parse<TextStyle>(buildContext, value["subtitle2"]),
     );
   }
 }
