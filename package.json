@@ -3,6 +3,7 @@
   "version": "0.1.11",
   "description": "Schema Documentation Builder",
   "scripts": {
+    "schema-update": "node update-schema-references.js",
     "release": "standard-version"
   },
   "repository": {
