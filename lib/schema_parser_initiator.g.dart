@@ -39,7 +39,6 @@ import 'parser/row_schema_widget_parser.dart';
 import 'parser/safe_area_schema_widget_parser.dart';
 import 'parser/scaffold_schema_widget_parser.dart';
 import 'parser/sized_box_schema_widget_parser.dart';
-import 'parser/spin_kit_rotating_circle_schema_widget_parser.dart';
 import 'parser/stack_schema_widget_parser.dart';
 import 'parser/stream_builder_schema_widget_parser.dart';
 import 'parser/text_schema_widget_parser.dart';
@@ -547,15 +546,6 @@ void schemaParserRegisterAllTypeParsers() {
           ),
         ),
       },
-    ),
-  );
-
-  SchemaWidget.registerTypeParserAsync(
-    "SpinKitRotatingCircle",
-    () async => SpinKitRotatingCircleSchemaWidgetParser(
-      await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/2.0.0/schema/widget/spin_kit_rotating_circle.schema.json",
-      ),
     ),
   );
 

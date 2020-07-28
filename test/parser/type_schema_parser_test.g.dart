@@ -46,7 +46,6 @@ void runAllTypeSchemaParserTests() {
   runTypeSchemaParserTests<SafeArea>();
   runTypeSchemaParserTests<Scaffold>();
   runTypeSchemaParserTests<SizedBox>();
-  runTypeSchemaParserTests<SpinKitRotatingCircle>();
   runTypeSchemaParserTests<Stack>();
   runTypeSchemaParserTests<StreamBuilder<dynamic>>();
   runTypeSchemaParserTests<Text>();
