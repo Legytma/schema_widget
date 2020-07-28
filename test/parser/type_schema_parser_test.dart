@@ -19,7 +19,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:schema_widget/schema_widget.dart';
 import 'package:schema_widget/widget/grid_view_widget.dart';

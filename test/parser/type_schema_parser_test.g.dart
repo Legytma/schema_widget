@@ -27,7 +27,6 @@ void runAllTypeSchemaParserTests() {
   runTypeSchemaParserTests<FittedBox>();
   runTypeSchemaParserTests<FloatingActionButton>();
   runTypeSchemaParserTests<GestureDetector>();
-  runTypeSchemaParserTests<GoogleMap>();
   runTypeSchemaParserTests<GridViewWidget>();
   runTypeSchemaParserTests<Icon>();
   runTypeSchemaParserTests<IconButton>();

@@ -20,7 +20,6 @@ import 'parser/expanded_schema_widget_parser.dart';
 import 'parser/fitted_box_schema_widget_parser.dart';
 import 'parser/floating_action_button_schema_widget_parser.dart';
 import 'parser/gesture_detector_schema_widget_parser.dart';
-import 'parser/google_map_schema_widget_parser.dart';
 import 'parser/grid_view_schema_widget_parser.dart';
 import 'parser/icon_button_schema_widget_parser.dart';
 import 'parser/icon_schema_widget_parser.dart';
@@ -64,7 +63,6 @@ import 'parser/type/button_bar_layout_behavior_schema_parser.dart';
 import 'parser/type/button_bar_theme_data_schema_parser.dart';
 import 'parser/type/button_text_theme_schema_parser.dart';
 import 'parser/type/button_theme_data_schema_parser.dart';
-import 'parser/type/camera_position_schema_parser.dart';
 import 'parser/type/card_theme_schema_parser.dart';
 import 'parser/type/chip_theme_data_schema_parser.dart';
 import 'parser/type/clip_schema_parser.dart';
@@ -102,7 +100,6 @@ import 'parser/type/input_decoration_schema_parser.dart';
 import 'parser/type/input_decoration_theme_schema_parser.dart';
 import 'parser/type/int_schema_parser.dart';
 import 'parser/type/json_schema_schema_parser.dart';
-import 'parser/type/lat_lng_schema_parser.dart';
 import 'parser/type/list_box_shadow_schema_parser.dart';
 import 'parser/type/list_double_schema_parser.dart';
 import 'parser/type/list_view_params_schema_parser.dart';
@@ -110,7 +107,6 @@ import 'parser/type/list_widget_schema_parser.dart';
 import 'parser/type/locale_schema_parser.dart';
 import 'parser/type/main_axis_alignment_schema_parser.dart';
 import 'parser/type/main_axis_size_schema_parser.dart';
-import 'parser/type/map_type_schema_parser.dart';
 import 'parser/type/material_banner_theme_data_schema_parser.dart';
 import 'parser/type/material_color_schema_parser.dart';
 import 'parser/type/material_tap_target_size_schema_parser.dart';
@@ -325,15 +321,6 @@ void schemaParserRegisterAllTypeParsers() {
     () async => GestureDetectorSchemaWidgetParser(
       await JsonSchema.createSchemaFromUrl(
         "https://schema.legytma.com.br/2.0.0/schema/widget/gesture_detector.schema.json",
-      ),
-    ),
-  );
-
-  SchemaWidget.registerTypeParserAsync(
-    "GoogleMap",
-    () async => GoogleMapSchemaWidgetParser(
-      await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/2.0.0/schema/widget/google_map.schema.json",
       ),
     ),
   );
@@ -910,15 +897,6 @@ void schemaParserRegisterAllTypeParsers() {
   );
 
   SchemaWidget.registerTypeParserAsync(
-    "CameraPosition",
-    () async => CameraPositionSchemaParser(
-      await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/2.0.0/schema/camera_position.schema.json",
-      ),
-    ),
-  );
-
-  SchemaWidget.registerTypeParserAsync(
     "CardTheme",
     () async => CardThemeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
@@ -1316,15 +1294,6 @@ void schemaParserRegisterAllTypeParsers() {
   );
 
   SchemaWidget.registerTypeParserAsync(
-    "LatLng",
-    () async => LatLngSchemaParser(
-      await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/2.0.0/schema/lat_lng.schema.json",
-      ),
-    ),
-  );
-
-  SchemaWidget.registerTypeParserAsync(
     "List<BoxShadow>",
     () async => ListBoxShadowSchemaParser(
       await JsonSchema.createSchemaFromUrl(
@@ -1383,15 +1352,6 @@ void schemaParserRegisterAllTypeParsers() {
     () async => MainAxisSizeSchemaParser(
       await JsonSchema.createSchemaFromUrl(
         "https://schema.legytma.com.br/2.0.0/schema/main_axis_size.schema.json",
-      ),
-    ),
-  );
-
-  SchemaWidget.registerTypeParserAsync(
-    "MapType",
-    () async => MapTypeSchemaParser(
-      await JsonSchema.createSchemaFromUrl(
-        "https://schema.legytma.com.br/2.0.0/schema/map_type.schema.json",
       ),
     ),
   );
