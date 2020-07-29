@@ -11,9 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
-// Created by Windol <windol@legytma.com.br> at 19/05/2020.
-//
 
 import 'package:build/build.dart';
 import 'package:glob/glob.dart';
