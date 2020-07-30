@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-0](https://github.com/Legytma/schema_widget/compare/0.1.11...1.0.0-0) (2020-07-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove support to google_maps_flutter and migrate implementation to https://github.com/Legytma/google_maps_schema_parser.
+
+Signed-off-by: Alex Manoel Ferreira Silva <alex@legytma.com.br>
+* Remove support to flutter_spinkit and migrate implementation to https://github.com/Legytma/spinkit_schema_parser.
+
+Signed-off-by: Alex Manoel Ferreira Silva <alex@legytma.com.br>
+
+### Features
+
+* add commit message hook ([4e41cdc](https://github.com/Legytma/schema_widget/commit/4e41cdc3f39c63fca250198576d828c8444ea293))
+* add splash screen on example app ([3d0d35a](https://github.com/Legytma/schema_widget/commit/3d0d35acefc96e74341206a90eda9defc07da349))
+* schemas version update to 2.0.0 ([173edd5](https://github.com/Legytma/schema_widget/commit/173edd50f55f400ce44e3738dbff537c5edb9261))
+
+
+### Bug Fixes
+
+* **lefthook:** pre-push command workaround ([9729183](https://github.com/Legytma/schema_widget/commit/9729183367f508f2049fdf8bb5bbc1057d6cfec4))
+
+
+### Code changes that improves performance
+
+* add eslint validation ([66f48d1](https://github.com/Legytma/schema_widget/commit/66f48d12bf9e9c00274c390f0c8a78dd6d910258))
+* add lefthook support ([5fc367d](https://github.com/Legytma/schema_widget/commit/5fc367d9e3b24cd462f4f623adefd13830b9deb5))
+* add pull request checks on github ([38bd1f3](https://github.com/Legytma/schema_widget/commit/38bd1f351f426318561fc22801786050db7183ff))
+* adjust of commit analysis ([1fe0d38](https://github.com/Legytma/schema_widget/commit/1fe0d38ea18a31ce533f1475dffebc996ee84c2c))
+
+
+### Documentation
+
+* initial readme file update ([b2eebfb](https://github.com/Legytma/schema_widget/commit/b2eebfbc59457628528c45ec784e40901258274e))
+* **license:** update license comments ([79eacac](https://github.com/Legytma/schema_widget/commit/79eacac1d22d4d3201d976638c2d3e80118c4215))
+* remove unnecessary documentation ([33ed1fe](https://github.com/Legytma/schema_widget/commit/33ed1fe16e1b04fb4f9d63d191ea07825aa3c382))
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* add schema-update script ([67f3ebc](https://github.com/Legytma/schema_widget/commit/67f3ebc11e3a4f7884f360ff267a11198db4ccfe))
+* adjusts in code to coverage ([3b88aec](https://github.com/Legytma/schema_widget/commit/3b88aec26b8175ca333f0c30e65525aca3a3e638))
+* adjusts in code to coverage ([fa38f76](https://github.com/Legytma/schema_widget/commit/fa38f76b2af4a5724eede461a33b3d718f7019d1))
+* adjusts in code to coverage ([347bac5](https://github.com/Legytma/schema_widget/commit/347bac57bfed91a11ae8eaa3888bcdeb8e46f195))
+* eslint normalization ([bd24699](https://github.com/Legytma/schema_widget/commit/bd2469967013fb4cda0db7a9c4de94d6bae5429d))
+* lock flutter version to >=1.17.5 <2.0.0 ([00bdc7f](https://github.com/Legytma/schema_widget/commit/00bdc7fb4f7e0ce1ac5740ba6c2c7226f9d5ed91))
+* remove schema_form support ([ae26601](https://github.com/Legytma/schema_widget/commit/ae2660187255137905070ed40b689063f5c1a6e4))
+* remove support to flutter_spinkit ([09fb382](https://github.com/Legytma/schema_widget/commit/09fb3820e9dcab8f36fb7254fef8f53669aa5754))
+* remove support to google_maps_flutter ([aa190c3](https://github.com/Legytma/schema_widget/commit/aa190c3b3ca047c8e4f82fe69c3668dc47195187))
+* update code to work correctly ([90e3257](https://github.com/Legytma/schema_widget/commit/90e32578c6ef11b8ab28a0d1c99053146cc9c969))
+* update dependencies ([6ba5748](https://github.com/Legytma/schema_widget/commit/6ba5748e7461db348bf95289b2aaab19d294d85e))
+* update repository on package.json ([d6393a9](https://github.com/Legytma/schema_widget/commit/d6393a9b16e7a1a098c16ac4f4b2cd962f07fa23))
+* update standard-version scripts ([572ba05](https://github.com/Legytma/schema_widget/commit/572ba0537dbf6f0d8740611fe45bbcff7b35b5b8))
+
 ### [0.1.11](https://github.com/Legytma/LegytmaSchemas/compare/0.1.10...0.1.11) (2020-07-06)
 
 
