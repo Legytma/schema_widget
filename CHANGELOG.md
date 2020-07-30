@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-1](https://github.com/Legytma/schema_widget/compare/1.0.0-0...1.0.0-1) (2020-07-30)
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* lock packages version ([586f50f](https://github.com/Legytma/schema_widget/commit/586f50f76c8cebea1930a1f4567fb45954229b69))
+
 ## [1.0.0-0](https://github.com/Legytma/schema_widget/compare/0.1.11...1.0.0-0) (2020-07-30)
 
 
