@@ -14,7 +14,7 @@ pre-push:
   parallel: true
   commands:
     dependencies:
-      run: dependency_validator --exclude-dir example
+      run: dependency_validator --exclude-dir example --ignore flutter_driver
     tests:
       run: flutter test test
     linter:

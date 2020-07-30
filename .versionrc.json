@@ -24,6 +24,10 @@
 			"updater": ".standard-version/standard-version-updater-pubspec.js"
 		},
 		{
+			"filename": "example/pubspec.lock",
+			"updater": ".standard-version/standard-version-updater-pubspec.lock.js"
+		},
+		{
 			"filename": "README.md",
 			"updater": ".standard-version/standard-version-updater-README.js"
 		},
