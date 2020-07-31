@@ -147,7 +147,7 @@ The documentation of the schemes used in this version is available at [https://s
 ```yaml
 dependencies:
   get_it:
-  schema_widget: ^1.0.0-1
+  schema_widget: ^1.0.0-2
 ```
 * Install packages from the command line:
   with Flutter:

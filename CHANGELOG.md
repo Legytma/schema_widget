@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-2](https://github.com/Legytma/schema_widget/compare/1.0.0-1...1.0.0-2) (2020-07-31)
+
+
+### Documentation
+
+* **license:** update license file ([be16a06](https://github.com/Legytma/schema_widget/commit/be16a067744bf7a04bf575afa914137c4f25114d))
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* adapt the project to the standards ([3039199](https://github.com/Legytma/schema_widget/commit/3039199805975122474149a57de51cc6b5784912))
+
 ## [1.0.0-1](https://github.com/Legytma/schema_widget/compare/1.0.0-0...1.0.0-1) (2020-07-30)
 
 
