@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: 'Setup Java'
         uses: actions/setup-java@v1
@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: 'Build example'
-        run: flutter build aot --target=example\lib\main.dart
+        run: flutter build aot --target=example/lib/main.dart
 
       - name: 'Flutter analyze'
         run: flutter analyze
