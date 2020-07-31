@@ -13,8 +13,8 @@
   "keywords": [
     "Legytma",
     "json-schema",
-    "LegytmaSchemas",
-    "Documentation"
+    "schema_widget",
+    "standard-verion"
   ],
   "author": "Alex Manoel Ferreira Silva <alex@legytma.com.br>",
   "license": "Apache-2.0",
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/Legytma/LegytmaSchemas#readme",
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
     "eslint": "^7.5.0",
     "eslint-config-google": "^0.14.0",
     "replace-in-file": "^6.1.0",

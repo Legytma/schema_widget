@@ -63,7 +63,7 @@ Route _onGenerateRoute(RouteSettings settings) {
   _logMain.finest("_onGenerateRoute -> settings: $settings");
 
   return MaterialPageRoute(
-    builder: (buildContext) => MyHomePage(title: "Flutter Demo"),
+    builder: (buildContext) => MyHomePage(),
     settings: settings,
   );
 }
@@ -72,11 +72,12 @@ Route _onUnknownRoute(RouteSettings settings) {
   _logMain.finest("_onUnknownRoute -> settings: $settings");
 
   return MaterialPageRoute(
-    builder: (buildContext) => MyHomePage(title: "Flutter Demo"),
+    builder: (buildContext) => MyHomePage(),
     settings: settings.copyWith(name: "home"),
   );
 }
 
+/// App widget
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -139,11 +140,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Home widget
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -186,17 +184,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var iconData = Icons.add;
-
-//    return Container(child: IconButton(icon: Icon(iconData)));
-
     return SchemaWidget.parse<Widget>(context, {
       "type": "Scaffold",
       "appBar": {
         "type": "AppBar",
         "title": {
           "type": "Text",
-          "data": widget.title,
+          "data": "SchemaWidget Demo",
         },
       },
       "body": {
@@ -208,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
             {
               "type": "StreamBuilder<dynamic>",
               "stream": "streamInt",
-              "initialData": _counter,
+              "initialData": 0,
               "builder": "buildTextCounter",
             },
           ],
@@ -221,8 +215,8 @@ class _MyHomePageState extends State<MyHomePage> {
         "child": {
           "type": "Icon",
           "icon": {
-            "codePoint": iconData.codePoint,
-            "fontFamily": iconData.fontFamily,
+            "codePoint": 0xe145,
+            "fontFamily": "MaterialIcons",
           },
         },
       },

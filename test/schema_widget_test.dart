@@ -27,14 +27,15 @@ void main() {
 
   test('Register Parsers', () async {
     try {
-      var registerParsersFuture =
-          SchemaWidget.registerParsers(localJsonSchemaResolver);
-
-      expect(registerParsersFuture != null, true,
-          reason: "registerParsersFuture not instancied.");
-      expect(registerParsersFuture is Future, true);
-
-      await registerParsersFuture;
+      SchemaWidget.registerParsers(localJsonSchemaResolver);
+//      var registerParsersFuture =
+//          GetIt.I.allReady(ignorePendingAsyncCreation: false);
+//
+//      expect(registerParsersFuture != null, true,
+//          reason: "registerParsersFuture not instancied.");
+//      expect(registerParsersFuture is Future, true);
+//
+//      await registerParsersFuture;
 
       expect(GetIt.instance.isRegistered(instanceName: "type_parser_widget"),
           false);

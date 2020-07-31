@@ -28,14 +28,13 @@ part 'type_schema_parser_test.g.dart';
 
 final Logger _logger = Logger('type_schema_parser_test');
 
-Future<void> main() async {
+void main() {
   initLogger();
 
-  return SchemaWidget.registerParsers(localJsonSchemaResolver).then((_) {
-    SchemaWidget.registerLogic("builderTest", _builderTest);
+  SchemaWidget.registerParsers(localJsonSchemaResolver);
+  SchemaWidget.registerLogic("builderTest", _builderTest);
 
-    runAllTypeSchemaParserTests();
-  });
+  runAllTypeSchemaParserTests();
 }
 
 void runTypeSchemaParserTests<T>() {

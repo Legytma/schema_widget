@@ -159,15 +159,14 @@ class SchemaWidget {
   }
 
   /// Register implemented parsers
-  static Future<void> registerParsers(
-      [JsonSchemaResolver jsonSchemaResolver]) async {
+  static void registerParsers([JsonSchemaResolver jsonSchemaResolver]) {
     if (!_initialized) {
       _initialized = true;
 
       try {
         _configureJsonSchema(jsonSchemaResolver ?? defaultJsonSchemaResolver);
 
-        await schemaParserRegisterAllTypeParsers();
+        schemaParserRegisterAllTypeParsers();
 
 //        await _getIt.allReady(timeout: Duration(seconds: 160));
         // ignore: avoid_catches_without_on_clauses

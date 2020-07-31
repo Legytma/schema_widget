@@ -25,10 +25,10 @@ void main() {
   initLogger();
 
   // runs once before all tests
-  setUpAll(() async {
+  setUpAll(() {
 //    TestWidgetsFlutterBinding.ensureInitialized();
 
-    await SchemaWidget.registerParsers(localJsonSchemaResolver);
+    SchemaWidget.registerParsers(localJsonSchemaResolver);
   });
 
   group("Double validation", () {
