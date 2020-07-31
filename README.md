@@ -8,7 +8,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/Legytma/schema_widget "GitHub top language")
 ![GitHub contributors](https://img.shields.io/github/contributors/Legytma/schema_widget "GitHub contributors")
 ![GitHub last commit](https://img.shields.io/github/last-commit/Legytma/schema_widget "GitHub last commit")
-![Dart CI](https://github.com/Legytma/schema_widget/workflows/Dart%20CI/badge.svg)
+![Flutter CI](https://github.com/Legytma/schema_widget/workflows/Flutter%20CI/badge.svg "Flutter CI")
 
 # Convert JSON to Widget validating with JSON Schema for Flutter apps
 

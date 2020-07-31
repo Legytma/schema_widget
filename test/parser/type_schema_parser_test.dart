@@ -18,6 +18,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logging/logging.dart';
+import 'package:path/path.dart' as path;
 import 'package:schema_widget/schema_widget.dart';
 import 'package:schema_widget/widget/grid_view_widget.dart';
 import 'package:schema_widget/widget/list_view_widget.dart';
@@ -40,7 +41,10 @@ void main() {
 void runTypeSchemaParserTests<T>() {
   final type = T;
   final fileId = "$type".replaceAll("<", "_").replaceAll(">", "_");
-  final file = File("./test/parser/schema/$fileId.test.schema.json");
+  final schemasBasePath = Directory.current.path;
+  final fileName = path.join(
+      schemasBasePath, "test", "parser", "schema", "$fileId.test.schema.json");
+  final file = File(fileName);
   final fileContent = file.readAsStringSync();
   final Map<String, dynamic> fileMap = json.decode(fileContent);
   final String groupDescription = fileMap['description'];
