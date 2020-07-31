@@ -1,4 +1,4 @@
-name: Dart CI
+name: Flutter CI
 
 on:
   push:
@@ -26,8 +26,8 @@ jobs:
       - name: 'Install dependencies'
         run: flutter pub get
 
-      - name: 'Build'
-        run: flutter build aot
+      - name: 'Build example'
+        run: flutter build aot --target=example\lib\main.dart
 
       - name: 'Flutter analyze'
         run: flutter analyze
