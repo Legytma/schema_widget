@@ -50,12 +50,9 @@ jobs:
       - name: 'Setup Pub Credentials'
         shell: bash
         env:
-          PUB_DEV_PUBLISH_ACCESS_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_ACCESS_TOKEN }}
-          PUB_DEV_PUBLISH_REFRESH_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_REFRESH_TOKEN }}
-          PUB_DEV_PUBLISH_TOKEN_ENDPOINT: ${{ secrets.PUB_DEV_PUBLISH_TOKEN_ENDPOINT }}
-          PUB_DEV_PUBLISH_EXPIRATION: ${{ secrets.PUB_DEV_PUBLISH_EXPIRATION }}
+          PUB_DEV_CREDENTIALS_JSON: ${{ secrets.PUB_DEV_CREDENTIALS_JSON }}
         run: |
-          sh ./pub_login.sh
+          echo $PUB_DEV_CREDENTIALS_JSON > ~/.pub-cache/credentials.json
 
       - name: 'Check Publish Warnings'
         run: flutter pub pub publish --dry-run
