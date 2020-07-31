@@ -1,5 +1,5 @@
 {
-	"$id": "StreamBuilder.test.schema.json",
+	"$id": "StreamBuilder_dynamic_.test.schema.json",
 	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
 	"description": "StreamBuilder Schema Parser",
 	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/stream_builder_dynamic.schema.json",
