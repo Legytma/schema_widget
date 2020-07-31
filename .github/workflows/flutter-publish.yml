@@ -52,6 +52,7 @@ jobs:
         env:
           PUB_DEV_CREDENTIALS_JSON: ${{ secrets.PUB_DEV_CREDENTIALS_JSON }}
         run: |
+          mkdir -p ~/.pub-cache
           echo $PUB_DEV_CREDENTIALS_JSON > ~/.pub-cache/credentials.json
 
       - name: 'Check Publish Warnings'
