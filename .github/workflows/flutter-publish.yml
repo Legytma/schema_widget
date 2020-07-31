@@ -15,6 +15,39 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2
 
+      - name: 'Setup Java'
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+
+      - name: 'Setup flutter'
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      - name: 'Install dependencies'
+        run: flutter pub get
+
+      - name: 'Build'
+        run: flutter build aot
+
+      - name: 'Flutter analyze'
+        run: flutter analyze
+
+      - name: 'Flutter test coverage'
+        run: flutter test --coverage test
+
+      - name: 'Coverage'
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
+          file: ./coverage/lcov.info
+
+      - name: 'Dart and Flutter Analizer'
+        uses: axel-op/dart-package-analyzer@v2
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
       - name: 'Dart and Flutter Package Publisher'
         uses: k-paxian/dart-package-publisher@v1.2
         with:
