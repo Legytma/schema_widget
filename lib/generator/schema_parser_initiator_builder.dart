@@ -89,12 +89,12 @@ class SchemaParserInitiatorBuilder implements Builder {
         var schemaId = annotationConstantReader.read('schemaId')?.stringValue;
         final elementIdBase = schemaId?.substring(0, schemaId.length - 12);
 
-        var line = "\tSchemaWidget.registerTypeParserAsync(\n";
-        line = '$line\t\t"$typeName",\n';
-        line = "$line\t\t() async => $elemetName(\n";
-        line = "$line\t\t\tawait JsonSchema.createSchemaFromUrl(\n";
-        line = '$line\t\t\t\t"$schemaId",\n';
-        line = "$line\t\t\t),\n";
+        var line = "  SchemaWidget.registerTypeParserAsync(\n";
+        line = '$line    "$typeName",\n';
+        line = "$line    () async => $elemetName(\n";
+        line = "$line      await JsonSchema.createSchemaFromUrl(\n";
+        line = '$line        "$schemaId",\n';
+        line = "$line      ),\n";
 
         final subTypesConstantReader =
             annotationConstantReader.read('subTypes');
@@ -105,33 +105,55 @@ class SchemaParserInitiatorBuilder implements Builder {
           var subTypes = subTypesConstantReader?.listValue;
 
           if (subTypes != null && subTypes.length > 0) {
-            varants = "$varants\t\t\t<String, $elemetName>{\n";
+            varants = "$varants      <String, $elemetName>{\n";
 
             for (var subType in subTypes) {
               final subTypeValue = subType.toStringValue();
-              varants = '$varants\t\t\t\t"$subTypeValue": $elemetName(\n';
+              varants = '$varants        "$subTypeValue": $elemetName(\n';
               varants =
-                  "$varants\t\t\t\t\tawait JsonSchema.createSchemaFromUrl(\n";
-              varants = '$varants\t\t\t\t\t\t"'
+                  "$varants          await JsonSchema.createSchemaFromUrl(\n";
+              varants = '$varants            "'
                   '${elementIdBase}_$subTypeValue.schema.json",\n';
-              varants = "$varants\t\t\t\t\t),\n";
-              varants = '$varants\t\t\t\t),\n';
+              varants = "$varants          ),\n";
+              varants = '$varants        ),\n';
             }
 
-            varants = "$varants\t\t\t},\n";
+            varants = "$varants      },\n";
           }
 
           line = "$line$varants";
         }
 
-        line = "$line\t\t),\n";
-        line = "$line\t);\n";
+        line = "$line    ),\n";
+        line = "$line  );\n";
 
         return line;
       }));
     }
 
-    var content = "// GENERATED CODE - DO NOT MODIFY BY HAND\n\n";
+    var content = "// Copyright (c) 2020 Legytma Soluções Inteligentes"
+        " (https://legytma.com.br).\n";
+
+    content = "$content//\n";
+    content = '$content//  Licensed under the Apache License, Version 2.0'
+        ' (the "License");\n';
+    content = "$content//  you may not use this file except in compliance"
+        " with the License.\n";
+    content = "$content//  You may obtain a copy of the License at\n";
+    content = "$content//\n";
+    content = "$content//       http://www.apache.org/licenses/LICENSE-2.0\n";
+    content = "$content//\n";
+    content = "$content// Unless required by applicable law or agreed to in"
+        " writing, software\n";
+    content = '$content// distributed under the License is distributed on an'
+        ' "AS IS" BASIS,\n';
+    content = "$content// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,"
+        " either express or implied.\n";
+    content = "$content// See the License for the specific language governing"
+        " permissions and\n";
+    content = "$content// limitations under the License.\n\n";
+
+    content = "$content// GENERATED CODE - DO NOT MODIFY BY HAND\n\n";
 
     content = "${content}import 'package:json_schema/json_schema.dart';\n";
 

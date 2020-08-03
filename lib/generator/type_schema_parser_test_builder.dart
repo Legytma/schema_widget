@@ -49,10 +49,32 @@ class TypeSchemaParserTestBuilder implements Builder {
           RegExp(r"((\WDynamic\W)|(^Dynamic$))"),
           (match) => match.group(0).toLowerCase());
 
-      runTypeSchemaParserTests.add("\trunTypeSchemaParserTests<$className>();");
+      runTypeSchemaParserTests.add("  runTypeSchemaParserTests<$className>();");
     }
 
-    var content = "// GENERATED CODE - DO NOT MODIFY BY HAND\n\n";
+    var content = "// Copyright (c) 2020 Legytma Soluções Inteligentes"
+        " (https://legytma.com.br).\n";
+
+    content = "$content//\n";
+    content = '$content//  Licensed under the Apache License, Version 2.0'
+        ' (the "License");\n';
+    content = "$content//  you may not use this file except in compliance"
+        " with the License.\n";
+    content = "$content//  You may obtain a copy of the License at\n";
+    content = "$content//\n";
+    content = "$content//       http://www.apache.org/licenses/LICENSE-2.0\n";
+    content = "$content//\n";
+    content = "$content// Unless required by applicable law or agreed to in"
+        " writing, software\n";
+    content = '$content// distributed under the License is distributed on an'
+        ' "AS IS" BASIS,\n';
+    content = "$content// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,"
+        " either express or implied.\n";
+    content = "$content// See the License for the specific language governing"
+        " permissions and\n";
+    content = "$content// limitations under the License.\n\n";
+
+    content = "$content// GENERATED CODE - DO NOT MODIFY BY HAND\n\n";
 
     content = "${content}part of 'type_schema_parser_test.dart';\n\n";
     content =
