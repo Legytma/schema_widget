@@ -53,6 +53,7 @@ jobs:
           INPUT_CREDENTIALJSON: ${{ secrets.CREDENTIAL_JSON }}
           INPUT_ACCESSTOKEN: ${{ secrets.OAUTH_ACCESS_TOKEN }}
           INPUT_REFRESHTOKEN: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+          INPUT_SKIPTESTS: "true"
         run: |
           #!/bin/bash
           
