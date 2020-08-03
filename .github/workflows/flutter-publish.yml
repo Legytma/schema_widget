@@ -47,16 +47,10 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'Setup Pub Credentials'
-        shell: bash
-        env:
-          PUB_DEV_CREDENTIALS_JSON: ${{ secrets.PUB_DEV_CREDENTIALS_JSON }}
-        run: |
-          mkdir -p ~/.pub-cache
-          echo $PUB_DEV_CREDENTIALS_JSON > ~/.pub-cache/credentials.json
-
-      - name: 'Check Publish Warnings'
-        run: flutter pub pub publish --dry-run
-
-      - name: 'Publish Package'
-        run: flutter pub pub publish -f
+      - name: 'Dart and Flutter Package Publisher'
+        uses: k-paxian/dart-package-publisher@v1.2
+        with:
+          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
+          dryRunOnly: true
