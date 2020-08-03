@@ -27,11 +27,16 @@ jobs:
       - name: 'Install dependencies'
         run: flutter pub get
 
+      - name: 'Execute Build Runner'
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+
       - name: 'Build example'
         run: flutter build aot --target=example/lib/main.dart
 
-      - name: 'Flutter analyze'
-        run: flutter analyze
+      - name: 'Dart and Flutter Analizer'
+        uses: axel-op/dart-package-analyzer@v2
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Flutter test coverage'
         run: flutter test --coverage test
@@ -42,15 +47,10 @@ jobs:
           token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
           file: ./coverage/lcov.info
 
-      - name: 'Dart and Flutter Analizer'
-        uses: axel-op/dart-package-analyzer@v2
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-
       - name: 'Dart and Flutter Package Publisher'
         shell: bash
         env:
-          INPUT_CREDENTIALJSON: ${{ secrets.CREDENTIAL_JSON }}
+          #INPUT_CREDENTIALJSON: ${{ secrets.CREDENTIAL_JSON }}
           INPUT_ACCESSTOKEN: ${{ secrets.OAUTH_ACCESS_TOKEN }}
           INPUT_REFRESHTOKEN: ${{ secrets.OAUTH_REFRESH_TOKEN }}
           INPUT_SKIPTESTS: "true"
@@ -165,9 +165,16 @@ jobs:
           get_remote_package_version() {
             echo "Getting remote package version"
             if [ "$INPUT_FLUTTER" = "true" ]; then
-              ACTIVATE_OUTPUT=`flutter pub global activate $PACKAGE`
+              ACTIVATE_OUTPUT=`flutter pub global activate $PACKAGE $LOCAL_PACKAGE_VERSION`
             else
-              ACTIVATE_OUTPUT=`pub global activate $PACKAGE`
+              ACTIVATE_OUTPUT=`pub global activate $PACKAGE $LOCAL_PACKAGE_VERSION`
+            fi
+            if [ "$?" = 69 ]; then
+              if [ "$INPUT_FLUTTER" = "true" ]; then
+                ACTIVATE_OUTPUT=`flutter pub global activate $PACKAGE`
+              else
+                ACTIVATE_OUTPUT=`pub global activate $PACKAGE`
+              fi
             fi
             REMOTE_PACKAGE_VERSION=`echo "$ACTIVATE_OUTPUT" | perl -n -e'/^Activated .* (.*)\./ && print $1'`
             if [ -z "$REMOTE_PACKAGE_VERSION" ]; then
@@ -193,10 +200,11 @@ jobs:
                   "scopes": [ "openid", "https://www.googleapis.com/auth/userinfo.email" ],
                   "expiration": 1577149838000
                 }
-          EOF
+                EOF
               else
                 echo "$INPUT_CREDENTIALJSON" > ~/.pub-cache/credentials.json
               fi
+              cat ~/.pub-cache/credentials.json
               if [ "$INPUT_FLUTTER" = "true" ]; then
                 flutter pub publish --dry-run
               else
