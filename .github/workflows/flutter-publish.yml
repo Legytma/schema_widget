@@ -200,7 +200,7 @@ jobs:
                   "scopes": [ "openid", "https://www.googleapis.com/auth/userinfo.email" ],
                   "expiration": 1577149838000
                 }
-                EOF
+          EOF
               else
                 echo "$INPUT_CREDENTIALJSON" > ~/.pub-cache/credentials.json
               fi
@@ -240,7 +240,3 @@ jobs:
           run_unit_tests
           get_remote_package_version || true
           publish || true
-          
-
-      - name: 'Result'
-        run: echo "Success!"
