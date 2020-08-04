@@ -204,7 +204,6 @@ jobs:
               else
                 echo "$INPUT_CREDENTIALJSON" > ~/.pub-cache/credentials.json
               fi
-              cat ~/.pub-cache/credentials.json
               if [ "$INPUT_FLUTTER" = "true" ]; then
                 flutter pub pub publish --dry-run
               else

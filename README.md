@@ -237,8 +237,6 @@ class MyApp extends StatelessWidget {
   }
 
   Route _onGenerateRoute(RouteSettings settings) {
-    _logMain.finest("_onGenerateRoute -> settings: $settings");
-  
     return MaterialPageRoute(
       builder: (buildContext) => MyHomePage(),
       settings: settings,
@@ -246,8 +244,6 @@ class MyApp extends StatelessWidget {
   }
   
   Route _onUnknownRoute(RouteSettings settings) {
-    _logMain.finest("_onUnknownRoute -> settings: $settings");
-  
     return MaterialPageRoute(
       builder: (buildContext) => MyHomePage(),
       settings: settings.copyWith(name: "home"),
