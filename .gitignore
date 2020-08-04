@@ -81,3 +81,4 @@ lefthook-local.yml
 .gradle
 coverage
 *.old
+*.packages

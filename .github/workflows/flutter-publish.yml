@@ -33,11 +33,6 @@ jobs:
       - name: 'Build example'
         run: flutter build aot --target=example/lib/main.dart
 
-      - name: 'Dart and Flutter Analizer'
-        uses: axel-op/dart-package-analyzer@v2
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-
       - name: 'Flutter test coverage'
         run: flutter test --coverage test
 
@@ -46,6 +41,11 @@ jobs:
         with:
           token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
           file: ./coverage/lcov.info
+
+      - name: 'Dart and Flutter Analizer'
+        uses: axel-op/dart-package-analyzer@v2
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Dart and Flutter Package Publisher'
         shell: bash
@@ -206,7 +206,7 @@ jobs:
               fi
               cat ~/.pub-cache/credentials.json
               if [ "$INPUT_FLUTTER" = "true" ]; then
-                flutter pub publish --dry-run
+                flutter pub pub publish --dry-run
               else
                 pub lish --dry-run
               fi
@@ -220,7 +220,7 @@ jobs:
                 echo "Dry run only, skip publishing."
               else
                 if [ "$INPUT_FLUTTER" = "true" ]; then
-                  flutter pub publish -f
+                  flutter pub pub publish -f
                 else
                   pub lish -f
                 fi
@@ -240,9 +240,3 @@ jobs:
           run_unit_tests
           get_remote_package_version || true
           publish || true
-
-      - name: 'Check Publish Warnings'
-        run: flutter pub pub publish --dry-run
-
-      - name: 'Publish Package'
-        run: flutter pub pub publish -f
