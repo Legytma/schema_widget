@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-3](https://github.com/Legytma/schema_widget/compare/1.0.0-2...1.0.0-3) (2020-08-05)
+
+
+### Features
+
+* add generator of supported parsers ([22bf3be](https://github.com/Legytma/schema_widget/commit/22bf3bec7cc1f1e0b11a679c0a730f03aebe76a0))
+
+
+### Changes that do not affect the meaning of the code
+
+* fix generators to beauty ([6ee9721](https://github.com/Legytma/schema_widget/commit/6ee97211000e3ae984e9169e18f695579f62338d))
+
+
+### Documentation
+
+* remove logs in example ([7a05d21](https://github.com/Legytma/schema_widget/commit/7a05d213715f820b633cac211e941ef3a172af38))
+
 ## [1.0.0-2](https://github.com/Legytma/schema_widget/compare/1.0.0-1...1.0.0-2) (2020-07-31)
 
 
