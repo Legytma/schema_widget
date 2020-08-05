@@ -1,6 +1,6 @@
 # List of Type Schema Parsers Supported
 
-The implemented parsers are listed in two tables: [Widgets Parsers](#widgets-parsers "Widgets Parsers") and [Other Objects](#other-objects "Other Objects").
+The implemented parsers are listed in two tables: [Widgets Parsers](#widgets-parsers "Widgets Parsers") and [Other Objects Parsers](#other-objects-parsers "Other Objects Parsers").
 Both tables show:
 * In the Parser column, the name of the implemented parser class;
 * In the Schema Documentation column, the name of the object, with the link to the JSON schema documentation;
@@ -53,7 +53,7 @@ Parser | Schema Documentation | Schema ID
 [TextSchemaWidgetParser](lib/parser/text_schema_widget_parser.dart "TextSchemaWidgetParser") | [`Text`](https://schema.legytma.com.br/2.0.0/docs/text.html "Text") | [`https://schema.legytma.com.br/2.0.0/schema/widget/text.schema.json`](https://schema.legytma.com.br/2.0.0/schema/widget/text.schema.json "https://schema.legytma.com.br/2.0.0/schema/widget/text.schema.json")
 [WrapSchemaWidgetParser](lib/parser/wrap_schema_widget_parser.dart "WrapSchemaWidgetParser") | [`Wrap`](https://schema.legytma.com.br/2.0.0/docs/wrap.html "Wrap") | [`https://schema.legytma.com.br/2.0.0/schema/widget/wrap.schema.json`](https://schema.legytma.com.br/2.0.0/schema/widget/wrap.schema.json "https://schema.legytma.com.br/2.0.0/schema/widget/wrap.schema.json")
 
-## Genegal Objects
+## Other Objects Parsers
 
 Parser | Schema Documentation | Schema ID
 --- | --- | ---

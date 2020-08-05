@@ -50,9 +50,11 @@ jobs:
       - name: 'Dart and Flutter Package Publisher'
         shell: bash
         env:
-          #INPUT_CREDENTIALJSON: ${{ secrets.CREDENTIAL_JSON }}
+          INPUT_CREDENTIALJSON: ${{ secrets.CREDENTIAL_JSON }}
           INPUT_ACCESSTOKEN: ${{ secrets.OAUTH_ACCESS_TOKEN }}
           INPUT_REFRESHTOKEN: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+          INPUT_TOKEN_ENDPOINT: ${{ secrets.PUB_DEV_PUBLISH_TOKEN_ENDPOINT }}
+          INPUT_EXPIRATION: ${{ secrets.PUB_DEV_PUBLISH_EXPIRATION }}
           INPUT_SKIPTESTS: "true"
         run: |
           #!/bin/bash
@@ -193,13 +195,13 @@ jobs:
               mkdir -p ~/.pub-cache
               if [ -z "$INPUT_CREDENTIALJSON" ]; then
                 cat <<-EOF > ~/.pub-cache/credentials.json
-                {
-                  "accessToken":"$INPUT_ACCESSTOKEN",
-                  "refreshToken":"$INPUT_REFRESHTOKEN",
-                  "tokenEndpoint":"https://accounts.google.com/o/oauth2/token",
-                  "scopes": [ "openid", "https://www.googleapis.com/auth/userinfo.email" ],
-                  "expiration": 1577149838000
-                }
+          {
+            "accessToken":"$INPUT_ACCESSTOKEN",
+            "refreshToken":"$INPUT_REFRESHTOKEN",
+            "tokenEndpoint":"$INPUT_TOKEN_ENDPOINT",
+            "scopes": [ "openid", "https://www.googleapis.com/auth/userinfo.email" ],
+            "expiration": $INPUT_EXPIRATION
+          }
           EOF
               else
                 echo "$INPUT_CREDENTIALJSON" > ~/.pub-cache/credentials.json
