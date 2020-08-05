@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-4](https://github.com/Legytma/schema_widget/compare/1.0.0-3...1.0.0-4) (2020-08-05)
+
+
+### Documentation
+
+* fix TYPE_SCHEMA_PARSER_SUPPORT local URL ([6cf93a0](https://github.com/Legytma/schema_widget/commit/6cf93a0d1e9216d3f894386855f48370d26b9473))
+
 ## [1.0.0-3](https://github.com/Legytma/schema_widget/compare/1.0.0-2...1.0.0-3) (2020-08-05)
 
 
