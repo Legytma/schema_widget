@@ -16,13 +16,13 @@
   * [Motivation](#motivation "Motivation")
   * [How this work](#how-this-work "How this work")
     * [`TypeSchemaParser`](#typeschemaparser "TypeSchemaParser")
-    * [Schemes](#schemes "Schemes")
+* [TYPE SCHEMA PARSER SUPPORT](TYPE_SCHEMA_PARSER_SUPPORT.md "TYPE SCHEMA PARSER SUPPORT")
 * [Getting Started](#getting-started "Getting Started")
   * [Installation](#installation "Installation")
   * [Usage](#usage "Usage")
-* [CHANGELOG](https://github.com/Legytma/schema_widget/blob/master/CHANGELOG.md "CHANGELOG")
+* [CHANGELOG](CHANGELOG.md "CHANGELOG")
 * [Next steps](#next-steps "Next steps")
-* [LICENSE](https://github.com/Legytma/schema_widget/blob/master/LICENSE "LICENSE")
+* [LICENSE](LICENSE "LICENSE")
 
 ## What is it
 
@@ -130,10 +130,6 @@ class MyApp extends StatelessWidget {
 Everything in [schema_widget](https://pub.dev/packages/schema_widget "schema_widget") is based on `TypeSchemaParser`.
 
 `TypeSchemaParser` is the implementation of a JSON interpreter that converts it into a complex object.
-
-#### Schemes
-
-The documentation of the schemes used in this version is available at [https://schema.legytma.com.br/2.0.0/docs](https://schema.legytma.com.br/2.0.0/docs "https://schema.legytma.com.br/2.0.0/docs") and all versions of available schemes can be accessed through the link [https://schema.legytma.com.br](https://schema.legytma.com.br "https://schema.legytma.com.br").
 
 ## Getting Started
 
@@ -285,8 +281,8 @@ class MyHomePage extends StatelessWidget {
 - [x] Make MVP;
 - [x] Minimal documentation;
 - [x] Change event binding of click event;
-- [ ] Add list of default supported Widgets;
-- [ ] Add list of default supported Types;
+- [x] Add list of default supported Widgets;
+- [x] Add list of default supported Types;
 - [ ] Publish complementar packages;
 - [ ] Create example full functional apps;
 - [ ] Create content about;

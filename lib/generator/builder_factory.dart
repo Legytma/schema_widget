@@ -15,6 +15,7 @@
 import 'package:build/build.dart';
 
 import 'schema_parser_initiator_builder.dart';
+import 'type_schema_parser_support_builder.dart';
 import 'type_schema_parser_test_builder.dart';
 
 /// Schema Parser Initiator Builder Factory
@@ -24,3 +25,7 @@ Builder schemaParserInitiatorBuilder(BuilderOptions options) =>
 /// Type Schema Parser Test Builder Factory
 Builder typeSchemaParserTestBuilder(BuilderOptions options) =>
     TypeSchemaParserTestBuilder();
+
+/// Type Schema Parser Test Builder Factory
+Builder typeSchemaParserSupportBuilder(BuilderOptions options) =>
+    TypeSchemaParserSupportBuilder();

@@ -24,15 +24,16 @@ module.exports.writeVersion = function(contents, version) {
       'lib/**/*',
       'example/**/*',
       'test/**/*',
+      '*.md',
     ],
 
     // Replacement to make (string or regex)
-    from: new RegExp(['((https:\\/\\/legytma\\.com\\.br\\/schema\\/)|(https:\\',
-      '/\\/schema\\.legytma\\.com\\.br\\/((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[',
-      '1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9',
-      ']\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-z',
-      'A-Z-]+)*))?)\\/schema\\/))'].join(''), 'gm'),
-    to: `https://schema.legytma.com.br/${legytmaVersion}/schema/`,
+    from: new RegExp(['((https:\\/\\/legytma\\.com\\.br\\/(?=schema\\/))|(http',
+      's:\\/\\/schema\\.legytma\\.com\\.br\\/((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.',
+      '(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|',
+      '[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-',
+      '9a-zA-Z-]+)*))?)\\/))'].join(''), 'gm'),
+    to: `https://schema.legytma.com.br/${legytmaVersion}/`,
     countMatches: true,
   };
 

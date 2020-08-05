@@ -5,6 +5,8 @@ targets:
         enabled: true
       schema_widget|type_schema_parser_test:
         enabled: true
+      schema_widget|type_schema_parser_documentation:
+        enabled: true
 
 builders:
   schema_parser_initiator:
@@ -20,6 +22,14 @@ builders:
     import: "package:schema_widget/generator/builder_factory.dart"
     builder_factories: ["typeSchemaParserTestBuilder"]
     build_extensions: {".test.schema.json": [".type_schema_parser_test.g.part"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen"]
+  type_schema_parser_documentation:
+    target: ":generator/type_schema_parser_support_builder"
+    import: "package:schema_widget/generator/builder_factory.dart"
+    builder_factories: ["typeSchemaParserSupportBuilder"]
+    build_extensions: {".dart": ["../TYPE_SCHEMA_PARSER_SUPPORT.md"]}
     auto_apply: dependents
     build_to: source
     applies_builders: ["source_gen"]
