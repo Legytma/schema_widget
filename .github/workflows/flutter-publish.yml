@@ -27,8 +27,8 @@ jobs:
       - name: 'Install dependencies'
         run: flutter pub get
 
-      - name: 'Execute Build Runner'
-        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+#      - name: 'Execute Build Runner'
+#        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: 'Build example'
         run: flutter build aot --target=example/lib/main.dart
