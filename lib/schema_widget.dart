@@ -36,6 +36,7 @@ export 'type_schema_parser.dart';
 export 'utils.dart';
 export 'variant_schema_widget_parser.dart';
 export 'variant_type_schema_parser.dart';
+export 'json_schema_resolver.dart';
 
 /// Class to collect statistics
 class FactoryStatistics {
