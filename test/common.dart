@@ -33,8 +33,7 @@ String schemaLocator(Uri uri) {
   if (uriString.startsWith(schemasBaseUri)) {
     final fileName = uriString.substring(schemasBaseUri.length);
 
-    return path.join(
-        schemasBasePath, "assets", "LegytmaSchemas", "schema", fileName);
+    return path.join(schemasBasePath, "assets", "schema", fileName);
   }
 
   if (uriString.endsWith("://json-schema.org/draft-06/schema#")) {
