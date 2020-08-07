@@ -29,6 +29,7 @@ import 'schema_parser_initiator.g.dart';
 import 'schema_widget_parser.dart';
 import 'type_schema_parser.dart';
 
+export 'json_schema_resolver.dart';
 export 'route_handle_mixin.dart';
 export 'schema_parser_annotation.dart';
 export 'schema_widget_parser.dart';
@@ -36,7 +37,6 @@ export 'type_schema_parser.dart';
 export 'utils.dart';
 export 'variant_schema_widget_parser.dart';
 export 'variant_type_schema_parser.dart';
-export 'json_schema_resolver.dart';
 
 /// Class to collect statistics
 class FactoryStatistics {

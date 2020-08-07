@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-5](https://github.com/Legytma/schema_widget/compare/1.0.0-4...1.0.0-5) (2020-08-07)
+
+
+### Bug Fixes
+
+* bug on generate imports ([5e50274](https://github.com/Legytma/schema_widget/commit/5e502744b6d81b71d0b0b43e238023ef92d081bc))
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* export json_schema_resolver.dart ([e2e2e9d](https://github.com/Legytma/schema_widget/commit/e2e2e9d38c32314aa23e8143bd864e269d993a26))
+* replace LegytmaSchemas by schemas ([9ceaa97](https://github.com/Legytma/schema_widget/commit/9ceaa9713ea2278bdaf1edbb5643a57c78ae96bb))
+
 ## [1.0.0-4](https://github.com/Legytma/schema_widget/compare/1.0.0-3...1.0.0-4) (2020-08-05)
 
 
