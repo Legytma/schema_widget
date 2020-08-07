@@ -34,6 +34,7 @@ class SchemaParserInitiatorBuilder implements Builder {
 
   @override
   Future<void> build(BuildStep buildStep) async {
+    final currentPackageBase = "package:${buildStep.inputId.package}/";
     final typeParserImporters = <String>[];
     final typeParserRegisters = <String>[];
     var addBasePackage = true;
@@ -48,8 +49,11 @@ class SchemaParserInitiatorBuilder implements Builder {
 
         if (importDeclaration.startsWith(_packageSchemaWidgetBase)) {
           addBasePackage = false;
+        }
+
+        if (importDeclaration.startsWith(currentPackageBase)) {
           importDeclaration =
-              importDeclaration.substring(_packageSchemaWidgetBase.length);
+              importDeclaration.substring(currentPackageBase.length);
         }
 
         return "import '$importDeclaration';";
