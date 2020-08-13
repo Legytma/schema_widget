@@ -153,7 +153,7 @@ $ flutter packages get
 ```
 * Import it into the code file:
 ```dart
- import 'package:schema_form/schema_form.dart'; 
+ import 'package:schema_widget/schema_widget.dart'; 
 ```
 
 ### Usage
