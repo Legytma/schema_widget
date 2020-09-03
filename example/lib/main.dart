@@ -6,8 +6,6 @@ import 'package:logging/logging.dart';
 import 'package:schema_widget/schema_widget.dart';
 import 'package:schema_widget/widget/schema_widget_splash_screen.dart';
 
-Logger _logMain = Logger("main");
-
 void main() {
   const _logIgnore = <String>[
     "JsonSchema",
@@ -23,69 +21,68 @@ void main() {
     }
 
     print('${rec.loggerName} - ${rec.level.name}: ${rec.time}: ${rec.message}');
+    // developer.log(
+    //   rec.message,
+    //   level: rec.level.value,
+    //   error: rec.error,
+    //   name: rec.loggerName,
+    //   sequenceNumber: rec.sequenceNumber,
+    //   stackTrace: rec.stackTrace,
+    //   time: rec.time,
+    //   zone: rec.zone,
+    // );
   });
-//      .listen((rec) => print(
-//      '${rec.loggerName} - ${rec.level.name}: ${rec.time}: ${rec.message}'));
-//  .listen((rec) => developer.log(
-//  rec.message,
-//  level: rec.level.value,
-//  error: rec.error,
-//  name: rec.loggerName,
-//  sequenceNumber: rec.sequenceNumber,
-//  stackTrace: rec.stackTrace,
-//  time: rec.time,
-//  zone: rec.zone,
-//  ));
-
-  WidgetsFlutterBinding.ensureInitialized();
-
-  SchemaWidget.registerParsers();
-
-  SchemaWidget.registerLogic(
-    "onGenerateRoute",
-    _onGenerateRoute,
-  );
-  SchemaWidget.registerLogic(
-    "onUnknownRoute",
-    _onUnknownRoute,
-  );
-  SchemaWidget.registerLogic(
-    "navigatorKey",
-    _navigatorKey,
-  );
 
   return runApp(MyApp());
 }
 
-GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
-
-Route _onGenerateRoute(RouteSettings settings) {
-  _logMain.finest("_onGenerateRoute -> settings: $settings");
-
-  return MaterialPageRoute(
-    builder: (buildContext) => MyHomePage(),
-    settings: settings,
-  );
-}
-
-Route _onUnknownRoute(RouteSettings settings) {
-  _logMain.finest("_onUnknownRoute -> settings: $settings");
-
-  return MaterialPageRoute(
-    builder: (buildContext) => MyHomePage(),
-    settings: settings.copyWith(name: "home"),
-  );
-}
-
 /// App widget
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final Logger _log = Logger("_MyAppState");
+
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+
+  Route _onGenerateRoute(RouteSettings settings) {
+    _log.finest("_onGenerateRoute -> settings: $settings");
+
+    return MaterialPageRoute(
+      builder: (buildContext) => MyHomePage(),
+      settings: settings,
+    );
+  }
+
+  Route _onUnknownRoute(RouteSettings settings) {
+    _log.finest("_onUnknownRoute -> settings: $settings");
+
+    return MaterialPageRoute(
+      builder: (buildContext) => MyHomePage(),
+      settings: settings.copyWith(name: "home"),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    SchemaWidget.registerParsers();
+
+    SchemaWidget.registerLogic("onGenerateRoute", _onGenerateRoute);
+    SchemaWidget.registerLogic("onUnknownRoute", _onUnknownRoute);
+    SchemaWidget.registerLogic("navigatorKey", _navigatorKey);
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: GetIt.I.allReady(ignorePendingAsyncCreation: false),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          _logMain.info("Loading JSON...");
+          _log.info("Loading JSON...");
 
 //          return MaterialApp(
 //            title: 'Flutter Demo',
@@ -126,7 +123,7 @@ class MyApp extends StatelessWidget {
               Container();
         }
 
-        _logMain.info("Loading SplashScreen...");
+        _log.info("Loading SplashScreen...");
         return MaterialApp(
           home: Scaffold(
             body: SchemaWidgetSplashScreen(),
@@ -222,4 +219,13 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     });
   }
+
+  // @override
+  // void dispose() {
+  //   SchemaWidget.unregisterLogic("streamInt");
+  //   SchemaWidget.unregisterLogic("buildTextCounter");
+  //   SchemaWidget.unregisterLogic("incrementCounter");
+
+  //   super.dispose();
+  // }
 }
