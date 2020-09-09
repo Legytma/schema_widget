@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 import 'package:schema_widget/schema_widget.dart';
 import 'package:schema_widget/widget/schema_widget_splash_screen.dart';
@@ -69,8 +68,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
 
-    SchemaWidget.registerParsers();
-
     SchemaWidget.registerLogic("onGenerateRoute", _onGenerateRoute);
     SchemaWidget.registerLogic("onUnknownRoute", _onUnknownRoute);
     SchemaWidget.registerLogic("navigatorKey", _navigatorKey);
@@ -78,51 +75,35 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: GetIt.I.allReady(ignorePendingAsyncCreation: false),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          _log.info("Loading JSON...");
-
-//          return MaterialApp(
-//            title: 'Flutter Demo',
-//            theme: ThemeData(
-//              primarySwatch: Colors.blue,
-//            ),
-//            navigatorKey: _navigatorKey,
-//            initialRoute: 'home',
-//            onGenerateRoute: _onGenerateRoute,
-//            onUnknownRoute: _onUnknownRoute,
-//          );
-
-          return SchemaWidget.parse<Widget>(context, {
-                "type": "MaterialApp",
-                "title": 'Flutter Demo',
-                "theme": {
-                  "primarySwatch": {
-                    "primary": 0xFF2196F3,
-                    "swatch": {
-                      "50": 0xFFE3F2FD,
-                      "100": 0xFFBBDEFB,
-                      "200": 0xFF90CAF9,
-                      "300": 0xFF64B5F6,
-                      "400": 0xFF42A5F5,
-                      "500": 0xFF2196F3,
-                      "600": 0xFF1E88E5,
-                      "700": 0xFF1976D2,
-                      "800": 0xFF1565C0,
-                      "900": 0xFF0D47A1,
-                    },
-                  },
-                },
-                "navigatorKey": "navigatorKey",
-                "initialRoute": "home",
-                "onGenerateRoute": "onGenerateRoute",
-                "onUnknownRoute": "onUnknownRoute"
-              }) ??
-              Container();
-        }
-
+    return SchemaWidget(
+      {
+        "type": "MaterialApp",
+        "title": 'Flutter Demo',
+        "theme": {
+          "primarySwatch": {
+            "primary": 0xFF2196F3,
+            "swatch": {
+              "50": 0xFFE3F2FD,
+              "100": 0xFFBBDEFB,
+              "200": 0xFF90CAF9,
+              "300": 0xFF64B5F6,
+              "400": 0xFF42A5F5,
+              "500": 0xFF2196F3,
+              "600": 0xFF1E88E5,
+              "700": 0xFF1976D2,
+              "800": 0xFF1565C0,
+              "900": 0xFF0D47A1,
+            },
+          },
+        },
+        "navigatorKey": "navigatorKey",
+        "initialRoute": "home",
+        "onGenerateRoute": "onGenerateRoute",
+        "onUnknownRoute": "onUnknownRoute"
+      },
+      loadParsers: true,
+      loadSchemas: false,
+      waitBuilder: (context) {
         _log.info("Loading SplashScreen...");
         return MaterialApp(
           home: Scaffold(
@@ -162,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
       BuildContext buildContext, AsyncSnapshot<dynamic> snapshot) {
     var textStyle = Theme.of(buildContext).textTheme.headline4;
 
-    return SchemaWidget.parse<Widget>(buildContext, {
+    return SchemaWidget({
       "type": "Text",
       "data": 'You have pushed the button this many times: ${snapshot.data}',
       "style": {
@@ -181,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SchemaWidget.parse<Widget>(context, {
+    return SchemaWidget({
       "type": "Scaffold",
       "appBar": {
         "type": "AppBar",

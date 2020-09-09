@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "int", "https://schema.legytma.com.br/2.0.0/schema/int.schema.json")
 class IntSchemaParser extends TypeSchemaParser<int, String, int> {
   /// Create instance of parser
-  IntSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  IntSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   int builder(BuildContext buildContext, String value, [int defaultValue]) {

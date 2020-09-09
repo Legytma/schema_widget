@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/opacity.schema.json")
 class OpacitySchemaWidgetParser extends SchemaWidgetParser<Opacity> {
   /// Create instance of parser
-  OpacitySchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  OpacitySchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Opacity builder(BuildContext buildContext, Map<String, dynamic> value,

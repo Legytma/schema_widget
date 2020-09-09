@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ListDoubleSchemaParser
     extends TypeSchemaParser<List<double>, List, List<double>> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ListDoubleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ListDoubleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   List<double> builder(BuildContext buildContext, List value,

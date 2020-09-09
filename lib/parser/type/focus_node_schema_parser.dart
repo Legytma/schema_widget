@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class FocusNodeSchemaParser
     extends TypeSchemaParser<FocusNode, Map<String, dynamic>, FocusNode> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FocusNodeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  FocusNodeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   FocusNode builder(BuildContext buildContext, Map<String, dynamic> value,

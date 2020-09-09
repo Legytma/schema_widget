@@ -23,7 +23,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/page_view.schema.json")
 class PageViewSchemaWidgetParser extends SchemaWidgetParser<PageView> {
   /// Create instance of parser
-  PageViewSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  PageViewSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   PageView builder(BuildContext buildContext, Map<String, dynamic> value,

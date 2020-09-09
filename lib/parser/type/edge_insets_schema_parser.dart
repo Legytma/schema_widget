@@ -39,8 +39,9 @@ import '../../schema_widget.dart';
 class EdgeInsetsSchemaParser
     extends VariantTypeSchemaParser<EdgeInsets, dynamic, EdgeInsets> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  EdgeInsetsSchemaParser(JsonSchema jsonSchema,
-      [Map<String, VariantTypeSchemaParser<EdgeInsets, dynamic, EdgeInsets>>
+  EdgeInsetsSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantTypeSchemaParser<EdgeInsets, dynamic, EdgeInsets>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 

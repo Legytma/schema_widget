@@ -27,7 +27,7 @@ import '../../schema_widget.dart';
 class ThemeDataSchemaParser
     extends TypeSchemaParser<ThemeData, Map<String, dynamic>, ThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ThemeData builder(BuildContext buildContext, Map<String, dynamic> value,

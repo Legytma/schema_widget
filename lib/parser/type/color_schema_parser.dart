@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "Color", "https://schema.legytma.com.br/2.0.0/schema/color.schema.json")
 class ColorSchemaParser extends TypeSchemaParser<Color, dynamic, Color> {
   /// Create Color Schema Parser
-  ColorSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ColorSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Color builder(BuildContext buildContext, dynamic value,

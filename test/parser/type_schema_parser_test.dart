@@ -32,7 +32,7 @@ final Logger _logger = Logger('type_schema_parser_test');
 void main() {
   initLogger();
 
-  SchemaWidget.registerParsers(localJsonSchemaResolver);
+  SchemaWidget.registerParsers(jsonSchemaResolver: localJsonSchemaResolver);
   SchemaWidget.registerLogic("builderTest", _builderTest);
 
   runAllTypeSchemaParserTests();

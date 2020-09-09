@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class FlutterLogoDecorationSchemaParser extends TypeSchemaParser<
     FlutterLogoDecoration, Map<String, dynamic>, FlutterLogoDecoration> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FlutterLogoDecorationSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  FlutterLogoDecorationSchemaParser([JsonSchema jsonSchema])
+      : super(jsonSchema);
 
   @override
   FlutterLogoDecoration builder(

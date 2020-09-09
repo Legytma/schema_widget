@@ -32,9 +32,9 @@ import '../../schema_widget.dart';
 class OffsetSchemaParser
     extends VariantTypeSchemaParser<Offset, Map<String, dynamic>, Offset> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  OffsetSchemaParser(JsonSchema jsonSchema,
-      [Map<String,
-              VariantTypeSchemaParser<Offset, Map<String, dynamic>, Offset>>
+  OffsetSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantTypeSchemaParser<Offset, Map<String, dynamic>, Offset>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 

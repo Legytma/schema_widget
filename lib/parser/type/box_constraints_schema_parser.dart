@@ -35,8 +35,9 @@ import '../../schema_widget.dart';
 class BoxConstraintsSchemaParser extends VariantTypeSchemaParser<BoxConstraints,
     Map<String, dynamic>, BoxConstraints> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BoxConstraintsSchemaParser(JsonSchema jsonSchema,
-      [Map<
+  BoxConstraintsSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<
               String,
               VariantTypeSchemaParser<BoxConstraints, Map<String, dynamic>,
                   BoxConstraints>>

@@ -23,7 +23,7 @@ import '../schema_widget.dart';
 class StreamBuilderSchemaWidgetParser
     extends SchemaWidgetParser<StreamBuilder<dynamic>> {
   /// Create instance of parser
-  StreamBuilderSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  StreamBuilderSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   StreamBuilder<dynamic> builder(

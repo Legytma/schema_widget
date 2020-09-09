@@ -28,7 +28,7 @@ void main() {
   setUpAll(() {
 //    TestWidgetsFlutterBinding.ensureInitialized();
 
-    SchemaWidget.registerParsers(localJsonSchemaResolver);
+    SchemaWidget.registerParsers(jsonSchemaResolver: localJsonSchemaResolver);
   });
 
   group("Double validation", () {

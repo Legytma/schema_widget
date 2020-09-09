@@ -93,12 +93,13 @@ class SchemaParserInitiatorBuilder implements Builder {
         var schemaId = annotationConstantReader.read('schemaId')?.stringValue;
         final elementIdBase = schemaId?.substring(0, schemaId.length - 12);
 
-        var line = "  SchemaWidget.registerTypeParserAsync(\n";
-        line = '$line    "$typeName",\n';
-        line = "$line    () async => $elemetName(\n";
-        line = "$line      await JsonSchema.createSchemaFromUrl(\n";
-        line = '$line        "$schemaId",\n';
-        line = "$line      ),\n";
+        var line = "  if (loadSchemas) {\n";
+        line = "$line    SchemaWidget.registerTypeParserAsync(\n";
+        line = '$line      "$typeName",\n';
+        line = "$line      () async => $elemetName(\n";
+        line = "$line        await JsonSchema.createSchemaFromUrl(\n";
+        line = '$line          "$schemaId",\n';
+        line = "$line        ),\n";
 
         final subTypesConstantReader =
             annotationConstantReader.read('subTypes');
@@ -109,27 +110,55 @@ class SchemaParserInitiatorBuilder implements Builder {
           var subTypes = subTypesConstantReader?.listValue;
 
           if (subTypes != null && subTypes.length > 0) {
-            varants = "$varants      <String, $elemetName>{\n";
+            varants = "$varants        <String, $elemetName>{\n";
 
             for (var subType in subTypes) {
               final subTypeValue = subType.toStringValue();
-              varants = '$varants        "$subTypeValue": $elemetName(\n';
+              varants = '$varants          "$subTypeValue": $elemetName(\n';
               varants =
-                  "$varants          await JsonSchema.createSchemaFromUrl(\n";
+                  "$varants            await JsonSchema.createSchemaFromUrl(\n";
               varants = '$varants            "'
                   '${elementIdBase}_$subTypeValue.schema.json",\n';
-              varants = "$varants          ),\n";
-              varants = '$varants        ),\n';
+              varants = "$varants            ),\n";
+              varants = '$varants          ),\n';
             }
 
-            varants = "$varants      },\n";
+            varants = "$varants        },\n";
           }
 
           line = "$line$varants";
         }
 
-        line = "$line    ),\n";
-        line = "$line  );\n";
+        line = "$line      ),\n";
+        line = "$line    );\n";
+        line = "$line  } else {\n";
+        line = "$line    SchemaWidget.registerTypeParser(\n";
+        line = "$line      $elemetName(";
+
+        if (!subTypesConstantReader.isNull) {
+          var varants = "";
+
+          var subTypes = subTypesConstantReader?.listValue;
+
+          if (subTypes != null && subTypes.length > 0) {
+            varants = "$varants\n          null,\n";
+            varants = "$varants          <String, $elemetName>{\n";
+
+            for (var subType in subTypes) {
+              final subTypeValue = subType.toStringValue();
+              varants = '$varants            "$subTypeValue": $elemetName(),\n';
+            }
+
+            varants = "$varants          },\n";
+            varants = "$varants      ";
+          }
+
+          line = "$line$varants";
+        }
+
+        line = "$line),\n";
+        line = "$line    );\n";
+        line = "$line  }\n";
 
         return line;
       }));
@@ -178,7 +207,8 @@ class SchemaParserInitiatorBuilder implements Builder {
     content =
         "$content// **************************************************************************\n\n";
     content = "$content/// Auto generated TypeSchemaParser initialization\n";
-    content = "${content}void schemaParserRegisterAllTypeParsers() {\n";
+    content = "${content}void schemaParserRegisterAllTypeParsers(";
+    content = "$content{bool loadSchemas = true}) {\n";
     content = "$content${typeParserRegisters.join('\n')}";
     content = "$content}\n";
 

@@ -37,8 +37,8 @@ import '../../schema_widget.dart';
 class BorderRadiusSchemaParser extends VariantTypeSchemaParser<BorderRadius,
     dynamic, BorderRadiusGeometry> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BorderRadiusSchemaParser(JsonSchema jsonSchema,
-      [Map<String, BorderRadiusSchemaParser> typeSchemaParsers])
+  BorderRadiusSchemaParser([JsonSchema jsonSchema,
+      Map<String, BorderRadiusSchemaParser> typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 
   @override

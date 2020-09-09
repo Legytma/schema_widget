@@ -24,7 +24,8 @@ import '../schema_widget.dart';
 class GestureDetectorSchemaWidgetParser
     extends SchemaWidgetParser<GestureDetector> {
   /// Create instance of parser
-  GestureDetectorSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  GestureDetectorSchemaWidgetParser([JsonSchema jsonSchema])
+      : super(jsonSchema);
 
   @override
   GestureDetector builder(BuildContext buildContext, Map<String, dynamic> value,

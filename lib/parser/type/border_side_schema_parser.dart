@@ -33,8 +33,9 @@ import '../../schema_widget.dart';
 class BorderSideSchemaParser extends VariantTypeSchemaParser<BorderSide,
     Map<String, dynamic>, BorderSide> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BorderSideSchemaParser(JsonSchema jsonSchema,
-      [Map<
+  BorderSideSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<
               String,
               VariantTypeSchemaParser<BorderSide, Map<String, dynamic>,
                   BorderSide>>

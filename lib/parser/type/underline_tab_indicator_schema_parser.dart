@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class UnderlineTabIndicatorSchemaParser extends TypeSchemaParser<
     UnderlineTabIndicator, Map<String, dynamic>, UnderlineTabIndicator> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  UnderlineTabIndicatorSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  UnderlineTabIndicatorSchemaParser([JsonSchema jsonSchema])
+      : super(jsonSchema);
 
   @override
   UnderlineTabIndicator builder(

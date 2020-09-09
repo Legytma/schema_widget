@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/column.schema.json")
 class ColumnSchemaWidgetParser extends SchemaWidgetParser<Column> {
   /// Create instance of parser
-  ColumnSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ColumnSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Column builder(BuildContext buildContext, Map<String, dynamic> value,

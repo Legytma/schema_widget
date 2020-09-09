@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ColorSchemeSchemaParser
     extends TypeSchemaParser<ColorScheme, Map<String, dynamic>, ColorScheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ColorSchemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ColorSchemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ColorScheme builder(BuildContext buildContext, Map<String, dynamic> value,

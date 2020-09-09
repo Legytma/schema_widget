@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ChipThemeDataSchemaParser extends TypeSchemaParser<ChipThemeData,
     Map<String, dynamic>, ChipThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ChipThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ChipThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ChipThemeData builder(BuildContext buildContext, Map<String, dynamic> value,

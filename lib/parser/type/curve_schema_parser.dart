@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "Curve", "https://schema.legytma.com.br/2.0.0/schema/curve.schema.json")
 class CurveSchemaParser extends TypeSchemaParser<Curve, String, Curve> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  CurveSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  CurveSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Curve builder(BuildContext buildContext, String value, [Curve defaultValue]) {

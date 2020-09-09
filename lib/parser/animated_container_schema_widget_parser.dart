@@ -23,7 +23,7 @@ import '../schema_widget.dart';
 class AnimatedContainerSchemaWidgetParser
     extends SchemaWidgetParser<AnimatedContainer> {
   /// Create instance of parser
-  AnimatedContainerSchemaWidgetParser(JsonSchema jsonSchema)
+  AnimatedContainerSchemaWidgetParser([JsonSchema jsonSchema])
       : super(jsonSchema);
 
   @override

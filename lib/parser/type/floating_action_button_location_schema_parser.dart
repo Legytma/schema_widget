@@ -28,7 +28,7 @@ class FloatingActionButtonLocationSchemaParser extends TypeSchemaParser<
     Map<String, dynamic>,
     FloatingActionButtonLocation> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FloatingActionButtonLocationSchemaParser(JsonSchema jsonSchema)
+  FloatingActionButtonLocationSchemaParser([JsonSchema jsonSchema])
       : super(jsonSchema);
 
   @override

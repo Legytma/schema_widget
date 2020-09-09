@@ -25,7 +25,7 @@ class ListWidgetSchemaParser
 //  final Logger _log = Logger("ListWidgetSchemaParser");
 
   /// Create instance
-  ListWidgetSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ListWidgetSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   List<Widget> builder(BuildContext buildContext, dynamic value,

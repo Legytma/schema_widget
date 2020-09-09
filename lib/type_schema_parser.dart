@@ -43,9 +43,7 @@ abstract class TypeSchemaParser<T extends D, F, D> {
 
   /// Create Type Schema Parser
   @mustCallSuper
-  TypeSchemaParser(this.jsonSchema)
-      : assert(jsonSchema != null),
-        super();
+  TypeSchemaParser([this.jsonSchema]) : super();
 
   /// Builder used to parse the json map into a flutter object.
   T builder(BuildContext buildContext, F value, [D defaultValue]);
@@ -93,12 +91,12 @@ abstract class TypeSchemaParser<T extends D, F, D> {
 
   /// Validate the json map with [JsonSchema]
   bool validate(dynamic value, {bool parseJson = false}) =>
-      jsonSchema.validate(value, parseJson: parseJson);
+      jsonSchema?.validate(value, parseJson: parseJson) ?? true;
 
   /// Validate the json map with [JsonSchema]
   List<ValidationError> validateWithErrors(dynamic value,
           {bool parseJson = false}) =>
-      jsonSchema.validateWithErrors(value, parseJson: parseJson);
+      jsonSchema?.validateWithErrors(value, parseJson: parseJson);
 
   /// Test parser type
   bool isParserType(dynamic value) => value is T;

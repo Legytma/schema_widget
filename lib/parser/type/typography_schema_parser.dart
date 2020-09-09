@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class TypographySchemaParser
     extends TypeSchemaParser<Typography, Map<String, dynamic>, Typography> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TypographySchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TypographySchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Typography builder(BuildContext buildContext, Map<String, dynamic> map,

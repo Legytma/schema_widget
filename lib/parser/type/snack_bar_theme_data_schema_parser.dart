@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class SnackBarThemeDataSchemaParser extends TypeSchemaParser<SnackBarThemeData,
     Map<String, dynamic>, SnackBarThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  SnackBarThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  SnackBarThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   SnackBarThemeData builder(

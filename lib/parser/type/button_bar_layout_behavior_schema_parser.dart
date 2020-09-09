@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ButtonBarLayoutBehaviorSchemaParser extends TypeSchemaParser<
     ButtonBarLayoutBehavior, String, ButtonBarLayoutBehavior> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ButtonBarLayoutBehaviorSchemaParser(JsonSchema jsonSchema)
+  ButtonBarLayoutBehaviorSchemaParser([JsonSchema jsonSchema])
       : super(jsonSchema);
 
   @override

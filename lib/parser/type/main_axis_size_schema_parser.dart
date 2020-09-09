@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class MainAxisSizeSchemaParser
     extends TypeSchemaParser<MainAxisSize, String, MainAxisSize> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  MainAxisSizeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  MainAxisSizeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   MainAxisSize builder(BuildContext buildContext, String value,

@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "BoxFit", "https://schema.legytma.com.br/2.0.0/schema/box_fit.schema.json")
 class BoxFitSchemaParser extends TypeSchemaParser<BoxFit, String, BoxFit> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BoxFitSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  BoxFitSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   BoxFit builder(BuildContext buildContext, String value,

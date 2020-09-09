@@ -30,8 +30,9 @@ import '../schema_widget.dart';
     ])
 class TextSchemaWidgetParser extends VariantSchemaWidgetParser<Text> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextSchemaWidgetParser(JsonSchema jsonSchema,
-      [Map<String, VariantSchemaWidgetParser<Text>> typeSchemaParsers])
+  TextSchemaWidgetParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantSchemaWidgetParser<Text>> typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 
   @override

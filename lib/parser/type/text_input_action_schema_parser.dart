@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class TextInputActionSchemaParser
     extends TypeSchemaParser<TextInputAction, String, TextInputAction> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextInputActionSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TextInputActionSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   TextInputAction builder(BuildContext buildContext, String value,

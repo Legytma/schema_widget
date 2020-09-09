@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/card.schema.json")
 class CardSchemaWidgetParser extends SchemaWidgetParser<Card> {
   /// Create instance of parser
-  CardSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  CardSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Card builder(BuildContext buildContext, Map<String, dynamic> value,

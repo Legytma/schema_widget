@@ -23,7 +23,7 @@ import '../schema_widget.dart';
 class ListTileSchemaWidgetParser extends SchemaWidgetParser<ListTile>
     with RouteHandleMixin {
   /// Create instance of parser
-  ListTileSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ListTileSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ListTile builder(BuildContext buildContext, Map<String, dynamic> value,

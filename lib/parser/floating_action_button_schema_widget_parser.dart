@@ -23,7 +23,7 @@ import '../schema_widget.dart';
 class FloatingActionButtonSchemaWidgetParser
     extends SchemaWidgetParser<FloatingActionButton> {
   /// Create instance of parser
-  FloatingActionButtonSchemaWidgetParser(JsonSchema jsonSchema)
+  FloatingActionButtonSchemaWidgetParser([JsonSchema jsonSchema])
       : super(jsonSchema);
 
   @override

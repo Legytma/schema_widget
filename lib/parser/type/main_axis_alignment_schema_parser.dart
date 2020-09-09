@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class MainAxisAlignmentSchemaParser
     extends TypeSchemaParser<MainAxisAlignment, String, MainAxisAlignment> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  MainAxisAlignmentSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  MainAxisAlignmentSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   MainAxisAlignment builder(BuildContext buildContext, String value,

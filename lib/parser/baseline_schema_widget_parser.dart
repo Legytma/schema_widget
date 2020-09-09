@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/base_line.schema.json")
 class BaselineSchemaWidgetParser extends SchemaWidgetParser<Baseline> {
   /// Create instance of parser
-  BaselineSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  BaselineSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Baseline builder(BuildContext buildContext, Map<String, dynamic> value,

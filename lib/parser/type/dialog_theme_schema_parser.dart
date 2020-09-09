@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class DialogThemeSchemaParser
     extends TypeSchemaParser<DialogTheme, Map<String, dynamic>, DialogTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  DialogThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  DialogThemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   DialogTheme builder(BuildContext buildContext, Map<String, dynamic> value,

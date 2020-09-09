@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class TabBarIndicatorSizeSchemaParser
     extends TypeSchemaParser<TabBarIndicatorSize, String, TabBarIndicatorSize> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TabBarIndicatorSizeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TabBarIndicatorSizeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   TabBarIndicatorSize builder(BuildContext buildContext, String value,

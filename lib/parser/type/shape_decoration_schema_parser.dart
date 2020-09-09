@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ShapeDecorationSchemaParser extends TypeSchemaParser<ShapeDecoration,
     Map<String, dynamic>, ShapeDecoration> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ShapeDecorationSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ShapeDecorationSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ShapeDecoration builder(BuildContext buildContext, Map<String, dynamic> value,

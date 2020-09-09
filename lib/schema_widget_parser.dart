@@ -24,7 +24,7 @@ abstract class SchemaWidgetParser<T extends Widget>
   final Logger _log = Logger("SchemaWidgetParser<$T>");
 
   /// Create Schema Widget Parser
-  SchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  SchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Type get parserType {

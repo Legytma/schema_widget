@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class BottomSheetThemeDataSchemaParser extends TypeSchemaParser<
     BottomSheetThemeData, Map<String, dynamic>, BottomSheetThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BottomSheetThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  BottomSheetThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   BottomSheetThemeData builder(

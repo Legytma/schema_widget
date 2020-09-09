@@ -34,8 +34,9 @@ import '../../schema_widget.dart';
 class SizeSchemaParser
     extends VariantTypeSchemaParser<Size, Map<String, dynamic>, Size> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  SizeSchemaParser(JsonSchema jsonSchema,
-      [Map<String, VariantTypeSchemaParser<Size, Map<String, dynamic>, Size>>
+  SizeSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantTypeSchemaParser<Size, Map<String, dynamic>, Size>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 

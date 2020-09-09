@@ -25,7 +25,7 @@ class CircleAvatarSchemaWidgetParser extends SchemaWidgetParser<CircleAvatar> {
   final Logger _log = Logger("CircleAvatarSchemaWidgetParser");
 
   /// Create instance of parser
-  CircleAvatarSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  CircleAvatarSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   CircleAvatar builder(BuildContext buildContext, Map<String, dynamic> value,

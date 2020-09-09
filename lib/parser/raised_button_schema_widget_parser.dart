@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/raised_button.schema.json")
 class RaisedButtonSchemaWidgetParser extends SchemaWidgetParser<RaisedButton> {
   /// Create instance of parser
-  RaisedButtonSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  RaisedButtonSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   RaisedButton builder(BuildContext buildContext, Map<String, dynamic> value,

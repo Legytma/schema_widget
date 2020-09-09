@@ -23,7 +23,7 @@ abstract class VariantTypeSchemaParser<T extends D, F, D>
   final Map<String, VariantTypeSchemaParser<T, F, D>> _typeSchemaParsers;
 
   /// Create instance and variants
-  VariantTypeSchemaParser(JsonSchema jsonSchema, [this._typeSchemaParsers])
+  VariantTypeSchemaParser([JsonSchema jsonSchema, this._typeSchemaParsers])
       : super(jsonSchema);
 
   /// Get [VariantTypeSchemaParser] [Map]

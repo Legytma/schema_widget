@@ -28,7 +28,7 @@ class FloatingActionButtonThemeDataSchemaParser extends TypeSchemaParser<
     Map<String, dynamic>,
     FloatingActionButtonThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FloatingActionButtonThemeDataSchemaParser(JsonSchema jsonSchema)
+  FloatingActionButtonThemeDataSchemaParser([JsonSchema jsonSchema])
       : super(jsonSchema);
 
   @override

@@ -13,7 +13,7 @@ builders:
     target: ":generator/schema_parser_initiator_builder"
     import: "package:schema_widget/generator/builder_factory.dart"
     builder_factories: ["schemaParserInitiatorBuilder"]
-    build_extensions: {".dart": [".schema_parser_initiator.g.part"]}
+    build_extensions: { ".dart": [".schema_parser_initiator.g.part"] }
     auto_apply: dependents
     build_to: source
     applies_builders: ["source_gen"]
@@ -21,7 +21,8 @@ builders:
     target: ":generator/type_schema_parser_test_builder"
     import: "package:schema_widget/generator/builder_factory.dart"
     builder_factories: ["typeSchemaParserTestBuilder"]
-    build_extensions: {".test.schema.json": [".type_schema_parser_test.g.part"]}
+    build_extensions:
+      { ".test.schema.json": [".type_schema_parser_test.g.part"] }
     auto_apply: dependents
     build_to: source
     applies_builders: ["source_gen"]
@@ -29,7 +30,7 @@ builders:
     target: ":generator/type_schema_parser_support_builder"
     import: "package:schema_widget/generator/builder_factory.dart"
     builder_factories: ["typeSchemaParserSupportBuilder"]
-    build_extensions: {".dart": ["../TYPE_SCHEMA_PARSER_SUPPORT.md"]}
+    build_extensions: { ".dart": ["../TYPE_SCHEMA_PARSER_SUPPORT.md"] }
     auto_apply: dependents
     build_to: source
     applies_builders: ["source_gen"]

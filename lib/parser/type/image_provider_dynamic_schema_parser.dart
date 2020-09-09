@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ImageProviderDynamicSchemaParser extends TypeSchemaParser<
     ImageProvider<dynamic>, Map<String, dynamic>, ImageProvider<dynamic>> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ImageProviderDynamicSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ImageProviderDynamicSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ImageProvider<dynamic> builder(

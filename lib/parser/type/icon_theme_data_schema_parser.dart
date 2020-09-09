@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class IconThemeDataSchemaParser extends TypeSchemaParser<IconThemeData,
     Map<String, dynamic>, IconThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  IconThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  IconThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   IconThemeData builder(BuildContext buildContext, Map<String, dynamic> value,

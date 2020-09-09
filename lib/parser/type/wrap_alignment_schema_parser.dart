@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class WrapAlignmentSchemaParser
     extends TypeSchemaParser<WrapAlignment, String, WrapAlignment> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  WrapAlignmentSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  WrapAlignmentSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   WrapAlignment builder(BuildContext buildContext, String value,

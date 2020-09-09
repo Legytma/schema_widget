@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class PageTransitionsThemeSchemaParser extends TypeSchemaParser<
     PageTransitionsTheme, Map<String, dynamic>, PageTransitionsTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  PageTransitionsThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  PageTransitionsThemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   PageTransitionsTheme builder(

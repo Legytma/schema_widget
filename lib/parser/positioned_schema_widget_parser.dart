@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/positioned.schema.json")
 class PositionedSchemaWidgetParser extends SchemaWidgetParser<Positioned> {
   /// Create instance of parser
-  PositionedSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  PositionedSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Positioned builder(BuildContext buildContext, Map<String, dynamic> value,

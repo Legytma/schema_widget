@@ -26,7 +26,7 @@ class MaterialAppSchemaWidgetParser extends SchemaWidgetParser<MaterialApp> {
   static final Logger _log = Logger("MaterialAppSchemaWidgetParser");
 
   /// Create instance of parser
-  MaterialAppSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  MaterialAppSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   MaterialApp builder(BuildContext buildContext, Map<String, dynamic> value,

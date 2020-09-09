@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class CrossAxisAlignmentSchemaParser
     extends TypeSchemaParser<CrossAxisAlignment, String, CrossAxisAlignment> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  CrossAxisAlignmentSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  CrossAxisAlignmentSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   CrossAxisAlignment builder(BuildContext buildContext, String value,

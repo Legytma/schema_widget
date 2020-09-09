@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class TextDirectionSchemaParser
     extends TypeSchemaParser<TextDirection, String, TextDirection> {
   /// Create instance of parser
-  TextDirectionSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TextDirectionSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   TextDirection builder(BuildContext buildContext, String value,

@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class DividerThemeDataSchemaParser extends TypeSchemaParser<DividerThemeData,
     Map<String, dynamic>, DividerThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  DividerThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  DividerThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   DividerThemeData builder(

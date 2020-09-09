@@ -25,7 +25,7 @@ class IconButtonSchemaWidgetParser extends SchemaWidgetParser<IconButton> {
   static final Logger _log = Logger("IconButtonSchemaWidgetParser");
 
   /// Create instance of parser
-  IconButtonSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  IconButtonSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   IconButton builder(BuildContext buildContext, Map<String, dynamic> value,

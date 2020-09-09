@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/fitted_box.schema.json")
 class FittedBoxSchemaWidgetParser extends SchemaWidgetParser<FittedBox> {
   /// Create instance of parser
-  FittedBoxSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  FittedBoxSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   FittedBox builder(BuildContext buildContext, Map<String, dynamic> value,

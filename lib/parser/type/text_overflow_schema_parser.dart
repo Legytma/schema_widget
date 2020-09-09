@@ -23,7 +23,7 @@ import '../../schema_widget.dart';
 class TextOverflowSchemaParser
     extends TypeSchemaParser<TextOverflow, String, TextOverflow> {
   /// Create instance of parser
-  TextOverflowSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TextOverflowSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   TextOverflow builder(BuildContext buildContext, String value,

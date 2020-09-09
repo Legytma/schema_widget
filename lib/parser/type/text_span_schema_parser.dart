@@ -27,7 +27,7 @@ import '../../schema_widget.dart';
 class TextSpanSchemaParser
     extends TypeSchemaParser<TextSpan, Map<String, dynamic>, TextSpan> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextSpanSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TextSpanSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   TextSpan builder(BuildContext buildContext, Map<String, dynamic> value,

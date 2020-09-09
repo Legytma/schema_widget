@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class PopupMenuThemeDataSchemaParser extends TypeSchemaParser<
     PopupMenuThemeData, Map<String, dynamic>, PopupMenuThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  PopupMenuThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  PopupMenuThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   PopupMenuThemeData builder(

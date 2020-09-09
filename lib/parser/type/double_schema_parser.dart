@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "double", "https://schema.legytma.com.br/2.0.0/schema/double.schema.json")
 class DoubleSchemaParser extends TypeSchemaParser<double, String, double> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  DoubleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  DoubleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   double builder(BuildContext buildContext, String value,

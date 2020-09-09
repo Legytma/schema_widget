@@ -33,8 +33,9 @@ import '../../schema_widget.dart';
 class ColorFilterSchemaParser extends VariantTypeSchemaParser<ColorFilter,
     Map<String, dynamic>, ColorFilter> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ColorFilterSchemaParser(JsonSchema jsonSchema,
-      [Map<
+  ColorFilterSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<
               String,
               VariantTypeSchemaParser<ColorFilter, Map<String, dynamic>,
                   ColorFilter>>

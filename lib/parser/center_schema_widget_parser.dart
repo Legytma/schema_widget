@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/center.schema.json")
 class CenterSchemaWidgetParser extends SchemaWidgetParser<Center> {
   /// Create instance of parser
-  CenterSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  CenterSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Center builder(BuildContext buildContext, Map<String, dynamic> value,

@@ -35,8 +35,9 @@ import '../../schema_widget.dart';
 class RectSchemaParser
     extends VariantTypeSchemaParser<Rect, Map<String, dynamic>, Rect> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  RectSchemaParser(JsonSchema jsonSchema,
-      [Map<String, VariantTypeSchemaParser<Rect, Map<String, dynamic>, Rect>>
+  RectSchemaParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantTypeSchemaParser<Rect, Map<String, dynamic>, Rect>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 

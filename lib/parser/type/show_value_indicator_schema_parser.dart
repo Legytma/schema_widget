@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ShowValueIndicatorSchemaParser
     extends TypeSchemaParser<ShowValueIndicator, String, ShowValueIndicator> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ShowValueIndicatorSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ShowValueIndicatorSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ShowValueIndicator builder(BuildContext buildContext, String value,

@@ -17,6 +17,7 @@
 library schema_widget;
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get_it/get_it.dart';
 import 'package:json_schema/src/json_schema/global_platform_functions.dart';
@@ -129,17 +130,23 @@ class FactoryStatistics {
 }
 
 /// Class to group functions to build Widgets using JSON.
-class SchemaWidget {
+class SchemaWidget extends StatelessWidget {
   static final Logger _log = Logger('schema_widget');
 
   static final GetIt _getIt = GetIt.instance;
 
+  static final FactoryStatistics _factoryStatistics = FactoryStatistics();
+
   // ignore: prefer_final_fields
   static bool _initialized = false;
 
-  static final FactoryStatistics _factoryStatistics = FactoryStatistics();
-
   static JsonSchemaResolver _defaultJsonSchemaResolver;
+
+  /// Data to be parsed
+  final dynamic data;
+
+  /// Wait builder
+  final WidgetBuilder waitBuilder;
 
   /// Get [Stream]<[FactoryStatistics]> instance
   static Stream<FactoryStatistics> get factoryStream =>
@@ -160,14 +167,17 @@ class SchemaWidget {
   }
 
   /// Register implemented parsers
-  static void registerParsers([JsonSchemaResolver jsonSchemaResolver]) {
+  static void registerParsers({
+    bool loadSchemas,
+    JsonSchemaResolver jsonSchemaResolver,
+  }) {
     if (!_initialized) {
       _initialized = true;
 
       try {
         _configureJsonSchema(jsonSchemaResolver ?? defaultJsonSchemaResolver);
 
-        schemaParserRegisterAllTypeParsers();
+        schemaParserRegisterAllTypeParsers(loadSchemas: loadSchemas ?? true);
 
 //        await _getIt.allReady(timeout: Duration(seconds: 160));
         // ignore: avoid_catches_without_on_clauses
@@ -211,9 +221,10 @@ class SchemaWidget {
     }
 
     _getIt.registerSingleton<TypeSchemaParser<T, dynamic, dynamic>>(
-        typeSchemaParser,
-        instanceName: instanceName,
-        signalsReady: true);
+      typeSchemaParser,
+      instanceName: instanceName,
+      signalsReady: false,
+    );
 
     _log.finest("Type parser $instanceName registered!");
   }
@@ -401,15 +412,46 @@ class SchemaWidget {
     }
   }
 
-  /// Do not create an instance...
-  SchemaWidget() {
-    throw Exception("Do not create instance of class SchemaWidget. All the"
-        " methods are static.");
-  }
-
   static void _configureJsonSchema(JsonSchemaResolver jsonSchemaResolver) {
     _defaultJsonSchemaResolver ??= jsonSchemaResolver;
 
     globalCreateJsonSchemaFromUrl = jsonSchemaResolver.createSchemaFromUrl;
+  }
+
+  /// Do not create an instance...
+  SchemaWidget(
+    this.data, {
+    Key key,
+    this.waitBuilder,
+    JsonSchemaResolver jsonSchemaResolver,
+    bool loadParsers = true,
+    bool loadSchemas = true,
+  }) : super(key: key) {
+    if (loadParsers) {
+      registerParsers(
+        loadSchemas: loadSchemas,
+        jsonSchemaResolver: jsonSchemaResolver,
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: GetIt.I.allReady(ignorePendingAsyncCreation: false),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          _log.info("Loading JSON...");
+
+          return SchemaWidget.parse<Widget>(context, data);
+        }
+
+        if (waitBuilder != null) {
+          return waitBuilder(context);
+        }
+
+        return CircularProgressIndicator();
+      },
+    );
   }
 }

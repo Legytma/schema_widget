@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class MaterialBannerThemeDataSchemaParser extends TypeSchemaParser<
     MaterialBannerThemeData, Map<String, dynamic>, MaterialBannerThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  MaterialBannerThemeDataSchemaParser(JsonSchema jsonSchema)
+  MaterialBannerThemeDataSchemaParser([JsonSchema jsonSchema])
       : super(jsonSchema);
 
   @override

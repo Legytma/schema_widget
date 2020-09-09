@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class MaterialTapTargetSizeSchemaParser extends TypeSchemaParser<
     MaterialTapTargetSize, String, MaterialTapTargetSize> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  MaterialTapTargetSizeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  MaterialTapTargetSizeSchemaParser([JsonSchema jsonSchema])
+      : super(jsonSchema);
 
   @override
   MaterialTapTargetSize builder(BuildContext buildContext, String value,

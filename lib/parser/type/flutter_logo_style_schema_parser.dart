@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class FlutterLogoStyleSchemaParser
     extends TypeSchemaParser<FlutterLogoStyle, String, FlutterLogoStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FlutterLogoStyleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  FlutterLogoStyleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   FlutterLogoStyle builder(BuildContext buildContext, String value,

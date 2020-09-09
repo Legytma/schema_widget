@@ -36,8 +36,9 @@ import '../schema_widget.dart';
     ])
 class ImageSchemaWidgetParser extends VariantSchemaWidgetParser<Image> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ImageSchemaWidgetParser(JsonSchema jsonSchema,
-      [Map<String, VariantSchemaWidgetParser<Image>> typeSchemaParsers])
+  ImageSchemaWidgetParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantSchemaWidgetParser<Image>> typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 
   @override

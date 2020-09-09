@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class ThemeModeSchemaParser
     extends TypeSchemaParser<ThemeMode, String, ThemeMode> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ThemeModeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ThemeModeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   ThemeMode builder(BuildContext buildContext, String value,

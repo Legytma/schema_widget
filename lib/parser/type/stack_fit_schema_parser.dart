@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class StackFitSchemaParser
     extends TypeSchemaParser<StackFit, String, StackFit> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  StackFitSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  StackFitSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   StackFit builder(BuildContext buildContext, String value,

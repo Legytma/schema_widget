@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class NetworkImageSchemaParser
     extends TypeSchemaParser<NetworkImage, Map<String, dynamic>, NetworkImage> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  NetworkImageSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  NetworkImageSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   NetworkImage builder(BuildContext buildContext, Map<String, dynamic> value,

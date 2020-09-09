@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "Row", "https://schema.legytma.com.br/2.0.0/schema/widget/row.schema.json")
 class RowSchemaWidgetParser extends SchemaWidgetParser<Row> {
   /// Create instance of parser
-  RowSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  RowSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Row builder(BuildContext buildContext, Map<String, dynamic> value,

@@ -32,8 +32,9 @@ import '../schema_widget.dart';
     ])
 class SizedBoxSchemaWidgetParser extends VariantSchemaWidgetParser<SizedBox> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  SizedBoxSchemaWidgetParser(JsonSchema jsonSchema,
-      [Map<String, VariantSchemaWidgetParser<SizedBox>> typeSchemaParsers])
+  SizedBoxSchemaWidgetParser(
+      [JsonSchema jsonSchema,
+      Map<String, VariantSchemaWidgetParser<SizedBox>> typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
 
   @override

@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class CardThemeSchemaParser
     extends TypeSchemaParser<CardTheme, Map<String, dynamic>, CardTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  CardThemeSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  CardThemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   CardTheme builder(BuildContext buildContext, Map<String, dynamic> value,

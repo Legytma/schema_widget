@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class StrutStyleSchemaParser
     extends TypeSchemaParser<StrutStyle, Map<String, dynamic>, StrutStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  StrutStyleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  StrutStyleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   StrutStyle builder(BuildContext buildContext, Map<String, dynamic> value,

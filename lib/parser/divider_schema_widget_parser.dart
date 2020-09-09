@@ -22,7 +22,7 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/2.0.0/schema/widget/divider.schema.json")
 class DividerSchemaWidgetParser extends SchemaWidgetParser<Divider> {
   /// Create instance of parser
-  DividerSchemaWidgetParser(JsonSchema jsonSchema) : super(jsonSchema);
+  DividerSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Divider builder(BuildContext buildContext, Map<String, dynamic> value,

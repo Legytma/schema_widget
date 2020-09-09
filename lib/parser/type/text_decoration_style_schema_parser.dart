@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class TextDecorationStyleSchemaParser
     extends TypeSchemaParser<TextDecorationStyle, String, TextDecorationStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextDecorationStyleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  TextDecorationStyleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   TextDecorationStyle builder(BuildContext buildContext, String value,

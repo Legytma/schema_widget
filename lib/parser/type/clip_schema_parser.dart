@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "Clip", "https://schema.legytma.com.br/2.0.0/schema/clip.schema.json")
 class ClipSchemaParser extends TypeSchemaParser<Clip, String, Clip> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ClipSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ClipSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   Clip builder(BuildContext buildContext, String value, [Clip defaultValue]) {

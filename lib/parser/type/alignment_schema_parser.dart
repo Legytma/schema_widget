@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class AlignmentSchemaParser
     extends TypeSchemaParser<Alignment, String, Alignment> {
   /// Create instance of parser
-  AlignmentSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  AlignmentSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   // FIXME: REMOVE-ME
   /*static Future<AlignmentSchemaParser> instance() async {

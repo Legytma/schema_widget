@@ -15,23 +15,32 @@
 
 # Convert JSON to Widget validating with JSON Schema for Flutter apps
 
-* [What is it](#what-is-it "What is it")
-  * [Motivation](#motivation "Motivation")
-  * [How this work](#how-this-work "How this work")
-    * [`TypeSchemaParser`](#typeschemaparser "TypeSchemaParser")
-* [TYPE SCHEMA PARSER SUPPORT](TYPE_SCHEMA_PARSER_SUPPORT.md "TYPE SCHEMA PARSER SUPPORT")
-* [Getting Started](#getting-started "Getting Started")
-  * [Installation](#installation "Installation")
-  * [Usage](#usage "Usage")
-* [CHANGELOG](CHANGELOG.md "CHANGELOG")
-* [Next steps](#next-steps "Next steps")
-* [LICENSE](LICENSE "LICENSE")
+- [What is it](#what-is-it "What is it")
+  - [Author](#author "Author")
+  - [Motivation](#motivation "Motivation")
+  - [How this work](#how-this-work "How this work")
+    - [`TypeSchemaParser`](#typeschemaparser "TypeSchemaParser")
+- [TYPE SCHEMA PARSER SUPPORT](TYPE_SCHEMA_PARSER_SUPPORT.md "TYPE SCHEMA PARSER SUPPORT")
+- [Getting Started](#getting-started "Getting Started")
+  - [Installation](#installation "Installation")
+  - [Usage](#usage "Usage")
+- [CHANGELOG](CHANGELOG.md "CHANGELOG")
+- [Next steps](#next-steps "Next steps")
+- [LICENSE](LICENSE "LICENSE")
 
 ## What is it
 
 The [schema_widget](https://pub.dev/packages/schema_widget "schema_widget") is a Flutter package implemented with base on [dynamic_widget](https://pub.dev/packages/dynamic_widget "dynamic_widget") package that produces widgets dynamically interpreting JSON objects.
 
+### Author
+
+Writed by [Alex Manoel Ferreira Silva ![Support - Recommend/Endorse me on LinkedIn](https://img.shields.io/badge/Support-Recommed%2FEndorse%20me%20on%20Linkedin-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/windol/ "Support - Recommend/Endorse me on LinkedIn")
+
+Under
+[![Legytma Soluções Inteligentes](https://legytma.com.br/wp-content/uploads/2019/12/Legytma-Soluções-Inteligentes-e1599223582681.png) ![Company - Legytma Soluções Inteligentes in LinkedIn](https://img.shields.io/badge/Company-Legytma%20Solu%C3%A7%C3%B5es%20Inteligentes%20in%20LinkedIn-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/company/legytma "Company - Legytma Soluções Inteligentes in LinkedIn")
+
 ### Motivation
+
 A major difficulty for any application developer is to ensure that all users keep their applications up to date to ensure the same user experience and to reduce the time required to fix bugs.
 
 The most commonly used alternative to accelerate this process is [Code Push](https://github.com/Microsoft/code-push) which allows the application update without the need for a new deploy in the store. However in Code Push GitHub itself there is a [Code Push Support for Flutter](https://github.com/Microsoft/code-push/issues/624#issuecomment-532358395) request with comment saying that support depends on implementing dynamic update support in Flutter, there is also a reference to [Flutter Roadmap](https://github.com/flutter/flutter/wiki/Roadmap#changes) saying that support for This type of update is postponed according to the official comment [Code Push / Hot Update / out of band updates](https://github.com/flutter/flutter/issues/14330#issuecomment-485565194), which explains the reasons that led to the decision.
@@ -48,11 +57,13 @@ The [schema_widget](https://pub.dev/packages/schema_widget "schema_widget") pack
 To add a new parser, the following methods can be used:
 
 Default parsers: This method loads all the default parsers from [schema_widget](https://pub.dev/packages/schema_widget "schema_widget").
+
 ```dart
   SchemaWidget.registerParsers();
 ```
 
 Synchronous: This method can be used to load a custom parser that can be loaded synchronously.
+
 ```dart
   TypeSchemaParser typeSchemaParserInstance = CustomTypeSchemaParser();
 
@@ -60,6 +71,7 @@ Synchronous: This method can be used to load a custom parser that can be loaded 
 ```
 
 Asynchronous: This method can be used to load a custom parser that needs to be loaded asynchronously.
+
 ```dart
   String typeName = "Custom";
   Future<TypeSchemaParser> futureTypeSchemaParserInstance = () async => CustomTypeSchemaParser();
@@ -70,6 +82,7 @@ Asynchronous: This method can be used to load a custom parser that needs to be l
 In addition to parsers, any type of function and object for use by parsers can also be registered. For this, the `SchemaWidget.registerLogic(logicName, logic)` method must be used. The logic name must be unique, otherwise the previously registered logic will be replaced.
 
 Example:
+
 ```dart
   const string1 = "Hello World";
   const map1 = {"foo": "bar"};
@@ -128,6 +141,36 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+Alternatively, `SchemaWidget` itself can be used to execute `SchemaWidget.registerParsers()` and `SchemaWidget.parse<Widget>()`, reducing the complexity of the code.
+
+```dart
+class MyApp extends StatelessWidget {
+  MyApp({Key key}) : super(key: key) {
+    SchemaWidget.registerLogic("funcHelloWorld", () => Text("Hello World"));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SchemaWidget(
+      {
+        "type": "Scaffold",
+        "appBar": {
+          "type": "AppBar",
+          "title": {
+            "type": "Text",
+            "data": "Hello World Example",
+          },
+        },
+        "body": {
+          "type": "Center",
+          "child": "funcHelloWorld",
+        },
+      },
+    );
+  }
+}
+```
+
 #### `TypeSchemaParser`
 
 Everything in [schema_widget](https://pub.dev/packages/schema_widget "schema_widget") is based on `TypeSchemaParser`.
@@ -136,27 +179,32 @@ Everything in [schema_widget](https://pub.dev/packages/schema_widget "schema_wid
 
 ## Getting Started
 
-* For help over SchemaWidget usage, view the [example](https://github.com/Legytma/schema_form/tree/master/example);
-* For help over class documentation, view the [documentation](https://pub.dev/documentation/schema_widget/latest);
-* For help getting started with Flutter, view our online [documentation](https://flutter.io/);
-* For help on editing package code, view the [documentation](https://flutter.io/developing-packages/).
+- For help over SchemaWidget usage, view the [example](https://github.com/Legytma/schema_form/tree/master/example);
+- For help over class documentation, view the [documentation](https://pub.dev/documentation/schema_widget/latest);
+- For help getting started with Flutter, view our online [documentation](https://flutter.io/);
+- For help on editing package code, view the [documentation](https://flutter.io/developing-packages/).
 
 ### Installation
 
-* Add this to your package's pubspec.yaml file:
+- Add this to your package's pubspec.yaml file:
+
 ```yaml
 dependencies:
   get_it:
   schema_widget: ^1.0.0-5
 ```
-* Install packages from the command line:
+
+- Install packages from the command line:
   with Flutter:
+
 ```shell script
 $ flutter packages get
 ```
-* Import it into the code file:
+
+- Import it into the code file:
+
 ```dart
- import 'package:schema_widget/schema_widget.dart'; 
+ import 'package:schema_widget/schema_widget.dart';
 ```
 
 ### Usage
@@ -165,21 +213,16 @@ $ flutter packages get
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:schema_widget/schema_widget.dart';
 
 void main() {
-  GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
-
-  runApp(MyApp(navigatorKey: _navigatorKey));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final GlobalKey<NavigatorState> navigatorKey;
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
-  MyApp({Key key, this.navigatorKey}) : super(key: key) {
-    SchemaWidget.registerParsers();
-
+  MyApp({Key key}) : super(key: key) {
     SchemaWidget.registerLogic(
       "onGenerateRoute",
       _onGenerateRoute,
@@ -196,41 +239,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: GetIt.I.allReady(ignorePendingAsyncCreation: false),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (!snapshot.hasData) {
-          return CircularProgressIndicator();
-        }
-
-        return SchemaWidget.parse<Widget>(
-          context,
-          {
-            "type": "MaterialApp",
-            "title": 'SchemaWidget Demo',
-            "theme": {
-              "primarySwatch": {
-                "primary": 0xFF2196F3,
-                "swatch": {
-                  "50": 0xFFE3F2FD,
-                  "100": 0xFFBBDEFB,
-                  "200": 0xFF90CAF9,
-                  "300": 0xFF64B5F6,
-                  "400": 0xFF42A5F5,
-                  "500": 0xFF2196F3,
-                  "600": 0xFF1E88E5,
-                  "700": 0xFF1976D2,
-                  "800": 0xFF1565C0,
-                  "900": 0xFF0D47A1,
-                },
-              },
+    return SchemaWidget(
+      loadSchemas: false,
+      {
+        "type": "MaterialApp",
+        "title": 'SchemaWidget Demo',
+        "theme": {
+          "primarySwatch": {
+            "primary": 0xFF2196F3,
+            "swatch": {
+              "50": 0xFFE3F2FD,
+              "100": 0xFFBBDEFB,
+              "200": 0xFF90CAF9,
+              "300": 0xFF64B5F6,
+              "400": 0xFF42A5F5,
+              "500": 0xFF2196F3,
+              "600": 0xFF1E88E5,
+              "700": 0xFF1976D2,
+              "800": 0xFF1565C0,
+              "900": 0xFF0D47A1,
             },
-            "navigatorKey": "navigatorKey",
-            "initialRoute": "home",
-            "onGenerateRoute": "onGenerateRoute",
-            "onUnknownRoute": "onUnknownRoute"
           },
-        );
+        },
+        "navigatorKey": "navigatorKey",
+        "initialRoute": "home",
+        "onGenerateRoute": "onGenerateRoute",
+        "onUnknownRoute": "onUnknownRoute"
       },
     );
   }
@@ -241,7 +275,7 @@ class MyApp extends StatelessWidget {
       settings: settings,
     );
   }
-  
+
   Route _onUnknownRoute(RouteSettings settings) {
     return MaterialPageRoute(
       builder: (buildContext) => MyHomePage(),
@@ -257,8 +291,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SchemaWidget.parse<Widget>(
-      context,
+    return SchemaWidget(
       {
         "type": "Scaffold",
         "appBar": {
@@ -286,7 +319,7 @@ class MyHomePage extends StatelessWidget {
 - [x] Change event binding of click event;
 - [x] Add list of default supported Widgets;
 - [x] Add list of default supported Types;
+- [ ] Create content about;
 - [ ] Publish complementar packages;
 - [ ] Create example full functional apps;
-- [ ] Create content about;
 - [ ] Make a commercial product using the package;

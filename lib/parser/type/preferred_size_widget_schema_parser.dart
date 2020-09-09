@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class PreferredSizeWidgetSchemaParser extends TypeSchemaParser<
     PreferredSizeWidget, Map<String, dynamic>, PreferredSizeWidget> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  PreferredSizeWidgetSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  PreferredSizeWidgetSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   PreferredSizeWidget builder(

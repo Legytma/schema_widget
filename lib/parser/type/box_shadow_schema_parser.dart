@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class BoxShadowSchemaParser
     extends TypeSchemaParser<BoxShadow, Map<String, dynamic>, BoxShadow> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BoxShadowSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  BoxShadowSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   BoxShadow builder(BuildContext buildContext, Map<String, dynamic> value,

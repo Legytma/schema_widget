@@ -27,7 +27,7 @@ void main() {
 
   test('Register Parsers', () async {
     try {
-      SchemaWidget.registerParsers(localJsonSchemaResolver);
+      SchemaWidget.registerParsers(jsonSchemaResolver: localJsonSchemaResolver);
 //      var registerParsersFuture =
 //          GetIt.I.allReady(ignorePendingAsyncCreation: false);
 //

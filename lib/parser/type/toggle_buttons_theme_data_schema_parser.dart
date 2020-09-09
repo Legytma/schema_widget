@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
     ToggleButtonsThemeData, Map<String, dynamic>, ToggleButtonsThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ToggleButtonsThemeDataSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  ToggleButtonsThemeDataSchemaParser([JsonSchema jsonSchema])
+      : super(jsonSchema);
 
   @override
   ToggleButtonsThemeData builder(

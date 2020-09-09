@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class BorderStyleSchemaParser
     extends TypeSchemaParser<BorderStyle, String, BorderStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BorderStyleSchemaParser(JsonSchema jsonSchema) : super(jsonSchema);
+  BorderStyleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
 
   @override
   BorderStyle builder(BuildContext buildContext, String value,
