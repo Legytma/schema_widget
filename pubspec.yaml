@@ -1,5 +1,7 @@
 name: schema_widget
-description: The schema_widget flutter package is a widget generator based on JSON parsers capable of producing complex screens and using custom business rules.
+description: The schema_widget flutter package is a widget generator based on
+  JSON parsers capable of producing complex screens and using custom business
+  rules.
 version: 1.0.0-5
 homepage: https://github.com/Legytma/schema_widget
 
@@ -22,7 +24,7 @@ dependencies:
   path_provider: ^1.6.14
   flutter_cache_manager: ^1.4.1
   rxdart: ^0.24.1
-  analyzer: 0.39.14
+  analyzer: "<=0.39.14"
   glob: ^1.2.0
   path: ^1.7.0
 
@@ -42,7 +44,6 @@ dev_dependencies:
 #  android: true
 #  ios: true
 #  image_path: "assets/images/movie_icon.png"
-
 flutter:
   uses-material-design: true
 
