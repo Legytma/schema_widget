@@ -191,7 +191,7 @@ Everything in [schema_widget](https://pub.dev/packages/schema_widget "schema_wid
 ```yaml
 dependencies:
   get_it:
-  schema_widget: ^1.0.0-5
+  schema_widget: ^1.0.0
 ```
 
 - Install packages from the command line:

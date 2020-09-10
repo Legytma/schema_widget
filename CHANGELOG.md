@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/Legytma/schema_widget/compare/1.0.0-5...1.0.0) (2020-09-10)
+
+
+### Documentation
+
+* add badges of pub stats in README.md ([82fcd84](https://github.com/Legytma/schema_widget/commit/82fcd84691bca6e4fdcbdaa9309e311390f4dce0))
+* import correction on README.md ([89f1866](https://github.com/Legytma/schema_widget/commit/89f18663bb808040afe606b66ec343e0a42efc13))
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* prepare project to stable release ([a0d59ab](https://github.com/Legytma/schema_widget/commit/a0d59ab94c552e99953a6b122c353d29815b9e40))
+* update project example ([147c82e](https://github.com/Legytma/schema_widget/commit/147c82e50687351671708434b555b6fa55f2c745))
+* update structure of example ([3b505ed](https://github.com/Legytma/schema_widget/commit/3b505edcd2ba6c32476569c59f7d437a0626bc5a))
+
+
+### Changes that do not affect the meaning of the code
+
+* change drawable logo ([7b32049](https://github.com/Legytma/schema_widget/commit/7b320497d5fd9ce63574facc7dc1b19a54806d7e))
+
 ## [1.0.0-5](https://github.com/Legytma/schema_widget/compare/1.0.0-4...1.0.0-5) (2020-08-07)
 
 
