@@ -32,7 +32,8 @@ import '../../schema_widget.dart';
 class RadiusSchemaParser
     extends VariantTypeSchemaParser<Radius, dynamic, Radius> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  RadiusSchemaParser([JsonSchema jsonSchema,
+  RadiusSchemaParser(
+      [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<Radius, dynamic, Radius>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);
