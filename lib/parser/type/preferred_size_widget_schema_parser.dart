@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Alex at 15/07/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("PreferredSizeWidget",
-    "https://schema.legytma.com.br/2.0.0/schema/preferred_size_widget.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/preferred_size_widget.schema.json")
 class PreferredSizeWidgetSchemaParser extends TypeSchemaParser<
     PreferredSizeWidget, Map<String, dynamic>, PreferredSizeWidget> {
   /// Create instance of parser using [JsonSchema] to validate values.

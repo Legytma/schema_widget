@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Divider].
 @SchemaParser("Divider",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/divider.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/divider.schema.json")
 class DividerSchemaWidgetParser extends SchemaWidgetParser<Divider> {
   /// Create instance of parser
   DividerSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

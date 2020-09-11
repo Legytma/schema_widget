@@ -18,7 +18,7 @@ import 'package:path/path.dart' as path;
 import 'package:schema_widget/json_schema_resolver.dart';
 import 'package:schema_widget/resolver/local_json_schema_resolver.dart';
 
-final String schemasBaseUri = "https://schema.legytma.com.br/2.0.0/schema/";
+final String schemasBaseUri = "https://schema.legytma.com.br/3.0.0/schema/";
 
 void initLogger() {
   Logger.root.level = Level.WARNING;

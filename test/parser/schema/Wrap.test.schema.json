@@ -1,8 +1,8 @@
 {
 	"$id": "Wrap.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/3.0.0/schema/test.schema.json",
 	"description": "Wrap Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/wrap.schema.json",
+	"testSchema": "https://schema.legytma.com.br/3.0.0/schema/widget/wrap.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal Wrap widget",

@@ -1,8 +1,8 @@
 {
 	"$id": "AspectRatio.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/3.0.0/schema/test.schema.json",
 	"description": "AspectRatio Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/aspect-ratio.schema.json",
+	"testSchema": "https://schema.legytma.com.br/3.0.0/schema/widget/aspect-ratio.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal AspectRatio widget",

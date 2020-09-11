@@ -20,7 +20,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [SchemaFormWidget].
 @SchemaParser("IconButton",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/icon_button.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/icon_button.schema.json")
 class IconButtonSchemaWidgetParser extends SchemaWidgetParser<IconButton> {
   static final Logger _log = Logger("IconButtonSchemaWidgetParser");
 

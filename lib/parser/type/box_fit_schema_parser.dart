@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 01/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser(
-    "BoxFit", "https://schema.legytma.com.br/2.0.0/schema/box_fit.schema.json")
+    "BoxFit", "https://schema.legytma.com.br/3.0.0/schema/box_fit.schema.json")
 class BoxFitSchemaParser extends TypeSchemaParser<BoxFit, String, BoxFit> {
   /// Create instance of parser using [JsonSchema] to validate values.
   BoxFitSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);

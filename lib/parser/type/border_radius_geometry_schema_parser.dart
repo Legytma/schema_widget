@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 24/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("BorderRadiusGeometry",
-    "https://schema.legytma.com.br/2.0.0/schema/border_radius_geometry.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/border_radius_geometry.schema.json")
 class BorderRadiusGeometrySchemaParser extends TypeSchemaParser<
     BorderRadiusGeometry, Map<String, dynamic>, BorderRadiusGeometry> {
   /// Create instance of parser using [JsonSchema] to validate values.

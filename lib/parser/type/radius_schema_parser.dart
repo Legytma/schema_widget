@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("Radius",
-    "https://schema.legytma.com.br/2.0.0/schema/radius.schema.json", <String>[
+    "https://schema.legytma.com.br/3.0.0/schema/radius.schema.json", <String>[
   "string",
   "zero",
   "circular",

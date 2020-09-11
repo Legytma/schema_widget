@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Align]
 @SchemaParser("Align",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/align.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/align.schema.json")
 class AlignSchemaWidgetParser extends SchemaWidgetParser<Align> {
   /// Create instance of parser
   AlignSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 23/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("TabBarIndicatorSize",
-    "https://schema.legytma.com.br/2.0.0/schema/tab_bar_indicator_size.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/tab_bar_indicator_size.schema.json")
 class TabBarIndicatorSizeSchemaParser
     extends TypeSchemaParser<TabBarIndicatorSize, String, TabBarIndicatorSize> {
   /// Create instance of parser using [JsonSchema] to validate values.

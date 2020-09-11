@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Container]
 @SchemaParser("Container",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/container.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/container.schema.json")
 class ContainerSchemaWidgetParser extends SchemaWidgetParser<Container> {
   /// Create instance of parser
   ContainerSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

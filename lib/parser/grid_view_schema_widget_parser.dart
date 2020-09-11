@@ -21,7 +21,7 @@ import '../widget/grid_view_widget.dart';
 
 /// [SchemaWidgetParser] to [GridViewWidget]
 @SchemaParser("GridViewWidget",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/grid_view_widget.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/grid_view_widget.schema.json")
 class GridViewSchemaWidgetParser extends SchemaWidgetParser<GridViewWidget> {
   /// Create instance of parser
   GridViewSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

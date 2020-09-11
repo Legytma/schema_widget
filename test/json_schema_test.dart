@@ -34,7 +34,7 @@ void main() {
   group("Double validation", () {
     test('Verify Double', () async {
       final schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/double.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/double.schema.json";
       final jsonSchema = await JsonSchema.createSchemaFromUrl(schemaUrl);
 
       var validationResults = jsonSchema.validateWithErrors(1.0);
@@ -48,7 +48,7 @@ void main() {
 //      await SchemaWidget.registerParsers();
 
       final schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/double.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/double.schema.json";
       final jsonSchema = await JsonSchema.createSchemaFromUrl(schemaUrl);
 
       var validationResults = jsonSchema.validateWithErrors("normal");
@@ -62,7 +62,7 @@ void main() {
 //      await SchemaWidget.registerParsers();
 
       final schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/double.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/double.schema.json";
       final jsonSchema = await JsonSchema.createSchemaFromUrl(schemaUrl);
 
       var validationResults = jsonSchema.validateWithErrors("-1.2");
@@ -78,7 +78,7 @@ void main() {
 //      await SchemaWidget.registerParsers();
 
       var schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/widget.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json";
       var futureJsonSchema = JsonSchema.createSchemaFromUrl(schemaUrl);
 
       expect(futureJsonSchema != null, true,
@@ -94,7 +94,7 @@ void main() {
 //      await SchemaWidget.registerParsers();
 
       var schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/axis.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/axis.schema.json";
       var futureJsonSchema = JsonSchema.createSchemaFromUrl(schemaUrl);
 
       expect(futureJsonSchema != null, true,
@@ -110,7 +110,7 @@ void main() {
 //      await SchemaWidget.registerParsers();
 
       var schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/edge_insets.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/edge_insets.schema.json";
       var futureJsonSchema = JsonSchema.createSchemaFromUrl(schemaUrl);
 
       expect(futureJsonSchema != null, true,
@@ -126,7 +126,7 @@ void main() {
 //      await SchemaWidget.registerParsers();
 
       var schemaUrl =
-          "https://schema.legytma.com.br/2.0.0/schema/widget/safe_area.schema.json";
+          "https://schema.legytma.com.br/3.0.0/schema/widget/safe_area.schema.json";
       var futureJsonSchema = JsonSchema.createSchemaFromUrl(schemaUrl);
 
       expect(futureJsonSchema != null, true,

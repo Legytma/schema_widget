@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Baseline]
 @SchemaParser("Baseline",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/base_line.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/base_line.schema.json")
 class BaselineSchemaWidgetParser extends SchemaWidgetParser<Baseline> {
   /// Create instance of parser
   BaselineSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

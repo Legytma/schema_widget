@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Icon]
 @SchemaParser("Icon",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/icon.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/icon.schema.json")
 class IconSchemaWidgetParser extends SchemaWidgetParser<Icon> {
   /// Create instance of parser
   IconSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

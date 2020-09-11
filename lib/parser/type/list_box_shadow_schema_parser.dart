@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("List<BoxShadow>",
-    "https://schema.legytma.com.br/2.0.0/schema/list_box_shadow.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/list_box_shadow.schema.json")
 class ListBoxShadowSchemaParser
     extends TypeSchemaParser<List<BoxShadow>, List, List<BoxShadow>> {
   /// Create instance of parser using [JsonSchema] to validate values.

@@ -1,8 +1,8 @@
 {
 	"$id": "SafeArea.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/3.0.0/schema/test.schema.json",
 	"description": "SafeArea Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/safe-area.schema.json",
+	"testSchema": "https://schema.legytma.com.br/3.0.0/schema/widget/safe-area.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal SafeArea widget",

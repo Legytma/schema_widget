@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [Padding]
 @SchemaParser("Padding",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/padding.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/padding.schema.json")
 class PaddingSchemaWidgetParser extends SchemaWidgetParser<Padding> {
   /// Create instance of parser
   PaddingSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 29/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("FlutterLogoDecoration",
-    "https://schema.legytma.com.br/2.0.0/schema/flutter_logo_decoration.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/flutter_logo_decoration.schema.json")
 class FlutterLogoDecorationSchemaParser extends TypeSchemaParser<
     FlutterLogoDecoration, Map<String, dynamic>, FlutterLogoDecoration> {
   /// Create instance of parser using [JsonSchema] to validate values.
@@ -38,10 +38,6 @@ class FlutterLogoDecorationSchemaParser extends TypeSchemaParser<
           buildContext, value['style'], FlutterLogoStyle.markOnly),
       margin: SchemaWidget.parse<EdgeInsets>(
           buildContext, value['margin'], EdgeInsets.zero),
-      darkColor: SchemaWidget.parse<Color>(
-          buildContext, value['darkColor'], const Color(0xFF0D47A1)),
-      lightColor: SchemaWidget.parse<Color>(
-          buildContext, value['lightColor'], const Color(0xFF42A5F5)),
       textColor: SchemaWidget.parse<Color>(
           buildContext, value['textColor'], const Color(0xFF616161)),
     );

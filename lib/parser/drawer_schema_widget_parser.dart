@@ -20,7 +20,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [Drawer].
 @SchemaParser("Drawer",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/drawer.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/drawer.schema.json")
 class DrawerSchemaWidgetParser extends SchemaWidgetParser<Drawer> {
   static final Logger _log = Logger("DrawerSchemaWidgetParser");
 

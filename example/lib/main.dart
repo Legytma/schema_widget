@@ -193,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
         "child": {
           "type": "Icon",
           "icon": {
-            "codePoint": 0xe145,
+            "codePoint": Icons.add.codePoint,
             "fontFamily": "MaterialIcons",
           },
         },

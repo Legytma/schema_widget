@@ -19,7 +19,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [IndexedStack]
 @SchemaParser("IndexedStack",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/indexed_stack.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/indexed_stack.schema.json")
 class IndexedStackSchemaWidgetParser extends SchemaWidgetParser<IndexedStack> {
   /// Create instance of parser
   IndexedStackSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);

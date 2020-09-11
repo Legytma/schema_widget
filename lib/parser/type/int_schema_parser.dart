@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> on 17/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser(
-    "int", "https://schema.legytma.com.br/2.0.0/schema/int.schema.json")
+    "int", "https://schema.legytma.com.br/3.0.0/schema/int.schema.json")
 class IntSchemaParser extends TypeSchemaParser<int, String, int> {
   /// Create instance of parser
   IntSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);

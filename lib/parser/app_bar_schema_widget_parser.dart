@@ -20,7 +20,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to parse [AppBar].
 @SchemaParser("AppBar",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/app_bar.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/app_bar.schema.json")
 class AppBarSchemaWidgetParser extends SchemaWidgetParser<AppBar> {
   static final Logger _log = Logger("AppBarSchemaWidgetParser");
 

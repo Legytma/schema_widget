@@ -20,7 +20,7 @@ import '../schema_widget.dart';
 
 /// [SchemaWidgetParser] to [CircleAvatar]
 @SchemaParser("CircleAvatar",
-    "https://schema.legytma.com.br/2.0.0/schema/widget/circle_avatar.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/widget/circle_avatar.schema.json")
 class CircleAvatarSchemaWidgetParser extends SchemaWidgetParser<CircleAvatar> {
   final Logger _log = Logger("CircleAvatarSchemaWidgetParser");
 

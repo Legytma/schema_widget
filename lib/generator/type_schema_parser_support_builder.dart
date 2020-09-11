@@ -112,9 +112,9 @@ class TypeSchemaParserSupportBuilder implements Builder {
     content = "$content* In the Schema ID column, the URL of the schema.\n\n";
     content = "${content}The documentation of all the schemes used in this";
     content = "$content version is available at";
-    content = '$content [https://schema.legytma.com.br/2.0.0/docs]';
-    content = '$content(https://schema.legytma.com.br/2.0.0/docs';
-    content = '$content "https://schema.legytma.com.br/2.0.0/docs"). The';
+    content = '$content [https://schema.legytma.com.br/3.0.0/docs]';
+    content = '$content(https://schema.legytma.com.br/3.0.0/docs';
+    content = '$content "https://schema.legytma.com.br/3.0.0/docs"). The';
     content = "$content documentation for all versions of the schemes can be";
     content = "$content accessed through the link";
     content = '$content [https://schema.legytma.com.br]';

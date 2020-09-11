@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 30/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("TextAlignVertical",
-    "https://schema.legytma.com.br/2.0.0/schema/text_align_vertical.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/text_align_vertical.schema.json")
 class TextAlignVerticalSchemaParser
     extends TypeSchemaParser<TextAlignVertical, dynamic, TextAlignVertical> {
   /// Create instance of parser using [JsonSchema] to validate values.

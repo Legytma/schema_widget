@@ -23,7 +23,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 12/05/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("ListViewParams",
-    "https://schema.legytma.com.br/2.0.0/schema/list_view_params.schema.json")
+    "https://schema.legytma.com.br/3.0.0/schema/list_view_params.schema.json")
 class ListViewParamsSchemaParser extends TypeSchemaParser<ListViewParams,
     Map<String, dynamic>, ListViewParams> {
   /// Create instance of parser using [JsonSchema] to validate values.

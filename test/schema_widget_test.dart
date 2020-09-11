@@ -25,7 +25,37 @@ void main() {
 
   initLogger();
 
-  test('Register Parsers', () async {
+  test('Register Parsers without Schemas', () async {
+    try {
+      SchemaWidget.registerParsers(
+        jsonSchemaResolver: localJsonSchemaResolver,
+        loadSchemas: false,
+      );
+//      var registerParsersFuture =
+//          GetIt.I.allReady(ignorePendingAsyncCreation: false);
+//
+//      expect(registerParsersFuture != null, true,
+//          reason: "registerParsersFuture not instancied.");
+//      expect(registerParsersFuture is Future, true);
+//
+//      await registerParsersFuture;
+
+      expect(GetIt.instance.isRegistered(instanceName: "type_parser_widget"),
+          false);
+      expect(GetIt.instance.isRegistered(instanceName: "type_parser_Widget"),
+          true);
+
+      final widget = SchemaWidget.parse<Widget>(null, {"type": "Align"});
+
+      expect(widget != null, true, reason: "Widget not created.");
+      expect(widget is Align, true);
+      // ignore: avoid_catches_without_on_clauses
+    } catch (error, stack) {
+      _log.severe(error, stack);
+    }
+  });
+
+  test('Register Parsers with Schemas', () async {
     try {
       SchemaWidget.registerParsers(jsonSchemaResolver: localJsonSchemaResolver);
 //      var registerParsersFuture =

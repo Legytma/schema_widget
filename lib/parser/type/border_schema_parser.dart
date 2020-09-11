@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> at 28/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser("Border",
-    "https://schema.legytma.com.br/2.0.0/schema/border.schema.json", <String>[
+    "https://schema.legytma.com.br/3.0.0/schema/border.schema.json", <String>[
   "default",
   "all",
   "fromBorderSide",

@@ -22,7 +22,7 @@ import '../../schema_widget.dart';
 /// Created by Windol <windol@legytma.com.br> on 21/04/2020.
 /// Copyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.
 @SchemaParser(
-    "Locale", "https://schema.legytma.com.br/2.0.0/schema/locale.schema.json")
+    "Locale", "https://schema.legytma.com.br/3.0.0/schema/locale.schema.json")
 class LocaleSchemaParser
     extends TypeSchemaParser<Locale, Map<String, dynamic>, Locale> {
   /// Create instance of parser using [JsonSchema] to validate values.

@@ -1,8 +1,8 @@
 {
 	"$id": "Stack.test.schema.json",
-	"$schema": "https://schema.legytma.com.br/2.0.0/schema/test.schema.json",
+	"$schema": "https://schema.legytma.com.br/3.0.0/schema/test.schema.json",
 	"description": "Stack Schema Parser",
-	"testSchema": "https://schema.legytma.com.br/2.0.0/schema/widget/stack.schema.json",
+	"testSchema": "https://schema.legytma.com.br/3.0.0/schema/widget/stack.schema.json",
 	"tests": [
 		{
 			"description": "Create minimal Stack widget",
