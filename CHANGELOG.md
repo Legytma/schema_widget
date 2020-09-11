@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-beta.0](https://github.com/Legytma/schema_widget/compare/1.0.0...2.0.0-beta.0) (2020-09-11)
+
+
+### Features
+
+* support to channel beta on Flutter ([8f7cb30](https://github.com/Legytma/schema_widget/commit/8f7cb30767d3fe30cd4cdf99bb2b9c4e4fe38468))
+
+
+### Changes that do not affect the meaning of the code
+
+* reformat files ([fee4c16](https://github.com/Legytma/schema_widget/commit/fee4c1650f3d5dab3b99d3dd6c2c388da62e24b8))
+
+
+### Code change that neither fixes a bug nor adds a feature
+
+* update dependencies and schema version ([7908caf](https://github.com/Legytma/schema_widget/commit/7908caf1f9ef67983386bcc072620ff2df576672))
+
 ## [1.0.0](https://github.com/Legytma/schema_widget/compare/1.0.0-5...1.0.0) (2020-09-10)
 
 
