@@ -1,0 +1,39 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/list_tile.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "List Tile",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 12/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    {"$ref": "https://schema.legytma.com.br/3.0.0/schema/route_handle.schema.json"}
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "ListTile"
+    },
+    "isThreeLine": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "leading": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "title": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "subtitle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "trailing": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "dense": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json"},
+    "contentPadding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "enabled": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": true
+    },
+    "selected": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "onLongPress": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/gesture_long_press_callback.schema.json"},
+    "onTap": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/gesture_tap_callback.schema.json"}
+  }
+}
+

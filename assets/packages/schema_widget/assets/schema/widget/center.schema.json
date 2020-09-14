@@ -1,0 +1,23 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/center.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Center",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 04/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "Center"
+    },
+    "widthFactor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "heightFactor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "child": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"}
+  }
+}
+

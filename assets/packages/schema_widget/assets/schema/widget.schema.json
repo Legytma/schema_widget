@@ -1,0 +1,28 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Widget",
+  "description": "Schema to validation of JSON used to parse Widget.",
+  "$comment": "You can add all valid properties to complete validation.",
+  "definitions": {
+    "type": {
+      "title": "Type",
+      "description": "Identify the widget type",
+      "$comment": "Used to identify parser. Every parser can permit only one type",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "key": {
+      "title": "Key",
+      "description": "Key object utilized to identify widget.",
+      "$comment": "This parser is not implemented, must be assigned using registerLogic",
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/dynamic.schema.json"
+    },
+    "type": {
+      "$ref": "#/definitions/type"
+    }
+  },
+  "required": ["type"]
+}

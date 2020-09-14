@@ -1,0 +1,17 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/size_square.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Size Square",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/size.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/size.schema.json#/definitions/type",
+      "const": "square"
+    },
+    "dimension": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"}
+  }
+}
+

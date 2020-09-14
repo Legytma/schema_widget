@@ -1,0 +1,16 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/app_bar_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "App Bar Theme",
+  "description": "App bar theme",
+  "$comment": "This parser is not implemented, must be assigned using registerLogic",
+  "type": "object",
+  "properties": {
+    "color": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "textTheme": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_theme.schema.json"},
+    "iconTheme": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/icon_theme_data.schema.json"},
+    "brightness": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/brightness.schema.json"},
+    "actionsIconTheme": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/icon_theme_data.schema.json"},
+    "elevation": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"}
+  }
+}

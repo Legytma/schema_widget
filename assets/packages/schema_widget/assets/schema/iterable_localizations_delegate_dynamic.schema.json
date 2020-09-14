@@ -1,0 +1,9 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/iterable_localizations_delegate_dynamic.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Iterable Localizations Delegate Dynamic",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 15/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "$ref": "https://schema.legytma.com.br/3.0.0/schema/dynamic.schema.json"
+}
+

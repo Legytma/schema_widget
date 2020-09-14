@@ -1,0 +1,21 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/radius_object.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Radius Object",
+  "description": "",
+  "$comment": "Created by Alex at 16/06/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "definitions": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "enum": ["string", "zero", "circular", "elliptical", "lerp"]
+    }
+  },
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/type"
+    }
+  },
+  "required": ["type"]
+}
+

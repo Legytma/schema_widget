@@ -1,0 +1,20 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/shape_decoration.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Shape Decoration",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json#/definitions/type",
+      "const": "ShapeDecoration"
+    },
+    "shape": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/shape_border.schema.json"},
+    "color": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "image": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration_image.schema.json"},
+    "gradient": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/gradient.schema.json"},
+    "shadows": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/list_box_shadow.schema.json"}
+  }
+}

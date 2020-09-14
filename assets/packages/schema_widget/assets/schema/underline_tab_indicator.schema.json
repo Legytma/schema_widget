@@ -1,0 +1,27 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/underline_tab_indicator.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Underline Tab Indicator",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 30/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json#/definitions/type",
+      "const": "UnderlineTabIndicator"
+    },
+    "borderSide": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/border_side.schema.json",
+      "default": {
+        "type": "default",
+        "color": "0xFFFFFFFF",
+        "width": 2.0
+      }
+    },
+    "insets": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets.schema.json",
+      "default": "zero"
+    }
+  }
+}

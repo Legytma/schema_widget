@@ -1,0 +1,20 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/cupertino_text_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Cupertino Text Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 22/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "primaryColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "actionTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "dateTimePickerTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "navActionTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "navLargeTitleTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "navTitleTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "pickerTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "tabLabelTextStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "textStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"}
+  }
+}
+

@@ -1,0 +1,53 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/wrap.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Wrap",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 14/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "Wrap"
+    },
+    "direction": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/axis.schema.json",
+      "default": "horizontal"
+    },
+    "alignment": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/wrap_alignment.schema.json",
+      "default": "start"
+    },
+    "spacing": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json",
+      "default": 0.0
+    },
+    "runAlignment": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/wrap_alignment.schema.json",
+      "default": "start"
+    },
+    "runSpacing": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json",
+      "default": 0.0
+    },
+    "crossAxisAlignment": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/wrap_cross_alignment.schema.json",
+      "default": "start"
+    },
+    "textDirection": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_direction.schema.json"},
+    "verticalDirection": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/vertical_direction.schema.json",
+      "default": "down"
+    },
+    "children": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/list_widget.schema.json",
+      "default": []
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/stream_builder_dynamic.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Stream Builder Dynamic",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 14/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "StreamBuilder<dynamic>"
+    },
+    "initialData": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/dynamic.schema.json"},
+    "stream": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/stream_dynamic.schema.json"},
+    "builder": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/async_widget_builder_dynamic.schema.json"}
+  },
+  "required": ["builder"]
+}
+

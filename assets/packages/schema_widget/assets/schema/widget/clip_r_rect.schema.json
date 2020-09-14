@@ -1,0 +1,25 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/clip_r_rect.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Clip R Rect",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 04/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "ClipRRect"
+    },
+    "clipper": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/custom_clipper_r_rect.schema.json"},
+    "borderRadius": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/border_radius.schema.json"},
+    "clipBehavior": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/clip.schema.json"},
+    "child": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"}
+  },
+  "required": ["borderRadius"]
+}
+

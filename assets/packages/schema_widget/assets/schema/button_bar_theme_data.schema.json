@@ -1,0 +1,19 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/button_bar_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Button Bar Theme Data",
+  "description": "",
+  "$comment": "",
+  "type": "object",
+  "properties": {
+    "alignment": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/main_axis_alignment.schema.json"},
+    "buttonAlignedDropdown": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json"},
+    "buttonHeight": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "buttonMinWidth": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "buttonPadding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "buttonTextTheme": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/button_text_theme.schema.json"},
+    "layoutBehavior": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/button_bar_layout_behavior.schema.json"},
+    "mainAxisSize": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/main_axis_size.schema.json"}
+  }
+}
+

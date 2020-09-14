@@ -1,0 +1,14 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/bottom_app_bar_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Bottom App Bar Theme",
+  "description": "Bottom app bar theme",
+  "$comment": "This parser is not implemented, must be assigned using registerLogic",
+  "type": "object",
+  "properties": {
+    "elevation": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "color": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "shape": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/notched_shape.schema.json"}
+  }
+}
+

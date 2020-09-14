@@ -1,0 +1,27 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/box_decoration.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Box Decoration",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 29/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "anyOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json#/definitions/type",
+      "const": "BoxDecoration"
+    },
+    "shape": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/box_shape.schema.json",
+      "default": "rectangle"
+    },
+    "border": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/box_border.schema.json"},
+    "color": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "backgroundBlendMode": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/blend_mode.schema.json"},
+    "borderRadius": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/border_radius_geometry.schema.json"},
+    "boxShadow": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/list_box_shadow.schema.json"},
+    "gradient": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/gradient.schema.json"},
+    "image": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration_image.schema.json"}
+  }
+}
+

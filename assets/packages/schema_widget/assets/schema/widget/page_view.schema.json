@@ -1,0 +1,38 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/page_view.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Page View",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 13/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "PageView"
+    },
+    "controller": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/page_controller.schema.json"},
+    "physics": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/scroll_physics.schema.json"},
+    "dragStartBehavior": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/drag_start_behavior.schema.json",
+      "default": "start"
+    },
+    "reverse": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "pageSnapping": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": true
+    },
+    "children": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/list_widget.schema.json",
+      "default": []
+    }
+  }
+}
+

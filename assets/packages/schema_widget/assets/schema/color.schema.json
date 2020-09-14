@@ -1,0 +1,9 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "Color",
+  "description": "A number in format string or integer",
+  "allOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/int.schema.json"}],
+  "examples": ["#FFFFFFFF", "0xFFFFFFFF", "4294967295", 4294967295]
+}

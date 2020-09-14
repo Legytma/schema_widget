@@ -1,0 +1,21 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Decoration",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 23/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "definitions": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "enum": ["BoxDecoration", "FlutterLogoDecoration", "UnderlineTabIndicator", "ShapeDecoration"],
+      "examples": ["BoxDecoration", "FlutterLogoDecoration", "UnderlineTabIndicator", "ShapeDecoration"]
+    }
+  },
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/type"
+    }
+  }
+}
+

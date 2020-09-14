@@ -1,0 +1,47 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/input_decoration_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Input Decoration Theme",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 23/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "hoverColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "focusColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "contentPadding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "isDense": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "errorStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "alignLabelWithHint": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "border": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/input_border.schema.json"},
+    "counterStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "disabledBorder": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/input_border.schema.json"},
+    "enabledBorder": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/input_border.schema.json"},
+    "errorBorder": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/input_border.schema.json"},
+    "errorMaxLines": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/int.schema.json"},
+    "fillColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "filled": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "focusedBorder": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/input_border.schema.json"},
+    "focusedErrorBorder": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/input_border.schema.json"},
+    "floatingLabelBehavior": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/floating_label_behavior.schema.json"},
+    "helperMaxLines": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/int.schema.json"},
+    "helperStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "hintStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "isCollapsed": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "labelStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "prefixStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "suffixStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"}
+  }
+}
+

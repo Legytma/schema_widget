@@ -1,0 +1,51 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/scaffold.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Scaffold",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 13/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "Scaffold"
+    },
+    "backgroundColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "body": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "drawer": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "appBar": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/preferred_size_widget.schema.json"},
+    "floatingActionButton": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "primary": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": true
+    },
+    "bottomNavigationBar": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "bottomSheet": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "drawerDragStartBehavior": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/drag_start_behavior.schema.json",
+      "default": "start"
+    },
+    "drawerEdgeDragWidth": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "drawerScrimColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "endDrawer": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "extendBody": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "extendBodyBehindAppBar": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "floatingActionButtonAnimator": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/floating_action_button_animator.schema.json"},
+    "floatingActionButtonLocation": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/floating_action_button_location.schema.json"},
+    "persistentFooterButtons": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/list_widget.schema.json"},
+    "resizeToAvoidBottomInset": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json"},
+    "resizeToAvoidBottomPadding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json"}
+  }
+}
+

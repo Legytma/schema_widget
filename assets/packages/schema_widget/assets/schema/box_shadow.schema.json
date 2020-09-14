@@ -1,0 +1,27 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/box_shadow.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Box Shadow",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 29/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "color": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json",
+      "default": "0xFF000000"
+    },
+    "blurRadius": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json",
+      "default": 0.0
+    },
+    "offset": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/offset.schema.json",
+      "default": "zero"
+    },
+    "spreadRadius": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json",
+      "default": 0.0
+    }
+  }
+}
+

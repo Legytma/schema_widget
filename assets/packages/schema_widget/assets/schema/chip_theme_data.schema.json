@@ -1,0 +1,28 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/chip_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Chip Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 22/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "backgroundColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "disabledColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "selectedColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "secondarySelectedColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "labelPadding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "padding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "shape": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/shape_border.schema.json"},
+    "labelStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "secondaryLabelStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "brightness": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/brightness.schema.json"},
+    "elevation": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "checkmarkColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "deleteIconColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "pressElevation": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "selectedShadowColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "shadowColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "showCheckmark": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json"}
+  }
+}
+

@@ -1,0 +1,41 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/button_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Button Theme Data",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 22/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "layoutBehavior": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/button_bar_layout_behavior.schema.json",
+      "default": "padded"
+    },
+    "shape": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/shape_border.schema.json"},
+    "padding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "textTheme": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/button_text_theme.schema.json",
+      "default": "normal"
+    },
+    "height": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/button_text_theme.schema.json",
+      "default": 36.0
+    },
+    "splashColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "materialTapTargetSize": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/material_tap_target_size.schema.json"},
+    "hoverColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "highlightColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "focusColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "disabledColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "colorScheme": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_scheme.schema.json"},
+    "buttonColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "alignedDropdown": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "minWidth": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json",
+      "default": 88.0
+    }
+  }
+}
+

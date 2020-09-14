@@ -1,0 +1,14 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/icon_theme_data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Icon Theme Data",
+  "description": "Icon theme data",
+  "$comment": "This parser is not implemented, must be assigned using registerLogic",
+  "type": "object",
+  "properties": {
+    "color": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "opacity": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "size": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"}
+  }
+}
+

@@ -1,0 +1,37 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/schema_form_widget.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Schema Form Widget",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 13/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "SchemaFormWidget"
+    },
+    "jsonSchema": {"$ref": "https://json-schema.org/draft-06/schema#"},
+    "typeTemplateMap": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/map_schema_type_widget_template_dynamic.schema.json"},
+    "controlTemplateMap": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/map_string_widget_template_dynamic.schema.json"},
+    "defaultHeader": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": true
+    },
+    "child": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"},
+    "onChanged": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/void_callback.schema.json"},
+    "autovalidate": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "initialData": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/map_string_dynamic.schema.json"},
+    "onSave": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/save_callback.schema.json"},
+    "onWillPop": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/will_pop_callback.schema.json"}
+  },
+  "required": ["jsonSchema"]
+}
+

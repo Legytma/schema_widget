@@ -1,0 +1,20 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/box_constraints.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Box Constraints",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "definitions": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "enum": ["loose", "tightFor", "expand", "tightForFinite", "lerp", "default"]
+    }
+  },
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/type"
+    }
+  }
+}
+

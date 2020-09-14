@@ -1,0 +1,20 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/widget/align.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Align Widget",
+  "description": "Schema to validation of JSON used to parse Widget.",
+  "type": "object",
+  "$comment": "You can add all valid properties to complete validation.",
+  "allOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "const": "Align"
+    },
+    "alignment": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/alignment.schema.json"},
+    "widthFactor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "heightFactor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "child": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json"}
+  },
+  "required": ["type"]
+}

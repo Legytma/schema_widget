@@ -1,0 +1,27 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/decoration_image.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Decoration Image",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 29/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "image": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/image_provider_dynamic.schema.json"},
+    "alignment": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/alignment.schema.json",
+      "default": "center"
+    },
+    "centerSlice": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/rect.schema.json"},
+    "colorFilter": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color_filter.schema.json"},
+    "fit": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/box_fit.schema.json"},
+    "matchTextDirection": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": false
+    },
+    "repeat": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/image_repeat.schema.json",
+      "default": "noRepeat"
+    }
+  }
+}
+

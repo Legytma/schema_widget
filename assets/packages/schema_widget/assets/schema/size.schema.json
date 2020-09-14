@@ -1,0 +1,20 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/size.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Size",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 01/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "definitions": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/widget.schema.json#/definitions/type",
+      "enum": ["zero", "infinite", "fromHeight", "fromRadius", "fromWidth", "square", "default"]
+    }
+  },
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/type"
+    }
+  }
+}
+

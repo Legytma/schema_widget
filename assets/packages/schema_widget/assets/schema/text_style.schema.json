@@ -1,0 +1,40 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "Used to identify parser. Every parser can permit only one type",
+  "title": "Text Style",
+  "description": "Identify the widget type",
+  "type": "object",
+  "properties": {
+    "color": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "debugLabel": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/debug_label.schema.json"},
+    "decoration": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_decoration.schema.json"},
+    "fontSize": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "fontFamily": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/font_family.schema.json"},
+    "fontStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/font_style.schema.json"},
+    "fontWeight": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/font_weight.schema.json"},
+    "backgroundColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "background": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/paint.schema.json"},
+    "decorationColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "decorationStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_decoration_style.schema.json"},
+    "decorationThickness": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "fontFamilyFallback": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/list_font_family.schema.json"},
+    "fontFeatures": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/list_font_feature.schema.json"},
+    "foreground": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/paint.schema.json"},
+    "height": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "inherit": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/bool.schema.json",
+      "default": true
+    },
+    "letterSpacing": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"},
+    "locale": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/locale.schema.json"},
+    "package": {
+      "title": "Package",
+      "description": "",
+      "type": "string"
+    },
+    "shadows": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/list_shadow.schema.json"},
+    "textBaseline": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_baseline.schema.json"},
+    "wordSpacing": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"}
+  }
+}

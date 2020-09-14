@@ -1,0 +1,19 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/border_radius_lerp.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Border Radius Lerp",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 24/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "allOf": [{"$ref": "https://schema.legytma.com.br/3.0.0/schema/border_radius_object.schema.json"}],
+  "properties": {
+    "type": {
+      "$ref": "https://schema.legytma.com.br/3.0.0/schema/border_radius_object.schema.json#/definitions/type",
+      "const": "lerp"
+    },
+    "a": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/border_radius.schema.json"},
+    "b": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/border_radius.schema.json"},
+    "t": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/double.schema.json"}
+  }
+}
+

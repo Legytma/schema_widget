@@ -1,0 +1,18 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/tab_bar_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Tab Bar Theme",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 23/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "type": "object",
+  "properties": {
+    "labelStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "indicator": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/decoration.schema.json"},
+    "indicatorSize": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/tab_bar_indicator_size.schema.json"},
+    "labelColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "labelPadding": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/edge_insets_geometry.schema.json"},
+    "unselectedLabelColor": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/color.schema.json"},
+    "unselectedLabelStyle": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"}
+  }
+}
+

@@ -1,0 +1,9 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/gesture_scale_start_callback.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Gesture Scale Start Callback",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 15/05/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "$ref": "https://schema.legytma.com.br/3.0.0/schema/dynamic.schema.json"
+}
+

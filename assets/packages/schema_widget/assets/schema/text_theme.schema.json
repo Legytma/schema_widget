@@ -1,0 +1,24 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/text_theme.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$comment": "This parser is not implemented, must be assigned using registerLogic",
+  "title": "Text Theme",
+  "description": "Text theme",
+  "type": "object",
+  "properties": {
+    "bodyText1": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "bodyText2": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "button": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "caption": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "headline1": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "headline2": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "headline3": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "headline4": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "headline5": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "headline6": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "overline": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "subtitle1": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"},
+    "subtitle2": {"$ref": "https://schema.legytma.com.br/3.0.0/schema/text_style.schema.json"}
+  }
+}
+

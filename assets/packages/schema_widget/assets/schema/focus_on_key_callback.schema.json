@@ -1,0 +1,9 @@
+{
+  "$id": "https://schema.legytma.com.br/3.0.0/schema/focus_on_key_callback.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Focus On Key Callback",
+  "description": "",
+  "$comment": "Created by Windol <windol@legytma.com.br> at 27/04/2020.\nCopyright (c) 2020 Legytma Soluções Inteligentes (https://legytma.com.br). All rights reserved.",
+  "$ref": "https://schema.legytma.com.br/3.0.0/schema/dynamic.schema.json"
+}
+
