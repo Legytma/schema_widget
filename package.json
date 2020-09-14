@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/Legytma/LegytmaSchemas#readme",
   "devDependencies": {
-    "eslint": "^7.8.1",
+    "eslint": "^7.9.0",
     "eslint-config-google": "^0.14.0",
     "replace-in-file": "^6.1.0",
     "standard-version": "^9.0.0",

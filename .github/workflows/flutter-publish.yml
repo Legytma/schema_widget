@@ -2,52 +2,52 @@ name: Flutter CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'Checkout'
+      - name: "Checkout"
         uses: actions/checkout@v2
         with:
           submodules: recursive
 
-      - name: 'Setup Java'
+      - name: "Setup Java"
         uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
 
-      - name: 'Setup flutter'
+      - name: "Setup flutter"
         uses: subosito/flutter-action@v1
         with:
-          channel: 'stable'
+          channel: "beta"
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: flutter pub get
 
-#      - name: 'Execute Build Runner'
-#        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+      # - name: 'Execute Build Runner'
+      #   run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
-      - name: 'Build example'
+      - name: "Build example"
         run: flutter build aot --target=example/lib/main.dart
 
-      - name: 'Flutter test coverage'
+      - name: "Flutter test coverage"
         run: flutter test --coverage test
 
-      - name: 'Coverage'
+      - name: "Coverage"
         uses: codecov/codecov-action@v1
         with:
           token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
           file: ./coverage/lcov.info
 
-      - name: 'Dart and Flutter Analizer'
+      - name: "Dart and Flutter Analizer"
         uses: axel-op/dart-package-analyzer@v2
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'Dart and Flutter Package Publisher'
+      - name: "Dart and Flutter Package Publisher"
         shell: bash
         env:
           INPUT_CREDENTIALJSON: ${{ secrets.CREDENTIAL_JSON }}
@@ -58,11 +58,11 @@ jobs:
           INPUT_SKIPTESTS: "true"
         run: |
           #!/bin/bash
-          
+
           set -e
-          
+
           export PATH="$PATH":"$HOME/.pub-cache/bin"
-          
+
           check_required_inputs() {
             echo "Check inputs..."
             if [ -z "$INPUT_CREDENTIALJSON" ]; then
@@ -78,7 +78,7 @@ jobs:
             fi
             echo "OK"
           }
-          
+
           switch_working_directory() {
             echo "Switching work directory"
             if [ -z "$INPUT_RELATIVEPATH" ]; then
@@ -89,7 +89,7 @@ jobs:
             fi
             echo "Package dir: $PWD"
           }
-          
+
           detect_flutter_package() {
             echo "Detecting flutter package"
             GET_OUTPUT=`pub get`
@@ -103,7 +103,7 @@ jobs:
               echo "Dart package detected"
             fi
           }
-          
+
           get_local_package_version() {
             echo "Getting local package version"
             if [ "$INPUT_FLUTTER" = "true" ]; then
@@ -133,7 +133,7 @@ jobs:
             echo "::set-output name=package::$PACKAGE"
             echo "::set-output name=localVersion::$LOCAL_PACKAGE_VERSION"
           }
-          
+
           run_unit_tests() {
               echo "Running unit tests"
               if [ "$INPUT_SKIPTESTS" = "true" ]; then
@@ -163,7 +163,7 @@ jobs:
                 fi
               fi
           }
-          
+
           get_remote_package_version() {
             echo "Getting remote package version"
             if [ "$INPUT_FLUTTER" = "true" ]; then
@@ -186,7 +186,7 @@ jobs:
             echo "Remote version: [$REMOTE_PACKAGE_VERSION]"
             echo "::set-output name=remoteVersion::$REMOTE_PACKAGE_VERSION"
           }
-          
+
           publish() {
             echo "Publishing package"
             if [ "$LOCAL_PACKAGE_VERSION" = "$REMOTE_PACKAGE_VERSION" ]; then
@@ -233,7 +233,7 @@ jobs:
               fi
             fi
           }
-          
+
           check_required_inputs
           switch_working_directory
           detect_flutter_package || true
