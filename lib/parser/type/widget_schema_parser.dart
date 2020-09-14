@@ -35,7 +35,7 @@ class WidgetSchemaParser extends TypeSchemaParser<Widget, dynamic, Widget> {
     }
 
     var listOfValidationErrors = jsonSchema?.validateWithErrors(value);
-    
+
     if (listOfValidationErrors != null && listOfValidationErrors.isNotEmpty) {
       var validationMessages;
 

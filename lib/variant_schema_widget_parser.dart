@@ -24,7 +24,8 @@ abstract class VariantSchemaWidgetParser<T extends Widget>
   final Logger _log = Logger("VariantSchemaWidgetParser<$T>");
 
   /// Create Schema Widget Parser
-  VariantSchemaWidgetParser([JsonSchema jsonSchema,
+  VariantSchemaWidgetParser(
+      [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<T, Map<String, dynamic>, Widget>>
           typeSchemaParsers])
       : super(jsonSchema, typeSchemaParsers);

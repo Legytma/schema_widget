@@ -502,27 +502,27 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, ImageSchemaWidgetParser>{
           "asset": ImageSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/image_asset.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/image_asset.schema.json",
             ),
           ),
           "network": ImageSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/image_network.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/image_network.schema.json",
             ),
           ),
           "file": ImageSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/image_file.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/image_file.schema.json",
             ),
           ),
           "memory": ImageSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/image_memory.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/image_memory.schema.json",
             ),
           ),
           "default": ImageSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/image_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/image_default.schema.json",
             ),
           ),
         },
@@ -748,22 +748,22 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, SizedBoxSchemaWidgetParser>{
           "expand": SizedBoxSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_expand.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_expand.schema.json",
             ),
           ),
           "fromSize": SizedBoxSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_fromSize.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_fromSize.schema.json",
             ),
           ),
           "shrink": SizedBoxSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_shrink.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_shrink.schema.json",
             ),
           ),
           "default": SizedBoxSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/sized_box_default.schema.json",
             ),
           ),
         },
@@ -823,12 +823,12 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, TextSchemaWidgetParser>{
           "default": TextSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/text_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/text_default.schema.json",
             ),
           ),
           "rich": TextSchemaWidgetParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/widget/text_rich.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/widget/text_rich.schema.json",
             ),
           ),
         },
@@ -931,42 +931,42 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, BorderRadiusSchemaParser>{
           "string": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_string.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_string.schema.json",
             ),
           ),
           "only": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_only.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_only.schema.json",
             ),
           ),
           "all": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_all.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_all.schema.json",
             ),
           ),
           "circular": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_circular.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_circular.schema.json",
             ),
           ),
           "zero": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_zero.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_zero.schema.json",
             ),
           ),
           "horizontal": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_horizontal.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_horizontal.schema.json",
             ),
           ),
           "vertical": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_vertical.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_vertical.schema.json",
             ),
           ),
           "lerp": BorderRadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_radius_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_radius_lerp.schema.json",
             ),
           ),
         },
@@ -1000,27 +1000,27 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, BorderSchemaParser>{
           "default": BorderSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_default.schema.json",
             ),
           ),
           "all": BorderSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_all.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_all.schema.json",
             ),
           ),
           "fromBorderSide": BorderSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_fromBorderSide.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_fromBorderSide.schema.json",
             ),
           ),
           "merge": BorderSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_merge.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_merge.schema.json",
             ),
           ),
           "lerp": BorderSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_lerp.schema.json",
             ),
           ),
         },
@@ -1051,22 +1051,22 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, BorderSideSchemaParser>{
           "default": BorderSideSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_side_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_side_default.schema.json",
             ),
           ),
           "none": BorderSideSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_side_none.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_side_none.schema.json",
             ),
           ),
           "merge": BorderSideSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_side_merge.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_side_merge.schema.json",
             ),
           ),
           "lerp": BorderSideSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/border_side_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/border_side_lerp.schema.json",
             ),
           ),
         },
@@ -1156,32 +1156,32 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, BoxConstraintsSchemaParser>{
           "loose": BoxConstraintsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/box_constraints_loose.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/box_constraints_loose.schema.json",
             ),
           ),
           "tightFor": BoxConstraintsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/box_constraints_tightFor.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/box_constraints_tightFor.schema.json",
             ),
           ),
           "expand": BoxConstraintsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/box_constraints_expand.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/box_constraints_expand.schema.json",
             ),
           ),
           "tightForFinite": BoxConstraintsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/box_constraints_tightForFinite.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/box_constraints_tightForFinite.schema.json",
             ),
           ),
           "lerp": BoxConstraintsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/box_constraints_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/box_constraints_lerp.schema.json",
             ),
           ),
           "default": BoxConstraintsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/box_constraints_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/box_constraints_default.schema.json",
             ),
           ),
         },
@@ -1393,22 +1393,22 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, ColorFilterSchemaParser>{
           "linear_to_srgb_gamma": ColorFilterSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/color_filter_linear_to_srgb_gamma.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/color_filter_linear_to_srgb_gamma.schema.json",
             ),
           ),
           "srgb_to_linear_gamma": ColorFilterSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/color_filter_srgb_to_linear_gamma.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/color_filter_srgb_to_linear_gamma.schema.json",
             ),
           ),
           "mode": ColorFilterSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/color_filter_mode.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/color_filter_mode.schema.json",
             ),
           ),
           "matrix": ColorFilterSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/color_filter_matrix.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/color_filter_matrix.schema.json",
             ),
           ),
         },
@@ -1648,42 +1648,42 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, EdgeInsetsSchemaParser>{
           "string": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_string.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_string.schema.json",
             ),
           ),
           "zero": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_zero.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_zero.schema.json",
             ),
           ),
           "all": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_all.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_all.schema.json",
             ),
           ),
           "fromWindowPadding": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_fromWindowPadding.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_fromWindowPadding.schema.json",
             ),
           ),
           "lerp": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_lerp.schema.json",
             ),
           ),
           "symmetric": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_symmetric.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_symmetric.schema.json",
             ),
           ),
           "fromLTRB": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_fromLTRB.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_fromLTRB.schema.json",
             ),
           ),
           "only": EdgeInsetsSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/edge_insets_only.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/edge_insets_only.schema.json",
             ),
           ),
         },
@@ -2167,27 +2167,27 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, OffsetSchemaParser>{
           "default": OffsetSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/offset_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/offset_default.schema.json",
             ),
           ),
           "fromDirection": OffsetSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/offset_fromDirection.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/offset_fromDirection.schema.json",
             ),
           ),
           "infinite": OffsetSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/offset_infinite.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/offset_infinite.schema.json",
             ),
           ),
           "lerp": OffsetSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/offset_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/offset_lerp.schema.json",
             ),
           ),
           "zero": OffsetSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/offset_zero.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/offset_zero.schema.json",
             ),
           ),
         },
@@ -2278,27 +2278,27 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, RadiusSchemaParser>{
           "string": RadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/radius_string.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/radius_string.schema.json",
             ),
           ),
           "zero": RadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/radius_zero.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/radius_zero.schema.json",
             ),
           ),
           "circular": RadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/radius_circular.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/radius_circular.schema.json",
             ),
           ),
           "elliptical": RadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/radius_elliptical.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/radius_elliptical.schema.json",
             ),
           ),
           "lerp": RadiusSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/radius_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/radius_lerp.schema.json",
             ),
           ),
         },
@@ -2329,42 +2329,42 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, RectSchemaParser>{
           "zero": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_zero.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_zero.schema.json",
             ),
           ),
           "largest": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_largest.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_largest.schema.json",
             ),
           ),
           "fromPoints": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_fromPoints.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_fromPoints.schema.json",
             ),
           ),
           "fromCircle": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_fromCircle.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_fromCircle.schema.json",
             ),
           ),
           "fromCenter": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_fromCenter.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_fromCenter.schema.json",
             ),
           ),
           "lerp": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_lerp.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_lerp.schema.json",
             ),
           ),
           "fromLTRB": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_fromLTRB.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_fromLTRB.schema.json",
             ),
           ),
           "fromLTWH": RectSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/rect_fromLTWH.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/rect_fromLTWH.schema.json",
             ),
           ),
         },
@@ -2428,37 +2428,37 @@ void schemaParserRegisterAllTypeParsers({bool loadSchemas = true}) {
         <String, SizeSchemaParser>{
           "zero": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_zero.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_zero.schema.json",
             ),
           ),
           "infinite": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_infinite.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_infinite.schema.json",
             ),
           ),
           "fromHeight": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_fromHeight.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_fromHeight.schema.json",
             ),
           ),
           "fromRadius": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_fromRadius.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_fromRadius.schema.json",
             ),
           ),
           "fromWidth": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_fromWidth.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_fromWidth.schema.json",
             ),
           ),
           "square": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_square.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_square.schema.json",
             ),
           ),
           "default": SizeSchemaParser(
             await JsonSchema.createSchemaFromUrl(
-            "https://schema.legytma.com.br/3.0.0/schema/size_default.schema.json",
+              "https://schema.legytma.com.br/3.0.0/schema/size_default.schema.json",
             ),
           ),
         },

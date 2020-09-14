@@ -117,7 +117,7 @@ class SchemaParserInitiatorBuilder implements Builder {
               varants = '$varants          "$subTypeValue": $elemetName(\n';
               varants =
                   "$varants            await JsonSchema.createSchemaFromUrl(\n";
-              varants = '$varants            "'
+              varants = '$varants              "'
                   '${elementIdBase}_$subTypeValue.schema.json",\n';
               varants = "$varants            ),\n";
               varants = '$varants          ),\n';
