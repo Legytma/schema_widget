@@ -36,18 +36,10 @@ class OffsetSchemaParser
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<Offset, Map<String, dynamic>, Offset>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Offset", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<Offset, Map<String, dynamic>, Offset>
-      newVariantInstance(String schemaUri) =>
-          OffsetSchemaParser(schemaUri, null);
-  */
 
   @override
   Offset builderVariant(BuildContext buildContext, Map<String, dynamic> value,

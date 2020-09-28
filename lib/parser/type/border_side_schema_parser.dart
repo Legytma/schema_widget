@@ -40,7 +40,7 @@ class BorderSideSchemaParser extends VariantTypeSchemaParser<BorderSide,
               VariantTypeSchemaParser<BorderSide, Map<String, dynamic>,
                   BorderSide>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("BorderSide", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];

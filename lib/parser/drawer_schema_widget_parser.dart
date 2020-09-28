@@ -25,7 +25,8 @@ class DrawerSchemaWidgetParser extends SchemaWidgetParser<Drawer> {
   static final Logger _log = Logger("DrawerSchemaWidgetParser");
 
   /// Create instance of parser
-  DrawerSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  DrawerSchemaWidgetParser([JsonSchema jsonSchema])
+      : super("Drawer", jsonSchema);
 
   @override
   Drawer builder(BuildContext buildContext, Map<String, dynamic> value,

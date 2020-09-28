@@ -36,18 +36,10 @@ class BorderSchemaParser
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<Border, Map<String, dynamic>, Border>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Border", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<Border, Map<String, dynamic>, Border>
-      newVariantInstance(String schemaUri) =>
-          BorderSchemaParser(schemaUri, null);
-  */
 
   @override
   Border builderVariant(BuildContext buildContext, Map<String, dynamic> value,

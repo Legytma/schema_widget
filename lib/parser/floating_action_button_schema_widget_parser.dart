@@ -24,7 +24,7 @@ class FloatingActionButtonSchemaWidgetParser
     extends SchemaWidgetParser<FloatingActionButton> {
   /// Create instance of parser
   FloatingActionButtonSchemaWidgetParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("FloatingActionButton", jsonSchema);
 
   @override
   FloatingActionButton builder(

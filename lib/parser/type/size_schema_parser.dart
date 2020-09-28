@@ -38,18 +38,10 @@ class SizeSchemaParser
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<Size, Map<String, dynamic>, Size>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Size", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<Size, Map<String, dynamic>, Size> newVariantInstance(
-          String schemaUri) =>
-      SizeSchemaParser(schemaUri, null);
-  */
 
   @override
   Size builderVariant(BuildContext buildContext, Map<String, dynamic> value,

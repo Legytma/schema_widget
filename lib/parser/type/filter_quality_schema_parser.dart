@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class FilterQualitySchemaParser
     extends TypeSchemaParser<FilterQuality, String, FilterQuality> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FilterQualitySchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  FilterQualitySchemaParser([JsonSchema jsonSchema])
+      : super("FilterQuality", jsonSchema);
 
   @override
   FilterQuality builder(BuildContext buildContext, String value,

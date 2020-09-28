@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class FontStyleSchemaParser
     extends TypeSchemaParser<FontStyle, String, FontStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  FontStyleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  FontStyleSchemaParser([JsonSchema jsonSchema])
+      : super("FontStyle", jsonSchema);
 
   @override
   FontStyle builder(BuildContext buildContext, String value,

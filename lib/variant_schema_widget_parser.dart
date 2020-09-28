@@ -24,15 +24,15 @@ abstract class VariantSchemaWidgetParser<T extends Widget>
   final Logger _log = Logger("VariantSchemaWidgetParser<$T>");
 
   /// Create Schema Widget Parser
-  VariantSchemaWidgetParser(
+  VariantSchemaWidgetParser(String typeName,
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<T, Map<String, dynamic>, Widget>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super(typeName, jsonSchema, typeSchemaParsers);
 
   @override
   Type get parserType {
-    if ("$T" == "Widget") {
+    if ("$T" == "$Widget") {
       var message = "Invalid declaration of"
           " WidgetSchemaParser. WidgetSchemaParser type must be descendent of"
           " Widget and must be specified.";

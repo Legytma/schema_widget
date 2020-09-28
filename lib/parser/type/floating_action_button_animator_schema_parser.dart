@@ -29,7 +29,7 @@ class FloatingActionButtonAnimatorSchemaParser extends TypeSchemaParser<
     FloatingActionButtonAnimator> {
   /// Create instance of parser using [JsonSchema] to validate values.
   FloatingActionButtonAnimatorSchemaParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("FloatingActionButtonAnimator", jsonSchema);
 
   @override
   FloatingActionButtonAnimator builder(

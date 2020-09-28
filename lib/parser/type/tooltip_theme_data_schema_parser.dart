@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TooltipThemeDataSchemaParser extends TypeSchemaParser<TooltipThemeData,
     Map<String, dynamic>, TooltipThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TooltipThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TooltipThemeDataSchemaParser([JsonSchema jsonSchema])
+      : super("TooltipThemeData", jsonSchema);
 
   @override
   TooltipThemeData builder(

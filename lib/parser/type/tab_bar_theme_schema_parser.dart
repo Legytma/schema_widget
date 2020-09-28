@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TabBarThemeSchemaParser
     extends TypeSchemaParser<TabBarTheme, Map<String, dynamic>, TabBarTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TabBarThemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TabBarThemeSchemaParser([JsonSchema jsonSchema])
+      : super("TabBarTheme", jsonSchema);
 
   @override
   TabBarTheme builder(BuildContext buildContext, Map<String, dynamic> value,

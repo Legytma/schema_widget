@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class LocaleSchemaParser
     extends TypeSchemaParser<Locale, Map<String, dynamic>, Locale> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  LocaleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  LocaleSchemaParser([JsonSchema jsonSchema]) : super("Locale", jsonSchema);
 
   @override
   Locale builder(BuildContext buildContext, Map<String, dynamic> value,

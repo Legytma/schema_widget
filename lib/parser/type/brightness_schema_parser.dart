@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class BrightnessSchemaParser
     extends TypeSchemaParser<Brightness, String, Brightness> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BrightnessSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  BrightnessSchemaParser([JsonSchema jsonSchema])
+      : super("Brightness", jsonSchema);
 
   @override
   Brightness builder(BuildContext buildContext, String value,

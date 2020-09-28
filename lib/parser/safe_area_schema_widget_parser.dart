@@ -22,7 +22,8 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/3.0.0/schema/widget/safe_area.schema.json")
 class SafeAreaSchemaWidgetParser extends SchemaWidgetParser<SafeArea> {
   /// Create instance of parser
-  SafeAreaSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  SafeAreaSchemaWidgetParser([JsonSchema jsonSchema])
+      : super("SafeArea", jsonSchema);
 
   @override
   SafeArea builder(BuildContext buildContext, Map<String, dynamic> value,

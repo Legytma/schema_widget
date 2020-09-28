@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class DurationSchemaParser
     extends TypeSchemaParser<Duration, Map<String, dynamic>, Duration> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  DurationSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  DurationSchemaParser([JsonSchema jsonSchema]) : super("Duration", jsonSchema);
 
   @override
   Duration builder(BuildContext buildContext, Map<String, dynamic> value,

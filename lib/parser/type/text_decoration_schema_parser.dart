@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TextDecorationSchemaParser
     extends TypeSchemaParser<TextDecoration, String, TextDecoration> {
   /// Create instance
-  TextDecorationSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TextDecorationSchemaParser([JsonSchema jsonSchema])
+      : super("TextDecoration", jsonSchema);
 
   @override
   TextDecoration builder(BuildContext buildContext, String value,

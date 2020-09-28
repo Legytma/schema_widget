@@ -35,7 +35,7 @@ class SizedBoxSchemaWidgetParser extends VariantSchemaWidgetParser<SizedBox> {
   SizedBoxSchemaWidgetParser(
       [JsonSchema jsonSchema,
       Map<String, VariantSchemaWidgetParser<SizedBox>> typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("SizedBox", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['sizedBoxType'];

@@ -39,18 +39,10 @@ class RectSchemaParser
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<Rect, Map<String, dynamic>, Rect>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Rect", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<Rect, Map<String, dynamic>, Rect> newVariantInstance(
-          String schemaUri) =>
-      RectSchemaParser(schemaUri, null);
-  */
 
   @override
   Rect builderVariant(BuildContext buildContext, Map<String, dynamic> value,

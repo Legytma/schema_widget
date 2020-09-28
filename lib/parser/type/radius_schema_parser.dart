@@ -36,7 +36,7 @@ class RadiusSchemaParser
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<Radius, dynamic, Radius>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Radius", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(dynamic value) =>

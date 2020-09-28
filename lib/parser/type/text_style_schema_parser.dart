@@ -28,7 +28,8 @@ import '../../schema_widget.dart';
 class TextStyleSchemaParser
     extends TypeSchemaParser<TextStyle, Map<String, dynamic>, TextStyle> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextStyleSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TextStyleSchemaParser([JsonSchema jsonSchema])
+      : super("TextStyle", jsonSchema);
 
   @override
   TextStyle builder(BuildContext buildContext, Map<String, dynamic> value,

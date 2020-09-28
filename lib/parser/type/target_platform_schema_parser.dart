@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TargetPlatformSchemaParser
     extends TypeSchemaParser<TargetPlatform, String, TargetPlatform> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TargetPlatformSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TargetPlatformSchemaParser([JsonSchema jsonSchema])
+      : super("TargetPlatform", jsonSchema);
 
   @override
   TargetPlatform builder(BuildContext buildContext, String value,

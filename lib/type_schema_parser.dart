@@ -20,6 +20,8 @@ import 'package:logging/logging.dart';
 abstract class TypeSchemaParser<T extends D, F, D> {
   final Logger _log = Logger("TypeSchemaParser<$T, $F, $D>");
 
+  final String _typeName;
+
   /// JSON Schema used to validate the json
   final JsonSchema jsonSchema;
 
@@ -33,7 +35,7 @@ abstract class TypeSchemaParser<T extends D, F, D> {
   Type get parserBaseType => D;
 
   /// Get Parser Name
-  String get parserName => "$parserType";
+  String get parserName => _typeName;
 
   /// Get Parser From Name
   String get parserFromName => "$parserFromType";
@@ -43,7 +45,7 @@ abstract class TypeSchemaParser<T extends D, F, D> {
 
   /// Create Type Schema Parser
   @mustCallSuper
-  TypeSchemaParser([this.jsonSchema]) : super();
+  TypeSchemaParser(this._typeName, [this.jsonSchema]) : super();
 
   /// Builder used to parse the json map into a flutter object.
   T builder(BuildContext buildContext, F value, [D defaultValue]);

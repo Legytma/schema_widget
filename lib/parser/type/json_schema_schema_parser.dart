@@ -25,7 +25,8 @@ import '../../schema_widget.dart';
 class JsonSchemaSchemaParser
     extends TypeSchemaParser<JsonSchema, Map<String, dynamic>, JsonSchema> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  JsonSchemaSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  JsonSchemaSchemaParser([JsonSchema jsonSchema])
+      : super("JsonSchema", jsonSchema);
 
   @override
   JsonSchema builder(BuildContext buildContext, Map<String, dynamic> value,

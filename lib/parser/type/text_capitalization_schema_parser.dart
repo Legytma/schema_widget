@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TextCapitalizationSchemaParser
     extends TypeSchemaParser<TextCapitalization, String, TextCapitalization> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextCapitalizationSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TextCapitalizationSchemaParser([JsonSchema jsonSchema])
+      : super("TextCapitalization", jsonSchema);
 
   @override
   TextCapitalization builder(BuildContext buildContext, String value,

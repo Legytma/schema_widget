@@ -24,7 +24,7 @@ class AnimatedContainerSchemaWidgetParser
     extends SchemaWidgetParser<AnimatedContainer> {
   /// Create instance of parser
   AnimatedContainerSchemaWidgetParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("AnimatedContainer", jsonSchema);
 
   @override
   AnimatedContainer builder(

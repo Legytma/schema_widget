@@ -25,7 +25,7 @@ import '../../schema_widget.dart';
     "Axis", "https://schema.legytma.com.br/3.0.0/schema/axis.schema.json")
 class AxisSchemaParser extends TypeSchemaParser<Axis, String, Axis> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  AxisSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  AxisSchemaParser([JsonSchema jsonSchema]) : super("Axis", jsonSchema);
 
   @override
   Axis builder(BuildContext buildContext, String value, [Axis defaultValue]) {

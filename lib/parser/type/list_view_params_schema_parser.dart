@@ -27,7 +27,8 @@ import '../../schema_widget.dart';
 class ListViewParamsSchemaParser extends TypeSchemaParser<ListViewParams,
     Map<String, dynamic>, ListViewParams> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ListViewParamsSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  ListViewParamsSchemaParser([JsonSchema jsonSchema])
+      : super("ListViewParams", jsonSchema);
 
   @override
   ListViewParams builder(BuildContext buildContext, Map<String, dynamic> value,

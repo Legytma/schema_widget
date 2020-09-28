@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class ListBoxShadowSchemaParser
     extends TypeSchemaParser<List<BoxShadow>, List, List<BoxShadow>> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ListBoxShadowSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  ListBoxShadowSchemaParser([JsonSchema jsonSchema])
+      : super("List<BoxShadow>", jsonSchema);
 
   @override
   List<BoxShadow> builder(BuildContext buildContext, List value,

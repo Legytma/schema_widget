@@ -27,7 +27,8 @@ import '../../schema_widget.dart';
 class DragStartBehaviorSchemaParser
     extends TypeSchemaParser<DragStartBehavior, String, DragStartBehavior> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  DragStartBehaviorSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  DragStartBehaviorSchemaParser([JsonSchema jsonSchema])
+      : super("DragStartBehavior", jsonSchema);
 
   @override
   DragStartBehavior builder(BuildContext buildContext, String value,

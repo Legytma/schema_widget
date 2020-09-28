@@ -25,7 +25,7 @@ class GestureDetectorSchemaWidgetParser
     extends SchemaWidgetParser<GestureDetector> {
   /// Create instance of parser
   GestureDetectorSchemaWidgetParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("GestureDetector", jsonSchema);
 
   @override
   GestureDetector builder(BuildContext buildContext, Map<String, dynamic> value,

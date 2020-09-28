@@ -43,7 +43,7 @@ class EdgeInsetsSchemaParser
       [JsonSchema jsonSchema,
       Map<String, VariantTypeSchemaParser<EdgeInsets, dynamic, EdgeInsets>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("EdgeInsets", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(dynamic value) =>

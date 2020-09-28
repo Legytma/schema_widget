@@ -22,7 +22,8 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/3.0.0/schema/widget/place_holder.schema.json")
 class PlaceholderSchemaWidgetParser extends SchemaWidgetParser<Placeholder> {
   /// Create instance of parser
-  PlaceholderSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  PlaceholderSchemaWidgetParser([JsonSchema jsonSchema])
+      : super("Placeholder", jsonSchema);
 
   @override
   Placeholder builder(BuildContext buildContext, Map<String, dynamic> value,

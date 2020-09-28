@@ -22,7 +22,8 @@ import '../schema_widget.dart';
     "https://schema.legytma.com.br/3.0.0/schema/widget/padding.schema.json")
 class PaddingSchemaWidgetParser extends SchemaWidgetParser<Padding> {
   /// Create instance of parser
-  PaddingSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  PaddingSchemaWidgetParser([JsonSchema jsonSchema])
+      : super("Padding", jsonSchema);
 
   @override
   Padding builder(BuildContext buildContext, Map<String, dynamic> value,

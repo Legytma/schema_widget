@@ -27,7 +27,7 @@ class ToggleButtonsThemeDataSchemaParser extends TypeSchemaParser<
     ToggleButtonsThemeData, Map<String, dynamic>, ToggleButtonsThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
   ToggleButtonsThemeDataSchemaParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("ToggleButtonsThemeData", jsonSchema);
 
   @override
   ToggleButtonsThemeData builder(

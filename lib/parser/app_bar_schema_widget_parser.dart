@@ -25,7 +25,8 @@ class AppBarSchemaWidgetParser extends SchemaWidgetParser<AppBar> {
   static final Logger _log = Logger("AppBarSchemaWidgetParser");
 
   /// Create instance of parser
-  AppBarSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  AppBarSchemaWidgetParser([JsonSchema jsonSchema])
+      : super("AppBar", jsonSchema);
 
   @override
   AppBar builder(BuildContext buildContext, Map<String, dynamic> value,

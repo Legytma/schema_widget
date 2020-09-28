@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class InputDecorationThemeSchemaParser extends TypeSchemaParser<
     InputDecorationTheme, Map<String, dynamic>, InputDecorationTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  InputDecorationThemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  InputDecorationThemeSchemaParser([JsonSchema jsonSchema])
+      : super("InputDecorationTheme", jsonSchema);
 
   @override
   InputDecorationTheme builder(

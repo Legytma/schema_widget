@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class ToolbarOptionsSchemaParser extends TypeSchemaParser<ToolbarOptions,
     Map<String, dynamic>, ToolbarOptions> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ToolbarOptionsSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  ToolbarOptionsSchemaParser([JsonSchema jsonSchema])
+      : super("ToolbarOptions", jsonSchema);
 
   @override
   ToolbarOptions builder(BuildContext buildContext, Map<String, dynamic> value,

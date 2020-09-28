@@ -23,7 +23,8 @@ import '../../schema_widget.dart';
 class TextAlignSchemaParser
     extends TypeSchemaParser<TextAlign, String, TextAlign> {
   /// Create instance of parser
-  TextAlignSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TextAlignSchemaParser([JsonSchema jsonSchema])
+      : super("TextAlign", jsonSchema);
 
   @override
   TextAlign builder(BuildContext buildContext, String value,

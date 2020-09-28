@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class VerticalDirectionSchemaParser
     extends TypeSchemaParser<VerticalDirection, String, VerticalDirection> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  VerticalDirectionSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  VerticalDirectionSchemaParser([JsonSchema jsonSchema])
+      : super("VerticalDirection", jsonSchema);
 
   @override
   VerticalDirection builder(BuildContext buildContext, String value,

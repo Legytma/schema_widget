@@ -27,7 +27,8 @@ import '../../schema_widget.dart';
 class GridViewParamsSchemaParser extends TypeSchemaParser<GridViewParams,
     Map<String, dynamic>, GridViewParams> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  GridViewParamsSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  GridViewParamsSchemaParser([JsonSchema jsonSchema])
+      : super("GridViewParams", jsonSchema);
 
   @override
   GridViewParams builder(BuildContext buildContext, Map<String, dynamic> value,

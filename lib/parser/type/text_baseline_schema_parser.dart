@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TextBaselineSchemaParser
     extends TypeSchemaParser<TextBaseline, String, TextBaseline> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextBaselineSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TextBaselineSchemaParser([JsonSchema jsonSchema])
+      : super("TextBaseline", jsonSchema);
 
   @override
   TextBaseline builder(BuildContext buildContext, String value,

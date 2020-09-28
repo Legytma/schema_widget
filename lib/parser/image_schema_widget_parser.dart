@@ -39,17 +39,10 @@ class ImageSchemaWidgetParser extends VariantSchemaWidgetParser<Image> {
   ImageSchemaWidgetParser(
       [JsonSchema jsonSchema,
       Map<String, VariantSchemaWidgetParser<Image>> typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Image", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['imageType'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantSchemaWidgetParser<Image> newVariantInstance(String schemaUri) =>
-      ImageSchemaWidgetParser(schemaUri, null);
-  */
 
   @override
   Image builderVariant(BuildContext buildContext, Map<String, dynamic> value,

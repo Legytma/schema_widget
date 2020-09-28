@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class FontWeightSchemaParser
     extends TypeSchemaParser<FontWeight, String, FontWeight> {
   /// Create instance of parser
-  FontWeightSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  FontWeightSchemaParser([JsonSchema jsonSchema])
+      : super("FontWeight", jsonSchema);
 
   @override
   FontWeight builder(BuildContext buildContext, String value,

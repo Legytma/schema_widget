@@ -27,7 +27,7 @@ class ButtonBarLayoutBehaviorSchemaParser extends TypeSchemaParser<
     ButtonBarLayoutBehavior, String, ButtonBarLayoutBehavior> {
   /// Create instance of parser using [JsonSchema] to validate values.
   ButtonBarLayoutBehaviorSchemaParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("ButtonBarLayoutBehavior", jsonSchema);
 
   @override
   ButtonBarLayoutBehavior builder(BuildContext buildContext, String value,

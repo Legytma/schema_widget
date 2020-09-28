@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class ButtonThemeDataSchemaParser extends TypeSchemaParser<ButtonThemeData,
     Map<String, dynamic>, ButtonThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ButtonThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  ButtonThemeDataSchemaParser([JsonSchema jsonSchema])
+      : super("ButtonThemeData", jsonSchema);
 
   @override
   ButtonThemeData builder(BuildContext buildContext, Map<String, dynamic> value,

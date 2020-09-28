@@ -26,7 +26,7 @@ import '../../schema_widget.dart';
 class OverflowSchemaParser
     extends TypeSchemaParser<Overflow, String, Overflow> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  OverflowSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  OverflowSchemaParser([JsonSchema jsonSchema]) : super("Overflow", jsonSchema);
 
   @override
   Overflow builder(BuildContext buildContext, String value,

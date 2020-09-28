@@ -27,7 +27,7 @@ class MaterialBannerThemeDataSchemaParser extends TypeSchemaParser<
     MaterialBannerThemeData, Map<String, dynamic>, MaterialBannerThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
   MaterialBannerThemeDataSchemaParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("MaterialBannerThemeData", jsonSchema);
 
   @override
   MaterialBannerThemeData builder(

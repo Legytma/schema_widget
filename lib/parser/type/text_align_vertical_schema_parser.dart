@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class TextAlignVerticalSchemaParser
     extends TypeSchemaParser<TextAlignVertical, dynamic, TextAlignVertical> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  TextAlignVerticalSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  TextAlignVerticalSchemaParser([JsonSchema jsonSchema])
+      : super("TextAlignVertical", jsonSchema);
 
   @override
   TextAlignVertical builder(BuildContext buildContext, dynamic value,

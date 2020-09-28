@@ -40,7 +40,7 @@ class BorderRadiusSchemaParser extends VariantTypeSchemaParser<BorderRadius,
   BorderRadiusSchemaParser(
       [JsonSchema jsonSchema,
       Map<String, BorderRadiusSchemaParser> typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("BorderRadius", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(dynamic value) =>

@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class BoxDecorationSchemaParser extends TypeSchemaParser<BoxDecoration,
     Map<String, dynamic>, BoxDecoration> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BoxDecorationSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  BoxDecorationSchemaParser([JsonSchema jsonSchema])
+      : super("BoxDecoration", jsonSchema);
 
   @override
   BoxDecoration builder(BuildContext buildContext, Map<String, dynamic> value,

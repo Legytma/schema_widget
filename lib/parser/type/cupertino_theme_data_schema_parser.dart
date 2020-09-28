@@ -27,7 +27,8 @@ import '../../schema_widget.dart';
 class CupertinoThemeDataSchemaParser extends TypeSchemaParser<
     CupertinoThemeData, Map<String, dynamic>, CupertinoThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  CupertinoThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  CupertinoThemeDataSchemaParser([JsonSchema jsonSchema])
+      : super("CupertinoThemeData", jsonSchema);
 
   @override
   CupertinoThemeData builder(

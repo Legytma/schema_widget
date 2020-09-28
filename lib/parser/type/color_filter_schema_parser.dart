@@ -40,18 +40,10 @@ class ColorFilterSchemaParser extends VariantTypeSchemaParser<ColorFilter,
               VariantTypeSchemaParser<ColorFilter, Map<String, dynamic>,
                   ColorFilter>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("ColorFilter", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<ColorFilter, Map<String, dynamic>, ColorFilter>
-      newVariantInstance(String schemaUri) =>
-          ColorFilterSchemaParser(schemaUri, null);
-  */
 
   @override
   ColorFilter builderVariant(BuildContext buildContext,

@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class BoxBorderSchemaParser
     extends TypeSchemaParser<BoxBorder, Map<String, dynamic>, BoxBorder> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BoxBorderSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  BoxBorderSchemaParser([JsonSchema jsonSchema])
+      : super("BoxBorder", jsonSchema);
 
   @override
   BoxBorder builder(BuildContext buildContext, Map<String, dynamic> value,

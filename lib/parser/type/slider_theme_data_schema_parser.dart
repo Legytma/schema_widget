@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class SliderThemeDataSchemaParser extends TypeSchemaParser<SliderThemeData,
     Map<String, dynamic>, SliderThemeData> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  SliderThemeDataSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  SliderThemeDataSchemaParser([JsonSchema jsonSchema])
+      : super("SliderThemeData", jsonSchema);
 
   @override
   SliderThemeData builder(BuildContext buildContext, Map<String, dynamic> value,

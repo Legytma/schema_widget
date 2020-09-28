@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class ImageRepeatSchemaParser
     extends TypeSchemaParser<ImageRepeat, String, ImageRepeat> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  ImageRepeatSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  ImageRepeatSchemaParser([JsonSchema jsonSchema])
+      : super("ImageRepeat", jsonSchema);
 
   @override
   ImageRepeat builder(BuildContext buildContext, String value,

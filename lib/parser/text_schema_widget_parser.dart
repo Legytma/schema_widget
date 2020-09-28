@@ -33,7 +33,7 @@ class TextSchemaWidgetParser extends VariantSchemaWidgetParser<Text> {
   TextSchemaWidgetParser(
       [JsonSchema jsonSchema,
       Map<String, VariantSchemaWidgetParser<Text>> typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("Text", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) =>

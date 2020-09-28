@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class BottomAppBarThemeSchemaParser extends TypeSchemaParser<BottomAppBarTheme,
     Map<String, dynamic>, BottomAppBarTheme> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BottomAppBarThemeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  BottomAppBarThemeSchemaParser([JsonSchema jsonSchema])
+      : super("BottomAppBarTheme", jsonSchema);
 
   @override
   BottomAppBarTheme builder(

@@ -42,18 +42,10 @@ class BoxConstraintsSchemaParser extends VariantTypeSchemaParser<BoxConstraints,
               VariantTypeSchemaParser<BoxConstraints, Map<String, dynamic>,
                   BoxConstraints>>
           typeSchemaParsers])
-      : super(jsonSchema, typeSchemaParsers);
+      : super("BoxConstraints", jsonSchema, typeSchemaParsers);
 
   @override
   String extractType(Map<String, dynamic> value) => value['type'];
-
-  // FIXME: REMOVE-ME
-  /*
-  @override
-  VariantTypeSchemaParser<BoxConstraints, Map<String, dynamic>, BoxConstraints>
-      newVariantInstance(String schemaUri) =>
-          BoxConstraintsSchemaParser(schemaUri, null);
-  */
 
   @override
   BoxConstraints builderVariant(BuildContext buildContext,

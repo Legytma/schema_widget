@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class MaterialColorSchemaParser extends TypeSchemaParser<MaterialColor,
     Map<String, dynamic>, MaterialColor> {
   /// Create instance of parser
-  MaterialColorSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  MaterialColorSchemaParser([JsonSchema jsonSchema])
+      : super("MaterialColor", jsonSchema);
 
   @override
   MaterialColor builder(BuildContext buildContext, Map<String, dynamic> value,

@@ -24,11 +24,12 @@ abstract class SchemaWidgetParser<T extends Widget>
   final Logger _log = Logger("SchemaWidgetParser<$T>");
 
   /// Create Schema Widget Parser
-  SchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  SchemaWidgetParser(String typeName, [JsonSchema jsonSchema])
+      : super(typeName, jsonSchema);
 
   @override
   Type get parserType {
-    if ("$T" == "Widget") {
+    if ("$T" == "$Widget") {
       var message = "Invalid declaration of"
           " WidgetSchemaParser. WidgetSchemaParser type must be descendent of"
           " Widget and must be specified.";

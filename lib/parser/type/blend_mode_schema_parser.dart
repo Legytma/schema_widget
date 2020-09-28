@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class BlendModeSchemaParser
     extends TypeSchemaParser<BlendMode, String, BlendMode> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  BlendModeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  BlendModeSchemaParser([JsonSchema jsonSchema])
+      : super("BlendMode", jsonSchema);
 
   @override
   BlendMode builder(BuildContext buildContext, String value,

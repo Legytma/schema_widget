@@ -26,7 +26,8 @@ class ScaffoldSchemaWidgetParser extends SchemaWidgetParser<Scaffold> {
   static final Logger _log = Logger("ScaffoldSchemaWidgetParser");
 
   /// Create instance of parser
-  ScaffoldSchemaWidgetParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  ScaffoldSchemaWidgetParser([JsonSchema jsonSchema])
+      : super("Scaffold", jsonSchema);
 
   @override
   Scaffold builder(BuildContext buildContext, Map<String, dynamic> value,

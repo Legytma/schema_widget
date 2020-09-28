@@ -26,7 +26,8 @@ import '../../schema_widget.dart';
 class SnackBarBehaviorSchemaParser
     extends TypeSchemaParser<SnackBarBehavior, String, SnackBarBehavior> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  SnackBarBehaviorSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  SnackBarBehaviorSchemaParser([JsonSchema jsonSchema])
+      : super("SnackBarBehavior", jsonSchema);
 
   @override
   SnackBarBehavior builder(BuildContext buildContext, String value,

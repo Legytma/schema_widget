@@ -27,7 +27,8 @@ import '../../schema_widget.dart';
 class NavigationTypeSchemaParser
     extends TypeSchemaParser<NavigationType, String, NavigationType> {
   /// Create instance of parser using [JsonSchema] to validate values.
-  NavigationTypeSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  NavigationTypeSchemaParser([JsonSchema jsonSchema])
+      : super("NavigationType", jsonSchema);
 
   @override
   NavigationType builder(BuildContext buildContext, String value,

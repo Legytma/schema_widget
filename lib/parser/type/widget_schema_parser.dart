@@ -25,7 +25,7 @@ class WidgetSchemaParser extends TypeSchemaParser<Widget, dynamic, Widget> {
   final Logger _log = Logger("WidgetSchemaParser");
 
   /// Create instance of parser
-  WidgetSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
+  WidgetSchemaParser([JsonSchema jsonSchema]) : super("Widget", jsonSchema);
 
   @override
   Widget builder(BuildContext buildContext, dynamic value,

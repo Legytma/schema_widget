@@ -26,16 +26,8 @@ import '../../schema_widget.dart';
 class AlignmentSchemaParser
     extends TypeSchemaParser<Alignment, String, Alignment> {
   /// Create instance of parser
-  AlignmentSchemaParser([JsonSchema jsonSchema]) : super(jsonSchema);
-
-  // FIXME: REMOVE-ME
-  /*static Future<AlignmentSchemaParser> instance() async {
-    var jsonSchema = await JsonSchema.createSchemaFromUrl(
-      "https://schema.legytma.com.br/3.0.0/schema/alignment.schema.json",
-    );
-
-    return AlignmentSchemaParser(jsonSchema);
-  }*/
+  AlignmentSchemaParser([JsonSchema jsonSchema])
+      : super("Alignment", jsonSchema);
 
   @override
   Alignment builder(BuildContext buildContext, String value,

@@ -27,7 +27,7 @@ class UnderlineTabIndicatorSchemaParser extends TypeSchemaParser<
     UnderlineTabIndicator, Map<String, dynamic>, UnderlineTabIndicator> {
   /// Create instance of parser using [JsonSchema] to validate values.
   UnderlineTabIndicatorSchemaParser([JsonSchema jsonSchema])
-      : super(jsonSchema);
+      : super("UnderlineTabIndicator", jsonSchema);
 
   @override
   UnderlineTabIndicator builder(
