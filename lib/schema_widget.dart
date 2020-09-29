@@ -323,14 +323,14 @@ class SchemaWidget extends StatelessWidget {
   }
 
   /// Register Logic to apply to widget
-  static void registerLogic(String logicName, dynamic logic) {
+  static void registerLogic<T>(String logicName, T logic) {
     if (logicName == null) {
       throw Exception("logicName is invalid");
     }
 
     var instanceName = 'logic_$logicName';
 
-    if (_getIt.isRegistered(instanceName: instanceName)) {
+    if (_getIt.isRegistered<T>(instanceName: instanceName)) {
       var currentLogic = _getIt.get(instanceName: instanceName);
 
       if (currentLogic == logic) {
@@ -339,13 +339,13 @@ class SchemaWidget extends StatelessWidget {
         return;
       }
 
-      _getIt.unregister(instanceName: instanceName);
+      _getIt.unregister<T>(instanceName: instanceName);
 
       _log.warning("Other instance of $instanceName logic registered,"
           " removing...");
     }
 
-    _getIt.registerSingleton<dynamic>(
+    _getIt.registerSingleton<T>(
       logic,
       instanceName: instanceName,
       signalsReady: false,
@@ -355,11 +355,11 @@ class SchemaWidget extends StatelessWidget {
   }
 
   /// Unregister logic
-  static void unregisterLogic(String logicName) {
+  static void unregisterLogic<T>(String logicName) {
     var instanceName = 'logic_$logicName';
 
-    if (_getIt.isRegistered(instanceName: instanceName)) {
-      _getIt.unregister(instanceName: instanceName);
+    if (_getIt.isRegistered<T>(instanceName: instanceName)) {
+      _getIt.unregister<T>(instanceName: instanceName);
     }
   }
 
