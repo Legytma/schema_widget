@@ -201,7 +201,15 @@ class SchemaWidget extends StatelessWidget {
 //    }
 
     var instanceName = "type_parser_${typeSchemaParser.parserName}";
+    var instanceTypeName = "type_parser_${typeSchemaParser.parserType}";
 
+    _registerTypeParser(typeSchemaParser, instanceName);
+    _registerTypeParser(typeSchemaParser, instanceTypeName);
+  }
+
+  static void _registerTypeParser<T>(
+      TypeSchemaParser<T, dynamic, dynamic> typeSchemaParser,
+      String instanceName) {
     if (_getIt.isRegistered<TypeSchemaParser<T, dynamic, dynamic>>(
         instanceName: instanceName)) {
       var currentTypeParser = _getIt.get<TypeSchemaParser<T, dynamic, dynamic>>(
@@ -244,6 +252,14 @@ class SchemaWidget extends StatelessWidget {
 
     var instanceName = "type_parser_$typeName";
 
+    _registerTypeParserAsync(typeName, typeSchemaParserFuture, instanceName);
+  }
+
+  static void _registerTypeParserAsync<T>(
+      String typeName,
+      FactoryFuncAsync<TypeSchemaParser<T, dynamic, dynamic>>
+          typeSchemaParserFuture,
+      String instanceName) {
     if (_getIt.isRegistered<TypeSchemaParser<T, dynamic, dynamic>>(
         instanceName: instanceName)) {
 //      var currentTypeParser = _getIt.get<TypeSchemaParser<T, dynamic,
