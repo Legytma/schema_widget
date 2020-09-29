@@ -17,7 +17,10 @@ import 'package:flutter/material.dart';
 import 'enum/navigation_type.dart';
 import 'schema_widget.dart';
 
+/// Mixin RouteHandleMixin is used to implement navigation capability on
+/// MaterialApp dynamically.
 mixin RouteHandleMixin {
+  /// Add handle on Map
   void addHandleOnMap(Map<String, dynamic> value, BuildContext buildContext,
       String handleName) {
     if (value.containsKey('navigationType') && value.containsKey('route')) {
@@ -27,6 +30,7 @@ mixin RouteHandleMixin {
     }
   }
 
+  /// Navigate action
   void routeNavigate(BuildContext buildContext, Map<String, dynamic> value) {
     final navigator = Navigator.of(buildContext);
 
